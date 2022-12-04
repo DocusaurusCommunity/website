@@ -128,3 +128,18 @@ html[data-theme='light'] .github-link {
     }
   }
 }
+
+.designedBy {
+  display: inline-flex;
+  align-items: center;
+
+  .heart {
+    margin: 0.25rem;
+    animation: heart 1500ms infinite;
+    fill: red;
+  }
+
+  a {
+    margin-inline-start: 0.25rem;
+  }
+}

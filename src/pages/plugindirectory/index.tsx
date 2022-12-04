@@ -43,7 +43,7 @@ const TITLE = translate({message: 'Docusaurus Community Plugin Directory'});
 const DESCRIPTION = translate({
   message: 'A community-sourced list of plugins for Docusaurus v2',
 });
-const SUBMIT_URL = 'https://github.com/homotechsual/docusaurus.community/discussions/1';
+const SUBMIT_URL = 'https://github.com/homotechsual/docusaurus.community/discussions/3';
 
 type UserState = {
   scrollTopPosition: number;
