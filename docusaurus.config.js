@@ -113,11 +113,11 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Knowledge',
+            title: 'Guides',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Knowledge',
+                to: '/knowledge/',
               },
             ],
           },
