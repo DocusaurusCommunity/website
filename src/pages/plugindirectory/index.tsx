@@ -13,7 +13,6 @@ import {useHistory, useLocation} from '@docusaurus/router';
 import {usePluralForm} from '@docusaurus/theme-common';
 
 import Layout from '@theme/Layout';
-import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon';
 import {
   sortedPlugins,
   Tags,
@@ -37,7 +36,7 @@ import PluginDirectoryFilterToggle, {
 import PluginDirectoryCard from './_components/PluginDirectoryCard';
 import PluginDirectoryTooltip from './_components/PluginDirectoryTooltip';
 
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faHeart } from '@fortawesome/free-solid-svg-icons';
 const TITLE = translate({message: 'Docusaurus Community Plugin Directory'});
@@ -210,8 +209,8 @@ function PluginDirectoryFilters() {
                   id={id}
                   label={label}
                   icon={
-                    tag === 'favorite' ? (
-                      <FavoriteIcon svgClass={styles.svgIconFavoriteXs} />
+                    tag === 'favourite' ? (
+                      <FontAwesomeIcon icon={faHeart} size="lg" className={styles.svgIconFavourite} />
                     ) : (
                       <span
                         style={{
@@ -255,11 +254,11 @@ function PluginDirectoryFilters() {
   );
 }
 
-const favoritePlugins = sortedPlugins.filter(
-  (plugin) => plugin.tags.includes('favorite'),
+const favouritePlugins = sortedPlugins.filter(
+  (plugin) => plugin.tags.includes('favourite'),
 );
 const otherPlugins = sortedPlugins.filter(
-  (plugin) => !plugin.tags.includes('favorite'),
+  (plugin) => !plugin.tags.includes('favourite'),
 );
 
 function SearchBar() {
@@ -319,19 +318,19 @@ function PluginDirectoryCards() {
     <section className="margin-top--lg margin-bottom--xl">
       {filteredPlugins.length === sortedPlugins.length ? (
         <>
-          <div className={styles.pluginDirectoryFavorite}>
+          <div className={styles.pluginDirectoryFavourite}>
             <div className="container">
               <div
                 className={clsx(
                   'margin-bottom--md',
-                  styles.pluginDirectoryFavoriteHeader,
+                  styles.pluginDirectoryFavouriteHeader,
                 )}>
                 <h2>
-                  <Translate id="plugindirectory.favoritesList.title">
-                    Our favorite plugins
+                  <Translate id="plugindirectory.favouritesList.title">
+                    Our favourite plugins
                   </Translate>
                 </h2>
-                <FontAwesomeIcon icon={faHeart} className={styles.svgIconFavorite} size="2xl" />
+                <FontAwesomeIcon icon={faHeart} className={styles.svgIconFavourite} size="2xl" />
                 <SearchBar />
               </div>
               <ul
@@ -340,7 +339,7 @@ function PluginDirectoryCards() {
                   'clean-list',
                   styles.pluginDirectoryList,
                 )}>
-                {favoritePlugins.map((plugin) => (
+                {favouritePlugins.map((plugin) => (
                   <PluginDirectoryCard key={plugin.id} plugin={plugin} />
                 ))}
               </ul>
@@ -362,7 +361,7 @@ function PluginDirectoryCards() {
           <div
             className={clsx(
               'margin-bottom--md',
-              styles.pluginDirectoryFavoriteHeader,
+              styles.pluginDirectoryFavouriteHeader,
             )}>
             <SearchBar />
           </div>

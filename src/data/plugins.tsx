@@ -42,8 +42,8 @@ import { faCircleCheck, faCircleXmark, faCircleMinus } from '@fortawesome/free-s
 // Please choose all tags that you think might apply.
 // We'll remove inappropriate tags, but it's less likely that we add tags.
 export type TagType =
-  // DO NOT USE THIS TAG: we choose sites to add to favorites
-  | 'favorite'
+  // DO NOT USE THIS TAG: we choose sites to add to favourites
+  | 'favourite'
   | 'search'
   | 'api'
   | 'utility'
@@ -283,6 +283,19 @@ const Plugins: Plugin[] = [
     npmPackages: ['docusaurus-plugin-matomo'],
   },
   {
+    id: 'pomber.mdx-2',
+    name: 'MDX 2',
+    description: 'A Docusaurus theme to add support for MDX v2.',
+    preview: null,
+    website: 'http://docusaurus-mdx-2.vercel.app',
+    source: 'https://github.com/pomber/docusaurus-mdx-2',
+    author: 'pomber',
+    tags: ['content', 'markdown', 'theme', 'integration'],
+    minimumVersion: '2.0.0-beta.18',
+    maintenanceStatus: 'maintained',
+    npmPackages: ['docusaurus-theme-mdx-v2', '@mdx-js/react@^2.0.0'],
+  },
+  {
     id: 'atomicpages.module-alias',
     name: 'Module Alias',
     description: 'A tiny docusaurus 2 plugin for easy module alias creation.',
@@ -374,6 +387,32 @@ const Plugins: Plugin[] = [
     npmPackages: ['posthog-docusaurus'],
   },
   {
+    id: 'alt3.powershell',
+    name: 'PowerShell',
+    description: 'A PowerShell module to generate Docusaurus websites for other PowerShell modules.',
+    preview: null,
+    website: 'https://docusaurus-powershell.netlify.app',
+    source: 'https://github.com/alt3/Docusaurus.Powershell',
+    author: 'alt3',
+    tags: ['content', 'markdown', 'utility', 'integration'],
+    minimumVersion: null,
+    maintenanceStatus: 'maintained',
+    npmPackages: null,
+  },
+  {
+    id: 'protobuffet.protobuffet',
+    name: 'Protobuffet',
+    description: 'A Docusaurus plugin to generate API reference docs from protobuf files.',
+    preview: null,
+    website: 'https://protobuffet.com/docs/what/overview#docusaurus',
+    source: 'https://github.com/protobuffet/docusaurus-protobuffet',
+    author: 'protobuffet',
+    tags: ['api', 'content'],
+    minimumVersion: null,
+    maintenanceStatus: 'maintained',
+    npmPackages: ['docusaurus-protobuffet'],
+  },
+  {
     id: 'atomicpages.react-docgen',
     name: 'React DocGen',
     description: 'A Docusaurus 2.x plugin that help generate and consume auto-generated docs from react-docgen.',
@@ -411,6 +450,19 @@ const Plugins: Plugin[] = [
     minimumVersion: null,
     maintenanceStatus: 'maintained',
     npmPackages: ['@gorhom/docusaurus-react-native-plugin'],
+  },
+  {
+    id: 'rohit-gohri.redocusaurus',
+    name: 'Redocusaurus',
+    description: 'A Docusaurus plugin to add API documentation to your site using the power of Redoc.',
+    preview: null,
+    website: 'https://redocusaurus.vercel.app',
+    source: 'https://github.com/rohit-gohri/redocusaurus',
+    author: 'rohit-gohri',
+    tags: ['api', 'content'],
+    minimumVersion: '2.0.0-beta.14',
+    maintenanceStatus: 'maintained',
+    npmPackages: ['redocusaurus'],
   },
   {
     id: 'rdilweb.remote-content',
@@ -491,6 +543,19 @@ const Plugins: Plugin[] = [
     npmPackages: ['docusaurus-plugin-search-local'],
   },
   {
+    id: 'typesense.search-typesense',
+    name: 'Search Typesense',
+    description: 'A Docusaurus plugin to add Typesense search to your site.',
+    preview: null,
+    website: 'https://typesense.org/docs/guide/docsearch.html#option-a-docusaurus-powered-sites',
+    source: 'https://github.com/typesense/docusaurus-theme-search-typesense',
+    author: 'typesense',
+    tags: ['search', 'theme'],
+    minimumVersion: '2.0.0-rc.1',
+    maintenanceStatus: 'maintained',
+    npmPackages: ['docusaurus-theme-search-typesense'],
+  },
+  {
     id: 'branchup.simple-analytics',
     name: 'Simple Analytics',
     description: 'A Docusaurus plugin to add Simple Analytics to your site.',
@@ -524,7 +589,7 @@ const Plugins: Plugin[] = [
     website: 'https://github.com/rdilweb/template-docusaurus-plugin',
     source: 'https://github.com/rdilweb/template-docusaurus-plugin',
     author: 'rdilweb',
-    tags: ['favorite', 'utility'],
+    tags: ['favourite', 'utility'],
     minimumVersion: null,
     maintenanceStatus: 'maintained',
     npmPackages: null,
@@ -608,12 +673,12 @@ export type Tag = {
 };
 
 export const Tags: {[type in TagType]: Tag} = {
-  favorite: {
-    label: translate({message: 'Favorite'}),
+  favourite: {
+    label: translate({message: 'Favourite'}),
     description: translate({
       message:
-        'Our favorite Docusaurus plugins you should check out!',
-      id: 'showcase.tag.favorite.description',
+        'Our favourite Docusaurus plugins you should check out!',
+      id: 'showcase.tag.favourite.description',
     }),
     color: '#e9669e',
   },
@@ -741,8 +806,8 @@ function sortPlugins() {
   let result = Plugins;
   // Sort by site name
   result = sortBy(result, (plugin) => plugin.name.toLowerCase());
-  // Sort by favorite tag, favorites first
-  result = sortBy(result, (plugin) => !plugin.tags.includes('favorite'));
+  // Sort by favourite tag, favourites first
+  result = sortBy(result, (plugin) => !plugin.tags.includes('favourite'));
   return result;
 }
 

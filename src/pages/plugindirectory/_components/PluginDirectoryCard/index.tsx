@@ -104,8 +104,8 @@ function PluginDirectoryCard({plugin}: {plugin: Plugin}) {
               {plugin.name}
             </Link>
           </h4>
-          {plugin.tags.includes('favorite') && (
-            <FontAwesomeIcon icon={faHeart} className={styles.svgIconFavorite} size="sm" />
+          {plugin.tags.includes('favourite') && (
+            <FontAwesomeIcon icon={faHeart} className={styles.svgIconFavourite} size="sm" />
           )}
           {plugin.source && (
             <Link
