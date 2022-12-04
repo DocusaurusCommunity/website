@@ -1,0 +1,146 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.pluginDirectoryCardImage {
+  overflow: hidden;
+  height: 150px;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.pluginDirectoryCardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.pluginDirectoryCardTitle {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+.pluginDirectoryCardTitle a {
+  text-decoration: none;
+  background: linear-gradient(
+      var(--ifm-color-primary),
+      var(--ifm-color-primary)
+    )
+    0% 100% / 0% 1px no-repeat;
+  transition: background-size ease-out 200ms;
+}
+
+.pluginDirectoryCardTitle a:not(:focus):hover {
+  background-size: 100% 1px;
+}
+
+.pluginDirectoryCardTitle,
+.pluginDirectoryCardHeader .svgIconFavorite {
+  margin-right: 0.25rem;
+}
+
+.pluginDirectoryCardHeader .svgIconFavorite {
+  color: var(--site-color-svg-icon-favorite);
+}
+
+.pluginDirectoryCardSrcBtn {
+  margin-left: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: none;
+}
+
+.pluginDirectoryCardSrcBtn:focus-visible {
+  background-color: var(--ifm-color-secondary-dark);
+}
+
+[data-theme='dark'] .pluginDirectoryCardSrcBtn {
+  background-color: var(--ifm-color-emphasis-200) !important;
+  color: inherit;
+}
+
+[data-theme='dark'] .pluginDirectoryCardSrcBtn:hover {
+  background-color: var(--ifm-color-emphasis-300) !important;
+}
+
+.pluginDirectoryCardBody {
+  font-size: smaller;
+  line-height: 1.66;
+}
+
+.cardFooter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.675rem;
+  border: 1px solid var(--ifm-color-secondary-darkest);
+  cursor: default;
+  margin-right: 6px;
+  margin-bottom: 6px !important;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tag .textLabel {
+  margin-left: 8px;
+}
+
+.tag .colorLabel {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.maintenanceLabel {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.maintenanceStatus {
+  font-size: 0.8rem;
+  cursor: default;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.maintenanceStatus .textLabel {
+  margin-left: 8px;
+}
+
+.maintenanceStatus .maintenanceStatusIcon {
+  font-size: 7;
+  border-radius: 50%;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.authorLabel {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.authorName {
+  font-size: 0.8rem;
+  cursor: default;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pluginDirectoryCardAuthor {
+  margin-bottom: 0;
+}
+
+.pluginDirectoryCardMaintenanceStatus {
+  margin-bottom: 0;
+}
