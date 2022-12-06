@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
 import Link from '@docusaurus/Link';
-import DocusaurusLogo from '@site/static/img/docusaurus.svg'
+import DocusaurusLogo from '@site/src/assets/Docusaurus.svg'
 
 type Props = {
     to: string;
