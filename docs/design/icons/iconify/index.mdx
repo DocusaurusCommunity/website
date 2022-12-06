@@ -1,0 +1,52 @@
+---
+title: Iconify
+---
+
+import Swizzling from '@site/partials/_swizzling.mdx';
+
+> All popular icon sets, one framework. Over 100,000 open source vector icons.
+
+Using icons in your documentation is a great way to add visual interest and help users understand the content. Iconify is a great icon library you can use in your documentation. This article shows you how to use Font Awesome icons in your Docusaurus documentation site.
+
+<Swizzling />
+
+## Installing Iconify
+
+Iconify is available for React as a Node Package Manager (NPM) package. To install Iconify, run the following command:
+
+```bash npm2yarn
+npm install --save @iconify/react
+```
+
+## Using Iconify with Markdown or MDX
+
+You can use Iconify in your Markdown or MDX files by exposing the `Iconify` component in `MDXComponents`. An example of this is below with added comments to aid understanding:
+
+```jsx title="src/theme/MDXComponents.js"
+import React from 'react';
+// Import the original mapper
+import MDXComponents from '@theme-original/MDXComponents';
+import { Icon } from '@iconify/react'; // Import the entire Iconify library.
+
+export default {
+  // Re-use the default mapping
+  ...MDXComponents,
+  icon: Icon, // Make the Unicons component available in MDX as <icon />.
+};
+```
+
+We can then use the `icon` component in MDX files:
+
+```jsx title="docs/my-doc.mdx"
+---
+title: My Doc
+---
+
+<icon icon="mdi:github" height="48" /> This is a GitHub icon.
+```
+
+Iconify have a superb [Icon Explorer](https://icon-sets.iconify.design/) where you can search for icons and copy the code to use in your documentation.
+
+## Using Font Awesome with React
+
+You can use Iconify icons in your React components by using the `Icon` component. Iconify have wonderful [React documentation](https://docs.iconify.design/icon-components/react/) that you can use to learn more about using Iconify with React components.

@@ -2,13 +2,13 @@
 title: FontAwesome
 ---
 
+import Swizzling from '@site/partials/_swizzling.mdx';
+
 > Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators.
 
 Using icons in your documentation is a great way to add visual interest and help users understand the content. Font Awesome is a great icon library you can use in your documentation. This article shows you how to use Font Awesome icons in your Docusaurus documentation site.
 
-:::tip Swizzling
-To complete these steps, you'll need to understand how to swizzle a Docusaurus component. If you're not familiar with swizzling, check out the [swizzling documentation](https://docusaurus.io/docs/swizzling).
-:::
+<Swizzling />
 
 ## Installing Font Awesome
 
@@ -52,8 +52,6 @@ library.add(fab, fas); // Add all icons to the library so you can use them witho
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  // Map the "highlight" tag to our <Highlight /> component!
-  // `Highlight` will receive all props that were passed to `highlight` in MDX
   icon: FontAwesomeIcon, // Make the FontAwesomeIcon component available in MDX as <icon />.
 };
 ```
