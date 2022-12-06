@@ -29,9 +29,9 @@ You can add the Pro versions of any Font Awesome packages by [configuring access
 :::security Protect your NPM token
 If you are using a private NPM repository, you should protect your NPM tokens.
 
-If you're using `npm` you should use environment variables along with a `.npmrc` file to store your NPM token. For more information, see [Protecting your NPM token](https://fontawesome.com/docs/web/setup/packages.html#protecting-your-npm-token).
+If you're using `npm` you should use environment variables along with a `.npmrc` file to store your NPM token. For more information, see [alternate per project setup using environment variable (for NPM)](https://fontawesome.com/docs/web/setup/packages#alternate-per-project-setup-using-environment-variables).
 
-If you're using `yarn` you should use environment variables along with a `.yarnrc.yml` file to store your NPM token. For more information, see [Protecting your NPM token with yarn](https://fontawesome.com/docs/web/setup/packages.html#protecting-your-npm-token-with-yarn).
+If you're using `yarn` you should use environment variables along with a `.yarnrc.yml` file to store your NPM token. For more information, see [per-project setup for modern Yarn](https://fontawesome.com/docs/web/setup/packages#per-project-setup-for-modern-yarn).
 :::
 
 ## Using Font Awesome with Markdown or MDX
