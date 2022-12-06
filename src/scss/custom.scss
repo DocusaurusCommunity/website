@@ -143,3 +143,75 @@ html[data-theme='light'] .github-link {
     margin-inline-start: 0.25rem;
   }
 }
+
+/* Custom Admonitions */
+
+.alert--discord {
+  --ifm-alert-background-color: rgba(114, 137, 218, 0.5);
+  --ifm-alert-background-color-highlight: rgba(84, 199, 236, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #5865F2;
+}
+
+html[data-theme='dark'] .alert--discord {
+  --ifm-alert-background-color: rgba(114, 137, 218, 0.5);
+  --ifm-alert-background-color-highlight: rgba(84, 199, 236, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #5865F2;
+}
+
+.alert--powershell {
+  --ifm-alert-background-color: rgba(90, 179, 220, 0.5);
+  --ifm-alert-background-color-highlight: rgba(90,179,220, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #5ab3dc;
+}
+
+html[data-theme='dark'] .alert--powershell {
+  --ifm-alert-background-color: rgba(90, 179, 220, 0.5);
+  --ifm-alert-background-color-highlight: rgba(90,179,220, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #5ab3dc;
+}
+
+.alert--security {
+  --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
+  --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #d4351c;
+}
+
+html[data-theme='dark'] .alert--security {
+  --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
+  --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #d4351c;
+}
+
+.alert--ninja {
+  --ifm-alert-background-color: rgba(59, 161, 196, 0.5);
+  --ifm-alert-background-color-highlight: rgba(59, 161, 196, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #3ba1c4;
+}
+
+html[data-theme='dark'] .alert--ninja {
+  --ifm-alert-background-color: rgba(59, 161, 196, 0.5);
+  --ifm-alert-background-color-highlight: rgba(59, 161, 196, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #3ba1c4;
+}
+
+.alert--release {
+  --ifm-alert-background-color: rgba(242, 193, 78, 0.5);
+  --ifm-alert-background-color-highlight: rgba(242, 193, 78, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #F2C14E;
+}
+
+html[data-theme='dark'] .alert--release {
+  --ifm-alert-background-color: rgba(242, 193, 78, 0.5);
+  --ifm-alert-background-color-highlight: rgba(242, 193, 78, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #F2C14E;
+}

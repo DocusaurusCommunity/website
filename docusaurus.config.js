@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/vslight');
+const darkCodeTheme = require('prism-react-renderer/themes/vsdark');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -47,8 +47,34 @@ const config = {
             'https://github.com/homotechsual/docusaurus.community/tree/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          remarkPlugins: [
+            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+          ],
+          admonitions: {
+            tag: ':::',
+            keywords: [
+              'discord',
+              'info',
+              'success',
+              'danger',
+              'note',
+              'tip',
+              'warning',
+              'important',
+              'caution',
+              'powershell',
+              'security',
+              'ninja',
+              'release'
+            ],
+          },
         },
         blog: false,
+        pages: {
+          remarkPlugins: [
+            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+          ],
+        },
         theme: {
           customCss: require.resolve('./src/scss/custom.scss'),
         },
@@ -61,6 +87,11 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: 'Docusaurus.community',
         logo: {

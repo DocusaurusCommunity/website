@@ -2,4 +2,72 @@
 title: FontAwesome
 ---
 
-Placeholder
+> Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators.
+
+Using icons in your documentation is a great way to add visual interest and help users understand the content. Font Awesome is a great icon library you can use in your documentation. This article shows you how to use Font Awesome icons in your Docusaurus documentation site.
+
+:::tip Swizzling
+To complete these steps, you'll need to understand how to swizzle a Docusaurus component. If you're not familiar with swizzling, check out the [swizzling documentation](https://docusaurus.io/docs/swizzling).
+:::
+
+## Installing Font Awesome
+
+Font Awesome is available for React as a series of Node Package Manager (NPM) packages. To install Font Awesome, run the following command, this installs the Font Awesome core, and the free solid icons:
+
+```bash npm2yarn
+npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+```
+
+You can add the regular and brand icons by adding the following NPM packages:
+
+```bash npm2yarn
+npm install --save @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
+```
+
+You can add the Pro versions of any Font Awesome packages by [configuring access to the Font Awesome NPM repository](https://fontawesome.com/docs/web/setup/packages.html#configure-access) and installing the appropriate packages (for example `@fortawesome/pro-solid-svg-icons`).
+
+:::security Protect your NPM token
+If you are using a private NPM repository, you should protect your NPM tokens.
+
+If you're using `npm` you should use environment variables along with a `.npmrc` file to store your NPM token. For more information, see [Protecting your NPM token](https://fontawesome.com/docs/web/setup/packages.html#protecting-your-npm-token).
+
+If you're using `yarn` you should use environment variables along with a `.yarnrc.yml` file to store your NPM token. For more information, see [Protecting your NPM token with yarn](https://fontawesome.com/docs/web/setup/packages.html#protecting-your-npm-token-with-yarn).
+:::
+
+## Using Font Awesome with Markdown or MDX
+
+You can use Font Awesome icons in your Markdown or MDX files by exposing the `FontAwesomeIcon` component in `MDXComponents`. An example of this is below with added comments to aid understanding:
+
+```jsx title="src/theme/MDXComponents.js"
+import React from 'react';
+// Import the original mapper
+import MDXComponents from '@theme-original/MDXComponents';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import the FontAwesomeIcon component.
+import { library } from '@fortawesome/fontawesome-svg-core'; // Import the library component.
+import { fab } from '@fortawesome/free-brands-svg-icons'; // Import all brands icons.
+import { fas } from '@fortawesome/free-solid-svg-icons'; // Import all solid icons.
+
+library.add(fab, fas); // Add all icons to the library so you can use them without importing them individually.
+
+export default {
+  // Re-use the default mapping
+  ...MDXComponents,
+  // Map the "highlight" tag to our <Highlight /> component!
+  // `Highlight` will receive all props that were passed to `highlight` in MDX
+  icon: FontAwesomeIcon, // Make the FontAwesomeIcon component available in MDX as <icon />.
+};
+```
+
+We can then use the `icon` component in MDX files:
+
+```jsx title="docs/my-doc.mdx"
+---
+title: My Doc
+---
+
+<icon icon="fa-brands fa-github" size="lg" /> This is a GitHub icon.
+```
+
+## Using Font Awesome with React
+
+You can use Font Awesome icons in your React components by using the `FontAwesomeIcon` component. Font Awesome have fantastic [React documentation](https://fontawesome.com/how-to-use/on-the-web/using-with/react) that you can use to learn more about using Font Awesome with React components.
