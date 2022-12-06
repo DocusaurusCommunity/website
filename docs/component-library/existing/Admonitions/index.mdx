@@ -1,0 +1,212 @@
+---
+title: Admonitions
+---
+import Swizzling from '@site/partials/_swizzling.mdx';
+
+Docusaurus supports admonitions, which are callouts that can be used to highlight important information. Admonitions are available in Markdown and MDX. This article will cover customizing the admonitions in your Docusaurus site.
+
+<DocusaurusButton label="Docusaurus Documentation: Admonitions" to="https://docusaurus.io/docs/markdown-features/admonitions" />
+
+For simple customisation please refer to the documentation above.
+
+<Swizzling />
+
+## Swizzling the admonition component
+
+The swizzling behaviour differs depending on whether you want a TS or JS component.
+
+<Tabs groupId="js-ts">
+<TabItem value="js" label="JS">
+        
+When you swizzle (*eject mode*) the admonition component in a JS project you will end up with:
+
+- A JS component at `src/theme/Admonition/index.js` containing all of the code for the various types of admonition.
+
+</TabItem>
+<TabItem value="ts" label="TS">
+        
+When you swizzle (*eject mode*) the admonition component in a TS project you will end up with:
+
+- A TS component at `src/theme/Admonition/index.tsx` containing the code used to render the admonition component.
+- A Types file at `src/theme/Admonition/Types.tsx` containing the types used by the admonition component which contains the mapping of admonition types to their respective components.
+- A series of TS components in `src/theme/Admonition/Type/` with a file per type of admonition. These components contain the code for each specific type of admonition.
+
+</TabItem>
+</Tabs>
+
+## Creating a new admonition
+
+<Tabs groupId="js-ts">
+<TabItem value="js" label="JS">
+
+To create a new admonition you will need to add a new icon and config to the `src/theme/Admonition/index.js` file. If we wanted to add a `security` admonition using a Font Awesome icon we would add the following to the `src/theme/Admonition/index.js` file:
+
+```jsx title="Define the icon"
+function SecurityIcon() {
+  return(
+    <FontAwesomeIcon icon={faShieldHalf} />
+  )
+}
+```
+
+```jsx title="Add the config"
+security: {
+    infimaClassName: 'security',
+    iconComponent: SecurityIcon,
+    label: (
+      <Translate
+        id="theme.admonition.security"
+        description="The default label used for the Security admonition (:::security)">
+        security
+      </Translate>
+    )
+},
+```
+
+</TabItem>
+<TabItem value="ts" label="TS">
+
+To create a new admonition you will need to add a new file in `src/theme/Admonition/Type/` and add a new entry to the `src/theme/Admonition/Types.tsx` file. If we wanted to add a `security` admonition using a Font Awesome icon we would add the following to the `src/theme/Admonition/Type/Security.tsx` file:
+
+```tsx title="src/theme/Admonition/Type/Security.tsx"
+import React from 'react';
+import clsx from 'clsx';
+import Translate from '@docusaurus/Translate';
+import type {Props} from '@theme/Admonition/Type/Tip';
+import AdmonitionLayout from '@theme/Admonition/Layout';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShieldHalved } from '@fortawesome/free-solid-svg-icons';
+
+const infimaClassName = 'alert alert--security';
+
+const defaultProps = {
+icon: <FontAwesomeIcon icon={faShieldHalved} />,
+title: (
+    <Translate
+    id="theme.admonition.security"
+    description="The default label used for the Security admonition (:::security)">
+    security
+    </Translate>
+),
+};
+
+export default function AdmonitionTypeSecurity(props: Props): JSX.Element {
+return (
+    <AdmonitionLayout
+    {...defaultProps}
+    {...props}
+    className={clsx(infimaClassName, props.className)}>
+    {props.children}
+    </AdmonitionLayout>
+);
+}
+```
+
+```tsx title="Add the type"
+import AdmonitionTypeSecurity from './Type/Security';
+
+const admonitionTypes: typeof AdmonitionTypes = {
+    ...
+    security: AdmonitionTypeSecurity,
+};
+```
+
+</TabItem>
+</Tabs>
+
+For both JS and TS projects you will also need to add the CSS for the new admonition to the `src/css/custom.css` file:
+
+```css title="src/css/custom.css"
+.alert--security {
+  --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
+  --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #d4351c;
+}
+
+html[data-theme='dark'] .alert--security {
+  --ifm-alert-background-color: rgba(212, 53, 28, 0.5);
+  --ifm-alert-background-color-highlight: rgba(212, 53, 28, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #d4351c;
+}
+```
+
+and you'll need to override the admonition config in `docusaurus.config.js`:
+
+```js title="docusaurus.config.js"
+const config = {
+    presets: [
+        [
+            'classic',
+            /** @type {import('@docusaurus/preset-classic').Options} */
+            ({
+                docs: {
+                    admonitions: {
+                        tag: ':::',
+                        keywords: [
+                            'info',
+                            'success',
+                            'danger',
+                            'note',
+                            'tip',
+                            'warning',
+                            'important',
+                            'caution',
+                            'security',
+                        ],
+                    },
+                },
+                blog: {
+                    admonitions: {
+                        tag: ':::',
+                        keywords: [
+                            'info',
+                            'success',
+                            'danger',
+                            'note',
+                            'tip',
+                            'warning',
+                            'important',
+                            'caution',
+                            'security',
+                        ],
+                    },
+                },
+            })
+        ],
+    ],
+}
+```
+
+As you can see in the config above we have redefined the existing list of types and added our new `security` type. This is because once set the config option overrides the default list of types. We've set the config in our example for both the `docs` and `blog` plugins.
+
+## Using the new admonition
+
+To use the new admonition you can use the following syntax:
+
+```mdx title="docs/security.mdx"
+:::security
+This is a security warning
+:::
+```
+
+:::security
+This is a security warning
+:::
+
+There we have it. We've created a new admonition type and added it to our Docusaurus project. This site features a number of other admonition types that you can use as a reference for creating your own.
+
+## Examples
+
+:::discord Discord
+This is a Discord admonition
+:::
+
+:::release Release
+This is a Release admonition
+:::
+
+:::security Security
+This is a Security admonition
+:::
