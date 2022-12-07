@@ -125,6 +125,13 @@ const config = {
             className: 'docusaurus-link',
           },
           {
+            to: 'https://discord.gg/docusaurus',
+            label: 'Discord',
+            position: 'right',
+            target: '_blank',
+            className: 'discord-link',
+          },
+          {
             to: 'https://github.com/homotechsual/docusaurus.community',
             label: 'GitHub',
             position: 'right',
