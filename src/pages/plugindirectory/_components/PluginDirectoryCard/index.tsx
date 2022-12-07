@@ -22,6 +22,7 @@ import {
 } from '@site/src/data/plugins';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import DocusaurusSvg from '@site/src/assets/Docusaurus.svg';
 import {sortBy} from '@site/src/utils/jsUtils';
 import Tooltip from '../PluginDirectoryTooltip/index';
 import styles from './styles.module.scss';
@@ -106,6 +107,9 @@ function PluginDirectoryCard({plugin}: {plugin: Plugin}) {
           </h4>
           {plugin.tags.includes('favourite') && (
             <FontAwesomeIcon icon={faHeart} className={styles.svgIconFavourite} size="sm" />
+          )}
+          {plugin.tags.includes('docusaurus') && (
+            <DocusaurusSvg className={styles.svgIconDocusaurus} />
           )}
           {plugin.source && (
             <Link

@@ -39,6 +39,7 @@ import PluginDirectoryTooltip from './_components/PluginDirectoryTooltip';
 import styles from './styles.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faHeart } from '@fortawesome/free-solid-svg-icons';
+import DocusaurusSvg from '@site/src/assets/Docusaurus.svg';
 const TITLE = translate({message: 'Docusaurus Community Plugin Directory'});
 const DESCRIPTION = translate({
   message: 'A community-sourced list of plugins for Docusaurus v2',
@@ -211,6 +212,8 @@ function PluginDirectoryFilters() {
                   icon={
                     tag === 'favourite' ? (
                       <FontAwesomeIcon icon={faHeart} size="lg" className={styles.svgIconFavourite} />
+                    ) : tag === 'docusaurus' ? (
+                      <DocusaurusSvg className={styles.svgIconDocusaurus} />
                     ) : (
                       <span
                         style={{
