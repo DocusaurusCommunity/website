@@ -52,7 +52,8 @@ export type TagType =
   | 'theme'
   | 'markdown'
   | 'analytics'
-  | 'integration';
+  | 'integration'
+  | 'seo';
 
 export type MaintainedType = 
   | 'maintained'
@@ -206,7 +207,7 @@ const Plugins: Plugin[] = [
     npmPackages: ['docusaurus-plugin-docs-editor'],
   },
   {
-    id: 'jonnyabors.dotenv',
+    id: 'jonnynabors.dotenv',
     name: 'Dotenv',
     description: 'A Docusaurus2 plugin that supports dotenv and other environment variables and only exposes what you choose and use.',
     preview: null,
@@ -830,6 +831,19 @@ const Plugins: Plugin[] = [
     npmPackages: ['docusaurus-plugin-smartlook'],
   },
   {
+    id: 'stackql.structured-data',
+    name: 'Structured Data',
+    description: 'A Docusaurus plugin to add Yoast (like) JSON-LD Structured Data for Docusaurus.',
+    preview: null,
+    website: 'https://fullstackchronicles.io/json-ld-structured-data-for-docusaurus?utm_source=docusaurus.community',
+    source: 'https://github.com/stackql/docusaurus-plugin-structured-data',
+    author: 'stackql',
+    tags: ['utility', 'seo'],
+    minimumVersion: null,
+    maintenanceStatus: 'maintained',
+    npmPackages: ['docusaurus-plugin-structured-data'],
+  },
+  {
     id: 'mrazauskas.tab-blocks',
     name: 'Tab Blocks',
     description: 'Turn Docusaurus code blocks into tab blocks.',
@@ -1093,6 +1107,16 @@ export const Tags: {[type in TagType]: Tag} = {
       id: 'showcase.tag.analytics.description',
     }),
     color: '#b892ff',
+  },
+
+  seo: {
+    label: translate({message: 'SEO'}),
+    description: translate({
+      message:
+        'Docusaurus plugins implementing new SEO features, such as sitemap, robots.txt, etc.',
+      id: 'showcase.tag.seo.description',
+    }),
+    color: '#e128d4',
   },
 };
 

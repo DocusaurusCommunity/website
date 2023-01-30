@@ -1,0 +1,1 @@
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QCreative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\\E$"}

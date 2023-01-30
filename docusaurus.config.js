@@ -74,6 +74,24 @@ const config = {
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
+          admonitions: {
+            tag: ':::',
+            keywords: [
+              'discord',
+              'info',
+              'success',
+              'danger',
+              'note',
+              'tip',
+              'warning',
+              'important',
+              'caution',
+              'powershell',
+              'security',
+              'ninja',
+              'release'
+            ],
+          },
         },
         theme: {
           customCss: require.resolve('./src/scss/custom.scss'),
@@ -209,6 +227,16 @@ const config = {
       'docusaurus-plugin-plausible',
       {
         domain: 'docusaurus.community',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'contributing',
+        path: 'contributing',
+        routeBasePath: 'contributing',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://github.com/homotechsual/docusaurus.community/tree/main/',
       },
     ]
   ],

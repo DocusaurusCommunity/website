@@ -1,1 +1,4 @@
 Docusaurus
+Attribution-ShareAlike
+Generis
+cc-by-sa
