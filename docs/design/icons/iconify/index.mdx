@@ -8,7 +8,9 @@ import Swizzling from '@site/partials/_swizzling.mdx';
 
 Using icons in your documentation is a great way to add visual interest and help users understand the content. Iconify is a great icon library you can use in your documentation. This article shows you how to use Iconify icons in your Docusaurus documentation site.
 
-<Swizzling />
+<DocusaurusButton label="Docusaurus Documentation: MDX Component Scope" to="https://docusaurus.io/docs/markdown-features/react#mdx-component-scope" />
+
+To complete these steps you will need to have a custom MDXComponents file. If you don't have one, just create the file `MDXComponents.js` or `MDXComponents.tsx` in the `src/theme` directory of your project.
 
 ## Installing Iconify
 
@@ -31,7 +33,7 @@ import { Icon } from '@iconify/react'; // Import the entire Iconify library.
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  icon: Icon, // Make the Unicons component available in MDX as <icon />.
+  icon: Icon, // Make the iconify Icon component available in MDX as <icon />.
 };
 ```
 
