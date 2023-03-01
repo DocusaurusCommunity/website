@@ -115,7 +115,7 @@
             }
         }
     },
-    required: [
+    "required": [
         "id",
         "name",
         "description",
