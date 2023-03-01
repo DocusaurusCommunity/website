@@ -114,5 +114,18 @@
                 ]
             }
         }
-    }
+    },
+    required: [
+        "id",
+        "name",
+        "description",
+        "preview",
+        "website",
+        "source",
+        "author",
+        "tags",
+        "minimumVersion",
+        "maintenanceStatus",
+        "npmPackages"
+    ]
 }
