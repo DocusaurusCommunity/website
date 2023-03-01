@@ -1,2 +1,17 @@
 # yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 $schema: https://docusaurus.community/schema/plugin/1.0.0.json
+id: gabrielcsapo.api-extractor
+name: API Extractor
+description: Docusaurus plugin to use https://api-extractor.com in Docusaurus.
+preview: null
+website: https://gabrielcsapo.github.io/docusaurus-plugin-api-extractor
+source: https://github.com/gabrielcsapo/docusaurus-plugin-api-extractor
+author: gabrielcsapo
+tags:
+  - api
+  - utility
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - "@microsoft/api-extractor"
+  - docusaurus-plugin-api-extractor
