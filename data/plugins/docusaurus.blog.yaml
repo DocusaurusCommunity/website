@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.1.json
+id: docusaurus.blog
+name: Blog
+description: Official Docusaurus blog plugin.
+preview: null
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-plugin-content-blog
+author: docusaurus
+tags:
+  - content
+  - docusaurus

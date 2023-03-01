@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.1.json
+id: acrobit.auto-sidebars
+name: Auto Sidebars
+description: A docusaurus plugin that generates the sidebar items automatically by filesystem structure.
+preview: null
+website: https://github.com/acrobit/docusaurus-plugin-auto-sidebars
+source: https://github.com/acrobit/docusaurus-plugin-auto-sidebars
+author: acrobit
+tags: 
+  - utility
+minimumVersion: 2.0.0-alpha.50
+maintenanceStatus: unknown
+npmPackages: 
+  - docusaurus-plugin-auto-sidebars

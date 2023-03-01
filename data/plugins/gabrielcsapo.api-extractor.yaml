@@ -1,5 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
-$schema: https://docusaurus.community/schema/plugin/1.0.0.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.1.json
 id: gabrielcsapo.api-extractor
 name: API Extractor
 description: Docusaurus plugin to use https://api-extractor.com in Docusaurus.

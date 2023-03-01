@@ -1,0 +1,133 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "1.0.2",
+    "id": "https://docusaurus.community/schema/plugin/1.0.2.json",
+    "title": "Docusaurus Plugin",
+    "description": "Docusaurus Plugin or Theme Schema for the Docusaurus Community Plugin Directory",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "The unique identifier of the plugin or theme, format is 'author.plugin-short-name'.",
+            "type": "string",
+            "pattern": "^[a-z0-9-]+\\.[a-z0-9-]+$",
+            "examples": [
+                "docusaurus.blog",
+                "docusaurus.theme-classic",
+                "docusaurus.theme-live-codeblock"
+            ]
+        },
+        "name": {
+            "description": "The display name of the plugin or theme.",
+            "type": "string",
+            "examples": [
+                "Blog",
+                "Classic Theme",
+                "Theme Live Codeblock"
+            ]
+        },
+        "description": {
+            "description": "The description of the plugin or theme.",
+            "type": "string",
+            "examples": [
+                "Official Docusaurus blog plugin.",
+                "Official Docusaurus classic theme.",
+                "Official Docusaurus theme for live codeblocks."
+            ]
+        },
+        "preview": {
+            "description": "The preview image of the plugin or theme. Relative paths require you to place your preview image into 'img' in the `data` directory. Using `null` will generate a preview image for you from the website URL.",
+            "type": ["string", "null"],
+            "examples": [
+                "https://docusaurus.io/img/slash-birth.png",
+                "./img/slash-birth.png"
+            ]
+        },
+        "website": {
+            "description": "The public website of the plugin or theme. If you don't have one yet, you can use the GitHub repository URL or NPM package URL.",
+            "type": "string",
+            "examples": [
+                "https://docusaurus.io/docs/api/themes/@docusaurus/theme-live-codeblock",
+                "https://github.com/rdilweb/template-docusaurus-plugin"
+            ]
+        },
+        "source": {
+            "description": "The source code of the plugin or theme. Only open source plugins or themes are allowed in the Docusaurus Community Plugin Directory.",
+            "type": "string",
+            "examples": [
+                "https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-live-codeblock",
+                "https://github.com/rdilweb/template-docusaurus-plugin"
+            ]
+        },
+        "author": {
+            "description": "The author of the plugin or theme.",
+            "type": "string",
+            "examples": [
+                "Docusaurus",
+                "RdilWeb"
+            ]
+        },
+        "tags": {
+            "description": "The tag(s) of the plugin or theme. Tags are used to categorize plugins and themes.",
+            "type": "array",
+            "items": {
+                "enum": [
+                    "search",
+                    "api",
+                    "utility",
+                    "content",
+                    "theme",
+                    "markdown",
+                    "analytics",
+                    "integration",
+                    "seo",
+                    "editing",
+                    "docusaurus",
+                    "favourite"
+                ]
+            }
+        },
+        "minimumVersion": {
+            "description": "The minimum version of Docusaurus required to use the plugin or theme.",
+            "type": ["string", "null"],
+            "examples": [
+                "2.0.0-alpha.0",
+                "2.0.0-beta.0",
+                "2.3.1"
+            ]
+        },
+        "maintenanceStatus": {
+            "description": "The maintenance status of the plugin or theme.",
+            "type": "string",
+            "enum": [
+                "maintained",
+                "unmaintained",
+                "unknown"
+            ]
+        },
+        "npmPackages": {
+            "description": "The NPM package(s) of the plugin or theme.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "examples": [
+                    "@docusaurus/plugin-content-blog",
+                    "@docusaurus/theme-classic",
+                    "@docusaurus/theme-live-codeblock"
+                ]
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "description",
+        "preview",
+        "website",
+        "source",
+        "author",
+        "tags",
+        "minimumVersion",
+        "maintenanceStatus",
+        "npmPackages"
+    ]
+}
