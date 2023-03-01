@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "version": "2023-03",
-    "id": "https://docusaurus.community/plugin.schema.json",
+    "id": "https://docusaurus.community/schema/2023-03/plugin.json",
     "title": "Docusaurus Plugin",
     "description": "Docusaurus Plugin or Theme Schema for the Docusaurus Community Plugin Directory",
     "type": "object",
@@ -38,7 +38,7 @@
             "required": true
         },
         "preview": {
-            "description": "The preview image of the plugin or theme. Relative paths require you to place your preview image into 'img' in the `data` directory.",
+            "description": "The preview image of the plugin or theme. Relative paths require you to place your preview image into 'img' in the `data` directory. Using `null` will generate a preview image for you from the website URL.",
             "type": "string",
             "examples": [
                 "https://docusaurus.io/img/slash-birth.png",
