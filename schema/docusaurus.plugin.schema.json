@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "version": "2023-03",
-    "id": "https://docusaurus.community/schema/plugin/2023-03.json",
+    "id": "https://docusaurus.community/schema/plugin/1.0.0.json",
     "title": "Docusaurus Plugin",
     "description": "Docusaurus Plugin or Theme Schema for the Docusaurus Community Plugin Directory",
     "type": "object",
