@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/2023-03/plugin.json
+id: thangved.2dlive
+name: 2D Live
+description: A live2d docusaurus plugin.
+preview: null
+website: https://github.com/thangved/docusaurus-plugin-2dlive
+source: https://github.com/thangved/docusaurus-plugin-2dlive
+author: thangved
+tags:
+  - utility
+  - content
+minimumVersion: null
+maintenanceStatus: dummy
+npmPackages:
+  - docusaurus-plugin-2dlive

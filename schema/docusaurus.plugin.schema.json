@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "version": "2023-03",
-    "id": "https://docusaurus.community/plugin.schema.json",
+    "id": "https://docusaurus.community/schema/2023-03/plugin.json",
     "title": "Docusaurus Plugin",
     "description": "Docusaurus Plugin or Theme Schema for the Docusaurus Community Plugin Directory",
     "type": "object",
@@ -14,8 +14,7 @@
                 "docusaurus.blog",
                 "docusaurus.theme-classic",
                 "docusaurus.theme-live-codeblock"
-            ],
-            "required": true
+            ]
         },
         "name": {
             "description": "The display name of the plugin or theme.",
@@ -24,8 +23,7 @@
                 "Blog",
                 "Classic Theme",
                 "Theme Live Codeblock"
-            ],
-            "required": true
+            ]
         },
         "description": {
             "description": "The description of the plugin or theme.",
@@ -34,17 +32,15 @@
                 "Official Docusaurus blog plugin.",
                 "Official Docusaurus classic theme.",
                 "Official Docusaurus theme for live codeblocks."
-            ],
-            "required": true
+            ]
         },
         "preview": {
-            "description": "The preview image of the plugin or theme. Relative paths require you to place your preview image into 'img' in the `data` directory.",
+            "description": "The preview image of the plugin or theme. Relative paths require you to place your preview image into 'img' in the `data` directory. Using `null` will generate a preview image for you from the website URL.",
             "type": "string",
             "examples": [
                 "https://docusaurus.io/img/slash-birth.png",
                 "./img/slash-birth.png"
-            ],
-            "required": true
+            ]
         },
         "website": {
             "description": "The public website of the plugin or theme. If you don't have one yet, you can use the GitHub repository URL or NPM package URL.",
@@ -52,8 +48,7 @@
             "examples": [
                 "https://docusaurus.io/docs/api/themes/@docusaurus/theme-live-codeblock",
                 "https://github.com/rdilweb/template-docusaurus-plugin"
-            ],
-            "required": true
+            ]
         },
         "source": {
             "description": "The source code of the plugin or theme. Only open source plugins or themes are allowed in the Docusaurus Community Plugin Directory.",
@@ -61,8 +56,7 @@
             "examples": [
                 "https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-live-codeblock",
                 "https://github.com/rdilweb/template-docusaurus-plugin"
-            ],
-            "required": true
+            ]
         },
         "author": {
             "description": "The author of the plugin or theme.",
@@ -70,8 +64,7 @@
             "examples": [
                 "Docusaurus",
                 "RdilWeb"
-            ],
-            "required": true
+            ]
         },
         "tags": {
             "description": "The tag(s) of the plugin or theme. Tags are used to categorize plugins and themes.",
@@ -89,8 +82,7 @@
                     "seo",
                     "editing"
                 ]
-            },
-            "required": true
+            }
         },
         "minimumVersion": {
             "description": "The minimum version of Docusaurus required to use the plugin or theme.",
@@ -99,8 +91,7 @@
                 "2.0.0-alpha.0",
                 "2.0.0-beta.0",
                 "2.3.1"
-            ],
-            "required": true
+            ]
         },
         "maintenanceStatus": {
             "description": "The maintenance status of the plugin or theme.",
@@ -109,8 +100,7 @@
                 "maintained",
                 "unmaintained",
                 "unknown"
-            ],
-            "required": true
+            ]
         },
         "npmPackages": {
             "description": "The NPM package(s) of the plugin or theme.",
@@ -122,8 +112,7 @@
                     "@docusaurus/theme-classic",
                     "@docusaurus/theme-live-codeblock"
                 ]
-            },
-            "required": true
+            }
         }
     }
 }
