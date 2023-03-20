@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: jonnynabors.dotenv
+name: Dotenv
+description: A Docusaurus 2 plugin that supports dotenv and other environment variables and only exposes what you choose and use.
+preview: null
+website: https://github.com/jonnynabors/docusaurus2-dotenv
+source: https://github.com/jonnynabors/docusaurus2-dotenv
+author: jonnynabors
+tags:
+  - utility
+minimumVersion: null
+maintenanceStatus: unknown
+npmPackages:
+  - docusaurus2-dotenv

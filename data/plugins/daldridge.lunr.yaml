@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: daldridge.lunr
+name: Lunr
+description: A plugin to add search to your Docusaurus site using Lunr.
+preview: null
+website: https://github.com/daldridge/docusaurus-plugin-lunr
+source: https://github.com/daldridge/docusaurus-plugin-lunr
+author: daldridge
+tags:
+  - search
+  - integration
+minimumVersion: 2.0.0-alpha.58
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-lunr

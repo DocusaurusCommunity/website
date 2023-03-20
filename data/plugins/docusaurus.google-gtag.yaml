@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: docusaurus.google-gtag
+name: Google Gtag
+description: Official Docusaurus Google Gtag plugin.
+preview: null
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-google-gtag
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-plugin-google-gtag
+author: docusaurus
+tags:
+  - analytics
+  - docusaurus
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - "@docusaurus/plugin-google-gtag"

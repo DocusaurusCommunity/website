@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: karser.matomo
+name: Matomo
+description: A plugin to add Matomo analytics to your Docusaurus site.
+preview: null
+website: https://github.com/karser/docusaurus-plugin-matomo
+source: https://github.com/karser/docusaurus-plugin-matomo
+author: karser
+tags:
+  - utility
+  - integration
+  - analytics
+minimumVersion: 2.0.0-alpha.56
+maintenanceStatus: unknown
+npmPackages:
+  - docusaurus-plugin-matomo

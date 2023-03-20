@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: devbookhq.code-video
+name: Code Video
+description: Add a video to a Docusaurus code block and highlight code lines as the video plays.
+preview: null
+website: https://github.com/devbookhq/docusaurus-code-video-plugin
+source: https://github.com/devbookhq/docusaurus-code-video-plugin
+author: devbookhq
+tags:
+  - content
+  - utility
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - "@devbookhq/docusaurus-plugin-code-video"

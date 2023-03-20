@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: lukasgentele.gtm
+name: Google Tag Manager
+description: A plugin to add Google Tag Manager in your Docusaurus site.
+preview: null
+website: https://github.com/LukasGentele/docusaurus-gtm-plugin
+source: https://github.com/LukasGentele/docusaurus-gtm-plugin
+author: lukasgentele
+tags:
+  - analytics
+  - integration
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-gtm-plugin

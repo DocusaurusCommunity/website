@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: simologos.includes
+name: Includes
+description: A plugin to include the contents of markdown files in other markdown files.
+preview: null
+website: https://github.com/simologos/docusaurus-plugin-includes
+source: https://github.com/simologos/docusaurus-plugin-includes
+author: simologos
+tags:
+  - utility
+  - markdown
+minimumVersion: 2.0.0-beta5
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-includes

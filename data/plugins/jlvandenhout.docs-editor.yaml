@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: jlvandenhout.docs-editor
+name: Docs Editor
+description: A client-side editor for your Docusaurus docs, allowing users to propose changes to any of your Markdown files without the need to know Markdown or Git workflows details.
+preview: null
+website: https://jlvandenhout.github.io/docusaurus-plugin-docs-editor
+source: https://github.com/jlvandenhout/docusaurus-plugin-docs-editor
+author: jlvandenhout
+tags:
+  - utility
+  - editing
+minimumVersion: 2.0.0-beta.15
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-docs-editor

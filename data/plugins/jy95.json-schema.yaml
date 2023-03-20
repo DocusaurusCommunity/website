@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: jy95.json-schema
+name: JSON Schema
+description: A Docusaurus plugin which provides a JSON schema viewer and editor React component.
+preview: null
+website: https://jy95.github.io/docusaurus-plugin-json-schema/
+source: https://github.com/jy95/docusaurus-plugin-json-schema
+author: jy95
+tags:
+  - utility
+  - content
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-json-schema

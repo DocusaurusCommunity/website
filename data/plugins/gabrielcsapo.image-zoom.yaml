@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: gabrielcsapo.image-zoom
+name: Image Zoom
+description: Docusaurus plugin to utilize medium-zoom in Docusaurus projects.
+preview: null
+website: https://gabrielcsapo.github.io/docusaurus-plugin-image-zoom
+source: https://github.com/gabrielcsapo/docusaurus-plugin-image-zoom
+author: gabrielcsapo
+tags:
+  - utility
+  - markdown
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - "docusaurus-plugin-image-zoom"

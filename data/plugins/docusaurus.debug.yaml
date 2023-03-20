@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: docusaurus.debug
+name: Debug
+description: Official Docusaurus debug plugin.
+preview: null
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-debug
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-plugin-debug
+author: docusaurus
+tags:
+  - docusaurus
+  - utility
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - "@docusaurus/plugin-debug"

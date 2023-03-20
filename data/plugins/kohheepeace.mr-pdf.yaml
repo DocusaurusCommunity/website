@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: kohheepeace.mr-pdf
+name: Mr PDF
+description: A plugin add PDF export to your Docusaurus site.
+preview: null
+website: https://www.npmjs.com/package/mr-pdf
+source: https://github.com/kohheepeace/mr-pdf
+author: kohheepeace
+tags:
+  - utility
+  - integration
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages: 
+  - mr-pdf

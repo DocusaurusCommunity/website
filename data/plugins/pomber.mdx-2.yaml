@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: pomber.mdx-2
+name: MDX 2
+description: A theme adding MDX 2 support to Docusaurus 2.
+preview: null
+website: https://docusaurus-mdx-2.vercel.app/
+source: https://github.com/pomber/docusaurus-mdx-2
+author: pomber
+tags:
+  - theme
+  - markdown
+  - content
+  - integration
+minimumVersion: 2.0.0-beta.18
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-theme-mdx-v2
+  - "@mdx-js/react@^2.0.0"

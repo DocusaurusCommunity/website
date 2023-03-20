@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: saucelabs.github-code-block
+name: GitHub Code Block
+description: A Docusaurus 2 plugin that supports referencing code examples from public GitHub repositories.
+preview: null
+website: https://opensource.saucelabs.com/docusaurus-theme-github-codeblock/
+source: https://github.com/saucelabs/docusaurus-theme-github-codeblock
+author: saucelabs
+tags:
+  - content
+  - integration
+  - markdown
+  - theme
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-theme-github-codeblock

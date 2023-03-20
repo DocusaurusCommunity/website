@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: docusaurus.ideal-image
+name: Ideal Image
+description: Official Docusaurus image optimisation plugin.
+preview: null
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-ideal-image
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-plugin-ideal-image
+author: docusaurus
+tags:
+  - content
+  - utility
+  - docusaurus
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - "@docusaurus/plugin-ideal-image"

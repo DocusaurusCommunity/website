@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: webbertakken.content-gists
+name: Content Gists
+description: A Docusaurus plugin to embed GitHub Gists in your docs.
+preview: null
+website: https://takken.io/gists
+source: https://github.com/webbertakken/docusaurus-plugin-content-gists
+author: webbertakken
+tags:
+  - content
+  - integration
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-content-gists
+  - dotenv

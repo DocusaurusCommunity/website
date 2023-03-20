@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+id: xiguaxigua.mindmap
+name: Mindmap
+description: A plugin to add mindmaps to your Docusaurus site.
+preview: null
+website: https://xiguaxigua.com/docusaurus-plugin-mindmap/
+source: https://github.com/xiguaxigua/docusaurus-plugin-mindmap
+author: xiguaxigua
+tags:
+  - content
+  - markdown
+  - theme
+  - integration
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-mindmap
