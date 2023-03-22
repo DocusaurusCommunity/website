@@ -44,7 +44,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/homotechsual/docusaurus.community/tree/main/',
+            'https://github.com/homotechsual/docusaurus.community/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           remarkPlugins: [
