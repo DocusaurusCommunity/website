@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.2.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.3.json
 id: jonnynabors.dotenv
 name: Dotenv
 description: A Docusaurus 2 plugin that supports dotenv and other environment variables and only exposes what you choose and use.

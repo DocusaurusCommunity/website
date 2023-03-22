@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.3.json
+id: paloaltonetworks.openapi-docs
+name: OpenAPI Docs
+description: 🦝 OpenAPI plugin for generating API reference docs in Docusaurus v2
+preview: null
+website: https://docusaurus-openapi.tryingpan.dev/
+source: https://github.com/PaloAltoNetworks/docusaurus-openapi-docs
+author: PaloAltoNetworks
+tags:
+  - api
+  - content
+minimumVersion: null
+maintenanceStatus: maintained
+npmPackages:
+  - docusaurus-plugin-openapi-docs
+  - docusaurus-theme-openapi-docs
