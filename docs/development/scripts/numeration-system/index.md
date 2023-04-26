@@ -2,6 +2,8 @@
 title: Numeration System
 ---
 This script will be super useful to whoever wants to build a website, keeping track of all the entities and their assigned numbers.
+It will generate new markdown files, starting from the ones in the `src/docs` folder, saving them in the `docs` folder.
+For this reason, the script has to be run before the actual build of the website.
 
 [`numerationSystem`](https://github.com/w3f/polkadot-spec/blob/main/preBuild/numerationSystem/index.ts) will assign a number to several entities, and substitute the placeholders inside the markdown files. This is done to avoid having to manually update the numbers when adding new entities.
 
