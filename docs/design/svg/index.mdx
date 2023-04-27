@@ -1,0 +1,171 @@
+---
+title: SVG customizations & transforms
+---
+
+SVGs are documented in a few places in the official docs:
+<DocusaurusButton label="Docusaurus Documentation: Static Assets" to="https://docusaurus.io/docs/static-assets#in-jsx" />
+<DocusaurusButton label="Docusaurus Documentation: Inline SVGs" to="https://docusaurus.io/docs/markdown-features/assets#inline-svgs" />
+
+## Detecting Theme colorMode (dark mode) to dynamically change SVGs
+Problem: White foreground SVG colors on White background pages make them INVISIBLE.
+
+What if you wanted to tweak a fill color of an SVG dynamically? or even scale its size or change its shape?
+
+You can change SVGs (and their attributes!) based on a Theme with a bit of custom code for example in the `src/components/HomepageFeatures/index.js` that ships with Docusaurus.
+
+:::note
+😂 No dinosaurs (or their SVGs) were injured in their removal in the steps below 😂
+:::
+
+Here are the few steps to futher customize the SVGs with color and scale for our Homepage:
+
+- First we copy some custom single color SVG files we would like to use into the default `static/img/` folder which we later require in each FeatureList element.
+  - Where soon our dinosaur images won't be shown and will move into their retirement jurassic park. <DocusaurusButton label="<--bye bye soon 😂"/>
+
+- With our custom SVG files now copied into that folder, we can begin to customize our `index.js`
+  - Let's import `@docusaurus/theme-common` to later use its `useColorMode` to inspect the current colorMode (dark mode) setting set by our visting users.
+
+  ```
+  import { useColorMode } from '@docusaurus/theme-common'
+  ```
+
+- Next we added 3 extra arguments into function Feature() to set the `scale`, `fill`, and `id` of our SVGs.
+  - `id` was important to add for easier referencing in our custom code later to more easily find the unique image we wanted to tweak its `<svg>` element for.
+
+  ```
+  function Feature({scale, fill, id, 
+  ```
+
+- So, we customized the `<Svg>` tag elements attributes in our return `div` Feature element and added those 3 extra arguments.  In our case we had single color SVGs that we simply wanted to change their whole fill color and tweak their scaling size ratio.  But SVGs have many other attributes which you could change.
+
+  ```jsx
+  <Svg transform={"scale(" + scale + ")"} fill={fill} id={id} className={styles.featureSvg} role="img" />
+  ```
+  - An interesting attribute shown above is `scale()` where we used the `+` operator for easy "string concatenation" around our similarly named _scale_ variable.
+
+    `{"scale(" +` _scale_ `+ ")"}` ex. outputs --> `scale(1.0)`
+
+  - where `transform=` and its `scale()` are just one of the many attributes that an `<svg>` element can be customized with.
+
+:::tip
+SVG is a moving standard that has changed with new attributes over the years. The [WHATWG standards group](https://html.spec.whatwg.org/#svg-0") is a great starting place to see HTML specs and issues for SVGs where they also provide link outs to the W3C documents like [SVG2 draft](https://svgwg.org/svg2-draft/Overview.html").
+:::
+
+- We also add some custom code to change the `fill` argument directly to change the `<Svg fill= >` attribute color in our returned `<div>` based on the colorMode of the Theme:
+
+  ```jsx
+    // Custom code to change the fill color of the Cloud Arrow Up SVG
+    // depending on if user is in dark/light mode
+    const {colorMode} = useColorMode()
+    if ( id === 'cloud-arrow-up-solid' && colorMode === 'light' ) {
+      fill = '#848482' // Battleship Gray
+    } else if ( id === 'cloud-arrow-up-solid' && colorMode === 'dark') {
+      fill = 'white' 
+    }
+  ```
+
+- Lastly, we add `scale`, `fill`, `id` to each of our FeatureList array elements
+  - Except 1 of them is *missing* `fill:`?
+
+  ```jsx
+  // highlight-start
+    { scale: 1.0,
+      id: 'cloud-arrow-up-solid',
+  // highlight-end
+      title: 'Low Code API Development',
+      Svg: require('@site/static/img/laptop-code-solid.svg').default,,
+  ```
+
+  - It is *missing* because White clouds on White backgrounds are invisible, yeah?
+  - We didn't set `fill:` for this particular Feature element for the `'cloud-arrow-up-solid'` because we'll control and set its color directly in our custom code section we added.
+
+- Finally, here is the resulting customized `index.js` file:
+
+```jsx title="src/components/HomepageFeatures/index.js"
+import React from 'react';
+import clsx from 'clsx';
+import styles from './styles.module.css';
+import { useColorMode } from '@docusaurus/theme-common'
+
+const FeatureList = [
+  // highlight-start
+  { scale: 1.0,
+    fill: '#40bf77',
+    id: 'laptop-code-solid',
+  // highlight-end
+    title: 'Low Code API Development',
+    Svg: require('@site/static/img/laptop-code-solid.svg').default,
+    description: (
+      <>
+        Our service introspects existing data sources to rapidly deploy REST APIs without any coding!
+      </>
+    ),
+  },
+  // highlight-start
+  { scale: 1.0,
+    id: 'cloud-arrow-up-solid',
+  // highlight-end
+    title: 'Deploy Anywhere',
+    Svg: require('@site/static/img/cloud-arrow-up-solid.svg').default,
+    description: (
+      <>
+        APIs developed with our engine can be deployed in on-premise datacenters and any cloud.
+      </>
+    ),
+  },
+  // highlight-start
+  { scale: 0.75,
+    fill: '#0087da', //#0087da
+    id: 'shield-halved-solid',
+  // highlight-end
+    title: 'Security First',
+    Svg: require('@site/static/img/shield-halved-solid.svg').default,
+    description: (
+      <>
+        We offer Secure APIs with OAuth 2, OIDC, and JWT and entitlements can be enabled in seconds.
+      </>
+    ),
+  },
+];
+
+function Feature({scale, fill, id, Svg, title, description}) {
+
+// highlight-start  
+  // Custom code to change the fill color of the Cloud Arrow Up SVG
+  // depending on if user is in dark/light mode
+  const {colorMode} = useColorMode()
+  if ( id === 'cloud-arrow-up-solid' && colorMode === 'light' ) {
+    fill = '#848482' // Battleship Gray
+  } else if ( id === 'cloud-arrow-up-solid' && colorMode === 'dark') {
+    fill = 'white' 
+  }
+ // highlight-end 
+  return (
+    <div className={clsx('col col--4')}>
+      <div className="text--center">
+      // highlight-start
+        <Svg transform={"scale(" + scale + ")"} fill={fill} id={id} className={styles.featureSvg} role="img" />
+      // highlight-end
+      </div>
+      <div className="text--center padding-horiz--md">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
+}
+
+export default function HomepageFeatures() {
+  return (
+    <section className={styles.features}>
+      <div className="container">
+        <div className="row">
+          {FeatureList.map((props, idx) => (
+            <Feature key={idx} {...props} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+```
