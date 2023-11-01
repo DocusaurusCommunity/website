@@ -33,7 +33,7 @@ import { Icon } from '@iconify/react'; // Import the entire Iconify library.
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  icon: Icon, // Make the iconify Icon component available in MDX as <icon />.
+  Icon: Icon, // Make the iconify Icon component available in MDX as <icon />.
 };
 ```
 
@@ -44,7 +44,7 @@ We can then use the `icon` component in MDX files:
 title: My Doc
 ---
 
-<icon icon="mdi:github" height="48" /> This is a GitHub icon.
+<Icon icon="mdi:github" height="48" /> This is a GitHub icon.
 ```
 
 Iconify have a superb [Icon Explorer](https://icon-sets.iconify.design/) where you can search for icons and copy the code to use in your documentation.
