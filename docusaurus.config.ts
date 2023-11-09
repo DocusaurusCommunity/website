@@ -1,38 +1,65 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
-const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+// Setup our Prism themes.
+import { themes } from 'prism-react-renderer';
+const lightCodeTheme = themes.vsLight;
+const darkCodeTheme = themes.vsDark;
+// Define our admonitions config.
+const admonitionsConfig = {
+  admonitions: {
+    keywords: [
+      'discord',
+      'info',
+      'success',
+      'danger',
+      'note',
+      'tip',
+      'warning',
+      'important',
+      'caution',
+      'powershell',
+      'security',
+      'ninja',
+      'release'
+    ],
+  },
+}
+// Import our remark plugins.
+import npm2yarn from '@docusaurus/remark-plugin-npm2yarn';
+import tabBlocks from 'docusaurus-remark-plugin-tab-blocks';
+// Setup our common remark plugin config.
+const remarkPluginsConfig = {
+  remarkPlugins: [
+    npm2yarn,
+    tabBlocks,
+  ]
+}
+// Setup our common config options for docs plugin instances.
+const commonDocsPluginConfig = {
+  showLastUpdateAuthor: false,
+  showLastUpdateTime: true,
+  sidebarCollapsible: true,
+  sidebarCollapsed: true,
+  ...admonitionsConfig,
+  ...remarkPluginsConfig,
+}
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Docusaurus.community',
   tagline: 'Docusaurus community knowledge sharing and plugin directory.',
   favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
   url: 'https://docusaurus.community',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'homotechsual', // Usually your GitHub org/user name.
   projectName: 'docusaurus.community', // Usually your repo name.
-
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  
-
-  // Even if you don't use internationalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  onBrokenMarkdownLinks: 'throw',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
@@ -45,53 +72,12 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/homotechsual/docusaurus.community/edit/main/',
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: true,
-          remarkPlugins: [
-            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
-          ],
-          admonitions: {
-            tag: ':::',
-            keywords: [
-              'discord',
-              'info',
-              'success',
-              'danger',
-              'note',
-              'tip',
-              'warning',
-              'important',
-              'caution',
-              'powershell',
-              'security',
-              'ninja',
-              'release'
-            ],
-          },
+          ...commonDocsPluginConfig,
         },
         blog: false,
         pages: {
-          remarkPlugins: [
-            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
-          ],
-          admonitions: {
-            tag: ':::',
-            keywords: [
-              'discord',
-              'info',
-              'success',
-              'danger',
-              'note',
-              'tip',
-              'warning',
-              'important',
-              'caution',
-              'powershell',
-              'security',
-              'ninja',
-              'release'
-            ],
-          },
+          ...admonitionsConfig,
+          ...remarkPluginsConfig
         },
         theme: {
           customCss: require.resolve('./src/scss/custom.scss'),
@@ -232,15 +218,48 @@ const config = {
     ],
     [
       '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
       {
         id: 'contributing',
         path: 'contributing',
         routeBasePath: 'contributing',
         sidebarPath: require.resolve('./sidebars.js'),
         editUrl: 'https://github.com/homotechsual/docusaurus.community/tree/main/',
+        ...commonDocsPluginConfig,
       },
     ]
   ],
+  webpack: {
+    jsLoader: (isServer: boolean) => ({
+      loader: require.resolve('swc-loader'),
+      options: {
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+          },
+          transform: {
+            react: {
+              runtime: 'automatic',
+            }
+          },
+          target: 'es2017',
+        },
+        module: {
+          type: isServer ? 'commonjs' : 'es6',
+        },
+      },
+    }),
+  },
+  markdown: {
+    format: 'detect',
+    mermaid: true,
+    mdx1Compat: {
+      comments: false,
+      headingIds: false,
+      admonitions: false,
+    }
+  }
 };
 
 module.exports = config;

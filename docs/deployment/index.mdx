@@ -1,53 +1,9 @@
 ---
-title: Docker Deployment
+title: Deployment Knowledge
+sidebar_label: Deployment
+sidebar_position: 4
 ---
 
-# Creating a Dockerfile
+import DocCardList from '@theme/DocCardList';
 
-:::tip
-
-This dockerfile is based on the work of [@BillChirico](https://github.com/BillChirico). Please check out his GitHub and that of [Volvox LLC](https://github.com/VolvoxLLC). We are very grateful for their contribution!
-
-:::
-
-Begin by establishing a `Dockerfile` at the root of your project repository. Copy the code below into the `Dockerfile` that you created:
-
-```docker
-# Use a larger node image to do the build for native deps (e.g., node, python)
-FROM node:lts-alpine AS deps
-
-WORKDIR /opt/app
-# Copy package.json and package-lock.json to the working directory
-COPY package.json package-lock.json ./
-COPY . /
-# Install production dependencies only
-RUN npm install
-
-# Stage 2: Build the application
-FROM node:lts-alpine AS builder
-
-WORKDIR /opt/app
-# Copy all files from the current directory to the working directory in the container
-COPY . .
-# Copy node_modules from the "deps" stage
-COPY --from=deps /opt/app/node_modules ./node_modules
-# Build the application
-RUN npm run build
-
-# Stage 3: Create the production image
-FROM node:lts-alpine AS runner
-# Set the working directory in the container to /opt/app
-WORKDIR /opt/app
-# Set environment variable
-ENV NODE_ENV=production
-# Copy necessary files from the "builder" stage
-EXPOSE 5000
-COPY --from=builder /opt/app/build ./build
-COPY --from=builder /opt/app/docusaurus.config.ts .
-COPY --from=builder /opt/app/node_modules ./node_modules
-COPY package.json package-lock.json ./
-# Define the command to run the application
-CMD npm run serve
-```
-
-With this Dockerfile, you are equipped to construct your Docker image efficiently, ensuring a lighter and more secure deployment.
+<DocCardList />

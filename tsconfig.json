@@ -1,6 +1,6 @@
 {
   // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
@@ -28,7 +28,7 @@
     "noUnusedParameters": false,
     "importsNotUsedAsValues": "remove",
 
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
 
     // This is important. We run `yarn tsc` in website so we can catch issues
     // with our declaration files (mostly names that are forgotten to be
