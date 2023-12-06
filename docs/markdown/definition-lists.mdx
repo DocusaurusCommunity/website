@@ -1,0 +1,70 @@
+---
+title: Definition Lists
+description: Adding definition lists to your documentation.
+---
+
+[Definition lists](https://www.w3schools.com/HTML/html_lists_other.asp) are used to define terms and their corresponding definitions. They are useful for glossaries, FAQs, and other reference material.
+
+We can add definition lists to our documentation by using the `dl` tag. Inside the `dl` tag, we can add `dt` tags for the term and `dd` tags for the definition.
+
+```html
+<dl>
+  <dt>Term</dt>
+  <dd>Definition</dd>
+</dl>
+```
+
+However we don't like using HTML tags directly in our Markdown files. Luckily the excellent [remark plugin](https://github.com/remarkjs/remark/blob/main/doc/plugins.md) ecosystem comes to the rescue. We can use the [remark-definition-list](https://github.com/wataru-chocola/remark-definition-list) plugin to add definition lists to our documentation.
+
+First we need to install the plugin.
+
+```bash npm2yarn
+npm install remark-deflist
+```
+
+Then we can add the plugin to our `remark` plugins in our `docusaurus.config.js` file.
+
+```js
+import remarkDefList from 'remark-deflist';
+...
+presets: [
+    [
+        '@docusaurus/preset-classic',
+        {
+            docs: {
+                remarkPlugins: [
+                    remarkDefList,
+                ],
+            },
+            blog: {
+                remarkPlugins: [
+                    remarkDefList,
+                ],
+            },
+            pages: {
+                remarkPlugins: [
+                    remarkDefList,
+                ],
+            },
+        },
+    ],
+],
+```
+
+Now we can add definition lists to our documentation.
+
+```mdx
+Apple
+: Pomaceous fruit of plants of the genus Malus in the family Rosaceae.
+
+Orange
+: The fruit of an evergreen tree of the genus Citrus.
+```
+
+Which will render as:
+
+Apple
+: Pomaceous fruit of plants of the genus Malus in the family Rosaceae.
+
+Orange
+: The fruit of an evergreen tree of the genus Citrus.

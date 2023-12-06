@@ -31,12 +31,16 @@
     "clsx": "^2.0.0",
     "docusaurus-plugin-plausible": "^0.0.5",
     "docusaurus-plugin-sass": "^0.2.5",
-    "docusaurus-remark-plugin-tab-blocks": "^2.0.0",
-    "prism-react-renderer": "^2.1.0",
+    "docusaurus-remark-plugin-tab-blocks": "^3.0.0",
+    "prism-react-renderer": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ideal-image": "^0.0.5",
     "react-popper": "^2.3.0",
+    "rehype-katex": "7",
+    "remark-definition-list": "^2.0.0",
+    "remark-deflist": "^1.0.0",
+    "remark-math": "6",
     "sass": "^1.69.5",
     "swc-loader": "^0.2.3"
   },
@@ -65,5 +69,5 @@
   "engines": {
     "node": ">=18.14"
   },
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "yarn@4.0.2"
 }
