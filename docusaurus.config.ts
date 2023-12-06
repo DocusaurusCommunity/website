@@ -30,11 +30,18 @@ const admonitionsConfig = {
 // Import our remark plugins.
 import npm2yarn from '@docusaurus/remark-plugin-npm2yarn';
 import tabBlocks from 'docusaurus-remark-plugin-tab-blocks';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkDefList from 'remark-deflist';
+
 // Setup our common remark plugin config.
 const remarkPluginsConfig = {
   remarkPlugins: [
-    npm2yarn,
+    [ npm2yarn, { sync: true } ],
     tabBlocks,
+    remarkMath,
+    rehypeKatex,
+    remarkDefList,
   ]
 }
 // Setup our common config options for docs plugin instances.
@@ -46,6 +53,8 @@ const commonDocsPluginConfig = {
   ...admonitionsConfig,
   ...remarkPluginsConfig,
 }
+
+import plausiblePlugin from 'docusaurus-plugin-plausible';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -222,7 +231,7 @@ const config = {
     ],
     'docusaurus-plugin-sass',
     [
-      'docusaurus-plugin-plausible',
+      plausiblePlugin,
       {
         domain: 'docusaurus.community',
       },

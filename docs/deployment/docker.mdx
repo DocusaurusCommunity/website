@@ -11,17 +11,25 @@ This dockerfile is based on the work of [@BillChirico](https://github.com/BillCh
 
 :::
 
-Begin by establishing a `Dockerfile` at the root of your project repository. Copy the code below into the `Dockerfile` that you created:
+You should start by creating a `dockerfile` at the root of your repository. This file contains the instructions used to build your Docker image. The Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
+
+## Approaches
+
+There are two approaches to dockerizing a Docusaurus site:
+
+1. Build the site in a container with the output sent to a docker volume and then use another container running a web server (like [Caddy](https://caddyserver.com/) or [nginx](https://www.nginx.com/)) to serve the resulting static site.
+1. Build the site in a container, 
 
 ```docker
 # Use a larger node image to do the build for native deps (e.g., node, python)
 FROM node:lts-alpine AS deps
 
 WORKDIR /opt/app
-# Copy package.json and package-lock.json to the working directory
-COPY package.json package-lock.json ./
+# Copy package.json and any lockfiles to the working directory.
+COPY package.json package-lock.json yarn.lock pnpm-lock.yaml ./
+# Copy the rest of the files to the working directory in the container
 COPY . /
-# Install production dependencies only
+# Run a CI 
 RUN npm install
 
 # Stage 2: Build the application
