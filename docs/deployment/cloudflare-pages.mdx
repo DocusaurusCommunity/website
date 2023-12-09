@@ -3,11 +3,25 @@ title: CloudFlare Pages Deployment
 description: Deploy Docusaurus to CloudFlare Pages using modern Yarn.
 ---
 
+## Before you start
+
+This guide assumes you already have a basic understanding of [Git](https://git-scm.com/). If you are new to Git, refer to GitHub's [Git handbook](https://guides.github.com/introduction/git-handbook/) on how to set up Git.
+
+If you clone with SSH, you must [generate SSH keys](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for each computer you're going to use to push or pull from GitHub.
+
+Refer to the [GitHub documentation](https://guides.github.com/introduction/git-handbook/) and [Git documentation](https://git-scm.com/book/en/v2) for more information.
+
+## Basic setup tasks
+
+### Scaffold a new Docusaurus project
+
 You should start by following the [Scaffold project website steps of the Docusaurus installation guide](https://docusaurus.io/docs/installation#scaffold-project-website) to create a new Docusaurus project. For the rest of this guide, we will assume that you have a Docusaurus project in a directory called `my-docusaurus-project`.
 
 :::warning[Don't Install Yet]
 Do not run `yarn install` yet. We will do that later, after we have configured our project to use the latest version of Yarn and Corepack.
 :::
+
+### Configure your Docusaurus project to use the latest version of Yarn and install dependencies
 
 :::warning[Put the right files in Git]
 Make sure you have committed the `package.json` and `yarn.lock` files to your Git repository before you deploy to CloudFlare Pages. This is because CloudFlare Pages will run `yarn install` for you, and you want to make sure that it installs the same dependencies that you have locally. You should not be pushing your `node_modules` or `build` directories to Git.
@@ -37,9 +51,11 @@ You're now ready to start developing your Docusaurus project. You can start a lo
 yarn start
 ```
 
+### Create your CloudFlare Pages project
+
 Deploying your Docusaurus site you CloudFlare pages will require you to have a CloudFlare account. You can use any of CloudFlare's supported repository providers.
 
-Login do the [CloudFlare Dashboard](https://dash.cloudflare.com/) and click on "Workers and Pages" in the left hand menu. You're then going to select "Create Application", select the "Pages" tab and finally click on "Connect to Git". 
+Login to the [CloudFlare Dashboard](https://dash.cloudflare.com/) and click on "Workers and Pages" in the left hand menu. You're then going to select "Create Application", select the "Pages" tab and finally click on "Connect to Git". 
 
 Connect your repository provider (at the time of writing either GitHub or GitLab) and select the repository you want to deploy. Then click "Begin setup". Chose your Project name to display in the CloudFlare dashboard, select the branch which holds your Docusaurus source files.
 
@@ -50,3 +66,21 @@ In a standard setup from the Classic template this will be blank, but if you hav
 :::
 
 Finally, click "Save and Deploy" and your site will be deployed to CloudFlare Pages.
+
+## Advanced setup tasks
+
+### Custom domain
+
+If you want to use a custom domain with your CloudFlare Pages deployment, you can do so by following the [Custom Domain documentation](https://developers.cloudflare.com/pages/how-to/custom-branch-aliases/) on the CloudFlare website.
+
+### Caching
+
+:::warning[Not yet compatible with modern Yarn]
+For reasons passing understanding, CloudFlare, despite adding caching as a beta in 2023 decided not to add support for modern versions of Yarn, instead only supporting the archaic Yarn 1 (classic Yarn) alongside `npm`, `pnpm` and `bun`. Be sure to let their team know how very silly this decision is and how much you'd like to see support for modern Yarn.
+:::
+
+In order to speed up builds and reduce bandwidth usage, CloudFlare Pages can cache your dependencies between builds. This is enabled from your project settings by selecting the "Builds & deployments" menu item and then clicking "Enable build cache" in the "Build cache (Beta)" section.
+
+### Preview deployments
+
+CloudFlare Pages supports preview deployments, allowing you to have separate builds for branches other than your production branch and have preview builds created for pull/merge requests. This is enabled from your project settings by selecting the "Builds & deployments" menu item and then clicking "Configure preview deployments" in the "Branch deployments" section. 
