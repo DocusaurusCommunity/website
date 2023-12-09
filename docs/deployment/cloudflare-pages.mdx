@@ -1,0 +1,52 @@
+---
+title: CloudFlare Pages Deployment
+description: Deploy Docusaurus to CloudFlare Pages using modern Yarn.
+---
+
+You should start by following the [Scaffold project website steps of the Docusaurus installation guide](https://docusaurus.io/docs/installation#scaffold-project-website) to create a new Docusaurus project. For the rest of this guide, we will assume that you have a Docusaurus project in a directory called `my-docusaurus-project`.
+
+:::warning[Don't Install Yet]
+Do not run `yarn install` yet. We will do that later, after we have configured our project to use the latest version of Yarn and Corepack.
+:::
+
+:::warning[Put the right files in Git]
+Make sure you have committed the `package.json` and `yarn.lock` files to your Git repository before you deploy to CloudFlare Pages. This is because CloudFlare Pages will run `yarn install` for you, and you want to make sure that it installs the same dependencies that you have locally. You should not be pushing your `node_modules` or `build` directories to Git.
+:::
+
+So next we want to enable (Corepack)[https://yarnpkg.com/corepack] corepack is an official [Node.js](https://nodejs.org/) tool, developed alongside [Yarn](https://yarnpkg.com/), that allows you to define your chosen package manager, and version, in your `package.json` file.
+
+```bash
+corepack enable
+```
+
+Then we want to set our Docusaurus project to use the latest stable version of Yarn.
+
+```bash
+yarn set version stable
+```
+
+Now we can install our dependencies.
+
+```bash
+yarn install
+```
+
+You're now ready to start developing your Docusaurus project. You can start a local development server by running:
+
+```bash
+yarn start
+```
+
+Deploying your Docusaurus site you CloudFlare pages will require you to have a CloudFlare account. You can use any of CloudFlare's supported repository providers.
+
+Login do the [CloudFlare Dashboard](https://dash.cloudflare.com/) and click on "Workers and Pages" in the left hand menu. You're then going to select "Create Application", select the "Pages" tab and finally click on "Connect to Git". 
+
+Connect your repository provider (at the time of writing either GitHub or GitLab) and select the repository you want to deploy. Then click "Begin setup". Chose your Project name to display in the CloudFlare dashboard, select the branch which holds your Docusaurus source files.
+
+Then, on the same page, we'll configure our build settings. You can select the Docusaurus preset from the dropdown and then alter the Build command to `yarn build`. Leave the Build output directory as `build`.
+
+:::tip[Root directory]
+In a standard setup from the Classic template this will be blank, but if you have a monorepo setup and your Docusaurus project is in a subdirectory of your repository you should set this value to the value of the subdirectory.
+:::
+
+Finally, click "Save and Deploy" and your site will be deployed to CloudFlare Pages.
