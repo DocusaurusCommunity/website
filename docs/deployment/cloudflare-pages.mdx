@@ -27,7 +27,7 @@ Do not run `yarn install` yet. We will do that later, after we have configured o
 Make sure you have committed the `package.json` and `yarn.lock` files to your Git repository before you deploy to CloudFlare Pages. This is because CloudFlare Pages will run `yarn install` for you, and you want to make sure that it installs the same dependencies that you have locally. You should not be pushing your `node_modules` or `build` directories to Git.
 :::
 
-So next we want to enable (Corepack)[https://yarnpkg.com/corepack] corepack is an official [Node.js](https://nodejs.org/) tool, developed alongside [Yarn](https://yarnpkg.com/), that allows you to define your chosen package manager, and version, in your `package.json` file.
+So next we want to enable [Corepack](https://yarnpkg.com/corepack), an official [Node.js](https://nodejs.org/) tool, developed alongside [Yarn](https://yarnpkg.com/), that allows you to define your chosen package manager, and version, in your `package.json` file.
 
 ```bash
 corepack enable
