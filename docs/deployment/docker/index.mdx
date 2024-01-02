@@ -83,7 +83,7 @@ Depending on stage / target you will need to run the docker image differently.
   * `-v $(pwd):/var/docusaurus` - This is an optional flag that will mount the current directory as a volume in the container.
   * `<tag>` - This is the name and tag of the image that will be run. Make sure to use the same tag that you used when building the image.
 
-  :::caution Node Modules
+  :::warning Node Modules
   If you are using the `dev` target you will need to make sure that you have **not** installed the dependencies locally. The container will handle installing the dependencies for you. You will notice a `node_modules` folder and, potentially, other files and folders being created in your local directory as the container runs.
   :::
   </TabItem>
@@ -119,7 +119,7 @@ Depending on stage / target you will need to run the docker image differently.
   * `-p 443:443` - This is an optional flag that will map port 443 on the host to port 443 in the container.
   * `<tag>` - This is the name and tag of the image that will be run. Make sure to use the same tag that you used when building the image.
 
-  :::caution Automatic TLS
+  :::warning Automatic TLS
   Caddy will automatically serve over HTTPS. It will generate a self-signed certificate if it can't use a certificate from [Let's Encrypt](https://letsencrypt.org/). If you want to use a certificate from Let's Encrypt you will need to set the `DOCUSAURUS_EMAIL` and `DOCUSAURUS_DOMAIN` environment variables. You will also need to make sure that the domain name you are using is pointed to the server that you are running the container on.
   :::
 
