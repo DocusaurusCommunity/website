@@ -7,7 +7,9 @@ import AdmonitionTypeDanger from '@theme/Admonition/Type/Danger';
 import AdmonitionTypeDiscord from './Type/Discord';
 import AdmonitionTypeSecurity from './Type/Security';
 import AdmonitionTypeRelease from './Type/Release';
+import AdmonitionTypeCredit from './Type/Credit';
 import type AdmonitionTypes from '@theme/Admonition/Types';
+import type {Props} from '@theme/Admonition';
 
 const admonitionTypes: typeof AdmonitionTypes = {
   note: AdmonitionTypeNote,
@@ -18,17 +20,18 @@ const admonitionTypes: typeof AdmonitionTypes = {
   discord: AdmonitionTypeDiscord,
   security: AdmonitionTypeSecurity,
   release: AdmonitionTypeRelease,
+  credit: AdmonitionTypeCredit,
 };
 
 // Undocumented legacy admonition type aliases
 // Provide hardcoded/untranslated retrocompatible label
 // See also https://github.com/facebook/docusaurus/issues/7767
 const admonitionAliases: typeof AdmonitionTypes = {
-  secondary: (props) => <AdmonitionTypeNote title="secondary" {...props} />,
-  important: (props) => <AdmonitionTypeInfo title="important" {...props} />,
-  success: (props) => <AdmonitionTypeTip title="success" {...props} />,
+  secondary: (props: Props) => <AdmonitionTypeNote title="secondary" {...props} />,
+  important: (props: Props) => <AdmonitionTypeInfo title="important" {...props} />,
+  success: (props: Props) => <AdmonitionTypeTip title="success" {...props} />,
   // TODO bad legacy mapping, warning is usually yellow, not red...
-  warning: (props) => <AdmonitionTypeDanger title="warning" {...props} />,
+  warning: (props: Props) => <AdmonitionTypeDanger title="warning" {...props} />,
 };
 
 export default {

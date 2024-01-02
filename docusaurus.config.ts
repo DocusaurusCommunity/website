@@ -23,7 +23,8 @@ const admonitionsConfig = {
       'powershell',
       'security',
       'ninja',
-      'release'
+      'release',
+      'credit'
     ],
   },
 }

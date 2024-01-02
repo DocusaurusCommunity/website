@@ -1,0 +1,21 @@
+```yaml {title='caddy.docker-compose.yml'}
+name: "docusaurus"
+services:
+    caddy:
+        build:
+            context: .
+            target: caddy
+        ports:
+            - "80:80"
+            - "443:443"
+        environment:
+            - NODE_ENV=production
+            - DOCUSAURUS_DOMAIN=docusaurus.example
+            - DOCUSAURUS_EMAIL=letsencrypt@docusaurus.example
+        volumes:
+            - caddy_data:/data
+            - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:
+```

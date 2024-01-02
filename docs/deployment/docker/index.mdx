@@ -1,0 +1,158 @@
+---
+title: Docker Deployment
+description: Deploy Docusaurus using a Dockerfile
+hide_table_of_contents: true
+---
+
+import DockerfilePNPM from './_partials/_dockerfile-pnpm.mdx'
+import DockerfileNPM from './_partials/_dockerfile-npm.mdx'
+import DockerfileYarn from './_partials/_dockerfile-yarn.mdx'
+import ComposefileDev from './_partials/_composefile-dev.mdx'
+import ComposefileServe from './_partials/_composefile-serve.mdx'
+import ComposefileCaddy from './_partials/_composefile-caddy.mdx'
+
+## Creating the Dockerfile
+
+:::credit
+We are grateful to [Cindy Le](https://dev.to/cindyledev/) and [@BillChirico](https://github.com/BillChirico) of [Volvox LLC](https://github.com/VolvoxLLC) for sharing their experience dockerizing Docusaurus sites.
+:::
+
+You should start by creating a `dockerfile` at the root of your Docusaurus project. This file contains the instructions used to build your Docker image. A Docker image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.
+
+There are a few approaches to dockerizing Docusaurus sites:
+
+1. Build the site in a container with the output sent to a docker volume and then use another container running a web server (like [Caddy](https://caddyserver.com/) or [nginx](https://www.nginx.com/)) to serve the resulting static site.
+1. Build the site in a container and run the serve process in the same container.
+1. Run the `start` process in a container with the *local* source code folder mounted as a volume.
+
+We are going to provide a dockerfile which will cover all three of the above approaches. You can choose which approach you want to use by passing the `--target` option to the `docker build` command. Our dockerfile makes use of [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) to build the site.
+
+<Tabs groupId="package-managers" queryString>
+    <TabItem value="npm" label="NPM">
+        <DockerfileNPM />
+    </TabItem>
+    <TabItem value="pnpm" label="PNPM">
+        <DockerfilePNPM />
+    </TabItem>
+    <TabItem value="yarn" label="Yarn">
+        <DockerfileYarn />
+    </TabItem>
+</Tabs>
+
+The dockerfile is broken up into 2 or 3 stages depending on the target. The stages are:
+
+* **Stage 1: Base** - This stage is used by all targets. It pulls a base image, enables `corepack` and sets the working directory.
+* **Stage 2a: Dev** - This stage is used by the `dev` target. It installs the dependencies and starts the `start` process.
+* **Stage 2b: Build** - This stage is used by the `serve` and `caddy` targets. It installs the dependencies and builds the site.
+* **Stage 3a: Serve** - This stage is used by the `serve` target. It copies the site from the `build` stage and starts the `serve` process.
+* **Stage 3b: Caddy** - This stage is used by the `caddy` target. It copies the site from the `build` stage and starts a `caddy` webserver with, optional, automatic TLS.
+
+## Building the Docker Image
+
+To build the docker image you will need to run the following command:
+
+```bash
+docker build --target <target> -t <tag> .
+```
+
+To deconstruct the above command:
+
+* `docker build` - This is the command to build a docker image.
+* `--target <target>` - This is the target to build. The target is the name of the stage in the dockerfile. Valid targets are `dev`, `serve` and `caddy`.
+* `-t <tag>` - This is the name and tag of the image that will be built. The format is `<name>:<tag>`. The name can be anything you want. The tag is optional. If you do not specify a tag, `latest` will be used.
+* `.` - This is the path to the build context. In this case we are using the current directory as the build context.
+
+## Running the Docker Image
+
+Depending on stage / target you will need to run the docker image differently.
+
+<Tabs groupId="target" queryString>
+  <TabItem value="dev" label="Dev">
+  To run the `dev` target you will need to run the following command:
+
+  ```bash
+  docker run --rm -d -p 3000:3000 -v $(pwd):/var/docusaurus <tag>
+  ```
+
+  To deconstruct the above command:
+
+  * `docker run` - This is the command to run a docker image.
+  * `--rm` - This is an optional flag that will remove the container when it exits.
+  * `-d` - This is an optional flag that will run the container in detached mode.
+  * `-p 3000:3000` - This is an optional flag that will map port 3000 on the host to port 3000 in the container.
+  * `-v $(pwd):/var/docusaurus` - This is an optional flag that will mount the current directory as a volume in the container.
+  * `<tag>` - This is the name and tag of the image that will be run. Make sure to use the same tag that you used when building the image.
+
+  :::caution Node Modules
+  If you are using the `dev` target you will need to make sure that you have **not** installed the dependencies locally. The container will handle installing the dependencies for you. You will notice a `node_modules` folder and, potentially, other files and folders being created in your local directory as the container runs.
+  :::
+  </TabItem>
+  <TabItem value="serve" label="Serve">
+  To run the `serve` target you will need to run the following command:
+
+  ```bash
+  docker run --rm -d -p 3000:3000 <tag>
+  ```
+
+  To deconstruct the above command:
+
+  * `docker run` - This is the command to run a docker image.
+  * `--rm` - This is an optional flag that will remove the container when it exits.
+  * `-d` - This is an optional flag that will run the container in detached mode.
+  * `-p 3000:3000` - This is an optional flag that will map port 3000 on the host to port 3000 in the container.
+  * `<tag>` - This is the name and tag of the image that will be run. Make sure to use the same tag that you used when building the image.
+
+  </TabItem>
+  <TabItem value="caddy" label="Caddy">
+  To run the `caddy` target you will need to run the following command:
+
+  ```bash
+  docker run --rm -d -p 80:80 -p 443:443 <tag>
+  ```
+
+  To deconstruct the above command:
+
+  * `docker run` - This is the command to run a docker image.
+  * `--rm` - This is an optional flag that will remove the container when it exits.
+  * `-d` - This is an optional flag that will run the container in detached mode.
+  * `-p 80:80` - This is an optional flag that will map port 80 on the host to port 80 in the container.
+  * `-p 443:443` - This is an optional flag that will map port 443 on the host to port 443 in the container.
+  * `<tag>` - This is the name and tag of the image that will be run. Make sure to use the same tag that you used when building the image.
+
+  :::caution Automatic TLS
+  Caddy will automatically serve over HTTPS. It will generate a self-signed certificate if it can't use a certificate from [Let's Encrypt](https://letsencrypt.org/). If you want to use a certificate from Let's Encrypt you will need to set the `DOCUSAURUS_EMAIL` and `DOCUSAURUS_DOMAIN` environment variables. You will also need to make sure that the domain name you are using is pointed to the server that you are running the container on.
+  :::
+
+  You'll also need to create a `caddyfile` in the root of your Docusaurus project. The contents should be something like this:
+
+  ```caddyfile
+  {$DOCUSAURUS_DOMAIN:localhost} {
+    root * /var/docusaurus
+    encode gzip
+    try_files {path} /index.html
+    file_server
+    email: {$DOCUSAURUS_EMAIL}
+  }
+  ```
+
+  This file will be copied into the container and used by Caddy to serve the site. `{$DOCUSAURUS_DOMAIN}` is a placeholder for the domain name that you will be using to serve the site. You can replace this with the actual domain name or you can use an environment variable to set the domain name. If you use an environment variable you will need to ensure the value is set in the container - either by passing it into the `docker run` command or setting it in a docker-compose file. The same applies to the `{$DOCUSAURUS_EMAIL}` placeholder.
+  </TabItem>
+</Tabs>
+
+## Docker Compose
+
+[Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application's services. Then, with a single command, you create and start all the services from your configuration. We don't have multiple containers but we can still use Compose to make running the container easier.
+
+To use Compose you will need to create a `docker-compose.yml` file in the root of your Docusaurus project, this will vary depending on the target you want to use and you might want to use more than one target, so you might end up with multiple `docker-compose.yml` files. We will provide a `docker-compose.yml` file for each target.
+
+<Tabs groupId="target" queryString>
+  <TabItem value='dev' label='Dev'>
+    <ComposefileDev />
+  </TabItem>
+  <TabItem value='serve' label='Serve'>
+    <ComposefileServe />
+  </TabItem>
+  <TabItem value='caddy' label='Caddy'>
+    <ComposefileCaddy />
+  </TabItem>
+</Tabs>
