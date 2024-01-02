@@ -156,3 +156,21 @@ To use Compose you will need to create a `docker-compose.yml` file in the root o
     <ComposefileCaddy />
   </TabItem>
 </Tabs>
+
+To run the container using Compose you will need to run the following command:
+
+```bash
+docker compose --file <composefile> up -d --build
+```
+
+To deconstruct the above command:
+
+* `docker compose` - This is the command to run a docker-compose file.
+* `--file <composefile>` - This is the path to the composefile. Using our example composefiles, the path would be `./dev.docker-compose.yml` for the `dev` target, `./serve.docker-compose.yml` for the `serve` target and `./caddy.docker-compose.yml` for the `caddy` target. Assuming the compose files are in the root of your Docusaurus project.
+* `up` - This is the command to bring up the containers.
+* `-d` - This is an optional flag that will run the container in detached mode.
+* `--build` - This is an optional flag that will force the container to be rebuilt.
+
+## Conclusion
+
+You should now have a working Dockerfile and docker-compose file for your Docusaurus site. You can use these files to build and run your site in a container. You can also use these files to deploy your site to a server. You can use the `docker-compose.yml` file to deploy the site to a server that has Docker and Docker Compose installed. You can also use the `dockerfile` to build the image and then push the image to a registry like [Docker Hub](https://hub.docker.com/) or [GitHub Container Registry](https://docs.github.com/en/packages/guides/about-github-container-registry) and then pull the image onto the server and run it.
