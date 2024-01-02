@@ -1,0 +1,12 @@
+name: "docusaurus"
+services:
+    dev:
+        build:
+            context: .
+            target: dev
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/opt/docusaurus
+        environment:
+            - NODE_ENV=development

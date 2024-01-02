@@ -274,3 +274,17 @@ html[data-theme='dark'] .alert--release {
   --ifm-alert-foreground-color: rgb(255,255,255);
   --ifm-alert-border-color: #F2C14E;
 }
+
+.alert--credit {
+  --ifm-alert-background-color: rgba(181, 127, 12, 0.5);
+  --ifm-alert-background-color-highlight: rgba(181, 127, 12, 0.15);
+  --ifm-alert-foreground-color: rgb(66,69,73);
+  --ifm-alert-border-color: #B57F0C;
+}
+
+html[data-theme='dark'] .alert--credit {
+  --ifm-alert-background-color: rgba(181, 127, 12, 0.5);
+  --ifm-alert-background-color-highlight: rgba(181, 127, 12, 0.15);
+  --ifm-alert-foreground-color: rgb(255,255,255);
+  --ifm-alert-border-color: #B57F0C;
+}

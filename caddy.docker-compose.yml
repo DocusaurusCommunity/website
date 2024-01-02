@@ -1,0 +1,19 @@
+name: "docusaurus"
+services:
+    caddy:
+        build:
+            context: .
+            target: caddy
+        ports:
+            - "80:80"
+            - "443:443"
+        environment:
+            - NODE_ENV=production
+            - DOCUSAURUS_DOMAIN=docusaurus.community
+            - DOCUSAURUS_EMAIL=letsencrypt@docusaurus.community
+        volumes:
+            - caddy_data:/data
+            - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:

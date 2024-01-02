@@ -1,0 +1,12 @@
+```yaml {title='serve.docker-compose.yml'}
+name: "docusaurus"
+services:
+    serve:
+        build:
+            context: .
+            target: serve
+        ports:
+            - "3000:3000"
+        environment:
+            - NODE_ENV=production
+```
