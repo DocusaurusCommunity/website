@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.3.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
 id: stackql.hubspot
 name: HubSpot
 description: A plugin to add HubSpot analytics to your Docusaurus site.

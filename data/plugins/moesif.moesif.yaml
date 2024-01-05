@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.3.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
 id: moesif.moesif
 name: Moesif
 description: A plugin to add Moesif API analytics to your Docusaurus site.

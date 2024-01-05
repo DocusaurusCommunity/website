@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "version": "1.1.0",
-    "id": "https://docusaurus.community/schema/plugin/1.1.0.json",
+    "version": "1.2.0",
+    "id": "https://docusaurus.community/schema/plugin/1.2.0.json",
     "title": "Docusaurus Plugin",
     "description": "Docusaurus Plugin or Theme Schema for the Docusaurus Community Plugin Directory",
     "type": "object",
@@ -113,6 +113,18 @@
                 "NPM package unpublished or non-existent."
             ]
         },
+        "compatibility": {
+            "description": "Which major versions of Docusaurus the plugin or theme is compatible with.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "1",
+                    "2",
+                    "3"
+                ]
+            }
+        },
         "npmPackages": {
             "description": "The NPM package(s) of the plugin or theme.",
             "type": "array",
@@ -136,6 +148,7 @@
         "author",
         "tags",
         "minimumVersion",
-        "maintenanceStatus"
+        "maintenanceStatus",
+        "compatibility"
     ]
 }

@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.3.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
 id: devbookhq.code-video
 name: Code Video
 description: Add a video to a Docusaurus code block and highlight code lines as the video plays.

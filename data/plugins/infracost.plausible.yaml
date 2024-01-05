@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+id: infracost.plausible
+name: Plausible Analytics
+description: A Docusaurus plugin for Plausible analytics. Inspired by gatsby-plugin-plausible.
+preview: null
+website: https://github.com/infracost/docusaurus-plugin-plausible
+source: https://github.com/infracost/docusaurus-plugin-plausible
+author: infracost
+tags: 
+  - analytics
+minimumVersion: 2.0.0
+maintenanceStatus: maintained
+npmPackages: 
+  - docusaurus-plugin-plausible

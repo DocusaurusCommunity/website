@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.3.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
 id: saucelabs.github-code-block
 name: GitHub Code Block
 description: A Docusaurus 2 plugin that supports referencing code examples from public GitHub repositories.
