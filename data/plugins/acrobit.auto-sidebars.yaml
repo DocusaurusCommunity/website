@@ -10,5 +10,7 @@ tags:
   - utility
 minimumVersion: 2.0.0-alpha.50
 maintenanceStatus: unknown
+compatibility:
+  - 2
 npmPackages: 
   - docusaurus-plugin-auto-sidebars
