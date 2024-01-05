@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+id: silva-nick.portfolio
+name: Portfolio
+description: A Docusaurus plugin to create a portfolio page from GitHub.
+preview: null
+website: https://silva-nick.github.io/portfolio/
+source: https://github.com/silva-nick/docusaurus-portfolio
+author: silva-nick
+tags: 
+  - content
+  - theme
+minimumVersion: 2.0.0
+maintenanceStatus: unknown
+npmPackages: 
+  - docusaurus-plugin-auto-sidebars
