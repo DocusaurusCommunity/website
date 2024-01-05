@@ -12,4 +12,5 @@ tags:
 minimumVersion: 2.0.0
 maintenanceStatus: unknown
 npmPackages: 
-  - docusaurus-plugin-auto-sidebars
+  - docusaurus-portfolio-plugin
+  - docusaurus-portfolio-theme
