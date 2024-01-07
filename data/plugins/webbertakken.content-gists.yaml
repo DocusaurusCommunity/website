@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: webbertakken.content-gists
 name: Content Gists
 description: A Docusaurus plugin to embed GitHub Gists in your docs.

@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: docusaurus.google-gtag
 name: Google Gtag
 description: Official Docusaurus Google Gtag plugin.

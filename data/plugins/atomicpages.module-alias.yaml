@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: atomicpages.module-alias
 name: Module Alias
 description: A tiny Docusaurus plugin for easy module alias creation.

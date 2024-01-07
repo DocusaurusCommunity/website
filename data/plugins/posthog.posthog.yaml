@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: posthog.posthog
+name: PostHog
+description: A plugin to add PostHog to your Docusaurus site.
+preview: null
+website: https://posthog.com/docs/integrate/third-party/docusaurus
+source: https://github.com/PostHog/posthog-docusaurus
+author: PostHog
+tags:
+  - analytics
+  - integration
+  - utility
+minimumVersion: null
+maintenanceStatus: maintained
+compatibility:
+  - 2
+npmPackages:
+  - posthog-docusaurus

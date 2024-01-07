@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: jlvandenhout.docs-editor
 name: Docs Editor
 description: A client-side editor for your Docusaurus docs, allowing users to propose changes to any of your Markdown files without the need to know Markdown or Git workflows details.
