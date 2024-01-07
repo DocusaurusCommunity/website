@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.0.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: papercups-io.papercups
 name: Papercups
 description: A Docusaurus plugin to add the Papercups chat widget to your site.

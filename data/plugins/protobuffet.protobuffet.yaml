@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: protobuffet.protobuffet
+name: ProtoBuffet
+description: A plugin to add PostHog to your Docusaurus site.
+preview: null
+website: https://protobuffet.com/docs/what/overview#docusaurus
+source: https://github.com/PostHog/posthog-docusaurus
+author: PostHog
+tags:
+  - analytics
+  - integration
+  - utility
+minimumVersion: null
+maintenanceStatus: maintained
+compatibility:
+  - 2
+npmPackages:
+  - posthog-docusaurus

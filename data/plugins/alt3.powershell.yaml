@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: alt3.powershell
+name: PowerShell
+description: A PowerShell module to generate Docusaurus documentation for PowerShell modules.
+preview: null
+website: https://docusaurus-powershell.vercel.app/
+source: https://github.com/alt3/Docusaurus.Powershell
+author: alt3
+tags:
+  - content
+  - utility
+  - markdown
+  - integration
+minimumVersion: null
+maintenanceStatus: maintained
+compatibility:
+  - 2
