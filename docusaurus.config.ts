@@ -68,6 +68,7 @@ const config = {
   projectName: 'docusaurus.community', // Usually your repo name.
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
+  trailingSlash: true,
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
