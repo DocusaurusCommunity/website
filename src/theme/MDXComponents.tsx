@@ -9,10 +9,19 @@ import MDXComponents from '@theme-original/MDXComponents';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DocusaurusButton from '@site/src/components/DocusaurusButton';
- 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { Icon as IconifyIcon } from '@iconify/react';
+
+library.add(fab, fas);
+
 export default {
     ...MDXComponents,
     Tabs,
     TabItem,
     DocusaurusButton,
+    FAIcon: FontAwesomeIcon,
+    IIcon: IconifyIcon,
 };
