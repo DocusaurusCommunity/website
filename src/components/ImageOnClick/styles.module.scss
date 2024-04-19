@@ -1,11 +1,10 @@
-.imageonclick {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%; /* Adjust this value according to your needs */
-  
-  &.cursor-pointer {
+.imageonclick  {
+    display: flex;
+    max-width: 50% !important;
+    margin: auto; /* Adjust this value according to your needs */
+  }
+  .cursor-pointer {
     cursor: pointer;
   }
-  }
+  
   
