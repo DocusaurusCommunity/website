@@ -1,8 +1,8 @@
 ---
 title: Custom component
 ---
-## ImageOnClick
-## Creating the React component
+
+## Creating component custom *ImageOnClick*
 
 We create our file to host the code of our component in *src\components\ImageOnClick\index.*\
 [Source useBaseUrl function in Docusaurus](https://docusaurus.io/docs/next/static-assets#in-jsx)
@@ -176,13 +176,11 @@ To center the image and apply the cursor pointer, we'll add some CSS
 <Tabs>
   <TabItem value="CSS" label="CSS" default>
 ```css
-.ImageOnClick {
+.imageonclick {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%; /* Adjust this value according to your needs */
+  max-width: 50% !important;
+  margin: auto; /* Ajustez cette valeur selon vos besoins */
 }
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -194,16 +192,16 @@ To center the image and apply the cursor pointer, we'll add some CSS
 </TabItem>
   <TabItem value="SCSS" label="SCSS" default>
   ```css
-.ImageOnClick {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%; /* Adjust this value according to your needs */
-
+.imageonclick  {
+    display: flex;
+    max-width: 50% !important;
+    margin: auto; /* Adjust this value according to your needs */
+  
   &.cursor-pointer {
     cursor: pointer;
   }
-}
+  }
+  
 
 ```
   </TabItem>
