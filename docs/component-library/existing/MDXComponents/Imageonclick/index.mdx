@@ -31,16 +31,16 @@ export default function ImageOnClick({ imageUrl, altText, buttonName }) {
     // Using a <span> container since these links will often be inside <p>, so to avoid semantic errors on click, the span is ideal
     // Then creating a link with an event handler here on click (onClick)
     // Then the 3 properties and their CSS classes defined in the site's custom CSS
-    // cursor pointer is for modifying the cursor on hover
+    // cursor  is for modifying the cursor on hover
    <span>
     
       <a onClick={() => setShowImg(!showImg)}
-       className= 'cursor-pointer'>
+       className= {styles.cursor}>
        {buttonName}  
        
       </a>
       {showImg && (
-        <span className='ImageOnClick'>
+        <span className={styles.imageonclick}>
          <img src={generatedImageUrl} alt={altText} /> 
         </span>
       )}
@@ -73,12 +73,12 @@ const ImageOnClick: React.FC<ImageOnClickProps> = ({ imageUrl, altText, buttonNa
   return (
     <span>
       {/* Button to toggle visibility of the image */}
-      <a onClick={() => setShowImg(!showImg)} className='cursor-pointer'>
+      <a onClick={() => setShowImg(!showImg)} className={styles.cursor}>
         {buttonName}  
       </a>
       {/* Conditionally render the image if showImg is true */}
       {showImg && (
-        <span className='ImageOnClick'>
+        <span className={styles.imageonclick}>
           {/* Image element */}
           <img src={generatedImageUrl} alt={altText} /> 
         </span>
@@ -181,7 +181,7 @@ To center the image and apply the cursor pointer, we'll add some CSS
   max-width: 50% !important;
   margin: auto; /* Ajustez cette valeur selon vos besoins */
 }
-.cursor-pointer {
+.cursor {
   cursor: pointer;
 }
 
@@ -197,11 +197,11 @@ To center the image and apply the cursor pointer, we'll add some CSS
     max-width: 50% !important;
     margin: auto; /* Adjust this value according to your needs */
   
-  &.cursor-pointer {
+  &.cursor {
     cursor: pointer;
   }
   }
-  
+   
 
 ```
   </TabItem>
