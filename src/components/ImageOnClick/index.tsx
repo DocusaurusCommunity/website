@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; // Import React and useState hook
 import clsx from 'clsx'; // Import clsx library for conditional classes
 import useBaseUrl from '@docusaurus/useBaseUrl'; // Import the useBaseUrl function from Docusaurus
-import styles from '.styles.module.scss'; // Import styles from SCSS module
+import styles from './styles.module.scss'; // Import styles from SCSS module
 
 // Define the type for props passed to the ImageOnClick component
 interface ImageOnClickProps {
@@ -19,12 +19,12 @@ const ImageOnClick: React.FC<ImageOnClickProps> = ({ imageUrl, altText, buttonNa
   return (
     <span>
       {/* Button to toggle visibility of the image */}
-      <a onClick={() => setShowImg(!showImg)} className='cursor-pointer'>
+      <a onClick={() => setShowImg(!showImg)} className={styles.cursor}>
         {buttonName}  
       </a>
       {/* Conditionally render the image if showImg is true */}
       {showImg && (
-        <span className='imageonclick'>
+        <span className={styles.imageonclick}>
           {/* Image element */}
           <img src={generatedImageUrl} alt={altText} /> 
         </span>
