@@ -47,6 +47,20 @@ The dockerfile is broken up into 2 or 3 stages depending on the target. The stag
 * **Stage 3a: Serve** - This stage is used by the `serve` target. It copies the site from the `build` stage and starts the `serve` process.
 * **Stage 3b: Caddy** - This stage is used by the `caddy` target. It copies the site from the `build` stage and starts a `caddy` webserver with, optional, automatic TLS.
 
+## Exposing application outside container
+In order to make the application accessible from outside the container (e.g. from your web browser), you’ll want to set the --host option to 0.0.0.0.
+This can be done from your package.json:
+
+```bash
+ "scripts": {
+	"docusaurus": "docusaurus",
+	"start": "docusaurus start --host 0.0.0.0",
+```
+Or in your Dockerfile as an argument to your project’s start command:
+```bash
+CMD ["npm", "start", “--host”, “0.0.0.0”]
+```
+
 ## Building the Docker Image
 
 To build the docker image you will need to run the following command:
