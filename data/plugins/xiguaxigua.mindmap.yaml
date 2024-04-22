@@ -13,5 +13,7 @@ tags:
   - integration
 minimumVersion: null
 maintenanceStatus: maintained
+compatibility:
+  - 2
 npmPackages:
   - docusaurus-plugin-mindmap

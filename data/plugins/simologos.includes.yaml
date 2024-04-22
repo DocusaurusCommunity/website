@@ -11,5 +11,7 @@ tags:
   - markdown
 minimumVersion: 2.0.0-beta5
 maintenanceStatus: maintained
+compatibility:
+  - 2
 npmPackages:
   - docusaurus-plugin-includes
