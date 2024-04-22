@@ -11,5 +11,7 @@ tags:
   - integration
 minimumVersion: 2.0.0-alpha.58
 maintenanceStatus: maintained
+compatibility:
+  - 2
 npmPackages:
   - docusaurus-plugin-lunr

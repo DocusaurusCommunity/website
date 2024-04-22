@@ -11,6 +11,8 @@ tags:
   - utility
 minimumVersion: null
 maintenanceStatus: maintained
+compatibility:
+  - 2
 npmPackages:
   - "@microsoft/api-extractor"
   - docusaurus-plugin-api-extractor
