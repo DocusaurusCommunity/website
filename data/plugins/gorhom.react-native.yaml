@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: gorhom.react-native
+name: React Native
+description: A Docusaurus plugin to add React Native and Reanimated support to your Docusaurus site.
+preview: null
+website: https://github.com/gorhom/docusaurus-react-native-plugin
+source: https://github.com/gorhom/docusaurus-react-native-plugin
+author: gorhom
+tags:
+  - content
+  - integration
+  - markdown
+  - theme
+  - utility
+minimumVersion: null
+maintenanceStatus: maintained
+compatibility:
+  - 2
+npmPackages:
+  - "@gorhom/docusaurus-react-native-plugin"

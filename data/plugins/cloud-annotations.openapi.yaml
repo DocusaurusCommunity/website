@@ -11,5 +11,8 @@ tags:
   - content
 minimumVersion: null
 maintenanceStatus: maintained
+compatibility:
+  - 2
+  - 3
 npmPackages:
   - docusaurus-preset-openapi

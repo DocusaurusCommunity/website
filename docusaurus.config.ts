@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 // Import the Docusaurus version.
-const { DOCUSAURUS_VERSION } = require("@docusaurus/utils");
+import { DOCUSAURUS_VERSION } from '@docusaurus/utils'
 // Setup our Prism themes.
 import { themes } from 'prism-react-renderer';
 const lightCodeTheme = themes.vsLight;
@@ -222,7 +222,7 @@ const config: Config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['powershell','bash','docker', 'diff', 'json']
+        additionalLanguages: ['powershell','bash','docker', 'diff', 'json', 'sass']
       },
     } satisfies Preset.ThemeConfig,
   plugins: [

@@ -47,6 +47,38 @@ The dockerfile is broken up into 2 or 3 stages depending on the target. The stag
 * **Stage 3a: Serve** - This stage is used by the `serve` target. It copies the site from the `build` stage and starts the `serve` process.
 * **Stage 3b: Caddy** - This stage is used by the `caddy` target. It copies the site from the `build` stage and starts a `caddy` webserver with, optional, automatic TLS.
 
+:::caution{title='Automatic TLS'}
+  Caddy will automatically serve over HTTPS. It will generate a self-signed certificate if it can't use a certificate from [Let's Encrypt](https://letsencrypt.org/). If you want to use a certificate from Let's Encrypt you will need to set the `DOCUSAURUS_EMAIL` and `DOCUSAURUS_DOMAIN` environment variables. You will also need to make sure that the domain name you are using is pointed to the server that you are running the container on.
+:::
+
+You'll also need to create a `caddyfile` in the root of your Docusaurus project. The contents should be something like this:
+
+```caddyfile
+{$DOCUSAURUS_DOMAIN:localhost} {
+  root * /var/docusaurus
+  encode gzip
+  try_files {path} /index.html
+  file_server
+  email: {$DOCUSAURUS_EMAIL}
+}
+```
+
+This file will be copied into the container and used by Caddy to serve the site. `{$DOCUSAURUS_DOMAIN}` is a placeholder for the domain name that you will be using to serve the site. You can replace this with the actual domain name or you can use an environment variable to set the domain name. If you use an environment variable you will need to ensure the value is set in the container - either by passing it into the `docker run` command or setting it in a docker-compose file. The same applies to the `{$DOCUSAURUS_EMAIL}` placeholder.
+
+## Exposing application outside container
+In order to make the application accessible from outside the container (e.g. from your web browser), you’ll want to set the --host option to 0.0.0.0.
+This can be done from your package.json:
+
+```bash
+ "scripts": {
+	"docusaurus": "docusaurus",
+	"start": "docusaurus start --host 0.0.0.0",
+```
+Or in your Dockerfile as an argument to your project’s start command:
+```bash
+CMD ["npm", "start", “--host”, “0.0.0.0”]
+```
+
 ## Building the Docker Image
 
 To build the docker image you will need to run the following command:
@@ -118,24 +150,6 @@ Depending on stage / target you will need to run the docker image differently.
   * `-p 80:80` - This is an optional flag that will map port 80 on the host to port 80 in the container.
   * `-p 443:443` - This is an optional flag that will map port 443 on the host to port 443 in the container.
   * `<tag>` - This is the name and tag of the image that will be run. Make sure to use the same tag that you used when building the image.
-
-  :::caution{title='Automatic TLS'}
-  Caddy will automatically serve over HTTPS. It will generate a self-signed certificate if it can't use a certificate from [Let's Encrypt](https://letsencrypt.org/). If you want to use a certificate from Let's Encrypt you will need to set the `DOCUSAURUS_EMAIL` and `DOCUSAURUS_DOMAIN` environment variables. You will also need to make sure that the domain name you are using is pointed to the server that you are running the container on.
-  :::
-
-  You'll also need to create a `caddyfile` in the root of your Docusaurus project. The contents should be something like this:
-
-  ```caddyfile
-  {$DOCUSAURUS_DOMAIN:localhost} {
-    root * /var/docusaurus
-    encode gzip
-    try_files {path} /index.html
-    file_server
-    email: {$DOCUSAURUS_EMAIL}
-  }
-  ```
-
-  This file will be copied into the container and used by Caddy to serve the site. `{$DOCUSAURUS_DOMAIN}` is a placeholder for the domain name that you will be using to serve the site. You can replace this with the actual domain name or you can use an environment variable to set the domain name. If you use an environment variable you will need to ensure the value is set in the container - either by passing it into the `docker run` command or setting it in a docker-compose file. The same applies to the `{$DOCUSAURUS_EMAIL}` placeholder.
   </TabItem>
 </Tabs>
 

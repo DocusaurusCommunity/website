@@ -12,5 +12,7 @@ tags:
   - analytics
 minimumVersion: null
 maintenanceStatus: maintained
+compatibility:
+  - 2
 npmPackages:
   - "@stackql/docusaurus-plugin-hubspot"
