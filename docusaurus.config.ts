@@ -221,7 +221,7 @@ const config: Config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['powershell','bash','docker', 'diff', 'json']
+        additionalLanguages: ['powershell','bash','docker', 'diff', 'json', 'sass']
       },
     } satisfies Preset.ThemeConfig,
   plugins: [
