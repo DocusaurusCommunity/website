@@ -11,5 +11,7 @@ tags:
   - content
 minimumVersion: null
 maintenanceStatus: unknown
+compatibility:
+  - 2
 npmPackages:
   - "@chatwoot/docusaurus"

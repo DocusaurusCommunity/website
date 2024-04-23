@@ -1,17 +1,7 @@
 {
+  // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "resolveJsonModule": true,
-    "allowArbitraryExtensions": true,
-    "esModuleInterop": true,
-  },
-  "exclude": [
-    "build",
-    "node_modules",
-    "tools",
-    ".devcontainer",
-    ".docusaurus",
-    ".vscode"
-  ]
+  }
 }

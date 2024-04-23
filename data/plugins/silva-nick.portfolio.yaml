@@ -11,6 +11,8 @@ tags:
   - theme
 minimumVersion: 2.0.0
 maintenanceStatus: unknown
+compatibility: 
+  - 2
 npmPackages: 
   - docusaurus-portfolio-plugin
   - docusaurus-portfolio-theme

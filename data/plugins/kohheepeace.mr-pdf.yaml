@@ -10,4 +10,6 @@ tags:
   - utility
   - integration
 minimumVersion: null
+compatibility:
+  - 2
 maintenanceStatus: maintained
