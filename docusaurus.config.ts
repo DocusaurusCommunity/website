@@ -28,7 +28,8 @@ const admonitionsConfig = {
       'security',
       'ninja',
       'release',
-      'credit'
+      'credit',
+      'docu'
     ],
   },
 }

@@ -1,0 +1,66 @@
+---
+title: Custom your title
+description: An exemple to custom h2 title  
+---
+
+In your Docusaurus project, you may need to modify the design by editing the CSS. 
+We will see how to target specific elements to spruce up our documentation.
+
+<DocusaurusButton to="https://docusaurus.io/fr/docs/styling-layout#global-styles" label="Docusaurus Documentation: Styling and Layout" />
+
+## Custom your Hx tag 
+
+If you add a style to your h2, for example, you would add this style for the entire website. Consequently, 
+elements like the h2 tags of your DocCardList would also be affected, and this is not really what we want.
+
+Here's a way to modify only the h2 tags of your documents, 
+```css
+.markdown h2 {
+  padding: 35px;
+  background-color: #1a8870;
+  text-align: center;
+}
+
+.markdown .card h2 {
+  padding: initial;
+  background-color: initial;
+  text-align: initial;
+}
+``` 
+
+## Let's look at the result.
+
+![](/img/h2custom.png)
+
+## To explain in detail
+
+we have a div that wraps the section where our entire documentation is located. It has the class "markdown".
+
+```html
+<div class="theme-doc-markdown markdown" > </div>
+```
+
+So to select the h2 tags hierarchically under this class, we write:
+
+```css
+.markdown h2 {
+  padding: 35px;
+  background-color: #1a8870;
+  text-align: center;
+}
+```
+
+Finally, to ensure that other h2 tags under the markdown class are not all affected,
+ we reassign the original CSS properties to the other elements that should not be modified
+
+Par exemple, les titres des DocCardList 
+```css
+
+.markdown .card h2 {
+  padding: initial;
+  background-color: initial;
+  text-align: initial;
+}
+``` 
+
+Now you have some tips to further customize your documentation.
