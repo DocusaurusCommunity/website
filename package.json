@@ -90,7 +90,7 @@
   "engines": {
     "node": ">=18.14"
   },
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.1.1",
   "dependenciesMeta": {
     "@docusaurus/tsconfig": {
       "unplugged": true
