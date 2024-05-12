@@ -87,8 +87,7 @@ const config: Config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/homotechsual/docusaurus.community/edit/main/',
+          editUrl: 'https://github.com/DocusaurusCommunity/website/edit/main/',
           ...commonDocsPluginConfig,
         } satisfies DocsOptions,
         blog: false,
@@ -154,7 +153,7 @@ const config: Config = {
             className: 'discord-link',
           },
           {
-            to: 'https://github.com/homotechsual/docusaurus.community',
+            to: 'https://github.com/DocusaurusCommunity/website',
             label: 'GitHub',
             position: 'right',
             target: '_blank',
@@ -211,7 +210,7 @@ const config: Config = {
               },
               {
                 label: 'Community GitHub',
-                to: 'https://github.com/homotechsual/docusaurus.community',
+                to: 'https://github.com/DocusaurusCommunity',
               },
             ],
           },

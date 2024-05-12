@@ -106,6 +106,8 @@ Depending on stage / target you will need to run the docker image differently.
   docker run --rm -d -p 3000:3000 -v $(pwd):/var/docusaurus <tag>
   ```
 
+  If using PowerShell you will need to use `${pwd}` instead of `$(pwd)`. On some systems you may need to replace `$(pwd)` with `.` or the full path to the directory you want to mount.
+
   To deconstruct the above command:
 
   * `docker run` - This is the command to run a docker image.
