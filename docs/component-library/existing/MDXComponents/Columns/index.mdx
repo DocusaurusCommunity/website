@@ -28,15 +28,18 @@ Docusaurus use Infima Framework for styling layout. Theses components are full b
   <TabItem value="JS">
 ```javascript title="src\components\Columns\index.js"
 import React from 'react';
+// Import clsx library for conditional classes.
 import clsx from 'clsx'; 
+// Import styles from CSS module.
 import styles from './styles.module.css';
-
-// className will allow you to pass either your custom classes or the native infima classes.
+// Define the Columns component as a function 
+// with children, className, and style as properties
+// className will allow you to pass either your custom classes or the native infima classes https://infima.dev/docs/layout/grid.
 // Style" will allow you to either pass your custom styles directly, which can be an alternative to the "styles.module.css" file in certain cases.
 export default function Columns({ children , className , style }) {
 
   return (
-    
+    // This section encompasses the columns that we will integrate with children from a dedicated component to allow the addition of columns as needed 
     <div className="container center ">
            <div className={clsx('row' , className) style={style}} > 
             {children}    
@@ -55,7 +58,9 @@ export default function Columns({ children , className , style }) {
   
 ```Tsx title="src\components\Columns\index.tsx"
 import React, { ReactNode, CSSProperties } from 'react';
+// Import clsx library for conditional classes.
 import clsx from 'clsx'; 
+// Import styles from CSS module.
 import styles from './styles.module.scss';
 
 interface ColumnsProps {
@@ -63,10 +68,13 @@ interface ColumnsProps {
   className?: string;
   style?: CSSProperties;
 }
-// className will allow you to pass either your custom classes or the native infima classes.
+// Define the Columns component as a function 
+// with children, className, and style as properties
+// className will allow you to pass either your custom classes or the native infima classes https://infima.dev/docs/layout/grid.
 // Style" will allow you to either pass your custom styles directly, which can be an alternative to the "styles.module.css" file in certain cases.
 export default function Columns({ children, className, style }: ColumnsProps) {
   return (
+  // This section encompasses the columns that we will integrate with children from a dedicated component to allow the addition of columns as needed 
     <div className="container center ">
       <div className={clsx('row', className)} style={style}>
         {children}    
@@ -94,10 +102,14 @@ The code for the component used for this functionality for should be placed in `
   <TabItem value="JS">
 ```javascript title="src\components\Column\index.js"
 import React from 'react';
+// Import clsx library for conditional classes.
 import clsx from 'clsx'; 
+// MDXContent is a component used in Docusaurus to display Markdown content with embedded JSX components.
 import MDXContent from '@theme/MDXContent';
-// I declared two elements for the classes gridClass and elementClass 
-// to be able to manipulate the class of the column or the class of the element inside that column. 
+// Define the Column component as a function 
+// with children, gridClass,  elementClass, style as properties
+// I declared two elements for the classes gridClass and elementClass.
+// to be able to manipulate the class of the column or the class of the element inside that column. Look https://infima.dev/docs/ for learn more
 // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
 export default function Column({ children , gridClass,  elementClass, style  }) {
  
@@ -122,7 +134,9 @@ export default function Column({ children , gridClass,  elementClass, style  }) 
   
 ```Tsx title="src\components\Column\index.tsx"
 import React, { ReactNode, CSSProperties } from 'react';
+// Import clsx library for conditional classes.
 import clsx from 'clsx'; 
+// MDXContent is a component used in Docusaurus to display Markdown content with embedded JSX components.
 import MDXContent from '@theme/MDXContent';
 
 interface ColumnProps {
@@ -131,8 +145,10 @@ interface ColumnProps {
   style?: CSSProperties;
   gridClass?: string;
 }
-// I declared two elements for the classes gridClass and elementClass 
-// to be able to manipulate the class of the column or the class of the element inside that column. 
+// Define the Column component as a function 
+// with children, gridClass,  elementClass, style as properties
+// I declared two elements for the classes gridClass and elementClass.
+// to be able to manipulate the class of the column or the class of the element inside that column. Look https://infima.dev/docs/ for learn more
 // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
 export default function Column({ children, elementClass, gridClass, style }: ColumnProps) {
   return (
@@ -181,12 +197,7 @@ This gives us `src\theme\MDXComponents.*`.
   </TabItem>
   <TabItem value="ts" label="TS">
     ```tsx title="src\theme/MDXComponents.tsx"
-      /**
-       * Copyright (c) Facebook, Inc. and its affiliates.
-       *
-       * This source code is licensed under the MIT license found in the
-       * LICENSE file in the root directory of this source tree.
-       */
+     
       import MDXComponents from '@theme-original/MDXComponents'
       import columns from '@site/src/components/columns';
       import column from '@site/src/components/column';
