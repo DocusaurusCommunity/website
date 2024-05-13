@@ -1,0 +1,19 @@
+import React, { ReactNode , CSSProperties} from 'react';
+import clsx from 'clsx'; 
+import styles from './styles.module.scss';
+
+interface ColumnsProps {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+}
+
+export default function Columns({ children,  className , style }: ColumnsProps) {
+  return (
+    <div className="container center">
+      <div className={clsx('row', className)} style={style}>
+        {children}
+      </div>
+    </div>
+  );
+}

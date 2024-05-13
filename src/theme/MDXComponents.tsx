@@ -15,6 +15,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { Icon as IconifyIcon } from '@iconify/react';
 import ImageOnClick from '@site/src/components/ImageOnClick';
+import Columns from '@site/src/components/Columns';
+import Column from '@site/src/components/Column';
 
 library.add(fab, fas);
 
@@ -26,4 +28,6 @@ export default {
     FAIcon: FontAwesomeIcon,
     IIcon: IconifyIcon,
     ImageOnClick,
+    Columns,
+    Column,
 };
