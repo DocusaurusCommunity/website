@@ -2,30 +2,28 @@
 title: Columns on demand component
 ---
 
-## Creating component custom *Colunms on demand* with Infima grid
+## Create Custom Columns Using the Infima Grid
 
 :::credit
-Component create by [Docux (Juniors017)](https://github.com/Juniors017)  -  *Thanks [(homotechsual)](https://github.com/homotechsual) for your advices*.
+Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this component and sharing it with us.
 :::
 
-This custom component consists of two parts: a first part with a component for the container and the rows, and a second part for the columns we will want to create.
+This custom component consists of two parts:
+
+* A component for the container and the rows, 
+* The columns you want to create.
+
 This is what will allow us to benefit from on demand columns.
-
-
-
-
 The code for the component used for this functionality for should be placed in `\src\components\Columns\index.*`.
 <DocusaurusButton to="https://docusaurus.io/docs/markdown-features/react#exporting-components" label="Docusaurus Documentation: Exporting Components" />
 
-Docusaurus use Infima Framework for styling layout. Theses components are full based on infima grid. [For more information on Infima](https://infima.dev/docs/layout/grid)
-<DocusaurusButton to="https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima" label="Styling your site with Infima" />
+Docusaurus uses the Infima framework for styling layout. The components described here are fully based on the Infima grid system. More detail on the Infima grid can be found in the [Infima docs](https://infima.dev/docs/layout/grid)
+<DocusaurusButton to="https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima" label="Docusaurus Documentation: Styling your site with Infima" />
 
+### Creating the Container and Row Component
 
-### First part : Container and row component 
-
-
-<Tabs className="unique-tabs">
-  <TabItem value="JS">
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
 ```javascript title="src\components\Columns\index.js"
 import React from 'react';
 // Import clsx library for conditional classes.
@@ -37,7 +35,6 @@ import styles from './styles.module.css';
 // className will allow you to pass either your custom classes or the native infima classes https://infima.dev/docs/layout/grid.
 // Style" will allow you to either pass your custom styles directly, which can be an alternative to the "styles.module.css" file in certain cases.
 export default function Columns({ children , className , style }) {
-
   return (
     // This section encompasses the columns that we will integrate with children from a dedicated component to allow the addition of columns as needed 
     <div className="container center ">
@@ -50,11 +47,8 @@ export default function Columns({ children , className , style }) {
 }
 
 ```
-  
-  
 </TabItem>
-  
-<TabItem value="TS">
+<TabItem value="ts" label="TS">
   
 ```Tsx title="src\components\Columns\index.tsx"
 import React, { ReactNode, CSSProperties } from 'react';
@@ -83,23 +77,15 @@ export default function Columns({ children, className, style }: ColumnsProps) {
   );
 }
 ```
-  
   </TabItem>
-
 </Tabs>
 
-
-
-
-
-### Second part : Column component 
+### Creating the Column Component
 
 The code for the component used for this functionality for should be placed in `\src\components\Column\index.*`.
 
-
-
-<Tabs className="unique-tabs">
-  <TabItem value="JS">
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
 ```javascript title="src\components\Column\index.js"
 import React from 'react';
 // Import clsx library for conditional classes.
@@ -112,33 +98,22 @@ import MDXContent from '@theme/MDXContent';
 // to be able to manipulate the class of the column or the class of the element inside that column. Look https://infima.dev/docs/ for learn more
 // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
 export default function Column({ children , gridClass,  elementClass, style  }) {
- 
-
   return (
 <MDXContent>
- 
       <div className={clsx('col' , gridClass)} >
         <div className={clsx('col-demo' , elementClass)} style={style}>{children}</div>
       </div>
-
-</MDXContent>
-       
+</MDXContent> 
   );
 }
-
-``` 
 </TabItem>
-  
-
 <TabItem value="TS">
-  
 ```Tsx title="src\components\Column\index.tsx"
 import React, { ReactNode, CSSProperties } from 'react';
 // Import clsx library for conditional classes.
 import clsx from 'clsx'; 
 // MDXContent is a component used in Docusaurus to display Markdown content with embedded JSX components.
 import MDXContent from '@theme/MDXContent';
-
 interface ColumnProps {
   children: ReactNode;
   elementClass?: string;
@@ -161,19 +136,13 @@ export default function Column({ children, elementClass, gridClass, style }: Col
     </MDXContent>
   );
 }
-
-```
-  
 </TabItem>
-
 </Tabs>
-
 
 This component is actually very simple but truly powerful because it utilizes native d'infima elements in Docusaurus.
 
-## Creating a theme folder
-To follow the Docusaurus documentation, we create a theme folder that will host the MDXcomponents file. 
-This gives us `src\theme\MDXComponents.*`.
+## Creating a Theme Folder
+To follow the Docusaurus documentation, we create a theme folder that will host the `MDXComponents` file. This gives us `src\theme\MDXComponents.*`. You may already have a `src\theme` folder or an `MDXComponents` file if so - merge the changes described here with yours.
 
 <DocusaurusButton to="https://docusaurus.io/docs/markdown-features/react#mdx-component-scope" label="Docusaurus Documentation: MDX Component Scope" />
 
@@ -213,28 +182,28 @@ This gives us `src\theme\MDXComponents.*`.
   </TabItem>
 </Tabs>
 
-## Usage of the component in .mdx file
+## Using the Component in an MDX File
 
-### Simple case : code
+### Example With Text - Code
 
 ```html
 <Columns> 
 
-<Column elementClass='text--left'> 
+<Column className='text--left'> 
 #### My first columns
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
 </Column>
 
-<Column elementClass='text--center'> 
+<Column className='text--center'> 
 #### My second columns
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
 </Column>
 
-<Column elementClass='text--justify'> 
+<Column className='text--justify'> 
 #### My thirt columns
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
@@ -244,24 +213,24 @@ Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc.
 </Columns>
 ```
 
-### Simple case : render
+### Example With Text - Result
 <Columns className='margin-bottom--xl'> 
 
-<Column elementClass='text--left'> 
+<Column className='text--left'> 
 #### My first columns
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
 </Column>
 
-<Column elementClass='text--center'> 
+<Column className='text--center'> 
 #### My second columns
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
 </Column>
 
-<Column elementClass='text--justify'> 
+<Column className='text--justify'> 
 #### My thirt columns
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
@@ -270,18 +239,18 @@ Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc.
 
 </Columns>
 
-### With picture : code
+### Example With Image - Code
 
 ```html
 <Columns> 
 
-<Column elementClass='text--center'> 
+<Column className='text--center'> 
 ![](/img/logo.svg)
 </Column>
 
 
-<Column elementClass='text--justify'> 
-#### My thirt columns
+<Column className='text--justify'> 
+#### My text column
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nuncSit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
@@ -291,16 +260,15 @@ Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nuncSit amet
 
 ```
 
-### With picture : render
+### Example With Picture - Result
 <Columns className='margin-bottom--xl'> 
 
-<Column elementClass='text--center'> 
+<Column className='text--center'> 
 ![](/img/logo.svg)
 </Column>
 
-
-<Column elementClass='text--justify'> 
-#### My thirt columns
+<Column className='text--justify'> 
+#### My texy column
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nuncSit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
@@ -308,14 +276,41 @@ Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nuncSit amet
 
 </Columns>
 
-
-
-### With code : code
+### Example With Code Block - Code
 ```tsx 
 <Columns> 
- 
 <Column className='col--8'> 
+```ts
+import React from 'react';
+import clsx from 'clsx';
+import styles from './styles.module.scss';
+import Link from '@docusaurus/Link';
+import DocusaurusLogo from '@site/src/assets/Docusaurus.svg'
 
+type Props = {
+    to: string;
+    label: string;
+};
+
+export default function DocusaurusButton(props: Props): JSX.Element {
+return (
+<div className={clsx(styles.docusaurusButton, 'text--center')}>
+<p className="text--center">
+<Link className={clsx(styles.docusaurusButtonButton, 
+'button button--secondary button--lg')} to={props.to}>
+<span className={styles.docusaurusButtonIcon}><DocusaurusLogo /></span>
+<span className={styles.docusaurusButtonText}>{props.label}</span>
+</Link>
+</p>
+ </div>
+    );
+}
+```
+### Example With Code Block - Result
+
+<Columns> 
+<Column className='col--8'> 
+```ts
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
@@ -341,72 +336,24 @@ return (
     );
 }
 
-
-</Column>
-
-
-<Column elementClass='text--center'> 
- <DocusaurusButton to="https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima" label="Button render" />
-
-</Column>
-
-</Columns>
-```
-### Withcode : render
-
-<Columns className='margin-bottom--xl'> 
- 
-<Column> 
-![](/img/columnscodeexemple.png)
-</Column>
-
-
-<Column elementClass='text--center'> 
- <DocusaurusButton to="https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima" label="Button render" />
-
-</Column>
-
-</Columns>
-
-### A few more complex examples : code
+### Example Classes and Styling - Code
 
 ```html
-<Columns elementClass='item shadow--tl padding--lg margin-bottom-xl '> 
-
-<Column elementClass='text--success text--bold text--justify  item shadow--tl padding--lg' gridClass='' > 
-#### My first columns
+<Columns className='item shadow--tl padding--lg margin-bottom-xl '> 
+<Column className='text--success text--bold text--justify  item shadow--tl padding--lg'> 
+#### My first column
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
 </Column>
-
-<Column elementClass='text--success text--bold text--justify  item shadow--tl padding--lg margin-top--xl' gridClass='margin-top--xl ' style={{ backgroundColor: 'green', color: 'yellow'  }}> 
-#### My first columns
+<Column className='text--success text--bold text--justify  item shadow--tl padding--lg margin-top--xl'  style={{ backgroundColor: 'green', color: 'yellow'  }}>
+#### My second column
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
 Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
 </Column>
-
 </Columns>
-
 ```
-<Columns elementClass='item shadow--tl padding--lg' style={{marginBottom: '150px'}}> 
-
-<Column elementClass='text--success text--bold text--justify  item shadow--tl padding--lg' gridClass='' > 
-#### My first columns
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
-Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
-</Column>
-
-<Column elementClass='text--success text--bold text--justify  item shadow--tl padding--lg margin-top--xl' gridClass='margin-top--xl ' style={{ backgroundColor: 'green', color: 'yellow'  }}> 
-#### My first columns
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-A diam maecenas sed enim ut. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. 
-Sit amet porttitor eget dolor morbi. Varius vel pharetra vel turpis nunc. 
-</Column>
-
-</Columns>
 
 ### A few more complex grid examples : code
 
