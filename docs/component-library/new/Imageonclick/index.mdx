@@ -1,8 +1,11 @@
 ---
 title: Image on Click Component
+description: Display an image when a button or link is clicked.
 ---
 
-## Creating component custom *ImageOnClick*
+:::credit
+Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this component and sharing it with us.
+:::
 
 The code for the component used for this functionality for should be placed in `\src\components\ImageOnClick\index.*`.
 
@@ -96,7 +99,7 @@ This gives us `src\theme\MDXComponents.*`.
 
 <Tabs groupId="js-ts">
   <TabItem value="js" label="JS">
-    ```javascript title = "src\theme\MDXComponents.js"
+    ```javascript title="src\theme\MDXComponents.js"
       import React from 'react';
       // Importing the original mapper + our components according to the Docusaurus doc
       import MDXComponents from '@theme-original/MDXComponents';
@@ -153,11 +156,11 @@ To center the image and apply the cursor pointer, we'll add some CSS
 
 <Tabs groupId="css-scss">
   <TabItem value="CSS" label="CSS" default>
-    ```css
+    ```css title="src\components\ImageOnClick\styles.module.css"
       .imageonclick {
         display: flex;
         max-width: 50% !important;
-        margin: auto; /* Ajustez cette valeur selon vos besoins */
+        margin: auto; /* Adjust this value according to your needs */
       }
       .cursor {
         cursor: pointer;
@@ -165,7 +168,7 @@ To center the image and apply the cursor pointer, we'll add some CSS
     ```
   </TabItem>
   <TabItem value="SCSS" label="SCSS" default>
-    ```sass
+    ```sass title="src\components\ImageOnClick\styles.module.scss"
       .imageonclick  {
         display: flex;
         max-width: 50% !important;
