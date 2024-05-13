@@ -5,18 +5,15 @@ import styles from './styles.module.css';
 
 interface ColumnProps {
   children: ReactNode;
-  elementClass?: string;
-  gridClass?: string;
+  className?: string;
   style?: CSSProperties;
 }
 
-export default function Column({ children, elementClass, gridClass, style }: ColumnProps) {
+export default function Column({ children, className, style }: ColumnProps) {
   return (
     <MDXContent>
-      <div className={clsx('col', gridClass)}>
-        <div className={clsx('col-demo', elementClass)} style={style}>
+      <div className={clsx('col', className)}  style={style}>
           {children}
-        </div>
       </div>
     </MDXContent>
   );

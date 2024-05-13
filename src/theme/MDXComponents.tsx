@@ -30,5 +30,4 @@ export default {
     ImageOnClick,
     Columns,
     Column,
-
 };
