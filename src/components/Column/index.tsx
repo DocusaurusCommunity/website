@@ -1,7 +1,7 @@
 import React, { ReactNode, CSSProperties } from 'react';
 import clsx from 'clsx'; 
 import MDXContent from '@theme/MDXContent';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 interface ColumnProps {
   children: ReactNode;
