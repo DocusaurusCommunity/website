@@ -10,7 +10,7 @@ interface ColumnsProps {
 
 export default function Columns({ children,  className , style }: ColumnsProps) {
   return (
-    <div className="container center ">
+    <div className="container center">
       <div className={clsx('row', className)} style={style}>
         {children}
       </div>
