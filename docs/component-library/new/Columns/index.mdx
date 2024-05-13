@@ -88,15 +88,14 @@ The code for the component used for this functionality for should be placed in `
     // MDXContent is a component used in Docusaurus to display Markdown content with embedded JSX components.
     import MDXContent from '@theme/MDXContent';
     // Define the Column component as a function 
-    // with children, gridClass,  elementClass, style as properties
-    // I declared two elements for the classes gridClass and elementClass.
-    // to be able to manipulate the class of the column or the class of the element inside that column. Look https://infima.dev/docs/ for learn more
+    // with children, className, style as properties
+    // Look https://infima.dev/docs/ for learn more
     // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
-    export default function Column({ children , gridClass,  elementClass, style  }) {
+    export default function Column({ children , className, style  }) {
       return (
         <MDXContent>
-          <div className={clsx('col' , gridClass)} >
-            <div className={clsx('col-demo' , elementClass)} style={style}>{children}</div>
+          <div className={clsx('col' , className)} style={style}>
+            {children}
           </div>
         </MDXContent> 
       );
@@ -112,22 +111,18 @@ The code for the component used for this functionality for should be placed in `
     import MDXContent from '@theme/MDXContent';
     interface ColumnProps {
       children: ReactNode;
-      elementClass?: string;
+      className?: string;
       style?: CSSProperties;
-      gridClass?: string;
     }
     // Define the Column component as a function 
-    // with children, gridClass,  elementClass, style as properties
-    // I declared two elements for the classes gridClass and elementClass.
-    // to be able to manipulate the class of the column or the class of the element inside that column. Look https://infima.dev/docs/ for learn more
+    // with children, className, style as properties
+    // Look https://infima.dev/docs/ for learn more.
     // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
-    export default function Column({ children, elementClass, gridClass, style }: ColumnProps) {
+    export default function Column({ children, className, style }: ColumnProps) {
       return (
         <MDXContent>
-          <div className={clsx('col', gridClass)}>
-            <div className={clsx('col-demo', elementClass)} style={style}>
-              {children}
-            </div>
+          <div className={clsx('col', className)} style={style}>
+            {children}
           </div>
         </MDXContent>
       );
