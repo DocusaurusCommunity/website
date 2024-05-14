@@ -11,6 +11,8 @@ type Props = WrapperProps<typeof FooterType>;
 export default function FooterWrapper(props: Props): JSX.Element {
   const { metadata } = useDoc();
   const file = metadata.editUrl;
+  const additionalContributors = metadata.frontMatter.additionalContributors;
+  console.log(additionalContributors);
 
   if (!file) {
       return <Footer {...props} />;
@@ -22,7 +24,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
   return (
       <>
           <Footer {...props} />
-          <GitHubContributors repo={name} owner={owner} filePath={filepath} />
+          <GitHubContributors repo={name} owner={owner} filePath={filepath} additionalContributors={additionalContributors}/>
       </>
   );
 }
