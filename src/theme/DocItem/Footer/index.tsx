@@ -12,7 +12,6 @@ export default function FooterWrapper(props: Props): JSX.Element {
   const { metadata } = useDoc();
   const file = metadata.editUrl;
   const additionalContributors = metadata.frontMatter.additionalContributors;
-  console.log(additionalContributors);
 
   if (!file) {
       return <Footer {...props} />;
