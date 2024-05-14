@@ -125,6 +125,14 @@ const config: Config = {
             docId: 'index',
             position: 'left',
             label: 'Knowledge',
+            docsPluginId: 'default',
+          },
+          {
+            type: 'doc',
+            docId: 'index',
+            position: 'left',
+            label: 'Contributing',
+            docsPluginId: 'contributing',
           },
           {
             to: 'plugindirectory',
