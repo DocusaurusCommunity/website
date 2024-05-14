@@ -8,7 +8,7 @@ import AdmonitionTypeDiscord from './Type/Discord';
 import AdmonitionTypeSecurity from './Type/Security';
 import AdmonitionTypeRelease from './Type/Release';
 import AdmonitionTypeCredit from './Type/Credit';
-import AdmonitionTypeDocu from './Type/Docu';
+import AdmonitionTypeDocusaurus from './Type/Docusaurus';
 import type AdmonitionTypes from '@theme/Admonition/Types';
 import type {Props} from '@theme/Admonition';
 
@@ -22,7 +22,7 @@ const admonitionTypes: typeof AdmonitionTypes = {
   security: AdmonitionTypeSecurity,
   release: AdmonitionTypeRelease,
   credit: AdmonitionTypeCredit,
-  docu: AdmonitionTypeDocu,
+  docusaurus: AdmonitionTypeDocusaurus,
 };
 
 // Undocumented legacy admonition type aliases

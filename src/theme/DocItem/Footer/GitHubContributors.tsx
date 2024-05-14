@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getContributors } from './contributors';
 import styles from './contributors.module.scss';
 
-const GitHubContributors = ({ owner, repo, filePath }) => {
+const GitHubContributors = ({ owner, repo, filePath, additionalContributors }) => {
     const [contributors, setContributors] = useState([]);
     const url = `https://api.github.com/repos/${owner}/${repo}/commits?path=${filePath}`;
 
@@ -11,7 +11,8 @@ const GitHubContributors = ({ owner, repo, filePath }) => {
             fetch(url)
                 .then((response) => response.json())
                 .then((commits) => {
-                    const contributors = getContributors(commits);
+                    const gitContributors = getContributors(commits)
+                    const contributors = gitContributors.concat(additionalContributors || []);
                     setContributors(contributors);
                 })
                 .catch((error) => {
@@ -19,7 +20,6 @@ const GitHubContributors = ({ owner, repo, filePath }) => {
                     setContributors([]);
                 });
         };
-
         fetchFileContributors();
     }, []);
 

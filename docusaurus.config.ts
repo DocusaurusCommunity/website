@@ -29,7 +29,7 @@ const admonitionsConfig = {
       'ninja',
       'release',
       'credit',
-      'docu'
+      'docusaurus'
     ],
   },
 }
