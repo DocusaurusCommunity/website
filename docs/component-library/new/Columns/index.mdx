@@ -89,19 +89,18 @@ The code for the component used for this functionality for should be placed in `
     import React from 'react';
     // Import clsx library for conditional classes.
     import clsx from 'clsx'; 
-    // MDXContent is a component used in Docusaurus to display Markdown content with embedded JSX components.
-    import MDXContent from '@theme/MDXContent';
+  
     // Define the Column component as a function 
     // with children, className, style as properties
     // Look https://infima.dev/docs/ for learn more
     // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
     export default function Column({ children , className, style  }) {
       return (
-        <MDXContent>
+      
           <div className={clsx('col' , className)} style={style}>
             {children}
           </div>
-        </MDXContent> 
+      
       );
     }
     ```
@@ -111,8 +110,7 @@ The code for the component used for this functionality for should be placed in `
     import React, { ReactNode, CSSProperties } from 'react';
     // Import clsx library for conditional classes.
     import clsx from 'clsx'; 
-    // MDXContent is a component used in Docusaurus to display Markdown content with embedded JSX components.
-    import MDXContent from '@theme/MDXContent';
+   
     interface ColumnProps {
       children: ReactNode;
       className?: string;
@@ -124,11 +122,11 @@ The code for the component used for this functionality for should be placed in `
     // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
     export default function Column({ children, className, style }: ColumnProps) {
       return (
-        <MDXContent>
+      
           <div className={clsx('col', className)} style={style}>
             {children}
           </div>
-        </MDXContent>
+      
       );
     }
     ```
