@@ -41,7 +41,7 @@ The plugin directory is a forked version of the Docusaurus.io showcase plugin. I
 
 To support our contributor display on docs pages we sometimes use a custom frontmatter field called `additionalContributors`. This field is used to display additional contributors to a document. It is an array of objects with the following structure:
 
-```json
+```ts
 type AdditionalContributor = {
     login: string;
     html_url: string;
@@ -51,7 +51,7 @@ type AdditionalContributor = {
 
 An example of how this is used in a document is:
 
-```md
+```mdx
 ---
 title: Custom Functionality
 description: Learn about the custom functionality you'll find on this site.
