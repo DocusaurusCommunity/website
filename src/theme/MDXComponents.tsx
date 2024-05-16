@@ -17,6 +17,7 @@ import { Icon as IconifyIcon } from '@iconify/react';
 import ImageOnClick from '@site/src/components/ImageOnClick';
 import Columns from '@site/src/components/Columns';
 import Column from '@site/src/components/Column';
+import Button from '@site/src/components/Button';
 
 library.add(fab, fas);
 
@@ -30,4 +31,5 @@ export default {
     ImageOnClick,
     Columns,
     Column,
+    Button,
 };
