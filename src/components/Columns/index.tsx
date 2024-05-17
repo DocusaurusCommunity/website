@@ -1,6 +1,5 @@
 import React, { ReactNode , CSSProperties} from 'react';
 import clsx from 'clsx'; 
-import styles from './styles.module.scss';
 
 interface ColumnsProps {
   children: ReactNode;
