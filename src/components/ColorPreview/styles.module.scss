@@ -1,0 +1,17 @@
+html {
+    .color {
+        border-color: #000;
+        border-radius: 0.5rem;
+        border-width: 0.25rem;
+        border-style: solid;
+        display: inline-block;
+        vertical-align: middle;
+        width: 2rem;
+        height: 2rem;
+    }
+    &[data-theme='dark'] {
+        .color {
+            border-color: #fff;
+        }
+    }
+}
