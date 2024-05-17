@@ -15,7 +15,7 @@ export default function ColorPreview ({ color, label } : ColorPreview) {
     const colorName = label ?? color;
     return (
         <div className='text--center'>
-            <span className={clsx('text--center', styles.color)} style={style}></span><br />
+            <span title={color} className={clsx('text--center', styles.color)} style={style}></span><br />
             <span className='text-center'>{colorName}</span>
         </div>
     );
