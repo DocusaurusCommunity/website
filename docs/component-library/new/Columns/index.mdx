@@ -31,8 +31,6 @@ Docusaurus uses the Infima framework for styling layout. The components describe
     import React from 'react';
     // Import clsx library for conditional classes.
     import clsx from 'clsx'; 
-    // Import styles from CSS module.
-    import styles from './styles.module.css';
     // Define the Columns component as a function 
     // with children, className, and style as properties
     // className will allow you to pass either your custom classes or the native infima classes https://infima.dev/docs/layout/grid.
@@ -54,8 +52,6 @@ Docusaurus uses the Infima framework for styling layout. The components describe
     import React, { ReactNode, CSSProperties } from 'react';
     // Import clsx library for conditional classes.
     import clsx from 'clsx'; 
-    // Import styles from CSS module.
-    import styles from './styles.module.scss';
     interface ColumnsProps {
       children: ReactNode;
       className?: string;
@@ -254,16 +250,16 @@ To follow the Docusaurus documentation, we create a theme folder that will host 
 
     export default function DocusaurusButton(props: Props): JSX.Element {
     return (
-    <div className={clsx(styles.docusaurusButton, 'text--center')}>
-    <p className="text--center">
-    <Link className={clsx(styles.docusaurusButtonButton, 
-    'button button--secondary button--lg')} to={props.to}>
-    <span className={styles.docusaurusButtonIcon}><DocusaurusLogo /></span>
-    <span className={styles.docusaurusButtonText}>{props.label}</span>
-    </Link>
-    </p>
-    </div>
-        );
+      <div className={clsx(styles.docusaurusButton, 'text--center')}>
+        <p className="text--center">
+          <Link className={clsx(styles.docusaurusButtonButton, 
+          'button button--secondary button--lg')} to={props.to}>
+            <span className={styles.docusaurusButtonIcon}><DocusaurusLogo /></span>
+            <span className={styles.docusaurusButtonText}>{props.label}</span>
+          </Link>
+        </p>
+      </div>
+      );
     }
     ```
     </Column>
@@ -285,22 +281,22 @@ To follow the Docusaurus documentation, we create a theme folder that will host 
     import DocusaurusLogo from '@site/src/assets/Docusaurus.svg'
 
     type Props = {
-        to: string;
-        label: string;
+      to: string;
+      label: string;
     };
 
     export default function DocusaurusButton(props: Props): JSX.Element {
     return (
-    <div className={clsx(styles.docusaurusButton, 'text--center')}>
-    <p className="text--center">
-    <Link className={clsx(styles.docusaurusButtonButton, 
-    'button button--secondary button--lg')} to={props.to}>
-    <span className={styles.docusaurusButtonIcon}><DocusaurusLogo /></span>
-    <span className={styles.docusaurusButtonText}>{props.label}</span>
-    </Link>
-    </p>
-    </div>
-        );
+      <div className={clsx(styles.docusaurusButton, 'text--center')}>
+        <p className="text--center">
+          <Link className={clsx(styles.docusaurusButtonButton, 
+          'button button--secondary button--lg')} to={props.to}>
+            <span className={styles.docusaurusButtonIcon}><DocusaurusLogo /></span>
+            <span className={styles.docusaurusButtonText}>{props.label}</span>
+          </Link>
+        </p>
+      </div>
+      );
     }
     ```
     </Column>
