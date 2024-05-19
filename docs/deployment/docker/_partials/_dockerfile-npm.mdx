@@ -18,7 +18,7 @@ WORKDIR /opt/docusaurus
 ## Expose the port that Docusaurus will run on.
 EXPOSE 3000
 ## Run the development server.
-CMD [ -d "node_modules" ] && npm run start || npm run install && npm run start --host 0.0.0.0
+CMD [ -d "node_modules" ] && npm run start --host 0.0.0.0 || npm run install && npm run start --host 0.0.0.0
 
 # Stage 2b: Production build mode.
 FROM base as prod
@@ -36,7 +36,7 @@ FROM prod as serve
 ## Expose the port that Docusaurus will run on.
 EXPOSE 3000
 ## Run the production server.
-CMD ["npm", "run", "serve", "--host", "0.0.0.0", "--no-open"]
+CMD ["npm", "run", "serve", "--", "--host", "0.0.0.0", "--no-open"]
 
 # Stage 3b: Serve with Caddy.
 FROM caddy:2-alpine as caddy
