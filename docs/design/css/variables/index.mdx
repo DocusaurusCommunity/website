@@ -55,6 +55,32 @@ CSS variables can be set in a few different places:
 
 One thing that's important to note is that it is not always appropriate to set variables in `:root` or `html[data-theme=dark]`. Docusaurus sets the value of several variables outside of `:root` to allow for more granular control. For this reason you may find that setting a variable in `:root` does not have the desired effect and you need to scope it more specifically.
 
+Here's an example from the Docusaurus codebase, we can see from the list below that the footer uses various `--ifm-footer-*` variables. If you wanted to change the background color of the footer, you would set the `--ifm-footer-background-color` variable in your CSS like this, at least that's the theory:
+
+```css
+:root {
+  --ifm-footer-background-color: #303846;
+}
+```
+
+Seems clear enough. However that bit of CSS will not work as expected. The footer is styled using the `.footer` or `.footer-dark` classes, so you need to set the variable like this:
+
+```css
+.footer {
+  --ifm-footer-background-color: #303846;
+}
+```
+
+or like this:
+
+```css
+.footer-dark {
+  --ifm-footer-background-color: #303846;
+}
+```
+
+Inspecting the styles in your browser's dev tools can help you identify the correct class to target if your variable overrides are not working as expected.
+
 ## Key Infima Variables
 
 ### Colors
