@@ -79,21 +79,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get cache directory
-        id: yarn-cache-dir-path
-
-        shell: bash
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache
-        id: cache-yarn-cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --check-cache
