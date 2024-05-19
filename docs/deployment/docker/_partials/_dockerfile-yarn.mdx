@@ -18,7 +18,7 @@ WORKDIR /opt/docusaurus
 ## Expose the port that Docusaurus will run on.
 EXPOSE 3000
 ## Run the development server.
-CMD [ -d "node_modules" ] && yarn start --host 0.0.0.0 || yarn install && yarn start --host 0.0.0.0
+CMD [ -d "node_modules" ] && yarn start --host 0.0.0.0 --poll 1000 || yarn install && yarn start --host 0.0.0.0 --poll 1000
 
 # Stage 2b: Production build mode.
 FROM base as prod
