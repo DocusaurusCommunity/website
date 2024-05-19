@@ -84,7 +84,7 @@ jobs:
         id: yarn-cache-dir-path
 
         shell: bash
-        run: echo "dir=$(yarn cache dir)" > $GITHUB_OUTPUT
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache
         id: cache-yarn-cache
