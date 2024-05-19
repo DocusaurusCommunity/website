@@ -76,7 +76,21 @@ This can be done from your package.json:
 ```
 Or in your Dockerfile as an argument to your project’s start command:
 ```bash
-CMD ["npm", "start", “--host”, “0.0.0.0”]
+CMD ["npm", "start", "--", "--host", "0.0.0.0"]
+```
+
+In order to enable live-reloading in a Docker environment, we can use `--poll` option (See [options](https://docusaurus.io/docs/cli#options) for more details):
+
+```bash
+ "scripts": {
+	"docusaurus": "docusaurus",
+	"start": "docusaurus start --poll 1000",
+```
+
+Or in your Dockerfile as an argument to your project’s start command:
+
+```bash
+CMD ["npm", "start", "--", "--poll", "1000"]
 ```
 
 ## Building the Docker Image
