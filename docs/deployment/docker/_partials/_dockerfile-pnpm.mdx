@@ -18,7 +18,7 @@ WORKDIR /opt/docusaurus
 ## Expose the port that Docusaurus will run on.
 EXPOSE 3000
 ## Run the development server.
-CMD [ -d "node_modules" ] && pnpm start || pnpm install && pnpm start --host 0.0.0.0
+CMD [ -d "node_modules" ] && pnpm start --host 0.0.0.0 || pnpm install && pnpm start --host 0.0.0.0
 
 # Stage 2b: Production build mode.
 FROM base as prod
@@ -36,7 +36,7 @@ FROM prod as serve
 ## Expose the port that Docusaurus will run on.
 EXPOSE 3000
 ## Run the production server.
-CMD ["pnpm", "serve", "--host", "0.0.0.0", "--no-open"]
+CMD ["pnpm", "serve", "--host", "--", "0.0.0.0", "--no-open"]
 
 # Stage 3b: Serve with Caddy.
 FROM caddy:2-alpine as caddy
