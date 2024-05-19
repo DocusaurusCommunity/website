@@ -46,6 +46,15 @@ No, not all CSS variables Docusaurus uses are documented. The most common variab
 
 This documentation aims to document the most commonly used variables to help you get started with customising your site.
 
+## Where Should I Set CSS Variables?
+
+CSS variables can be set in a few different places:
+
+* **Global CSS**: You can set CSS variables in your global CSS file (e.g., `src/css/custom.css` or `src/scss/custom.scss` if you're using SASS).
+* **Component Styles**: You can set CSS variables in the styles of individual components. In the respective component's CSS Module file.
+
+One thing that's important to note is that it is not always appropriate to set variables in `:root` or `html[data-theme=dark]`. Docusaurus sets the value of several variables outside of `:root` to allow for more granular control. For this reason you may find that setting a variable in `:root` does not have the desired effect and you need to scope it more specifically.
+
 ## Key Infima Variables
 
 ### Colors
@@ -147,3 +156,7 @@ There are a number of variables for the "base" colors used on your site. These a
     | `--ifm-color-{color}-contrast-foreground` | A color that contrasts well with the color for foreground elements. |
     | `--ifm-color-{color}-contrast-background` | A color that contrasts well with the color for background elements. |
 :::
+
+### Typography
+
+Many of the infima variables are related to typography. These variables are used to define the font family, size, and weight used in the design system.
