@@ -106,8 +106,13 @@ There are a number of variables for the "base" colors used on your site. These a
 | `--ifm-font-color-base-inverse` | The inverse base font color used by the site. | <ColorPreview color='#fff' label='var(--ifm-color-content-inverse)' /> | <ColorPreview color='#000' label='var(--ifm-color-content-inverse)' /> |
 | `--ifm-font-color-secondary` | The secondary font color used by the site. | <ColorPreview color='#525860' label='var(--ifm-color-content-secondary)' /> | <ColorPreview color='rgba(255, 255, 255, 1)' label='var(--ifm-color-content-secondary)' /> |
 | `--ifm-background-surface-color` | The surface background color used by the site. | <ColorPreview color='#fff' label='var(--ifm-color-content-inverse)' /> | <ColorPreview color='#242526' /> |
-| `--ifm-link-color` | The color of links on the site. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
 | `--ifm-hover-overlay` | The overlay color used when hovering over elements. | <ColorPreview color='rgba(0, 0, 0, 0.05)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' /> |
+| | | | |
+| `--ifm-link-color` | The color of links on the site. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| `--ifm-link-hover-color` | The color of links on the site when hovered. | <ColorPreview color='#2e8555' label='var(--ifm-link-color)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-link-color)' /> |
+| `--ifm-blockquote-color` | The color of blockquotes on the site. | <ColorPreview color='#444950' label='var(--ifm-color-emphasis-800)' /> | <ColorPreview color='#ebedf0' label='var(--ifm-color-emphasis-800)' /> |
+| `--ifm-blockquote-border-color` | The border color of blockquotes on the site. | <ColorPreview color='#dadde1' label='var(--ifm-color-emphasis-300)' /> | <ColorPreview color='#606770' label='var(--ifm-color-emphasis-300)' /> |
+| `--ifm-hr-background-color` | The background color of horizontal rules on the site. | <ColorPreview color='#bec3c9' label='var(--ifm-color-gray-500)' /> | <ColorPreview color='#bec3c9' label='var(--ifm-color-gray-500)' /> |
 | | | | |
 | `--ifm-color-gray-0` | The lightest gray color used by the site. | <ColorPreview color='#fff' /> | <ColorPreview color='#fff' /> |
 | `--ifm-color-gray-100` | A light gray color used by the site. | <ColorPreview color='#f5f6f7' /> | <ColorPreview color='#f5f6f7' /> |
@@ -133,6 +138,40 @@ There are a number of variables for the "base" colors used on your site. These a
 | `--ifm-color-emphasis-900` | The color used for emphasis elements on the site. | <ColorPreview color='#1c1e21' label='var(--ifm-color-gray-900)' /> | <ColorPreview color='#f5f6f7' label='var(--ifm-color-gray-100)' /> |
 | `--ifm-color-emphasis-1000` | The color used for emphasis elements on the site. | <ColorPreview color='#000' label='var(--ifm-color-gray-1000)' /> | <ColorPreview color='#fff' label='var(--ifm-color-gray-0)' /> |
 | | | | |
+| `--ifm-alert-background-color` | The background color used for alerts. Overridden by specific alert styling. | <ColorPreview color='#fff' label='inherit' /> | <ColorPreview color='#1b1b1d' label='inherit' /> |
+| `--ifm-alert-border-color` | The border color used for alerts. Overridden by specific alert styling. | `<ColorPreview color='inherit' /> | <ColorPreview color='transparent' label='inherit' />` |
+| `--ifm-alert-color` | The text color used for alerts. Overridden by specific alert styling. | <ColorPreview color='#1c1e21' label='var(--ifm-font-color-base)' /> | <ColorPreview color='#e3e3d3' label='var(--ifm-font-color-base)' /> |
+| | | | |
+| `--ifm-badge-background-color` | The background color used for badges. Overridden by specific badge styling. | <ColorPreview color='#fff' label='inherit' /> | <ColorPreview color='#1b1b1d' label='inherit' /> |
+| `--ifm-badge-border-color` | The border color used for badges. Overridden by specific badge styling. | <ColorPreview color='transparent' label='inherit' /> | <ColorPreview color='transparent' label='inherit' /> |
+| `--ifm-badge-color` | The text color used for badges. Overridden by specific badge styling. | <ColorPreview color='#fff' label='var(--ifm-color-white' /> | <ColorPreview color='#fff' label='var(--ifm-color-white)' /> |
+| | | | |
+| `--ifm-breadcrumb-color-active` | The color of the active breadcrumb item. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| `--ifm-breadcrumb-item-background-active` | The background color of the active breadcrumb item. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
+| | | | |
+| `--ifm-button-background-color` | The background color used for buttons. Overridden by specific button styling. | <ColorPreview color='#fff' label='inherit' /> | <ColorPreview color='#1b1b1d' label='inherit' /> |
+| `--ifm-button-border-color` | The border color used for buttons. | <ColorPreview color='#fff' label='var(--ifm-button-background-color)' /> | <ColorPreview color='#1b1b1d' label='var(--ifm-button-background-color)' /> |
+| `--ifm-button-color` | The text color used for buttons. Overridden by specific button styling. | <ColorPreview color='#fff' label='var(--ifm-font-color-base-inverse)' /> | <ColorPreview color='#000' label='var(--ifm-font-color-base-inverse)' /> |
+| | | | |
+| `--ifm-card-background-color` | The background color of cards. | <ColorPreview color='#fff' label='var(--ifm-background-surface-color)' /> | <ColorPreview color='#242526' label='var(--ifm-background-surface-color)' /> |
+| | | | |
+| `--ifm-dropdown-link-color` | The color of links in dropdowns. | <ColorPreview color='#1c1e21' label='var(--ifm-font-color-base)' /> | <ColorPreview color='#e3e3d3' label='var(--ifm-font-color-base)' /> |
+| `--ifm-dropdown-hover-background-color` | The background color of dropdown items when hovered. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
+| | | | |
+| `--ifm-footer-background-color` | The background color of the footer. | <ColorPreview color='#303846' /> | <ColorPreview color='#303846' /> |
+| `--ifm-footer-color` | The color of text in the footer. | <ColorPreview color='#ebedf0' label='inherit' /> | <ColorPreview color='#ebedf0' label='inherit' /> |
+| `--ifm-footer-link-color` | The color of links in the footer. | <ColorPreview color='#ebedf0' label='var(--ifm-color-secondary)' /> | <ColorPreview color='#ebedf0' label='var(--ifm-color-secondary)' /> |
+| `--ifm-footer-link-hover-color` | The color of links in the footer when hovered. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| `--ifm-footer-title-color` | The color of titles in the footer. | <ColorPreview color='#fff' label='var(--ifm-color-white)' /> | <ColorPreview color='#fff' label='var(--ifm-color-white)' /> |
+| | | | |
+| `--ifm-hero-background-color` | The background color of the hero. | <ColorPreview color='#fff' label='var(--ifm-background-surface-color)' /> | <ColorPreview color='#242526' label='var(--ifm-background-surface-color)' /> |
+| `--ifm-hero-text-color` | The color of text in the hero. | <ColorPreview color='#444950' label='var(--ifm-color-emphasis-800)' /> | <ColorPreview color='#ebedf0' label='var(--ifm-color-emphasis-800)' /> |
+| | | | |
+| `--ifm-menu-color` | The color of text in the menu. | <ColorPreview color='#606770' label='var(--ifm-color-emphasis-700)' /> | <ColorPreview color='#dadde1' label='var(--ifm-color-emphasis-700)' /> |
+| `--ifm-menu-color-active` | The color of the active menu item. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| `--ifm-menu-color-background-active` | The background color of the active menu item. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
+| `--ifm-menu-color-background-hover` | The background color of menu items when hovered. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
+| | | | |
 | `--ifm-navbar-background-color` | The background color of the navbar. | <ColorPreview color='#fff' label='var(--ifm-background-surface-color)' /> | <ColorPreview color='#242526' label='var(--ifm-background-surface-color)' /> |
 | `--ifm-navbar-link-color` | The color of links in the navbar. | <ColorPreview color='#1c1e21' label='var(--ifm-font-color-base)' /> | <ColorPreview color='#e3e3d3' label='var(--ifm-font-color-base)' /> |
 | `--ifm-navbar-link-hover-color` | The color of links in the navbar when hovered. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
@@ -141,48 +180,162 @@ There are a number of variables for the "base" colors used on your site. These a
 | `--ifm-navbar-search-input-color` | The color of the search input text in the navbar. | <ColorPreview color='#444950' label='var(--ifm-color-emphasis-800)' /> | <ColorPreview color='#ebedf0' label='var(--ifm-color-emphasis-800)' /> |
 | `--ifm-navbar-search-input-placeholder-color` | The color of the search input placeholder text in the navbar. | <ColorPreview color='#bec3e9' label='var(--ifm-color-emphasis-500)' /> | <ColorPreview color='#bec3e9' label='var(--ifm-color-emphasis-500)' /> |
 | | | | |
-| `--ifm-menu-color` | The color of text in the menu. | <ColorPreview color='#606770' label='var(--ifm-color-emphasis-700)' /> | <ColorPreview color='#dadde1' label='var(--ifm-color-emphasis-700)' /> |
-| `--ifm-menu-color-active` | The color of the active menu item. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
-| `--ifm-menu-color-background-active` | The background color of the active menu item. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
-| `--ifm-menu-color-background-hover` | The background color of menu items when hovered. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
+| `--ifm-pagination-color-active` | The color of the active page in the pagination component. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| | | | |
+| `--ifm-pills-color-active` | The color of the active pill in the pills component. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| `--ifm-pills-color-background-active | The background color of the active pill in the pills component. | <ColorPreview color='rgba(0, 0, 0, 0.05)' label='var(--ifm-hover-overlay)' /> | <ColorPreview color='rgba(255, 255, 255, 0.05)' label='var(--ifm-hover-overlay)' /> |
+| | | | |
+| `--ifm-toc-border-color` | The color of the border around the table of contents. | <ColorPreview color='#dadde1' label='var(--ifm-color-emphasis-300)' /> | <ColorPreview color='#606770' label='var(--ifm-color-emphasis-300)' /> |
+| `--ifm-toc-link-color` | The color of links in the table of contents. | <ColorPreview color='#525860' label='var(--ifm-color-content-secondary)' /> | <ColorPreview color='rgba(255, 255, 255, 1)' label='var(--ifm-color-content-secondary)' /> |
 | | | | |
 | `--ifm-tabs-color` | The color of the tab labels. | <ColorPreview color='#ebedf0' label='var(--ifm-color-secondary)' /> | <ColorPreview color='#ebedf0' label='var(--ifm-color-secondary)' /> |
 | `--ifm-tabs-color-active` | The color of the active tab label. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
 | `--ifm-tabs-color-active-border` | The color of the active tab label border. | <ColorPreview color='#2e8555' label='var(--ifm-tabs-color-active)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-tabs-color-active)' /> |
 | | | | |
-| `--ifm-footer-background-color` | The background color of the footer. | <ColorPreview color='#303846' /> | <ColorPreview color='#303846' /> |
-| `--ifm-footer-color` | The color of text in the footer. | <ColorPreview color='#ebedf0' label='inherit' /> | <ColorPreview color='#ebedf0' label='inherit' /> |
-| `--ifm-footer-link-color` | The color of links in the footer. | <ColorPreview color='#ebedf0' label='var(--ifm-color-secondary)' /> | <ColorPreview color='#ebedf0' label='var(--ifm-color-secondary)' /> |
-| `--ifm-footer-link-hover-color` | The color of links in the footer when hovered. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
-| `--ifm-footer-title-color` | The color of titles in the footer. | <ColorPreview color='#fff' label='var(--ifm-color-white)' /> | <ColorPreview color='#fff' label='var(--ifm-color-white)' /> |
-| | | | |
-| `--ifm-card-background-color` | The background color of cards. | <ColorPreview color='#fff' label='var(--ifm-background-surface-color)' /> | <ColorPreview color='#242526' label='var(--ifm-background-surface-color)' /> |
-| | | | |
-| `--ifm-pre-color` | The color of text in `<pre>` elements. | <ColorPreview color='#1c1e21' label='inherit' /> | <ColorPreview color='#e3e3d3' label='inherit' /> |
+| `--ifm-code-background` | The background color of code blocks. | Determined by Prism Theme | Determined by Prism Theme |
+| `--ifm-pre-background` | The background color of `<pre>` elements. | Determined by Prism Theme | Determined by Prism Theme | 
+| `--ifm-pre-color` | The color of text in `<pre>` elements. | Determined by Prism Theme | Determined by Prism Theme |
 | | | | |
 | `--ifm-heading-color` | The color of headings. | <ColorPreview color='#1c1e21' label='inherit' /> | <ColorPreview color='#e3e3d3' label='inherit' /> |
 | | | | |
-| `--ifm-pagination-color-active` | The color of the active page in the pagination component. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
+| `--ifm-table-background` | The background color of tables. | <ColorPreview color='#fff' label='transparent' /> | <ColorPreview color='#1b1b1d' label='transparent' /> |
+| `--ifm-table-stripe-background` | The background color of striped rows in tables. | <ColorPreview color='rgba(0,0,0, 0.03)' /> | <ColorPreview color='#ffffff12' />
 | | | | |
-| `--ifm-breadcrumb-color-active` | The color of the active breadcrumb item. | <ColorPreview color='#2e8555' label='var(--ifm-color-primary)' /> | <ColorPreview color='#25c2a0' label='var(--ifm-color-primary)' /> |
-| | | | |
+
 
 :::note[Color Variants]
     The Infima CSS framework has a *mostly* consistent naming convention for color variables. The color variables are named using the following pattern: `--ifm-color-{color}`. For example, the primary color variable is `--ifm-color-primary`. Most color variables have some other variants as follows:
 
     | Variant | Description |
     | --- | --- |
-    | `--ifm-color-{color}-light` | A lighter shade of the color. |
-    | `--ifm-color-{color}-ligher` | An even lighter shade of the color. |
-    | `--ifm-color-{color}-lightest` | The lightest shade of the color. |
-    | `--ifm-color-{color}-dark` | A darker shade of the color. |
-    | `--ifm-color-{color}-darker` | An even darker shade of the color. |
-    | `--ifm-color-{color}-darkest` | The darkest shade of the color. |
+    | `--ifm-color-{color}-light` | A lighter shade of the color. Uses the `tint()` function to make the color 15% lighter. |
+    | `--ifm-color-{color}-ligher` | An even lighter shade of the color. Uses the `tint()` function to make the color 30% lighter. |
+    | `--ifm-color-{color}-lightest` | The lightest shade of the color. Uses the `tint()` function to make the color 50% lighter. |
+    | `--ifm-color-{color}-dark` | A darker shade of the color. Uses the `shade()` function to make the color 10% darker. |
+    | `--ifm-color-{color}-darker` | An even darker shade of the color. Uses the `shade()` function to make the color 15% darker. |
+    | `--ifm-color-{color}-darkest` | The darkest shade of the color. Uses the `shade()` function to make the color 30% darker. |
     | | |
-    | `--ifm-color-{color}-contrast-foreground` | A color that contrasts well with the color for foreground elements. |
-    | `--ifm-color-{color}-contrast-background` | A color that contrasts well with the color for background elements. |
+    | `--ifm-color-{color}-contrast-foreground` | A color that contrasts well with the color for foreground elements. Uses the `shade` function to make the color 70% darker, 90% in dark mode. |
+    | `--ifm-color-{color}-contrast-background` | A color that contrasts well with the color for background elements. Uses the `tint` function to make the color 90% lighter, 70% in dark mode. |
 :::
 
 ### Typography
 
 Many of the infima variables are related to typography. These variables are used to define the font family, size, and weight used in the design system.
+
+| Variable | Description | Default | Result |
+| --- | --- | --- | --- |
+| `--ifm-font-family-base` | The base font family used by the site. | `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"` | |
+| `--ifm-font-family-monospace` | The monospace font family used by the site. | `SFMono-Regular, Menlo, Monaco, Consolas "Liberation Mono", "Courier New", monospace` | |
+| | | | |
+| `--ifm-font-size-base` | The base font size used by the site. | `100%` | |
+| | | | |
+| `--ifm-font-weight-base` | The base font weight used by the site. | `var(--ifm-font-weight-normal)` | `400` |
+| `--ifm-font-weight-light` | A lighter font weight used by the site. | `300` | |
+| `--ifm-font-weight-normal` | The normal font weight used by the site. | `400` | |
+| `--ifm-font-weight-semibold` | A semi-bold font weight used by the site. | `500` | |
+| `--ifm-font-weight-bold` | The bold font weight used by the site. | `700` | |
+| | | | |
+| `--ifm-line-height-base` | The base line height used by the site. | `1.65` | |
+| | | | |
+| `--ifm-heading-font-family` | The font family used for headings. | `var(--ifm-font-family-base)` | `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"` |
+| | | | |
+| `--ifm-heading-h1-font-size` | The font size used for `h1` elements. | `2rem` | |
+| `--ifm-heading-h2-font-size` | The font size used for `h2` elements. | `1.5rem` | |
+| `--ifm-heading-h3-font-size` | The font size used for `h3` elements. | `1.25rem` | |
+| `--ifm-heading-h4-font-size` | The font size used for `h4` elements. | `1rem` | |
+| `--ifm-heading-h5-font-size` | The font size used for `h5` elements. | `0.875rem` | |
+| `--ifm-heading-h6-font-size` | The font size used for `h6` elements. | `0.85rem` | |
+| | | | |
+| `--ifm-heading-font-weight` | The font weight used for headings. | `var(--ifm-font-weight-bold)` | `700` |
+| | | | |
+| `--ifm-heading-line-height` | The line height used for headings. | `1.25` | |
+| | | | |
+| `--ifm-link-decoration` | The text decoration used for links. | `none` | |
+| `--ifm-link-hover-decoration` | The text decoration used for links when hovered. | `underline` | |
+| | | | |
+| `--ifm-leading-desktop` | The line height used for paragraphs on desktop. | `1.25` | |
+| `--ifm-leading` | The line height used for paragraphs. | `calc(var(--ifm-leading-desktop) * 1rem);` | `1.25rem` |
+| `--ifm-paragraph-margin-bottom` | The margin bottom used for paragraphs. | `var(--ifm-leading)` | `1.25rem` |
+| | | | |
+| `--ifm-blockquote-font-size` | The font size used for blockquotes. | `var(--ifm-font-size-base)` | `100%` |
+| | | | |
+| `--ifm-code-font-size` | The font size used for code blocks. | `90%` | |
+| | | | |
+| `--ifm-button-font-weight` | The font weight used for buttons. | `var(--ifm-font-weight-bold)` | `700` |
+| | | | |
+| `--ifm-dropdown-font-weight` | The font weight used for dropdowns. | `var(--ifm-font-weight-semibold)` | `500` |
+| | | | |
+| `--ifm-pagination-font-size` | The font size used for pagination. | `1rem` | |
+
+### Spacing
+
+The infima variables are used to define the spacing used in the design system. These variables are used to define the padding and margin of various elements.
+
+| Variable | Description | Default | Result |
+| --- | --- | --- | --- |
+| `--ifm-global-spacing` | The global spacing used by the site. | `1rem` | |
+| `--ifm-spacing-vertical` | The vertical spacing used by the site. | `var(--ifm-global-spacing)` | `1rem` |
+| `--ifm-spacing-horizontal` | The horizontal spacing used by the site. | `var(--ifm-global-spacing)` | `1rem` |
+| | | | |
+| `--ifm-alert-padding-vertical` | The vertical padding used for alerts. | `var(--ifm-spacing-vertical)` | `1rem` |
+| `--ifm-alert-padding-horizontal` | The horizontal padding used for alerts. | `var(--ifm-spacing-horizontal)` | `1rem` |
+| | | | |
+| `--ifm-avatar-intro-margin` | The margin used for the intro of avatars. | `1rem` | |
+| | | | |
+| `--ifm-badge-padding-vertical` | The vertical padding used for badges. | `calc(var(--ifm-spacing-vertical) * 0.25)` | `0.25rem` |
+| `--ifm-badge-padding-horizontal` | The horizontal padding used for badges. | `calc(var(--ifm-spacing-horizontal) * 0.5)` | `0.5rem` |
+| | | | |
+| `--ifm-breadcrumb-padding-vertical` | The vertical padding used for breadcrumbs. | `0.4rem` | |
+| `--ifm-breadcrumb-padding-horizontal` | The horizontal padding used for breadcrumbs. | `0.8rem` | |
+| `--ifm-breadcrumb-separator-size` | The size of the breadcrumb separator. | `0.5rem` | |
+| `--ifm-breadcrumb-separator-size-multiplier` | The multiplier used for the breadcrumb separator. | `1.25` | |
+| | | | |
+| `--ifm-button-group-spacing` | The spacing used for button groups. | `2px` | |
+| | | | |
+| `--ifm-button-padding-vertical` | The vertical padding used for buttons. | `0.375rem` | |
+| `--ifm-button-padding-horizontal` | The horizontal padding used for buttons. | `1.5rem` | |
+| `--ifm-button-size-multiplier` | The multiplier used for button sizes. | `1` | |
+| | | | |
+| `--ifm-card-vertical-spacing` | The vertical spacing used for cards. | `var(--ifm-global-spacing)` | `1rem` |
+| `--ifm-card-horizontal-spacing` | The horizontal spacing used for cards. | `var(--ifm-global-spacing)` | `1rem` |
+| | | | |
+| `--ifm-footer-link-horizontal-spacing` | The horizontal spacing used for footer links. | `0.5rem` | |
+| `--ifm-footer-padding-vertical` | The vertical padding used for footers. | `calc(var(--ifm-spacing-vertical) * 2)` | `2rem` |
+| `--ifm-fotter-padding-horizontal` | The horizontal padding used for footers. | `calc(var(--ifm-spacing-horizontal) * 2)` | `2rem` |
+| | | | |
+| `--ifm-menu-link-padding-vertical` | The vertical padding used for menu links. | `0.375rem` | |
+| `--ifm-menu-link-padding-horizontal` | The horizontal padding used for menu links. | `0.75rem` | |
+| | | | |
+| `--ifm-navbar-item-padding-vertical` | The vertical padding used for navbar items. | `0.25rem` | |
+| `--ifm-navbar-item-padding-horizontal` | The horizontal padding used for navbar items. | `0.75rem` | |
+| `--ifm-navbar-padding-vertical` | The vertical padding used for navbars. | `calc(var(--ifm-spacing-vertical) * 0.5)` | `0.5rem` |
+| `--ifm-navbar-padding-horizontal` | The horizontal padding used for navbars. | `var(--ifm-spacing-horizontal)` | `1rem` |
+| | | | |
+| `--ifm-pagination-page-spacing` | The column gap / spacing used for pagination. | `0.2em` | |
+| `--ifm-pagination-padding-vertical` | The vertical padding used for pagination. | `calc(var(--ifm-spacing-vertical) * 0.25)` | `0.25rem` |
+| `--ifm-pagination-padding-horizontal` | The horizontal padding used for pagination. | `calc(var(--ifm-spacing-horizontal) * 1)` | `1rem` |
+| | | | |
+| `--ifm-pills-spacing` | The spacing used for pills. | `0.125rem` | |
+| | | | |
+| `--ifm-toc-padding-vertical` | The vertical padding used for the table of contents. | `0.5rem` | |
+| `--ifm-toc-padding-horizontal` | The horizontal padding used for the table of contents. | `0.5rem` | |
+| | | | |
+| `--ifm-tabs-padding-vertical` | The vertical padding used for tabs. | `1rem` | |
+| `--ifm-tabs-padding-horizontal` | The horizontal padding used for tabs. | `1rem` | |
+| | | | |
+| `--ifm-code-padding-vertical` | The vertical padding used for code blocks. | `0.1rem` | |
+| `--ifm-code-padding-horizontal` | The horizontal padding used for code blocks. | `0.1rem` | |
+| `--ifm-pre-padding` | The padding used for `<pre>` elements. | `1rem` | |
+| | | | |
+| `--ifm-heading-margin-bottom` | The margin bottom used for headings. | `var(--ifm-spacing-vertical)` | `1rem` |
+| `--ifm-heading-margin-top` | The margin top used for headings. | `0` | |
+| | | | |
+| `--ifm-image-alignment-padding` | The padding used for image alignments. | `1.25rem` | |
+| | | | |
+| `--ifm-list-left-padding` | The left padding used for lists. | `2rem` | |
+| `--ifm-list-margin` | The margin used for lists. | `1rem` | |
+| `--ifm-list-item-margin` | The margin used for list items. | `0.25rem` | |
+| `--ifm-list-paragraph-margin` | The margin used for list paragraphs. | `1rem` | |
+| | | | |
+| `--ifm-table-cell-padding` | The padding used for table cells. | `0.75rem` | |
