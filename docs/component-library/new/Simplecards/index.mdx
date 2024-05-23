@@ -12,26 +12,27 @@ Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this 
 :::
 
 
-The [Infima CSS framework](https://infima.dev/) provides a set of utility classes that can be used to stylize cards in Docusaurus. This article will cover how to create a reusable cards component for your Docusaurus site which can be personalized with different colors and sizes. The component will create all the cards available in Infima and "Custom" cards
+The [Infima CSS framework](https://infima.dev/) provides a set of utility classes that can be used to stylize cards in Docusaurus. 
+This article will cover how to create a reusable cards component for your Docusaurus site which can be personalized with different colors and sizes. 
+The component will create all the cards available in Infima and "Custom" cards, you will be able to create and personalize each card independently of each other
 
 The component is in fact a set of small components that will admit to form the cards.
-### SimpleCard folderwith all components:
- - Card
- - CardHeader
- - CardBody
- - CardFooter
+### SimpleCard : composition of the master file
+ - Card component (The container of alls parts)
+ - CardHeader component (Header parts of cards)
+ - CardBody component (Body parts of cards)
+ - CardFooter component (Footer parts of cards)
 
  We will discover that it pairs wonderfully with other components present in our library but this will be the subject of a dedicated page. 
 
-## Creating the Card component
+## Creating the Card component 
+Think of this component as the container of all card parts
 
-First we will create the master folder in:  `\src\components\SimpleCard\`.
-
-We're going to start by creating a new component called `Card`. He will be the container component of our different parts. This will allow us to insert our other components which will make up the card. Also this will give the possibility to manage className and style for each part.
+First we will create the master folder in:  `\src\components\SimpleCard\`. Next we will start by creating a new component called Card. It will be the container component of our different parts to come. Also this will give the possibility to manage className and style for each part.
 
 The component will accept the following props:
 
-- `shadow`: if wish you add shadow under your cards.
+- `shadow`: if you want to show a shadow under the map.
 
 Creating the file and adding the source code for the component.
 
@@ -103,3 +104,58 @@ export default Card;
 
 </Tabs>
 
+## Creating the CardHeader component
+Think of this component as the Header of your futurs cards. Creating the file and adding the source code for the component.The component will accept the following props:
+
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
+
+```javascript title='\src\components\SimpleCard\CardHeader\index.js'
+import React,  { CSSProperties } from 'react'; // CSSProperties allows inline styling with better type checking.
+import clsx from 'clsx'; // clsx helps manage conditional class names in a clean and concise manner.
+
+
+const CardHeader = ({
+  className, // Classes personnalisées pour le composant
+  style, // Styles personnalisés pour le composant
+  children, // Contenu du composant
+  textAlign, // Alignement du texte (par ex. 'left', 'center', 'right')
+  variant,
+  italic = false , 
+  noDecoration = false, 
+  transform, 
+  breakWord = false, 
+  truncate = false, 
+  weight,
+}) => {   
+  const text = textAlign ? `text--${textAlign}` :'';
+  const textColor = variant ? `text--${variant}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+  return (
+    <div className={clsx('card__header',className, text, textType, textColor, textItalic, textDecoration, textBreak, textTruncate, textWeight)} style={style} >
+    
+    {children}
+  </div>
+  );
+}
+
+
+export default CardHeader ;
+
+```
+
+</TabItem>
+
+<TabItem value="ts" label="TS">
+
+```tsx title='\src\components\SimpleCard\CardHeader\index.tsx'
+ddddddddddddd
+```
+</TabItem>
+
+</Tabs>
