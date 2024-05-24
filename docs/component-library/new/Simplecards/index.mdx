@@ -146,7 +146,19 @@ const CardHeader = ({
   const textTruncate = truncate ? 'text--truncate' : '';
   const textWeight = weight ? `text--${weight}` : '';
   return (
-    <div className={clsx('card__header',className, text, textType, textColor, textItalic, textDecoration, textBreak, textTruncate, textWeight)} style={style} >
+    <div className={clsx(
+        'card__header',
+        className,
+        text,
+        textType,
+        textColor,
+        textItalic,
+        textDecoration,
+        textBreak,
+        textTruncate,
+        textWeight
+        )} 
+        style={style} >
     
     {children}
   </div>
@@ -163,7 +175,342 @@ export default CardHeader ;
 <TabItem value="ts" label="TS">
 
 ```tsx title='\src\components\SimpleCard\CardHeader\index.tsx'
-workd in progress....
+import React, { CSSProperties, ReactNode } from 'react';
+import clsx from 'clsx';
+
+interface CardHeaderProps {
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+  textAlign?: string;
+  variant?: string;
+  italic?: boolean;
+  noDecoration?: boolean;
+  transform?: string;
+  breakWord?: boolean;
+  truncate?: boolean;
+  weight?: string;
+}
+
+const CardHeader: React.FC<CardHeaderProps> = ({
+  className,
+  style,
+  children,
+  textAlign,
+  variant,
+  italic = false,
+  noDecoration = false,
+  transform,
+  breakWord = false,
+  truncate = false,
+  weight,
+}) => {
+  const text = textAlign ? `text--${textAlign}` : '';
+  const textColor = variant ? `text--${variant}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+
+  return (
+    <div
+      className={clsx(
+        'card__header',
+        className,
+        text,
+        textType,
+        textColor,
+        textItalic,
+        textDecoration,
+        textBreak,
+        textTruncate,
+        textWeight
+      )}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default CardHeader;
+
+
+```
+</TabItem>
+
+</Tabs>
+
+## Creating the CardBody component
+Think of this component as the body of your futurs cards. Creating the file and adding the source code for the component.The component will accept the following props:
+
+- `textAlign`: The option for text alignment `left` `right` `center` `justify`
+- `variant`: (optional)This will be used to apply different colors to the text based on the Infima CSS utility classes. The default value is primary.
+- `italic`: Default value is false, it's for italic text render
+- `noDecoration`: Default value is false, it's for delete text decoration 
+- `transform`: The option for transform text to `UPPERCASE TEXT` `lowercase text` or `Capitalize Text` 
+- `breakWord`: The option for break text, the text will break at the a word boundary so it will not break in the middle of a word. 
+- `truncate`: The option is for very long text that will be truncated if there is not enough space to display it in a single line on the screen. It's truncated by adding... 
+- `weight`: The option for text weight `Bold` `Semibold` `Normal` `Light`
+
+
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
+
+```javascript title='\src\components\SimpleCard\CardBody\index.js'
+import React,  { CSSProperties } from 'react';
+import clsx from 'clsx'; // Assurez-vous d'avoir clsx installé et importé correctement
+
+
+
+// Build the CardBody parts of component with the specified props
+const CardBody = ({
+  className, // Classes personnalisées pour le composant
+  style, // Styles personnalisés pour le composant
+  children, // Contenu du composant
+  textAlign, // Alignement du texte (par ex. 'left', 'center', 'right')
+  variant,
+  italic = false , 
+  noDecoration = false, 
+  transform, 
+  breakWord = false, 
+  truncate = false, 
+  weight,
+}) => {   
+  const text = textAlign ? `text--${textAlign}` :'';
+  const textColor = variant ? `text--${variant}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+  return (
+    <div className={clsx('card__body' , className, text, textType, textColor, textItalic, textDecoration, textBreak, textTruncate, textWeight)} style={style} >
+    {children}
+  </div>
+  );
+}
+
+
+export default CardBody ;
+
+
+```
+
+</TabItem>
+
+<TabItem value="ts" label="TS">
+
+```tsx title='\src\components\SimpleCard\CardBody\index.tsx'
+import React, { CSSProperties, ReactNode } from 'react';
+import clsx from 'clsx';
+
+interface CardBodyProps {
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+  textAlign?: string;
+  variant?: string;
+  italic?: boolean;
+  noDecoration?: boolean;
+  transform?: string;
+  breakWord?: boolean;
+  truncate?: boolean;
+  weight?: string;
+}
+
+const CardBody: React.FC<CardBodyProps> = ({
+  className,
+  style,
+  children,
+  textAlign,
+  variant,
+  italic = false,
+  noDecoration = false,
+  transform,
+  breakWord = false,
+  truncate = false,
+  weight,
+}) => {
+  const text = textAlign ? `text--${textAlign}` : '';
+  const textColor = variant ? `text--${variant}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+
+  return (
+    <div
+      className={clsx(
+        'card__body',
+        className,
+        text,
+        textType,
+        textColor,
+        textItalic,
+        textDecoration,
+        textBreak,
+        textTruncate,
+        textWeight
+      )}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default CardBody;
+
+
+
+```
+</TabItem>
+
+</Tabs>
+
+
+## Creating the CardFooter component
+Think of this component as the Footer of your futurs cards. Creating the file and adding the source code for the component.The component will accept the following props:
+
+- `textAlign`: The option for text alignment `left` `right` `center` `justify`
+- `variant`: (optional)This will be used to apply different colors to the text based on the Infima CSS utility classes. The default value is primary.
+- `italic`: Default value is false, it's for italic text render
+- `noDecoration`: Default value is false, it's for delete text decoration 
+- `transform`: The option for transform text to `UPPERCASE TEXT` `lowercase text` or `Capitalize Text` 
+- `breakWord`: The option for break text, the text will break at the a word boundary so it will not break in the middle of a word. 
+- `truncate`: The option is for very long text that will be truncated if there is not enough space to display it in a single line on the screen. It's truncated by adding... 
+- `weight`: The option for text weight `Bold` `Semibold` `Normal` `Light`
+
+
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
+
+```javascript title='\src\components\SimpleCard\CardFooter\index.js'
+import React,  { CSSProperties } from 'react';
+import clsx from 'clsx'; // Assurez-vous d'avoir clsx installé et importé correctement
+
+const CardFooter = ({
+  className, // Classes personnalisées pour le composant
+  style, // Styles personnalisés pour le composant
+  children, // Contenu du composant
+  textAlign, // Alignement du texte (par ex. 'left', 'center', 'right')
+  variant,
+  italic = false , 
+  noDecoration = false, 
+  transform, 
+  breakWord = false, 
+  truncate = false, 
+  weight,
+}) => {   
+  const text = textAlign ? `text--${textAlign}` :'';
+  const textColor = variant ? `text--${variant}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+  return (
+    <div className={clsx(
+        'card__footer',
+        className,
+        text,
+        textType,
+        textColor,
+        textItalic,
+        textDecoration,
+        textBreak,
+        textTruncate,
+        textWeight
+        )}
+        style={style} >
+    {children}
+  </div>
+  );
+}
+
+
+export default CardFooter ;
+
+
+```
+
+</TabItem>
+
+<TabItem value="ts" label="TS">
+
+```tsx title='\src\components\SimpleCard\CardFooter\index.tsx'
+import React, { CSSProperties, ReactNode } from 'react';
+import clsx from 'clsx';
+
+interface CardFooterProps {
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+  textAlign?: string;
+  variant?: string;
+  italic?: boolean;
+  noDecoration?: boolean;
+  transform?: string;
+  breakWord?: boolean;
+  truncate?: boolean;
+  weight?: string;
+}
+
+const CardFooter: React.FC<CardFooterProps> = ({
+  className,
+  style,
+  children,
+  textAlign,
+  variant,
+  italic = false,
+  noDecoration = false,
+  transform,
+  breakWord = false,
+  truncate = false,
+  weight,
+}) => {
+  const text = textAlign ? `text--${textAlign}` : '';
+  const textColor = variant ? `text--${variant}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+
+  return (
+    <div
+      className={clsx(
+        'card__footer',
+        className,
+        text,
+        textType,
+        textColor,
+        textItalic,
+        textDecoration,
+        textBreak,
+        textTruncate,
+        textWeight
+      )}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default CardFooter;
+
+
+
+
 ```
 </TabItem>
 
