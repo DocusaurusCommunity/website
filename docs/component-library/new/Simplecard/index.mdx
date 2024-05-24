@@ -375,7 +375,7 @@ export default CardBody;
 
 ## Creating the CardImage component
 Think of this component as the image cover of your futurs cards. Creating the file and adding the source code for the component.
-
+This component is optionnal, you can use image html and add ```className={clsx("card__image")}```
 
 <Tabs groupId="js-ts">
   <TabItem value="js" label="JS">
@@ -398,11 +398,11 @@ const CardImage = ({
  
   
   return (
-    <div  className={clsx("card__image", className)} style={style}>
+   
     <img
-     
+      className={clsx("card__image", className)} style={style}
       src={generatedCardImageUrl} alt={alt} title={title}/>
-</div>
+
   );
 }
 
@@ -440,9 +440,9 @@ const CardImage: React.FC<CardImageProps> = ({
   const generatedCardImageUrl = useBaseUrl(cardImageUrl);
 
   return (
-    <div className={clsx('card__image', className)} style={style}>
-      <img src={generatedCardImageUrl} alt={alt} title={title} />
-    </div>
+      <img
+      className={clsx("card__image", className)} style={style}
+      src={generatedCardImageUrl} alt={alt} title={title}/>
   );
 };
 
