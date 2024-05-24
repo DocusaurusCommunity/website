@@ -515,3 +515,61 @@ export default CardFooter;
 </TabItem>
 
 </Tabs>
+
+
+
+## MDX Component Scope
+To follow the Docusaurus documentation, we create a theme folder that will host the `MDXComponents` file. This gives us `src\theme\MDXComponents.*`. You may already have a `src\theme` folder or an `MDXComponents` file if so - merge the changes described here with yours.
+
+<DocusaurusButton to="https://docusaurus.io/docs/markdown-features/react#mdx-component-scope" label="Docusaurus Documentation: MDX Component Scope" />
+
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
+    ```javascript title="src\theme\MDXComponents.js"
+      import React from 'react';
+      // Importing the original mapper + our components according to the Docusaurus doc
+      import MDXComponents from '@theme-original/MDXComponents';
+      import Card from '@site/src/components/SimpleCard/Card';
+      import CardBody from '@site/src/components/SimpleCard/CardBody';
+      import CardFooter from '@site/src/components/SimpleCard/CardFooter';
+      import CardHeader from '@site/src/components/SimpleCard/CardHeader';
+        
+
+      export default {
+        // Reusing the default mapping
+        ...MDXComponents,
+        Card, 
+        CardHeader, 
+        CardBody, 
+        CardFooter, 
+      };
+    ```
+  </TabItem>
+  <TabItem value="ts" label="TS">
+    ```tsx title="src\theme\MDXComponents.tsx"
+
+
+      import React from 'react';
+      // Importing the original mapper + our components according to the Docusaurus doc
+      import MDXComponents from '@theme-original/MDXComponents';
+      import Card from '@site/src/components/SimpleCard/Card';
+      import CardBody from '@site/src/components/SimpleCard/CardBody';
+      import CardFooter from '@site/src/components/SimpleCard/CardFooter';
+      import CardHeader from '@site/src/components/SimpleCard/CardHeader';
+
+
+      export default {
+        // Reusing the default mapping
+        ...MDXComponents,
+        Card, 
+        CardHeader, 
+        CardBody, 
+        CardFooter, 
+      };
+    ```
+  </TabItem>
+</Tabs>
+
+
+## Using the Cards Component in an MDX File
+
