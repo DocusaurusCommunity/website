@@ -24,6 +24,8 @@ import CardBody from '@site/src/components/SimpleCard/CardBody';
 import CardFooter from '@site/src/components/SimpleCard/CardFooter';
 import CardHeader from '@site/src/components/SimpleCard/CardHeader';
 import CardImage from '@site/src/components/SimpleCard/CardImage';
+import Timeline from '@site/src/components/Timeline';
+import TimelineItem from '@site/src/components/Timeline/TimelineItem';
 
 library.add(fab, fas);
 
@@ -44,4 +46,6 @@ export default {
     CardBody, 
     CardFooter,
     CardImage,
+    Timeline,
+    TimelineItem,
 };
