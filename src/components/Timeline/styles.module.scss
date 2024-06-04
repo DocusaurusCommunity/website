@@ -1,0 +1,564 @@
+/* The actual timeline (the vertical ruler) */
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: rgb(0, 0, 0);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+}
+
+/* item around content */
+
+.timeline__item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -13px;
+    background-color: rgb(46, 46, 46);
+    border: 4px solid #000000;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+}
+
+/* The circles on the timeline */
+
+/* Place the item to the left */
+
+.timeline__item--left {
+  left: 0;
+}
+
+/* Place the item to the right */
+
+.timeline__item--right {
+  left: 50%;
+}
+
+/* Add arrows to the left item (pointing right) */
+
+.timeline__item--left::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(54, 54, 54);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(54, 54, 54);
+}
+
+/* Add arrows to the right item (pointing left) */
+
+.timeline__item--right {
+  &::before {
+    content: "";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid rgb(78, 78, 78);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(54, 54, 54) transparent transparent;
+  }
+
+  &::after {
+    left: -13px;
+  }
+}
+
+/* Fix the circle for items on the right side */
+
+/* The actual content */
+
+.timeline__content {
+  padding: 20px 30px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline__item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+
+    &::before {
+      left: 60px;
+      border: medium solid rgb(68, 68, 68);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent rgb(0, 0, 0);
+    }
+  }
+
+  .timeline__item--left::after {
+    left: 15px;
+  }
+
+  .timeline__item--right {
+    &::after {
+      left: 15px;
+    }
+
+    left: 0%;
+  }
+}
+
+/*basics color */
+
+.timeline__content--black {
+  background-color: #000000;
+}
+
+.timeline__content--white {
+  background-color: #ffffff;
+}
+
+/* infima integration */
+/* Primary */
+
+.timeline__content--primary {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Primary Dark */
+
+.timeline__content--primary-dark {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* Primary Darker */
+
+.timeline__content--primary-darker {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Primary Darkest */
+
+.timeline__content--primary-darkest {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Primary Light */
+
+.timeline__content--primary-light {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Primary Lighter */
+
+.timeline__content--primary-lighter {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* Primary Lightest */
+
+.timeline__content--primary-lightest {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+/* Success */
+
+.timeline__content--success {
+  background-color: var(--ifm-color-success);
+}
+
+/* Success Dark */
+
+.timeline__content--success-dark {
+  background-color: var(--ifm-color-success-dark);
+}
+
+/* Success Darker */
+
+.timeline__content--success-darker {
+  background-color: var(--ifm-color-success-darker);
+}
+
+/* Success Darkest */
+
+.timeline__content--success-darkest {
+  background-color: var(--ifm-color-success-darkest);
+}
+
+/* Success Light */
+
+.timeline__content--success-light {
+  background-color: var(--ifm-color-success-light);
+}
+
+/* Success Lighter */
+
+.timeline__content--success-lighter {
+  background-color: var(--ifm-color-success-lighter);
+}
+
+/* Success Lightest */
+
+.timeline__content--success-lightest {
+  background-color: var(--ifm-color-success-lightest);
+}
+
+/* Warning */
+
+.timeline__content--warning {
+  background-color: var(--ifm-color-warning);
+}
+
+/* Warning Dark */
+
+.timeline__content--warning-dark {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+/* Warning Darker */
+
+.timeline__content--warning-darker {
+  background-color: var(--ifm-color-warning-darker);
+}
+
+/* Warning Darkest */
+
+.timeline__content--warning-darkest {
+  background-color: var(--ifm-color-warning-darkest);
+}
+
+/* Warning Light */
+
+.timeline__content--warning-light {
+  background-color: var(--ifm-color-warning-light);
+}
+
+/* Warning Lighter */
+
+.timeline__content--warning-lighter {
+  background-color: var(--ifm-color-warning-lighter);
+}
+
+/* Warning Lightest */
+
+.timeline__content--warning-lightest {
+  background-color: var(--ifm-color-warning-lightest);
+}
+
+/* danger */
+
+.timeline__content--danger {
+  background-color: var(--ifm-color-danger);
+}
+
+/* danger Dark */
+
+.timeline__content--danger-dark {
+  background-color: var(--ifm-color-danger-dark);
+}
+
+/* danger Darker */
+
+.timeline__content--danger-darker {
+  background-color: var(--ifm-color-danger-darker);
+}
+
+/* danger Darkest */
+
+.timeline__content--danger-darkest {
+  background-color: var(--ifm-color-danger-darkest);
+}
+
+/* danger Light */
+
+.timeline__content--danger-light {
+  background-color: var(--ifm-color-danger-light);
+}
+
+/* danger Lighter */
+
+.timeline__content--danger-lighter {
+  background-color: var(--ifm-color-danger-lighter);
+}
+
+/* danger Lightest */
+
+.timeline__content--danger-lightest {
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+/* Info */
+
+.timeline__content--info {
+  background-color: var(--ifm-color-info);
+}
+
+/* Info Dark */
+
+.timeline__content--info-dark {
+  background-color: var(--ifm-color-info-dark);
+}
+
+/* Info Darker */
+
+.timeline__content--info-darker {
+  background-color: var(--ifm-color-info-darker);
+}
+
+/* Info Darkest */
+
+.timeline__content--info-darkest {
+  background-color: var(--ifm-color-info-darkest);
+}
+
+/* Info Light */
+
+.timeline__content--info-light {
+  background-color: var(--ifm-color-info-light);
+}
+
+/* Info Lighter */
+
+.timeline__content--info-lighter {
+  background-color: var(--ifm-color-info-lighter);
+}
+
+/* Info Lightest */
+
+.timeline__content--info-lightest {
+  background-color: var(--ifm-color-info-lightest);
+}
+
+/* Primary */
+
+.timeline--primary::after {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Primary Dark */
+
+.timeline--primary-dark::after {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* Primary Darker */
+
+.timeline--primary-darker::after {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Primary Darkest */
+
+.timeline--primary-darkest::after {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Primary Light */
+
+.timeline--primary-light::after {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Primary Lighter */
+
+.timeline--primary-lighter::after {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* Primary Lightest */
+
+.timeline--primary-lightest::after {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+/* Success */
+
+.timeline--success::after {
+  background-color: var(--ifm-color-success);
+}
+
+/* Success Dark */
+
+.timeline--success-dark::after {
+  background-color: var(--ifm-color-success-dark);
+}
+
+/* Success Darker */
+
+.timeline--success-darker::after {
+  background-color: var(--ifm-color-success-darker);
+}
+
+/* Success Darkest */
+
+.timeline--success-darkest::after {
+  background-color: var(--ifm-color-success-darkest);
+}
+
+/* Success Light */
+
+.timeline--success-light::after {
+  background-color: var(--ifm-color-success-light);
+}
+
+/* Success Lighter */
+
+.timeline--success-lighter::after {
+  background-color: var(--ifm-color-success-lighter);
+}
+
+/* Success Lightest */
+
+.timeline--success-lightest::after {
+  background-color: var(--ifm-color-success-lightest);
+}
+
+/* Warning */
+
+.timeline--warning::after {
+  background-color: var(--ifm-color-warning);
+}
+
+/* Warning Dark */
+
+.timeline--warning-dark::after {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+/* Warning Darker */
+
+.timeline--warning-darker::after {
+  background-color: var(--ifm-color-warning-darker);
+}
+
+/* Warning Darkest */
+
+.timeline--warning-darkest::after {
+  background-color: var(--ifm-color-warning-darkest);
+}
+
+/* Warning Light */
+
+.timeline--warning-light::after {
+  background-color: var(--ifm-color-warning-light);
+}
+
+/* Warning Lighter */
+
+.timeline--warning-lighter::after {
+  background-color: var(--ifm-color-warning-lighter);
+}
+
+/* Warning Lightest */
+
+.timeline--warning-lightest::after {
+  background-color: var(--ifm-color-warning-lightest);
+}
+
+/* danger */
+
+.timeline--danger::after {
+  background-color: var(--ifm-color-danger);
+}
+
+/* danger Dark */
+
+.timeline--danger-dark::after {
+  background-color: var(--ifm-color-danger-dark);
+}
+
+/* danger Darker */
+
+.timeline--danger-darker::after {
+  background-color: var(--ifm-color-danger-darker);
+}
+
+/* danger Darkest */
+
+.timeline--danger-darkest::after {
+  background-color: var(--ifm-color-danger-darkest);
+}
+
+/* danger Light */
+
+.timeline--danger-light::after {
+  background-color: var(--ifm-color-danger-light);
+}
+
+/* danger Lighter */
+
+.timeline--danger-lighter::after {
+  background-color: var(--ifm-color-danger-lighter);
+}
+
+/* danger Lightest */
+
+.timeline--danger-lightest::after {
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+/* Info */
+
+.timeline--info::after {
+  background-color: var(--ifm-color-info);
+}
+
+/* Info Dark */
+
+.timeline--info-dark::after {
+  background-color: var(--ifm-color-info-dark);
+}
+
+/* Info Darker */
+
+.timeline--info-darker::after {
+  background-color: var(--ifm-color-info-darker);
+}
+
+/* Info Darkest */
+
+.timeline--info-darkest::after {
+  background-color: var(--ifm-color-info-darkest);
+}
+
+/* Info Light */
+
+.timeline--info-light::after {
+  background-color: var(--ifm-color-info-light);
+}
+
+/* Info Lighter */
+
+.timeline--info-lighter::after {
+  background-color: var(--ifm-color-info-lighter);
+}
+
+/* Info Lightest */
+
+.timeline--info-lightest::after {
+  background-color: var(--ifm-color-info-lightest);
+}

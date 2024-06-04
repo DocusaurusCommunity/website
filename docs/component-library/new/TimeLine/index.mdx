@@ -1,0 +1,1547 @@
+---
+title: Time line Component
+description: Create a reusable Time line component for your Docusaurus site that can be customized with different parts, colors, orientations and sizes.
+additionalContributors: 
+  - login: Juniors017
+    html_url: https://github.com/Juniors017
+    avatar_url: https://avatars.githubusercontent.com/u/97809069?v=4
+---
+
+:::credit
+Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this component and sharing it with us.
+:::
+
+
+The [Infima CSS framework](https://infima.dev/) provides a set of utility classNamees that can be used to stylize cards in Docusaurus. 
+This article will cover how to create a reusable Time line component for your Docusaurus site which can be personalized with different colors and sizes. 
+The component will create every items in Time line, you will be able to create and personalize each item independently of each other
+The component integrates the Native css [colors variables of Infima ](https://infima.dev/docs/utilities/colors)
+
+i invite you look the official documentation to styling your site with Infima and the new documentation on community site (Work in progress !) [CSS Variables](/knowledge/design/css/variables/)
+<DocusaurusButton to='https://docusaurus.io/docs/next/styling-layout#styling-your-site-with-infima' label='Docusaurus Documentation: Styling your site with Infima' />
+
+
+
+The component is in fact a set of one components for Time line and subcomponent that will admit to form each items.
+### TimeLine : composition of the master folder
+ - TimeLine component (The time line core)
+ - TimeLineItem (The items in time line)
+
+ We will discover that it pairs wonderfully with other components present in our library but this will be the subject of a dedicated page. 
+
+## Creating the TimeLine component 
+
+First we will create the master component in: \src\components\Timeline\. Next we will start by creating a "subcomponent" called TimeLineItem.
+
+The component will accept the following props:
+
+`variant`: this is for the line's color
+
+Creating the file and adding the source code for the component.
+<Tabs groupdId="js-ts">
+<TabItem value="js" label="JS">
+```javascript title="src\components\TimeLine\index.js"
+import React,  { CSSProperties } from 'react';
+import clsx from 'clsx'; 
+import styles from './styles.module.css'; 
+
+
+const TimeLine = ({
+  className, // Custom classes for the button
+  style, // Custom styles for the button
+  children, // Children elements
+  variant, // for line color
+  
+}) => { 
+  const bgLineColor = variant ?styles[`timeline--${variant}`] : ''; // css integrate infima color
+
+  return (
+    <div className={clsx(styles.timeline,bgLineColor,  className)} style={style}> // style and classNamme are integrated 
+    {children}
+    </div>
+  );
+};
+
+
+export default  TimeLine;
+
+
+```
+  
+  
+</TabItem>
+  
+<TabItem value="ts" label="TS">
+  
+```Tsx title="src\components\TimeLine\index.tsx"
+import React, { CSSProperties, ReactNode } from 'react';
+import clsx from 'clsx'; 
+import styles from './styles.module.css'; 
+
+interface TimeLineProps {
+  className?: string; // Optional custom classes for the button
+  style?: CSSProperties; // Optional custom styles for the button
+  children: ReactNode; // Children elements
+  variant?: string; // Optional variant for line color
+}
+
+const TimeLine: React.FC<TimeLineProps> = ({
+  className, // Custom classes for the button
+  style, // Custom styles for the button
+  children, // Children elements
+  variant, // for line color
+}) => { 
+  const bgLineColor = variant ? styles[`timeline--${variant}`] : ''; // css integrate infima color
+  
+  return (
+    <div className={clsx(styles.timeline,
+     bgLineColor,
+     className
+     )} 
+     style={style}>
+
+      {children}
+      
+    </div>
+  );
+};
+
+export default TimeLine;
+
+```
+  
+  </TabItem>
+
+</Tabs>
+
+
+
+
+## Creating the subcomponent TimeLineItem
+This sub-component will create each element of your time line, it will accept the following props:
+
+- `textAlign`: The option for text alignment `left` `right` `center` by default `justify`
+- `variant`: (optional)This will be used to apply different colors to the text based on the Infima CSS utility classNamees. The default value is primary
+- `italic`: Default value is false, it's for italic text render
+- `noDecoration`: Default value is false, it's for delete text decoration 
+- `transform`: The option for transform text to `UPPERCASE TEXT` `lowercase text` or `Capitalize Text` 
+- `breakWord`: The option for break text, the text will break at the a word boundary so it will not break in the middle of a word
+- `truncate`: The option is for very long text that will be truncated if there is not enough space to display it in a single line on the screen. It's truncated by adding... 
+- `weight`: The option for text weight `Bold` `Semibold` `Normal` `Light`
+- `shadow`: if you want to show a shadow under item 'tl' by default
+- `color`: The option is for text color
+- `aligne`: The option is for add items on left or right by default left. This option is responsive no worry 
+
+:::tip
+
+For color options, the component incorporates all the infima colors. you can find out in the addition part of the component’s css
+
+:::
+
+
+
+<Tabs groupdId="js-ts">
+<TabItem value="js" label="JS">
+```javascript title="src\components\TimeLine\TimeLineItem\index.js"
+import React,  { CSSProperties } from 'react';
+import clsx from 'clsx'; 
+import styles from '../styles.module.css'; 
+
+
+const TimelineItem = ({
+  className, // Custom classes for the button
+  style, // Custom styles for the button
+  children, // Children elements
+  align = 'left' , // position of item
+  textAlign = 'justify', // text position
+  variant = 'primary', // background color 
+  italic = false ,  // style italic for text
+  noDecoration = false, // style no text decoration
+  transform,  // option for transform text to UPPERCASE TEXT lowercase text or Capitalize Text
+  breakWord = false, //  option for break text, the text will break at the a word boundary so it will not break in the middle of a word.
+  truncate = false, // The option is for very long text that will be truncated if there is not enough space to display it in a single line on the screen. It's truncated by adding...
+  weight, // The option for text weight Bold Semibold Normal Light
+  color, // text color 
+  shadow = 'tl', // shadow option
+  
+}) => {
+  const boxshadow = shadow ?`item shadow--${shadow}` : '';
+  const bgcolor = variant ?styles[`timeline__content--${variant}`] : '';
+  const itemalign = align ? styles[`timeline__item--${align}`]  :'';
+  const text = textAlign ? `text--${textAlign}` :'';
+  const textColor = color ? `text--${color}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+
+    return (
+        <div className={clsx(styles.timeline__item, 
+        itemalign  
+        )} >
+
+        <div className={clsx(styles.timeline__content,
+        bgcolor,
+        className ,
+        boxshadow,
+        text,
+        textType,
+        textColor,
+        textItalic,
+        textDecoration,
+        textBreak,
+        textTruncate,
+        textWeight 
+        )} 
+        style={style}>
+
+        {children}
+
+        </div></div>
+  );
+};
+
+
+export default  TimelineItem;
+
+
+```
+  
+  
+</TabItem>
+  
+<TabItem value="ts" label="TS">
+```Tsx title="src\components\TimeLine\TimeLineItem\index.js"
+import React, { CSSProperties, ReactNode } from 'react';
+import clsx from 'clsx'; // Assurez-vous d'avoir clsx installé et importé correctement
+import styles from '../styles.module.css';
+
+interface TimelineItemProps {
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+  align?: 'left' | 'right' ;
+  textAlign?: 'left' | 'right' | 'center' | 'justify';
+  variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'link' | string;
+  italic?: boolean;
+  noDecoration?: boolean;
+  transform?: 'uppercase' | 'lowercase' | 'capitalize';
+  breakWord?: boolean;
+  truncate?: boolean;
+  weight?: 'light' | 'normal' | 'bold' |'semibold';
+  color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'link' | string;
+  shadow?: string;
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({
+  className, // Custom classes for the button
+  style, // Custom styles for the button
+  children, // Children elements
+  align = 'left' , // position of item
+  textAlign = 'justify', // text position
+  variant = 'primary', // background color 
+  italic = false ,  // style italic for text
+  noDecoration = false, // style no text decoration
+  transform,  // option for transform text to UPPERCASE TEXT lowercase text or Capitalize Text
+  breakWord = false, //  option for break text, the text will break at the a word boundary so it will not break in the middle of a word.
+  truncate = false, // The option is for very long text that will be truncated if there is not enough space to display it in a single line on the screen. It's truncated by adding...
+  weight, // The option for text weight Bold Semibold Normal Light
+  color, // text color 
+  shadow = 'tl', // shadow option
+}) => {
+  const boxshadow = shadow ? `item shadow--${shadow}` : '';
+  const bgcolor = variant ? styles[`timeline__content--${variant}`] : '';
+  const itemalign = align ? styles[`timeline__item--${align}`] : '';
+  const text = textAlign ? `text--${textAlign}` : '';
+  const textColor = color ? `text--${color}` : '';
+  const textItalic = italic ? 'text--italic' : '';
+  const textDecoration = noDecoration ? 'text-no-decoration' : '';
+  const textType = transform ? `text--${transform}` : '';
+  const textBreak = breakWord ? 'text--break' : '';
+  const textTruncate = truncate ? 'text--truncate' : '';
+  const textWeight = weight ? `text--${weight}` : '';
+
+  return (
+    <div className={clsx(styles.timeline__item, itemalign)}>
+      <div
+        className={clsx(
+          styles.timeline__content,
+          bgcolor,
+          className,
+          boxshadow,
+          text,
+          textType,
+          textColor,
+          textItalic,
+          textDecoration,
+          textBreak,
+          textTruncate,
+          textWeight
+        )}
+        style={style}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default TimelineItem;
+
+```
+  
+  </TabItem>
+
+</Tabs>
+
+## CSS of this componant 
+in this component I included the css variables of the colors made available by Infima for backgrounds and borders, for the text this is integrated natively.
+
+
+<Tabs groupId="css-scss">
+  <TabItem value="CSS" label="CSS" default>
+```css title="src\components\TimeLine\styles.module.css"
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: rgb(0, 0, 0);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* item around content */
+.timeline__item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline__item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -13px;
+  background-color: rgb(46, 46, 46);
+  border: 4px solid #000000;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the item to the left */
+.timeline__item--left {
+  left: 0;
+}
+
+/* Place the item to the right */
+.timeline__item--right {
+  left: 50%;
+}
+
+/* Add arrows to the left item (pointing right) */
+.timeline__item--left::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(54, 54, 54);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(54, 54, 54);
+}
+
+/* Add arrows to the right item (pointing left) */
+.timeline__item--right::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid rgb(78, 78, 78);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgb(54, 54, 54) transparent transparent;
+}
+
+/* Fix the circle for items on the right side */
+.timeline__item--right::after {
+  left: -13px;
+}
+
+/* The actual content */
+.timeline__content {
+  padding: 20px 30px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  border-radius: 6px;
+}
+
+
+
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+  
+  .timeline__item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  .timeline__item::before {
+    left: 60px;
+    border: medium solid rgb(68, 68, 68);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(0, 0, 0);
+  }
+
+  .timeline__item--left::after, .timeline__item--right::after {
+    left: 15px;
+  }
+  
+  .timeline__item--right {
+    left: 0%;
+  }
+}
+
+/*basics colors for background color items*/
+
+.timeline__content--black {
+  background-color: #000000;
+}
+.timeline__content--white {
+  background-color: #ffffff;
+}
+
+/* ********************* infima integration for background color items ************************/
+/* Primary */
+.timeline__content--primary {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Primary Dark */
+.timeline__content--primary-dark {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* Primary Darker */
+.timeline__content--primary-darker {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Primary Darkest */
+.timeline__content--primary-darkest {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Primary Light */
+.timeline__content--primary-light {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Primary Lighter */
+.timeline__content--primary-lighter {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* Primary Lightest */
+.timeline__content--primary-lightest {
+  background-color: var(--ifm-color-primary-lightest);
+}
+/* Success */
+.timeline__content--success {
+  background-color: var(--ifm-color-success);
+}
+
+/* Success Dark */
+.timeline__content--success-dark {
+  background-color: var(--ifm-color-success-dark);
+}
+
+/* Success Darker */
+.timeline__content--success-darker {
+  background-color: var(--ifm-color-success-darker);
+}
+
+/* Success Darkest */
+.timeline__content--success-darkest {
+  background-color: var(--ifm-color-success-darkest);
+}
+
+/* Success Light */
+.timeline__content--success-light {
+  background-color: var(--ifm-color-success-light);
+}
+
+/* Success Lighter */
+.timeline__content--success-lighter {
+  background-color: var(--ifm-color-success-lighter);
+}
+
+/* Success Lightest */
+.timeline__content--success-lightest {
+  background-color: var(--ifm-color-success-lightest);
+}
+
+/* Warning */
+.timeline__content--warning {
+  background-color: var(--ifm-color-warning);
+}
+
+/* Warning Dark */
+.timeline__content--warning-dark {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+/* Warning Darker */
+.timeline__content--warning-darker {
+  background-color: var(--ifm-color-warning-darker);
+}
+
+/* Warning Darkest */
+.timeline__content--warning-darkest {
+  background-color: var(--ifm-color-warning-darkest);
+}
+
+/* Warning Light */
+.timeline__content--warning-light {
+  background-color: var(--ifm-color-warning-light);
+}
+
+/* Warning Lighter */
+.timeline__content--warning-lighter {
+  background-color: var(--ifm-color-warning-lighter);
+}
+
+/* Warning Lightest */
+.timeline__content--warning-lightest {
+  background-color: var(--ifm-color-warning-lightest);
+}
+
+/* danger */
+.timeline__content--danger {
+  background-color: var(--ifm-color-danger);
+}
+
+/* danger Dark */
+.timeline__content--danger-dark {
+  background-color: var(--ifm-color-danger-dark);
+}
+
+/* danger Darker */
+.timeline__content--danger-darker {
+  background-color: var(--ifm-color-danger-darker);
+}
+
+/* danger Darkest */
+.timeline__content--danger-darkest {
+  background-color: var(--ifm-color-danger-darkest);
+}
+
+/* danger Light */
+.timeline__content--danger-light {
+  background-color: var(--ifm-color-danger-light);
+}
+
+/* danger Lighter */
+.timeline__content--danger-lighter {
+  background-color: var(--ifm-color-danger-lighter);
+}
+
+/* danger Lightest */
+.timeline__content--danger-lightest {
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+/* Info */
+.timeline__content--info {
+  background-color: var(--ifm-color-info);
+}
+
+/* Info Dark */
+.timeline__content--info-dark {
+  background-color: var(--ifm-color-info-dark);
+}
+
+/* Info Darker */
+.timeline__content--info-darker {
+  background-color: var(--ifm-color-info-darker);
+}
+
+/* Info Darkest */
+.timeline__content--info-darkest {
+  background-color: var(--ifm-color-info-darkest);
+}
+
+/* Info Light */
+.timeline__content--info-light {
+  background-color: var(--ifm-color-info-light);
+}
+
+/* Info Lighter */
+.timeline__content--info-lighter {
+  background-color: var(--ifm-color-info-lighter);
+}
+
+/* Info Lightest */
+.timeline__content--info-lightest {
+  background-color: var(--ifm-color-info-lightest);
+}
+
+/*  background color for line of time line*/
+/* Primary */
+.timeline--primary::after {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Primary Dark */
+.timeline--primary-dark::after {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* Primary Darker */
+.timeline--primary-darker::after {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Primary Darkest */
+.timeline--primary-darkest::after {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Primary Light */
+.timeline--primary-light::after {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Primary Lighter */
+.timeline--primary-lighter::after {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* Primary Lightest */
+.timeline--primary-lightest::after {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+/* Success */
+.timeline--success::after {
+  background-color: var(--ifm-color-success);
+}
+
+/* Success Dark */
+.timeline--success-dark::after {
+  background-color: var(--ifm-color-success-dark);
+}
+
+/* Success Darker */
+.timeline--success-darker::after {
+  background-color: var(--ifm-color-success-darker);
+}
+
+/* Success Darkest */
+.timeline--success-darkest::after {
+  background-color: var(--ifm-color-success-darkest);
+}
+
+/* Success Light */
+.timeline--success-light::after {
+  background-color: var(--ifm-color-success-light);
+}
+
+/* Success Lighter */
+.timeline--success-lighter::after {
+  background-color: var(--ifm-color-success-lighter);
+}
+
+/* Success Lightest */
+.timeline--success-lightest::after {
+  background-color: var(--ifm-color-success-lightest);
+}
+
+/* Warning */
+.timeline--warning::after {
+  background-color: var(--ifm-color-warning);
+}
+
+/* Warning Dark */
+.timeline--warning-dark::after {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+/* Warning Darker */
+.timeline--warning-darker::after {
+  background-color: var(--ifm-color-warning-darker);
+}
+
+/* Warning Darkest */
+.timeline--warning-darkest::after {
+  background-color: var(--ifm-color-warning-darkest);
+}
+
+/* Warning Light */
+.timeline--warning-light::after {
+  background-color: var(--ifm-color-warning-light);
+}
+
+/* Warning Lighter */
+.timeline--warning-lighter::after {
+  background-color: var(--ifm-color-warning-lighter);
+}
+
+/* Warning Lightest */
+.timeline--warning-lightest::after {
+  background-color: var(--ifm-color-warning-lightest);
+}
+
+/* danger */
+.timeline--danger::after {
+  background-color: var(--ifm-color-danger);
+}
+
+/* danger Dark */
+.timeline--danger-dark::after {
+  background-color: var(--ifm-color-danger-dark);
+}
+
+/* danger Darker */
+.timeline--danger-darker::after {
+  background-color: var(--ifm-color-danger-darker);
+}
+
+/* danger Darkest */
+.timeline--danger-darkest::after {
+  background-color: var(--ifm-color-danger-darkest);
+}
+
+/* danger Light */
+.timeline--danger-light::after {
+  background-color: var(--ifm-color-danger-light);
+}
+
+/* danger Lighter */
+.timeline--danger-lighter::after {
+  background-color: var(--ifm-color-danger-lighter);
+}
+
+/* danger Lightest */
+.timeline--danger-lightest::after {
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+/* Info */
+.timeline--info::after {
+  background-color: var(--ifm-color-info);
+}
+
+/* Info Dark */
+.timeline--info-dark::after {
+  background-color: var(--ifm-color-info-dark);
+}
+
+/* Info Darker */
+.timeline--info-darker::after {
+  background-color: var(--ifm-color-info-darker);
+}
+
+/* Info Darkest */
+.timeline--info-darkest::after {
+  background-color: var(--ifm-color-info-darkest);
+}
+
+/* Info Light */
+.timeline--info-light::after {
+  background-color: var(--ifm-color-info-light);
+}
+
+/* Info Lighter */
+.timeline--info-lighter::after {
+  background-color: var(--ifm-color-info-lighter);
+}
+
+/* Info Lightest */
+.timeline--info-lightest::after {
+  background-color: var(--ifm-color-info-lightest);
+}
+
+
+
+```
+  
+  
+</TabItem>
+  
+<TabItem value="SCSS" label="SCSS" default>
+  
+```Sass title="src\components\TimeLine\styles.module.scss"
+
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: rgb(0, 0, 0);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+}
+
+/* item around content */
+
+.timeline__item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -13px;
+    background-color: rgb(46, 46, 46);
+    border: 4px solid #000000;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+}
+
+/* The circles on the timeline */
+
+/* Place the item to the left */
+
+.timeline__item--left {
+  left: 0;
+}
+
+/* Place the item to the right */
+
+.timeline__item--right {
+  left: 50%;
+}
+
+/* Add arrows to the left item (pointing right) */
+
+.timeline__item--left::before {
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(54, 54, 54);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(54, 54, 54);
+}
+
+/* Add arrows to the right item (pointing left) */
+
+.timeline__item--right {
+  &::before {
+    content: "";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid rgb(78, 78, 78);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(54, 54, 54) transparent transparent;
+  }
+
+  &::after {
+    left: -13px;
+  }
+}
+
+/* Fix the circle for items on the right side */
+
+/* The actual content */
+
+.timeline__content {
+  padding: 20px 30px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline__item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+
+    &::before {
+      left: 60px;
+      border: medium solid rgb(68, 68, 68);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent rgb(0, 0, 0);
+    }
+  }
+
+  .timeline__item--left::after {
+    left: 15px;
+  }
+
+  .timeline__item--right {
+    &::after {
+      left: 15px;
+    }
+
+    left: 0%;
+  }
+}
+
+/*basics color */
+
+.timeline__content--black {
+  background-color: #000000;
+}
+
+.timeline__content--white {
+  background-color: #ffffff;
+}
+
+/* infima integration */
+/* Primary */
+
+.timeline__content--primary {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Primary Dark */
+
+.timeline__content--primary-dark {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* Primary Darker */
+
+.timeline__content--primary-darker {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Primary Darkest */
+
+.timeline__content--primary-darkest {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Primary Light */
+
+.timeline__content--primary-light {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Primary Lighter */
+
+.timeline__content--primary-lighter {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* Primary Lightest */
+
+.timeline__content--primary-lightest {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+/* Success */
+
+.timeline__content--success {
+  background-color: var(--ifm-color-success);
+}
+
+/* Success Dark */
+
+.timeline__content--success-dark {
+  background-color: var(--ifm-color-success-dark);
+}
+
+/* Success Darker */
+
+.timeline__content--success-darker {
+  background-color: var(--ifm-color-success-darker);
+}
+
+/* Success Darkest */
+
+.timeline__content--success-darkest {
+  background-color: var(--ifm-color-success-darkest);
+}
+
+/* Success Light */
+
+.timeline__content--success-light {
+  background-color: var(--ifm-color-success-light);
+}
+
+/* Success Lighter */
+
+.timeline__content--success-lighter {
+  background-color: var(--ifm-color-success-lighter);
+}
+
+/* Success Lightest */
+
+.timeline__content--success-lightest {
+  background-color: var(--ifm-color-success-lightest);
+}
+
+/* Warning */
+
+.timeline__content--warning {
+  background-color: var(--ifm-color-warning);
+}
+
+/* Warning Dark */
+
+.timeline__content--warning-dark {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+/* Warning Darker */
+
+.timeline__content--warning-darker {
+  background-color: var(--ifm-color-warning-darker);
+}
+
+/* Warning Darkest */
+
+.timeline__content--warning-darkest {
+  background-color: var(--ifm-color-warning-darkest);
+}
+
+/* Warning Light */
+
+.timeline__content--warning-light {
+  background-color: var(--ifm-color-warning-light);
+}
+
+/* Warning Lighter */
+
+.timeline__content--warning-lighter {
+  background-color: var(--ifm-color-warning-lighter);
+}
+
+/* Warning Lightest */
+
+.timeline__content--warning-lightest {
+  background-color: var(--ifm-color-warning-lightest);
+}
+
+/* danger */
+
+.timeline__content--danger {
+  background-color: var(--ifm-color-danger);
+}
+
+/* danger Dark */
+
+.timeline__content--danger-dark {
+  background-color: var(--ifm-color-danger-dark);
+}
+
+/* danger Darker */
+
+.timeline__content--danger-darker {
+  background-color: var(--ifm-color-danger-darker);
+}
+
+/* danger Darkest */
+
+.timeline__content--danger-darkest {
+  background-color: var(--ifm-color-danger-darkest);
+}
+
+/* danger Light */
+
+.timeline__content--danger-light {
+  background-color: var(--ifm-color-danger-light);
+}
+
+/* danger Lighter */
+
+.timeline__content--danger-lighter {
+  background-color: var(--ifm-color-danger-lighter);
+}
+
+/* danger Lightest */
+
+.timeline__content--danger-lightest {
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+/* Info */
+
+.timeline__content--info {
+  background-color: var(--ifm-color-info);
+}
+
+/* Info Dark */
+
+.timeline__content--info-dark {
+  background-color: var(--ifm-color-info-dark);
+}
+
+/* Info Darker */
+
+.timeline__content--info-darker {
+  background-color: var(--ifm-color-info-darker);
+}
+
+/* Info Darkest */
+
+.timeline__content--info-darkest {
+  background-color: var(--ifm-color-info-darkest);
+}
+
+/* Info Light */
+
+.timeline__content--info-light {
+  background-color: var(--ifm-color-info-light);
+}
+
+/* Info Lighter */
+
+.timeline__content--info-lighter {
+  background-color: var(--ifm-color-info-lighter);
+}
+
+/* Info Lightest */
+
+.timeline__content--info-lightest {
+  background-color: var(--ifm-color-info-lightest);
+}
+
+/* Primary */
+
+.timeline--primary::after {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Primary Dark */
+
+.timeline--primary-dark::after {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* Primary Darker */
+
+.timeline--primary-darker::after {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Primary Darkest */
+
+.timeline--primary-darkest::after {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Primary Light */
+
+.timeline--primary-light::after {
+  background-color: var(--ifm-color-primary-light);
+}
+
+/* Primary Lighter */
+
+.timeline--primary-lighter::after {
+  background-color: var(--ifm-color-primary-lighter);
+}
+
+/* Primary Lightest */
+
+.timeline--primary-lightest::after {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+/* Success */
+
+.timeline--success::after {
+  background-color: var(--ifm-color-success);
+}
+
+/* Success Dark */
+
+.timeline--success-dark::after {
+  background-color: var(--ifm-color-success-dark);
+}
+
+/* Success Darker */
+
+.timeline--success-darker::after {
+  background-color: var(--ifm-color-success-darker);
+}
+
+/* Success Darkest */
+
+.timeline--success-darkest::after {
+  background-color: var(--ifm-color-success-darkest);
+}
+
+/* Success Light */
+
+.timeline--success-light::after {
+  background-color: var(--ifm-color-success-light);
+}
+
+/* Success Lighter */
+
+.timeline--success-lighter::after {
+  background-color: var(--ifm-color-success-lighter);
+}
+
+/* Success Lightest */
+
+.timeline--success-lightest::after {
+  background-color: var(--ifm-color-success-lightest);
+}
+
+/* Warning */
+
+.timeline--warning::after {
+  background-color: var(--ifm-color-warning);
+}
+
+/* Warning Dark */
+
+.timeline--warning-dark::after {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+/* Warning Darker */
+
+.timeline--warning-darker::after {
+  background-color: var(--ifm-color-warning-darker);
+}
+
+/* Warning Darkest */
+
+.timeline--warning-darkest::after {
+  background-color: var(--ifm-color-warning-darkest);
+}
+
+/* Warning Light */
+
+.timeline--warning-light::after {
+  background-color: var(--ifm-color-warning-light);
+}
+
+/* Warning Lighter */
+
+.timeline--warning-lighter::after {
+  background-color: var(--ifm-color-warning-lighter);
+}
+
+/* Warning Lightest */
+
+.timeline--warning-lightest::after {
+  background-color: var(--ifm-color-warning-lightest);
+}
+
+/* danger */
+
+.timeline--danger::after {
+  background-color: var(--ifm-color-danger);
+}
+
+/* danger Dark */
+
+.timeline--danger-dark::after {
+  background-color: var(--ifm-color-danger-dark);
+}
+
+/* danger Darker */
+
+.timeline--danger-darker::after {
+  background-color: var(--ifm-color-danger-darker);
+}
+
+/* danger Darkest */
+
+.timeline--danger-darkest::after {
+  background-color: var(--ifm-color-danger-darkest);
+}
+
+/* danger Light */
+
+.timeline--danger-light::after {
+  background-color: var(--ifm-color-danger-light);
+}
+
+/* danger Lighter */
+
+.timeline--danger-lighter::after {
+  background-color: var(--ifm-color-danger-lighter);
+}
+
+/* danger Lightest */
+
+.timeline--danger-lightest::after {
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+/* Info */
+
+.timeline--info::after {
+  background-color: var(--ifm-color-info);
+}
+
+/* Info Dark */
+
+.timeline--info-dark::after {
+  background-color: var(--ifm-color-info-dark);
+}
+
+/* Info Darker */
+
+.timeline--info-darker::after {
+  background-color: var(--ifm-color-info-darker);
+}
+
+/* Info Darkest */
+
+.timeline--info-darkest::after {
+  background-color: var(--ifm-color-info-darkest);
+}
+
+/* Info Light */
+
+.timeline--info-light::after {
+  background-color: var(--ifm-color-info-light);
+}
+
+/* Info Lighter */
+
+.timeline--info-lighter::after {
+  background-color: var(--ifm-color-info-lighter);
+}
+
+/* Info Lightest */
+
+.timeline--info-lightest::after {
+  background-color: var(--ifm-color-info-lightest);
+}
+
+
+```
+  
+  </TabItem>
+
+</Tabs>
+
+
+
+
+## MDX Component Scope
+To follow the Docusaurus documentation, we create a theme folder that will host the `MDXComponents` file. This gives us `src\theme\MDXComponents.*`. You may already have a `src\theme` folder or an `MDXComponents` file if so - merge the changes described here with yours.
+
+<DocusaurusButton to="https://docusaurus.io/docs/markdown-features/react#mdx-component-scope" label="Docusaurus Documentation: MDX Component Scope" />
+
+<Tabs groupId="js-ts">
+  <TabItem value="js" label="JS">
+    ```javascript title="src\theme\MDXComponents.js"
+      import React from 'react';
+      // Importing the original mapper + our components according to the Docusaurus doc
+      import MDXComponents from '@theme-original/MDXComponents';
+      
+      import Timeline from '@site/src/components/Timeline';
+      import TimelineItem from '@site/src/components/Timeline/TimelineItem';
+        
+
+      export default {
+        // Reusing the default mapping
+        ...MDXComponents,
+        Timeline,
+        TimelineItem,
+      };
+    ```
+  </TabItem>
+  <TabItem value="ts" label="TS">
+    ```tsx title="src\theme\MDXComponents.tsx"
+
+
+      import React from 'react';
+      // Importing the original mapper + our components according to the Docusaurus doc
+      import MDXComponents from '@theme-original/MDXComponents';
+
+      import Timeline from '@site/src/components/Timeline';
+      import TimelineItem from '@site/src/components/Timeline/TimelineItem';
+
+
+      export default {
+        // Reusing the default mapping
+        ...MDXComponents,
+        Timeline,
+        TimelineItem,
+      };
+    ```
+  </TabItem>
+</Tabs>
+
+
+## Using the Time line Component in an MDX File
+
+### code
+```html
+
+
+<Timeline variant="danger-darkest" horizontal>
+
+<TimelineItem  variant='white' align='right' color='danger'  style={{ borderColor: 'danger', borderWidth: '5px', borderStyle: 'solid' , borderRadius:'20px'}}>
+### 2024 
+Year of the Dragon : The Dragon symbolizes power, strength, and good fortune. People born under this sign are often seen as confident, ambitious, and charismatic.
+</TimelineItem>
+<TimelineItem   variant='black' align='left' color='info' style={{ borderColor: 'info', borderWidth: '5px', borderStyle: 'solid' , borderRadius:'0'}} >
+### 2023 
+Year of the Rabbit : The Rabbit is associated with luck, peace, and gentleness. People born under this sign are often considered kind, compassionate, and artistic.
+</TimelineItem>
+
+<TimelineItem  variant='warning' align='right'>
+### 2022
+Year of the Tiger : The Tiger symbolizes bravery, courage, and determination. People born under this sign are known for their self-confidence and ability to overcome obstacles
+</TimelineItem>
+<TimelineItem  variant='info' align='left' >
+### 2021
+Year of the Ox : The Ox represents hard work, stability, and perseverance. People born under this sign are known for their reliability and dedication
+</TimelineItem>
+
+<TimelineItem variant='primary' align='right'>
+### 2020
+Year of the Rat : The Rat is associated with intelligence, prosperity, and resourcefulness. People born under this sign are often viewed as clever and opportunistic.
+</TimelineItem>
+<TimelineItem align='left'  variant='danger'>
+### 2019
+Year of the Pig : The Pig symbolizes abundance, generosity, and kindness. People born under this sign are renowned for their warm nature and good sense of humor.
+</TimelineItem>
+
+<TimelineItem  variant='success' align='right' >
+### 2018
+Year of the Dog : The Dog represents loyalty, faithfulness, and protection. People born under this sign are often perceived as honest, devoted, and loyal to their family and friends.
+</TimelineItem>
+<TimelineItem   variant='info' align='left' color='danger' >
+### 2017
+ Year of the Rooster : The Rooster is associated with bravery, self-confidence, and determination. People born under this sign are often considered dynamic and full of energy
+</TimelineItem>
+
+<TimelineItem  variant='white' align='right' color='info'>
+### 2016
+Year of the Monkey : The Monkey symbolizes intelligence, cleverness, and curiosity. People born under this sign are renowned for their sharp minds and ability to find creative solutions to problems
+</TimelineItem>
+<TimelineItem  variant='primary-darkest' align='left' color='primary-lightest'>
+### 2015
+Year of the Goat/Sheep : The Goat (or Sheep) represents gentleness, harmony, and creativity. People born under this sign are often seen as loving and artistic.
+</TimelineItem>
+
+
+
+</Timeline>
+
+```
+
+### render
+
+<Timeline variant="danger-darkest" horizontal>
+
+<TimelineItem  variant='white' align='right' color='danger'  style={{ borderColor: 'danger', borderWidth: '5px', borderStyle: 'solid' , borderRadius:'20px'}}>
+### 2024 
+
+Year of the Dragon : The Dragon symbolizes power, strength, and good fortune. People born under this sign are often seen as confident, ambitious, and charismatic.
+</TimelineItem>
+<TimelineItem   variant='black' align='left' color='info' style={{ borderColor: 'info', borderWidth: '5px', borderStyle: 'solid' , borderRadius:'0'}} >
+### 2023 
+<div className="avatar avatar--vertical">
+<img
+  className="avatar__photo avatar__photo--md"
+  src="https://avatars.githubusercontent.com/u/97809069?v=4" />
+<div className="avatar__intro">
+  <div className="avatar__name">Docux (@Juniors017)</div>
+  <small className="avatar__subtitle">
+    humble contributor on:
+    <a style={{ color:'white'}}  href="https://docusaurus.community/">@Doc.Community</a>
+  </small>
+</div>
+</div>
+Year of the Rabbit : The Rabbit is associated with luck, peace, and gentleness. People born under this sign are often considered kind, compassionate, and artistic.
+</TimelineItem>
+
+<TimelineItem  variant='warning' align='right'>
+### 2022
+Year of the Tiger : The Tiger symbolizes bravery, courage, and determination. People born under this sign are known for their self-confidence and ability to overcome obstacles
+</TimelineItem>
+<TimelineItem  variant='info' align='left' >
+### 2021
+Year of the Ox : The Ox represents hard work, stability, and perseverance. People born under this sign are known for their reliability and dedication
+
+
+</TimelineItem>
+
+<TimelineItem variant='primary' align='right'>
+### 2020
+Year of the Rat : The Rat is associated with intelligence, prosperity, and resourcefulness. People born under this sign are often viewed as clever and opportunistic.
+![dd](https://img.freepik.com/vecteurs-libre/souris-mignonne-assise-illustration-icone-vecteur-dessin-anime-fromage-concept-icone-nourriture-animale-isole_138676-5860.jpg?size=626&ext=jpg&uid=R751756&ga=GA1.1.663052464.1717323676)
+<a href="https://fr.freepik.com/vecteurs-libre/souris-mignonne-assise-illustration-icone-vecteur-dessin-anime-fromage-concept-icone-nourriture-animale-isole_30924709.htm#query=rat&position=10&from_view=author&uuid=a0d4f1e8-b87a-4b62-8994-1ecdc51adb88" style={{color:'black'}}>@catalyststuff</a> 
+</TimelineItem>
+<TimelineItem align='left'  variant='danger'>
+### 2019
+Year of the Pig : The Pig symbolizes abundance, generosity, and kindness. People born under this sign are renowned for their warm nature and good sense of humor.
+</TimelineItem>
+
+<TimelineItem  variant='success' align='right' >
+### 2018
+Year of the Dog : The Dog represents loyalty, faithfulness, and protection. People born under this sign are often perceived as honest, devoted, and loyal to their family and friends.
+</TimelineItem>
+<TimelineItem   variant='info' align='left' color='danger' >
+### 2017
+ Year of the Rooster : The Rooster is associated with bravery, self-confidence, and determination. People born under this sign are often considered dynamic and full of energy
+</TimelineItem>
+
+<TimelineItem  variant='white' align='right' color='info'>
+### 2016
+Year of the Monkey : The Monkey symbolizes intelligence, cleverness, and curiosity. People born under this sign are renowned for their sharp minds and ability to find creative solutions to problems
+</TimelineItem>
+<TimelineItem  variant='primary-darkest' align='left' color='primary-lightest'>
+### 2015
+Year of the Goat/Sheep : The Goat (or Sheep) represents gentleness, harmony, and creativity. People born under this sign are often seen as loving and artistic.
+</TimelineItem>
+
+
+
+</Timeline>
