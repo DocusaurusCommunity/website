@@ -78,28 +78,12 @@ colors to use. We see four attributes and their corresponding variables:
 
 ### Note admonition's default CSS
 
-<table>
-    <tr>
-        <th>CSS Attribute</th>
-        <th>Default Value</th>
-    </tr>
-    <tr>
-        <td>`--ifm-alert-background-color`</td>
-        <td>`var(--ifm-color-secondary-contrast-background)`</td>
-    </tr>
-    <tr>
-        <td>`--ifm-alert-background-color-highlight`</td>
-        <td>`rgba(235, 237, 240, 0.15`)</td>
-    </tr>
-    <tr>
-        <td>`--ifm-alert-foreground-color`</td>
-        <td>`var(--ifm-color-secondary-contrast-foreground)`</td>
-    </tr>
-    <tr>
-        <td>`--ifm-alert-border-color`</td>
-        <td>`var(--ifm-color-secondary-dark)`</td>
-    </tr>
-</table>
+| CSS Attribute | Default Value |
+|---------------|---------------|
+| `--ifm-alert-background-color` | `var(--ifm-color-secondary-contrast-background)` |
+| `--ifm-alert-background-color-highlight` | `rgba(235, 237, 240, 0.15)`|
+| `--ifm-alert-foreground-color` | `var(--ifm-color-secondary-contrast-foreground)` |
+| `--ifm-alert-border-color` | `var(--ifm-color-secondary-dark)` |
 
 Let't say we want to change the background of the "note" admonition to purple. Well,
 we can change the value using Inspect and see the color change in real-time. Try changing
@@ -169,32 +153,13 @@ You can also define colors using hex values!
 
 Here are the names of all the defualt admonition classes:
 
-<table>
-    <tr>
-        <th>Admonition</th>
-        <th>Class Name</th>
-    </tr>
-    <tr>
-        <td>Note</td>
-        <td>`alert--secondary`</td>
-    </tr>
-    <tr>
-        <td>Tip</td>
-        <td>`alert--success`</td>
-    </tr>
-    <tr>
-        <td>Info</td>
-        <td>`alert--info`</td>
-    </tr>
-    <tr>
-        <td>Warning</td>
-        <td>`alert--warning`</td>
-    </tr>
-    <tr>
-        <td>Danger</td>
-        <td>`alert--danger`</td>
-    </tr>
-</table>
+| Admonition | Class Name |
+|------------|------------|
+| Note | `alert--secondary`|
+| Tip | `alert--success`  |
+| Info | `alert--info`     |
+| Warning | `alert--warning`  |
+| Danger | `alert--danger`   |
 
 You can use these class names in `custom.css` to change their appearance as well, just
 like how we did with the "note" admonition.
