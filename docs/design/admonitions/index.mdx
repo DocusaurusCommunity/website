@@ -24,7 +24,7 @@ admonitions, we have a guide for that: [Admonitions](/knowledge/component-librar
 
 ## Background Knowledge
 
-If you are unfamiliar with the Docusaurus admonitions and their apeparance, visit the Docusaurus
+If you are unfamiliar with the Docusaurus admonitions and their appearance, visit the Docusaurus
 official documentation relating to admonitions by clicking the button below.
 
 <DocusaurusButton label="Docusaurus Documentation: Admonitions" to="https://docusaurus.io/docs/markdown-features/admonitions" />
@@ -35,12 +35,12 @@ as HTML class names and CSS values that the admonitions use.
 ### Using Inspect Element
 
 The best way to see how admonitions work (if you are using Chrome) is to highlight the title
-of the admonition, right click, and select "Inspect". This will bring up Inspect Element.
-Inspect is key to figuring out how to override the appearnce of the defualt admonitions.
+of the admonition, right-click, and select "Inspect." This will bring up Inspect Element.
+Inspect is key to figuring out how to override the appearance of the default admonitions.
 
 :::tip
 
-If you want to make changes to any element of your website, but find yourself stuck, Inspect
+If you want to make changes to any element of your website but find yourself stuck, Inspect
 Element is a powerful tool for making local, temporary changes!
 
 :::
@@ -57,23 +57,23 @@ When clicking inspect on your site, you may find something like this:
 ![Inspect Element of a Docusaurus website](inspect-element.png)
 
 Don't be afraid! This is the HTML that Docusaurus generates to make your website!
-If you ckick around in Inspect Element, you will eventually find the elements that
+If you slick around in Inspect Element, you will eventually find the elements that
 are the admonitions. We can see that the "note" admonition that we highlighted is
 an HTML `<div>` element, with a couple of classes attatched to it.
 
 ![The "note" admonition's HTML code](note-admonition-html.png)
 
-For our purposes, we are intereted in that last class: `alert--secondary`. This is
+For our purposes, we are interested in that last class: `alert--secondary`. This is
 the driving class that tells the "note" admonition what colors to use. We can find what
 variables it uses with Inspect Element as well. Switch to the "Styles" tab in Inspect Element
-and use the seach bar to find the "note" admonition's class: `alert--secondary`.
+and use the search bar to find the "note" admonition's class: `alert--secondary`.
 
 ## Analyzing the CSS (Using Inspect)
 
 ![The "note" admonition's CSS code](note-css.png)
 
 This is the note admonitions CSS code. This is what tells the note admonition what
-colors to use. We see four attributes and their corresponding defualt variables:
+colors to use. We see four attributes and their corresponding default variables:
 
 ### ⭐️ Note admonition's default CSS Values
 
@@ -84,10 +84,10 @@ colors to use. We see four attributes and their corresponding defualt variables:
 | `--ifm-alert-foreground-color` | `var(--ifm-color-secondary-contrast-foreground)` |
 | `--ifm-alert-border-color` | `var(--ifm-color-secondary-dark)` |
 
-[Diagram that points to what each admoinition variable looks like on an example "note" admonition](admonition-var-diagram.png)
+[Diagram that points to what each admonition variable corresponds to on an example "note" admonition](admonition-var-diagram.png)
 
-Let't say we want to override the background of the "note" admonition to purple. Well,
-we can change the value using Inspect and see the color update in real-time. Try changing
+Let's say we want to override the background of the "note" admonition to purple. Well,
+we can change the value using Inspect and see the color update in real time. Try changing
 the value of `--ifm-alert-background-color` to any color!
 
 :::warning
@@ -106,7 +106,7 @@ Now that we know that the CSS is responsible for the appearance of admonitions, 
 update the CSS code of our Docusaurus site to override the default values to our new colors.
 
 In your code editor, in the directory of your Docusaurus site, navigate to `src/css/custom.css`.
-This is where we can add permanant overrides to the CSS of our site, which means we can update the
+This is where we can add permanent overrides to the CSS of our site, which means we can update the
 colors of our admonitions.
 
 We want to make overrides to the `alert--secondary` (note admonition) class's CSS we found. Add the
@@ -122,7 +122,7 @@ We want to make overrides to the `alert--secondary` (note admonition) class's CS
 ```
 
 Now, we can change the variables here to any color we desire! This next code block will override the
-"note" admonition's colora to an example of colors.
+"note" admonition's color to an example of colors.
 
 ```css title="src/css/custom.css"
 .alert--secondary {
@@ -152,7 +152,7 @@ You can also define colors using hex values!
 
 ## ⭐️ Admonition Class Names
 
-Here are the names of all the defualt admonition classes:
+Here are the names of all the default admonition classes:
 
 | Admonition | Class Name |
 |------------|------------|
@@ -168,15 +168,15 @@ like how we did with the "note" admonition.
 ## Making Color-Responsive Admonitions
 
 You may notice that your new colors might not look good when your Docusaurus site switches
-from light mode to dark more (or vice versa). In order to make our admonitions responsive
+from light mode to dark mode (or vice versa). In order to make our admonitions responsive
 to the color mode of our website, we can use custom CSS variables!
 
 ### Make a Custom CSS Variable
 
-First, lets make a custom CSS variable that will store any color of our choice.
+First, let's make a custom CSS variable that will store any color of our choice.
 
 In your `custom.css`, Docusaurus comes with a `:root` and a `[data-theme='dark']` config by
-defualt. You can name your variable anything you would like, just make sure it is descriptive
+default. You can name your variable anything you would like, just make sure it is descriptive
 and fits your needs!
 
 :::note
@@ -196,7 +196,7 @@ creating the new config for the light theme.
 ### Apply Custom CSS Variable
 
 Now that we created our new color variable `--note-bg`, we have to apply it to the `alert--secondary`
-CSS class. Updte the static RGB value of `.alert--secondary` to our new variable, using `var()`.
+CSS class. Update the static RGB value of `.alert--secondary` to our new variable, using `var()`.
 
 ```css title="src/css/custom.css"
 .alert--secondary {
@@ -207,7 +207,7 @@ CSS class. Updte the static RGB value of `.alert--secondary` to our new variable
 }
 ```
 
-Now, lets add a color for when the page is in dark mode. The procedure is very similar to the
+Now, let's add a color for when the page is in dark mode. The procedure is very similar to the
 previous steps, excpt we are adding a new variable to the dark mode config!
 
 ```css css title="src/css/custom.css"
@@ -224,7 +224,7 @@ previous steps, excpt we are adding a new variable to the dark mode config!
 Let's go ahead and set the colors of all our other parts of the note admonition. Here's an
 example:
 
-```css css title="src/css/custom.css"
+```css title="src/css/custom.css"
 [data-theme='light'] {
   --note-bg: rgb(210, 216, 255);
   --note-highlight: rgb(233, 187, 255);
@@ -250,7 +250,7 @@ example:
 
 ### Results
 
-Now we can observe that the colors of our "note" admonition changes between light mode and dark
+Now we can observe that the colors of our "note" admonition change between light mode and dark
 mode!
 
 ![Light mode "note" admonition with custom colors](light-mode-note.png)
