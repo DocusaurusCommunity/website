@@ -27,7 +27,10 @@ admonitions, we have a guide for that: [Admonitions](/knowledge/component-librar
 If you are unfamiliar with the Docusaurus admonitions and their appearance, visit the Docusaurus
 official documentation relating to admonitions by clicking the button below.
 
-<DocusaurusButton label="Docusaurus Documentation: Admonitions" to="https://docusaurus.io/docs/markdown-features/admonitions" />
+<DocusaurusButton
+  label="Docusaurus Documentation: Admonitions"
+  to="https://docusaurus.io/docs/markdown-features/admonitions"
+/>
 
 To understand how admonitions work, we need to utilize Inspect Element to find things such
 as HTML class names and CSS values that the admonitions use.
@@ -77,14 +80,14 @@ colors to use. We see four attributes and their corresponding default variables:
 
 ### ⭐️ Note admonition's default CSS Values
 
-| CSS Attribute | Default Value |
-|---------------|---------------|
-| `--ifm-alert-background-color` | `var(--ifm-color-secondary-contrast-background)` |
-| `--ifm-alert-background-color-highlight` | `rgba(235, 237, 240, 0.15)`|
-| `--ifm-alert-foreground-color` | `var(--ifm-color-secondary-contrast-foreground)` |
-| `--ifm-alert-border-color` | `var(--ifm-color-secondary-dark)` |
+| CSS Attribute                            | Default Value                                    |
+| ---------------------------------------- | ------------------------------------------------ |
+| `--ifm-alert-background-color`           | `var(--ifm-color-secondary-contrast-background)` |
+| `--ifm-alert-background-color-highlight` | `rgba(235, 237, 240, 0.15)`                      |
+| `--ifm-alert-foreground-color`           | `var(--ifm-color-secondary-contrast-foreground)` |
+| `--ifm-alert-border-color`               | `var(--ifm-color-secondary-dark)`                |
 
-[Diagram that points to what each admonition variable corresponds to on an example "note" admonition](admonition-var-diagram.png)
+![Diagram that points to what each admonition variable corresponds to on an example "note" admonition](admonition-var-diagram.png)
 
 Let's say we want to override the background of the "note" admonition to purple. Well,
 we can change the value using Inspect and see the color update in real time. Try changing
@@ -98,7 +101,6 @@ we made with Inspect.
 :::
 
 ![Overriding the "note" background color using Inspect Element](overriding-note-bg-color.gif)
-
 
 ## Updating the CSS
 
@@ -114,10 +116,10 @@ We want to make overrides to the `alert--secondary` (note admonition) class's CS
 
 ```css title="src/css/custom.css"
 .alert--secondary {
-    --ifm-alert-background-color: rgb(237 219 255);
-    --ifm-alert-background-color-highlight: rgba(235, 237, 240, 0.15);
-    --ifm-alert-foreground-color: var(--ifm-color-secondary-contrast-foreground);
-    --ifm-alert-border-color: var(--ifm-color-secondary-dark);
+  --ifm-alert-background-color: rgb(237, 219, 255);
+  --ifm-alert-background-color-highlight: rgb(235, 237, 240);
+  --ifm-alert-foreground-color: var(--ifm-color-secondary-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-secondary-dark);
 }
 ```
 
@@ -141,10 +143,10 @@ You can also define colors using hex values!
 
 ```css title="src/css/custom.css"
 .alert--secondary {
-  --ifm-alert-background-color: #D2D8FF;
-  --ifm-alert-background-color-highlight: #E9BBFF;
-  --ifm-alert-foreground-color: #D8246F;
-  --ifm-alert-border-color: #261F29;
+  --ifm-alert-background-color: #d2d8ff;
+  --ifm-alert-background-color-highlight: #e9bbff;
+  --ifm-alert-foreground-color: #d8246f;
+  --ifm-alert-border-color: #261f29;
 }
 ```
 
@@ -154,13 +156,13 @@ You can also define colors using hex values!
 
 Here are the names of all the default admonition classes:
 
-| Admonition | Class Name |
-|------------|------------|
-| Note | `alert--secondary`|
-| Tip | `alert--success`  |
-| Info | `alert--info`     |
-| Warning | `alert--warning`  |
-| Danger | `alert--danger`   |
+| Admonition | Class Name         |
+| ---------- | ------------------ |
+| Note       | `alert--secondary` |
+| Tip        | `alert--success`   |
+| Info       | `alert--info`      |
+| Warning    | `alert--warning`   |
+| Danger     | `alert--danger`    |
 
 You can use these class names in `custom.css` to override their appearance as well, just
 like how we did with the "note" admonition.
@@ -182,7 +184,7 @@ and fits your needs!
 :::note
 
 It is recommended you add a new config: `[data-theme='light']`, although, it is not
-required, and all light mode variables can be put inside of `:root`. The guide will continue with 
+required, and all light mode variables can be put inside of `:root`. The guide will continue with
 creating the new config for the light theme.
 
 :::
@@ -200,10 +202,11 @@ CSS class. Update the static RGB value of `.alert--secondary` to our new variabl
 
 ```css title="src/css/custom.css"
 .alert--secondary {
+  // highlight-next-line
   --ifm-alert-background-color: var(--note-bg);
-  --ifm-alert-background-color-highlight: #E9BBFF;
-  --ifm-alert-foreground-color: #D8246F;
-  --ifm-alert-border-color: #261F29;
+  --ifm-alert-background-color-highlight: rgb(233, 187, 255);
+  --ifm-alert-foreground-color: rgb(216, 36, 111);
+  --ifm-alert-border-color: rgb(38, 31, 41);
 }
 ```
 
