@@ -19,11 +19,11 @@ import Columns from '@site/src/components/Columns';
 import Column from '@site/src/components/Column';
 import Button from '@site/src/components/Button';
 import ColorPreview from '@site/src/components/ColorPreview';
-import Card from '@site/src/components/SimpleCard/Card';
-import CardBody from '@site/src/components/SimpleCard/CardBody';
-import CardFooter from '@site/src/components/SimpleCard/CardFooter';
-import CardHeader from '@site/src/components/SimpleCard/CardHeader';
-import CardImage from '@site/src/components/SimpleCard/CardImage';
+import Card from '@site/src/components/Card';
+import CardBody from '@site/src/components/Card/CardBody';
+import CardFooter from '@site/src/components/Card/CardFooter';
+import CardHeader from '@site/src/components/Card/CardHeader';
+import CardImage from '@site/src/components/Card/CardImage';
 import Timeline from '@site/src/components/Timeline';
 import TimelineItem from '@site/src/components/Timeline/TimelineItem';
 
