@@ -82,7 +82,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install --immutable --check-cache
+        run: yarn install --check-cache
 
       - name: Build website
         run: yarn build
