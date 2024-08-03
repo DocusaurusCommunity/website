@@ -23,6 +23,7 @@
     "@docusaurus/theme-classic": "^3.3.2",
     "@docusaurus/theme-common": "^3.3.2",
     "@docusaurus/utils": "^3.3.2",
+    "@easyops-cn/docusaurus-search-local": "^0.44.4",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",

@@ -263,6 +263,21 @@ const config: Config = {
       } satisfies DocsOptions,
     ]
   ],
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: true,
+        docsRouteBasePath: ["knowledge", "contributing"],
+        hashed: true,
+        docsDir: ["docs", "contributing"],
+        highlightSearchTermsOnTargetPage: true,
+      }),
+    ],
+  ],
   webpack: {
     jsLoader: (isServer: boolean) => ({
       loader: 'swc-loader',
