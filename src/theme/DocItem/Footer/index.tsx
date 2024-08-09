@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '@theme-original/DocItem/Footer';
 import type FooterType from '@theme/DocItem/Footer';
-import { useDoc } from '@docusaurus/theme-common/internal';
+import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import GitHubContributors from './GitHubContributors';
 import GitUrlParse from 'git-url-parse';
 import type {WrapperProps} from '@docusaurus/types';
