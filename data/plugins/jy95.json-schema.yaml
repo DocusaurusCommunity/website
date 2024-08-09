@@ -3,13 +3,16 @@ id: jy95.json-schema
 name: JSON Schema
 description: A Docusaurus plugin which provides a JSON schema viewer and editor React component.
 preview: null
-website: https://jy95.github.io/docusaurus-plugin-json-schema/
-source: https://github.com/jy95/docusaurus-plugin-json-schema
+website: https://jy95.github.io/docusaurus-json-schema-plugin/
+source: https://github.com/jy95/docusaurus-json-schema-plugin
 author: jy95
 tags:
   - utility
   - content
 minimumVersion: null
 maintenanceStatus: maintained
+compatibility:
+  - 2
+  - 3
 npmPackages:
   - docusaurus-plugin-json-schema

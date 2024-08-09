@@ -1,8 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
+// Import Types
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
+import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 // Import the Docusaurus version.
-const { DOCUSAURUS_VERSION } = require("@docusaurus/utils");
+import { DOCUSAURUS_VERSION } from '@docusaurus/utils'
 // Setup our Prism themes.
 import { themes } from 'prism-react-renderer';
 const lightCodeTheme = themes.vsLight;
@@ -24,7 +28,8 @@ const admonitionsConfig = {
       'security',
       'ninja',
       'release',
-      'credit'
+      'credit',
+      'docusaurus'
     ],
   },
 }
@@ -58,7 +63,7 @@ const commonDocsPluginConfig = {
 import plausiblePlugin from 'docusaurus-plugin-plausible';
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'Docusaurus.community',
   tagline: 'Docusaurus community knowledge sharing and plugin directory.',
   favicon: 'img/favicon.ico',
@@ -77,31 +82,30 @@ const config = {
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           routeBasePath: 'knowledge',
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/homotechsual/docusaurus.community/edit/main/',
+          editUrl: 'https://github.com/DocusaurusCommunity/website/edit/main/',
           ...commonDocsPluginConfig,
-        },
+        } satisfies DocsOptions,
         blog: false,
         pages: {
           ...admonitionsConfig,
           ...remarkPluginsConfig
-        },
+        } satisfies PageOptions,
         theme: {
-          customCss: require.resolve('./src/scss/custom.scss'),
+          customCss: './src/scss/custom.scss',
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
@@ -115,12 +119,21 @@ const config = {
           alt: 'Docusaurus.community Logo',
           src: 'img/logo.svg',
         },
+        hideOnScroll: true,
         items: [
           {
             type: 'doc',
             docId: 'index',
             position: 'left',
             label: 'Knowledge',
+            docsPluginId: 'default',
+          },
+          {
+            type: 'doc',
+            docId: 'index',
+            position: 'left',
+            label: 'Contributing',
+            docsPluginId: 'contributing',
           },
           {
             to: 'plugindirectory',
@@ -149,7 +162,7 @@ const config = {
             className: 'discord-link',
           },
           {
-            to: 'https://github.com/homotechsual/docusaurus.community',
+            to: 'https://github.com/DocusaurusCommunity/website',
             label: 'GitHub',
             position: 'right',
             target: '_blank',
@@ -206,7 +219,7 @@ const config = {
               },
               {
                 label: 'Community GitHub',
-                to: 'https://github.com/homotechsual/docusaurus.community',
+                to: 'https://github.com/DocusaurusCommunity',
               },
             ],
           },
@@ -217,9 +230,9 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['powershell','bash','docker', 'diff', 'json']
+        additionalLanguages: ['powershell','bash','docker', 'diff', 'json', 'sass']
       },
-    }),
+    } satisfies Preset.ThemeConfig,
   plugins: [
     [
       '@docusaurus/plugin-ideal-image',
@@ -245,15 +258,30 @@ const config = {
         id: 'contributing',
         path: 'contributing',
         routeBasePath: 'contributing',
-        sidebarPath: require.resolve('./sidebars.js'),
+        sidebarPath: './sidebars.js',
         editUrl: 'https://github.com/homotechsual/docusaurus.community/tree/main/',
         ...commonDocsPluginConfig,
-      },
+      } satisfies DocsOptions,
     ]
+  ],
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: true,
+        docsRouteBasePath: ["knowledge", "contributing"],
+        hashed: true,
+        docsDir: ["docs", "contributing"],
+        highlightSearchTermsOnTargetPage: true,
+      }),
+    ],
   ],
   webpack: {
     jsLoader: (isServer: boolean) => ({
-      loader: require.resolve('swc-loader'),
+      loader: 'swc-loader',
       options: {
         jsc: {
           parser: {
@@ -281,7 +309,6 @@ const config = {
       headingIds: false,
       admonitions: false,
     }
-  }
+  },
 };
-
-module.exports = config;
+export default config;

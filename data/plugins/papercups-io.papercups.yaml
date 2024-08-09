@@ -11,5 +11,7 @@ tags:
   - utility
 minimumVersion: null
 maintenanceStatus: unmaintained
+compatibility:
+  - 2
 npmPackages:
   - "@papercups-io/docusaurus"

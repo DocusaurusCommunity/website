@@ -28,7 +28,7 @@ npm install --save @fortawesome/free-regular-svg-icons @fortawesome/free-brands-
 
 You can add the Pro versions of any Font Awesome packages by [configuring access to the Font Awesome NPM repository](https://fontawesome.com/docs/web/setup/packages.html#configure-access) and installing the appropriate packages (for example `@fortawesome/pro-solid-svg-icons`).
 
-:::security Protect your NPM token
+:::security[Protect your NPM token]
 If you are using a private NPM repository, you should protect your NPM tokens.
 
 If you're using `npm` you should use environment variables along with a `.npmrc` file to store your NPM token. For more information, see [alternate per project setup using environment variable (for NPM)](https://fontawesome.com/docs/web/setup/packages#alternate-per-project-setup-using-environment-variables).
@@ -54,7 +54,7 @@ library.add(fab, fas); // Add all icons to the library so you can use them witho
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  Icon: FontAwesomeIcon, // Make the FontAwesomeIcon component available in MDX as <icon />.
+  FAIcon: FontAwesomeIcon, // Make the FontAwesomeIcon component available in MDX as <icon />.
 };
 ```
 
@@ -65,9 +65,13 @@ We can then use the `icon` component in MDX files:
 title: My Doc
 ---
 
-<Icon icon="fa-brands fa-github" size="lg" /> This is a GitHub icon.
+<FAIcon icon="fa-brands fa-github" size="4x" /> This is a GitHub icon.
 ```
 
 ## Using Font Awesome with React
 
-You can use Font Awesome icons in your React components by using the `FontAwesomeIcon` component. Font Awesome have fantastic [React documentation](https://fontawesome.com/how-to-use/on-the-web/using-with/react) that you can use to learn more about using Font Awesome with React components.
+You can use Font Awesome icons in your React components by using the `FontAwesomeIcon` component. Font Awesome have fantastic [React documentation](https://fontawesome.com/docs/web/use-with/react/) that you can use to learn more about using Font Awesome with React components.
+
+If this is working you'll see a Font Awesome GitHub icon below:
+
+<FAIcon icon='fa-brands fa-github' size='4x' />

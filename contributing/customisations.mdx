@@ -1,0 +1,63 @@
+---
+title: Custom Functionality
+description: Learn about the custom functionality you'll find on this site.
+---
+
+This site has a number of custom features that are not part of Docusaurus out of the box. This page explains what they are and how to use them.
+
+## Custom Components
+
+### Home Page Components
+
+The home page components are used to break up the content on the home page into sections. Each component is a React component that is rendered on the home page. The components are defined in the `src/components/` directory and are all named `Homepage*` where `*` is the name of the component.
+
+They will not, generally, be detailed in-depth here unless they are particularly complex. If you need to make changes to the home page, you should look at the components in the `src/components/` directory.
+
+### Documented Components
+
+A number of components are described in the "Knowledge" section of the site, these components will all be present in `src/components/` to enable them to be used in the MDX files to demonstrate their usage. They will not be detailed here and you should look at the Knowledge section of the site to see how they are used and find their source code.
+
+### DocusaurusButton
+
+The `DocusaurusButton` component is a custom button component that is used throughout the site. It is a styled button that can be used to link to the documentation on the Docusaurus website. It is defined in `src/components/DocusaurusButton/index.tsx`.
+
+## Swizzled Components
+
+### Admonition
+
+We run a custom version of the `Admonition` component that is part of Docusaurus. This component is used to display information boxes in the documentation. The custom version of this component is defined in `src/components/Admonition/*`. You'll find in-depth documentation in the Knowledge section of the site on how to "decode" our customised Admonitions or create your own.
+
+### DocItem\Footer
+
+We have a customised `DocItem\Footer` component which is the component used to display the footer on the documentation pages. This component is defined in `src/components/DocItem/Footer.tsx`. This component is used to display the footer on the documentation pages. It is a simple component that displays the footer text and the last updated date of the document. Our customised version is inspired by the amazing work of the `unleash` team who [added contributors to their documentation](https://github.com/Unleash/unleash/pull/6900).
+
+## Custom Plugins
+
+### Plugin Directory
+
+The plugin directory is a forked version of the Docusaurus.io showcase plugin. It has been modified to better suit displaying information on Docusaurus plugins. It is currently fed from a static list of plugins in `src/data/plugins.tsx`. This is changing to use a `YAML` file per plugin pulled from `data/plugins` in the future. This will make maintaining the plugin directory easier.
+
+## Custom Frontmatter
+
+To support our contributor display on docs pages we sometimes use a custom frontmatter field called `additionalContributors`. This field is used to display additional contributors to a document. It is an array of objects with the following structure:
+
+```ts
+type AdditionalContributor = {
+    login: string;
+    html_url: string;
+    avatar_url: string;
+};
+```
+
+An example of how this is used in a document is:
+
+```mdx
+---
+title: Custom Functionality
+description: Learn about the custom functionality you'll find on this site.
+additionalContributors:
+  - login: github-bot
+    html_url: https://github.com/github-bot
+    avatar_url: https://avatars.githubusercontent.com/u/6031226?v=4
+---
+```
