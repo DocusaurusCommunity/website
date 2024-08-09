@@ -33,7 +33,7 @@ import { Icon } from '@iconify/react'; // Import the entire Iconify library.
 export default {
   // Re-use the default mapping
   ...MDXComponents,
-  Icon: Icon, // Make the iconify Icon component available in MDX as <icon />.
+  IIcon: Icon, // Make the iconify Icon component available in MDX as <icon />.
 };
 ```
 
@@ -44,7 +44,7 @@ We can then use the `icon` component in MDX files:
 title: My Doc
 ---
 
-<Icon icon="mdi:github" height="48" /> This is a GitHub icon.
+<IIcon icon="mdi:github" height="48" /> This is a GitHub icon.
 ```
 
 Iconify have a superb [Icon Explorer](https://icon-sets.iconify.design/) where you can search for icons and copy the code to use in your documentation.
@@ -52,3 +52,7 @@ Iconify have a superb [Icon Explorer](https://icon-sets.iconify.design/) where y
 ## Using Iconify with React
 
 You can use Iconify icons in your React components by using the `Icon` component. Iconify have wonderful [React documentation](https://docs.iconify.design/icon-components/react/) that you can use to learn more about using Iconify with React components.
+
+If this is working you'll see an Iconify GitHub icon below:
+
+<IIcon icon="mdi:github" height="48" />

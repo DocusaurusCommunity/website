@@ -1,0 +1,1063 @@
+---
+title: Card Component
+description: Create a reusable card component for your Docusaurus site that can be customised with different parts, colors and sizes.
+additionalContributors: 
+  - login: Juniors017
+    html_url: https://github.com/Juniors017
+    avatar_url: https://avatars.githubusercontent.com/u/97809069?v=4
+---
+
+:::credit
+Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this component and sharing it with us.
+:::
+
+
+The [Infima CSS framework](https://infima.dev/) provides a set of utility classes which can be used to create cards in Docusaurus. This article will cover how to create a reusable card component for your Docusaurus site which can be customised with different colors and sizes and hold a variety of content. The component can recreate all the cards demonstrated in the Infima docs and more.
+
+The card component is made up of a container component and three sub-components: CardHeader, CardBody, and CardFooter. Each part can be customised with different colors, sizes, and content.
+
+The card component can be combined with most other components in Docusaurus to create a wide variety of card designs. Including our other components like Avatar, Button, and Columns. We'll have a separate set of pages covering combined component examples.
+
+## Creating the Card component
+
+This component is a container for the other parts of the card.
+
+First we will create the parent folder in:  `\src\components\Card\`. In this folder we will create the index file which will be the container for the card component.
+
+The Card component accepts the following props:
+
+- `className`: Custom classes for the card container.
+- `style`: Custom styles for the card container.
+- `shadow`: Used to add shadow under your card. Expected values are: low (lw), medium (md), tall (tl)
+
+Creating the file and adding the source code for the component.
+
+<Tabs groupId='js-ts'>
+  <TabItem value='js' label='JS'>
+    ```javascript title='\src\components\Card\index.js'
+    import React, { CSSProperties } from 'react'; // CSSProperties allows inline styling with better type checking.
+    import clsx from 'clsx'; // clsx helps manage conditional className names in a clean and concise manner.
+    const Card = ({
+      className, // Custom classes for the container card
+      style, // Custom styles for the container card
+      children, // Content to be included within the card
+      shadow, // Used to add shadow under your card. Expected values are: low (lw), medium (md), tall (tl)
+    }) => {
+      const cardShadow = shadow ? `item shadow--${shadow}` : '';
+      return (
+        <div className={clsx('card', className, cardShadow)} style={style}>
+          {children}
+        </div>
+      );
+    };
+    export default Card;
+    ```
+  </TabItem>
+
+  <TabItem value='ts' label='TS'>
+    ```tsx title='\src\components\Card\index.tsx'
+    import React, { CSSProperties, ReactNode } from 'react'; // Import types for props
+    import clsx from 'clsx'; // clsx helps manage conditional className names in a clean and concise manner.
+    // Define an interface for the component props
+    interface CardProps {
+      className?: string; // Custom classes for the container card
+      style?: CSSProperties; // Custom styles for the container card
+      children: ReactNode; // Content to be included within the card
+      shadow?: 'lw' | 'md' | 'tl'; // Used to add shadow under your card Shadow levels: low (lw), medium (md), top-level (tl)
+    }
+    // Build the card component with the specified props
+    const Card: React.FC<CardProps> = ({
+      className,
+      style,
+      children,
+      shadow,
+    }) => {
+      const cardShadow = shadow ? `item shadow--${shadow}` : '';
+      return (
+        <div className={clsx('card', className, cardShadow)} style={style}>
+          {children}
+        </div>
+      );
+    };
+    export default Card;
+    ```
+  </TabItem>
+</Tabs>
+
+## Creating the CardHeader component
+
+This component forms the header of your cards. The header component will accept the following props:
+
+- `textAlign`: Align the text in the header. Expected values are: `left`, `right`, `center` or `justify`.
+- `variant`: This will be used to apply different colors to the text based on the Infima CSS utility class names.
+- `italic`: Renders text in italics.
+- `noDecoration`: Removes text decoration.
+- `transform`: Changes the case of the text in the header. Expected values are: `uppercase` `lowercase` or `capitalize`. 
+- `breakWord`: Forces text to break at a word boundary so it will not break in the middle of a word.
+- `truncate`: Truncates very long text strings if there is not enough space to display it in a single line on the screen. Text is truncated by adding...
+- `weight`: Controls the weight of the text in the header. Expected values are: `Bold` `Semibold` `Normal` or `Light`.
+
+<Tabs groupId='js-ts'>
+  <TabItem value='js' label='JS'>
+    ```javascript title='\src\components\Card\CardHeader\index.js'
+      import React,  { CSSProperties } from 'react'; // CSSProperties allows inline styling with better type checking.
+      import clsx from 'clsx'; // clsx helps manage conditional className names in a clean and concise manner.
+      const CardHeader = ({
+        className, // classNamees for the container card
+        style, // Custom styles for the container card
+        children, // Content to be included within the card
+        textAlign, 
+        variant, 
+        italic = false , 
+        noDecoration = false, 
+        transform, 
+        breakWord = false, 
+        truncate = false, 
+        weight,
+      }) => {   
+        const text = textAlign ? `text--${textAlign}` :'';
+        const textColor = variant ? `text--${variant}` : '';
+        const textItalic = italic ? 'text--italic' : '';
+        const textDecoration = noDecoration ? 'text-no-decoration' : '';
+        const textType = transform ? `text--${transform}` : '';
+        const textBreak = breakWord ? 'text--break' : '';
+        const textTruncate = truncate ? 'text--truncate' : '';
+        const textWeight = weight ? `text--${weight}` : '';
+        return (
+          <div
+            className={clsx(
+              'card__header',
+              className,
+              text,
+              textType,
+              textColor,
+              textItalic,
+              textDecoration,
+              textBreak,
+              textTruncate,
+              textWeight
+            )} 
+            style={style}
+          >
+            {children}
+          </div>
+        );
+      }
+      export default CardHeader;
+    ```
+  </TabItem>
+
+  <TabItem value='ts' label='TS'>
+    ```tsx title='\src\components\Card\CardHeader\index.tsx'
+      import React, { CSSProperties, ReactNode } from 'react';
+      import clsx from 'clsx';
+      interface CardHeaderProps {
+        className?: string;
+        style?: CSSProperties;
+        children: ReactNode;
+        textAlign?: string;
+        variant?: string;
+        italic?: boolean;
+        noDecoration?: boolean;
+        transform?: string;
+        breakWord?: boolean;
+        truncate?: boolean;
+        weight?: string;
+      }
+      const CardHeader: React.FC<CardHeaderProps> = ({
+        className,
+        style,
+        children,
+        textAlign,
+        variant,
+        italic = false,
+        noDecoration = false,
+        transform,
+        breakWord = false,
+        truncate = false,
+        weight,
+      }) => {
+        const text = textAlign ? `text--${textAlign}` : '';
+        const textColor = variant ? `text--${variant}` : '';
+        const textItalic = italic ? 'text--italic' : '';
+        const textDecoration = noDecoration ? 'text-no-decoration' : '';
+        const textType = transform ? `text--${transform}` : '';
+        const textBreak = breakWord ? 'text--break' : '';
+        const textTruncate = truncate ? 'text--truncate' : '';
+        const textWeight = weight ? `text--${weight}` : '';
+        return (
+          <div
+            className={clsx(
+              'card__header',
+              className,
+              text,
+              textType,
+              textColor,
+              textItalic,
+              textDecoration,
+              textBreak,
+              textTruncate,
+              textWeight
+            )}
+            style={style}
+          >
+            {children}
+          </div>
+        );
+      };
+      export default CardHeader;
+    ```
+  </TabItem>
+</Tabs>
+
+## Creating the CardBody component
+
+This component holds the body of your cards. The component will accept the following props:
+
+- `textAlign`: Align the text in the header. Expected values are: `left`, `right`, `center` or `justify`.
+- `variant`: This will be used to apply different colors to the text based on the Infima CSS utility class names.
+- `italic`: Renders text in italics.
+- `noDecoration`: Removes text decoration.
+- `transform`: Changes the case of the text in the header. Expected values are: `uppercase` `lowercase` or `capitalize`. 
+- `breakWord`: Forces text to break at a word boundary so it will not break in the middle of a word.
+- `truncate`: Truncates very long text strings if there is not enough space to display it in a single line on the screen. Text is truncated by adding...
+- `weight`: Controls the weight of the text in the header. Expected values are: `Bold` `Semibold` `Normal` or `Light`.
+
+<Tabs groupId='js-ts'>
+  <TabItem value='js' label='JS'>
+    ```javascript title='\src\components\Card\CardBody\index.js'
+    import React,  { CSSProperties } from 'react';
+    import clsx from 'clsx';
+    const CardBody = ({
+      className, // classNamees for the container card
+      style, // Custom styles for the container card
+      children, // Content to be included within the card 
+      textAlign, 
+      variant,
+      italic = false , 
+      noDecoration = false, 
+      transform, 
+      breakWord = false, 
+      truncate = false, 
+      weight,
+    }) => {   
+      const text = textAlign ? `text--${textAlign}` :'';
+      const textColor = variant ? `text--${variant}` : '';
+      const textItalic = italic ? 'text--italic' : '';
+      const textDecoration = noDecoration ? 'text-no-decoration' : '';
+      const textType = transform ? `text--${transform}` : '';
+      const textBreak = breakWord ? 'text--break' : '';
+      const textTruncate = truncate ? 'text--truncate' : '';
+      const textWeight = weight ? `text--${weight}` : '';
+      return (
+        <div
+          className={clsx(
+            'card__body',
+            className,
+            text,
+            textType,
+            textColor,
+            textItalic,
+            textDecoration,
+            textBreak,
+            textTruncate,
+            textWeight
+          )}
+          style={style}
+        >
+          {children}
+        </div>
+      );
+    }
+    export default CardBody;
+    ```
+  </TabItem>
+
+  <TabItem value='ts' label='TS'>
+    ```tsx title='\src\components\Card\CardBody\index.tsx'
+    import React, { CSSProperties, ReactNode } from 'react';
+    import clsx from 'clsx';
+    interface CardBodyProps {
+      className?: string;
+      style?: CSSProperties;
+      children: ReactNode;
+      textAlign?: string;
+      variant?: string;
+      italic?: boolean;
+      noDecoration?: boolean;
+      transform?: string;
+      breakWord?: boolean;
+      truncate?: boolean;
+      weight?: string;
+    }
+    const CardBody: React.FC<CardBodyProps> = ({
+      className,
+      style,
+      children,
+      textAlign,
+      variant,
+      italic = false,
+      noDecoration = false,
+      transform,
+      breakWord = false,
+      truncate = false,
+      weight,
+    }) => {
+      const text = textAlign ? `text--${textAlign}` : '';
+      const textColor = variant ? `text--${variant}` : '';
+      const textItalic = italic ? 'text--italic' : '';
+      const textDecoration = noDecoration ? 'text-no-decoration' : '';
+      const textType = transform ? `text--${transform}` : '';
+      const textBreak = breakWord ? 'text--break' : '';
+      const textTruncate = truncate ? 'text--truncate' : '';
+      const textWeight = weight ? `text--${weight}` : '';
+      return (
+        <div
+          className={clsx(
+            'card__body',
+            className,
+            text,
+            textType,
+            textColor,
+            textItalic,
+            textDecoration,
+            textBreak,
+            textTruncate,
+            textWeight
+          )}
+          style={style}
+        >
+          {children}
+        </div>
+      );
+    };
+    export default CardBody;
+    ```
+  </TabItem>
+</Tabs>
+
+## Creating the CardImage component
+
+This component is used to display a formatted image in your cards. This component is optional, you can choose to use image html and use `className={clsx('card__image')}`.
+
+<Tabs groupId='js-ts'>
+  <TabItem value='js' label='JS'>
+    ```javascript title='\src\components\Card\CardImage\index.js'
+    import React,  { CSSProperties } from 'react';
+    import clsx from 'clsx'; 
+    import useBaseUrl from '@docusaurus/useBaseUrl'; // Import the useBaseUrl function from Docusaurus
+    const CardImage = ({
+      className, 
+      style,
+      cardImageUrl,
+      alt,
+      title,
+    }) => {   
+      const generatedCardImageUrl = useBaseUrl(cardImageUrl);
+      return (
+        <img
+          className={clsx('card__image', className)}
+          style={style}
+          src={generatedCardImageUrl} alt={alt} title={title}
+        />
+      )
+    }
+    export default CardImage;
+    ```
+  </TabItem>
+
+  <TabItem value='ts' label='TS'>
+    ```tsx title='\src\components\Card\CardImage\index.tsx'
+    import React, { CSSProperties } from 'react';
+    import clsx from 'clsx';
+    import useBaseUrl from '@docusaurus/useBaseUrl';
+    interface CardImageProps {
+      className?: string;
+      style?: CSSProperties;
+      cardImageUrl: string;
+      alt: string;
+      title: string;
+    }
+    const CardImage: React.FC<CardImageProps> = ({
+      className,
+      style,
+      cardImageUrl,
+      alt,
+      title,
+    }) => {
+      const generatedCardImageUrl = useBaseUrl(cardImageUrl);
+      return (
+        <img
+          className={clsx('card__image', className)}
+          style={style}
+          src={generatedCardImageUrl} alt={alt} title={title}
+        />
+      );
+    };
+    export default CardImage;
+    ```
+  </TabItem>
+</Tabs>
+
+## Creating the CardFooter component
+
+This component forms the footer of your cards. The component will accept the following props:
+
+- `textAlign`: Align the text in the header. Expected values are: `left`, `right`, `center` or `justify`.
+- `variant`: This will be used to apply different colors to the text based on the Infima CSS utility class names.
+- `italic`: Renders text in italics.
+- `noDecoration`: Removes text decoration.
+- `transform`: Changes the case of the text in the header. Expected values are: `uppercase` `lowercase` or `capitalize`. 
+- `breakWord`: Forces text to break at a word boundary so it will not break in the middle of a word.
+- `truncate`: Truncates very long text strings if there is not enough space to display it in a single line on the screen. Text is truncated by adding...
+- `weight`: Controls the weight of the text in the header. Expected values are: `Bold` `Semibold` `Normal` or `Light`.
+
+<Tabs groupId='js-ts'>
+  <TabItem value='js' label='JS'>
+    ```javascript title='\src\components\Card\CardFooter\index.js'
+    import React,  { CSSProperties } from 'react';
+    import clsx from 'clsx'; 
+    const CardFooter = ({
+      className, 
+      style, 
+      children, 
+      textAlign, 
+      variant,
+      italic = false , 
+      noDecoration = false, 
+      transform, 
+      breakWord = false, 
+      truncate = false, 
+      weight,
+    }) => {   
+      const text = textAlign ? `text--${textAlign}` :'';
+      const textColor = variant ? `text--${variant}` : '';
+      const textItalic = italic ? 'text--italic' : '';
+      const textDecoration = noDecoration ? 'text-no-decoration' : '';
+      const textType = transform ? `text--${transform}` : '';
+      const textBreak = breakWord ? 'text--break' : '';
+      const textTruncate = truncate ? 'text--truncate' : '';
+      const textWeight = weight ? `text--${weight}` : '';
+      return (
+        <div
+          className={clsx(
+            'card__footer',
+            className,
+            text,
+            textType,
+            textColor,
+            textItalic,
+            textDecoration,
+            textBreak,
+            textTruncate,
+            textWeight
+          )}
+          style={style}
+        >
+          {children}
+        </div>
+      );
+    }
+    export default CardFooter;
+    ```
+  </TabItem>
+
+  <TabItem value='ts' label='TS'>
+    ```tsx title='\src\components\Card\CardFooter\index.tsx'
+    import React, { CSSProperties, ReactNode } from 'react';
+    import clsx from 'clsx';
+    interface CardFooterProps {
+      className?: string;
+      style?: CSSProperties;
+      children: ReactNode;
+      textAlign?: string;
+      variant?: string;
+      italic?: boolean;
+      noDecoration?: boolean;
+      transform?: string;
+      breakWord?: boolean;
+      truncate?: boolean;
+      weight?: string;
+    }
+    const CardFooter: React.FC<CardFooterProps> = ({
+      className,
+      style,
+      children,
+      textAlign,
+      variant,
+      italic = false,
+      noDecoration = false,
+      transform,
+      breakWord = false,
+      truncate = false,
+      weight,
+    }) => {
+      const text = textAlign ? `text--${textAlign}` : '';
+      const textColor = variant ? `text--${variant}` : '';
+      const textItalic = italic ? 'text--italic' : '';
+      const textDecoration = noDecoration ? 'text-no-decoration' : '';
+      const textType = transform ? `text--${transform}` : '';
+      const textBreak = breakWord ? 'text--break' : '';
+      const textTruncate = truncate ? 'text--truncate' : '';
+      const textWeight = weight ? `text--${weight}` : '';
+      return (
+        <div
+          className={clsx(
+            'card__footer',
+            className,
+            text,
+            textType,
+            textColor,
+            textItalic,
+            textDecoration,
+            textBreak,
+            textTruncate,
+            textWeight
+          )}
+          style={style}
+        >
+          {children}
+        </div>
+      );
+    };
+    export default CardFooter;
+    ```
+  </TabItem>
+</Tabs>
+
+## MDX Component Scope
+To follow the Docusaurus documentation, we create a theme folder that will host the `MDXComponents` file. This gives us `src\theme\MDXComponents.*`. You may already have a `src\theme` folder or an `MDXComponents` file if so - merge the changes described here with yours.
+
+<DocusaurusButton to='https://docusaurus.io/docs/markdown-features/react#mdx-component-scope' label='Docusaurus Documentation: MDX Component Scope' />
+
+<Tabs groupId='js-ts'>
+  <TabItem value='js' label='JS'>
+    ```javascript title='src\theme\MDXComponents.js'
+      import React from 'react';
+      // Importing the original mapper + our components according to the Docusaurus doc
+      import MDXComponents from '@theme-original/MDXComponents';
+      import Card from '@site/src/components/Card';
+      import CardBody from '@site/src/components/Card/CardBody';
+      import CardFooter from '@site/src/components/Card/CardFooter';
+      import CardHeader from '@site/src/components/Card/CardHeader';
+      import CardImage from '@site/src/components/Card/CardImage';
+      export default {
+        // Reusing the default mapping
+        ...MDXComponents,
+        Card, 
+        CardHeader, 
+        CardBody, 
+        CardFooter, 
+        CardImage,
+      };
+    ```
+  </TabItem>
+
+  <TabItem value='ts' label='TS'>
+    ```tsx title='src\theme\MDXComponents.tsx'
+      import React from 'react';
+      // Importing the original mapper + our components according to the Docusaurus doc
+      import MDXComponents from '@theme-original/MDXComponents';
+      import Card from '@site/src/components/Card';
+      import CardBody from '@site/src/components/Card/CardBody';
+      import CardFooter from '@site/src/components/Card/CardFooter';
+      import CardHeader from '@site/src/components/Card/CardHeader';
+      import CardImage from '@site/src/components/Card/CardImage';
+      export default {
+        // Reusing the default mapping
+        ...MDXComponents,
+        Card, 
+        CardHeader, 
+        CardBody, 
+        CardFooter,
+        CardImage, 
+      };
+    ```
+  </TabItem>
+</Tabs>
+
+## Using the Card Component in an MDX File
+
+For convenience these cards are displayed using some wrapper div elements like a `container`, `row` and / or `col`.
+
+### Basic Card
+
+<div className='container'>
+  <div className='row'>
+    <div className='col col--4'>
+      <div className='col-demo'>
+        <Card shadow='tl'>
+          <CardHeader>
+            <h3>Lorem Ipsum</h3>
+          </CardHeader>
+          <CardBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+          <CardFooter>
+            <button className='button button--secondary button--block'>See All</button> 
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+    <div className='col col--8'>
+      <div className='col-demo'>
+        ```jsx
+          <Card shadow='tl'>
+            <CardHeader>
+              <h3>Lorem Ipsum</h3>
+            </CardHeader>
+            <CardBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+            </CardBody>
+            <CardFooter>
+              <button className='button button--secondary button--block'>See All</button>
+            </CardFooter>
+          </Card>
+        ```
+      </div>
+    </div>
+  </div>
+</div>
+
+### Feed Card
+
+<div className='container'>
+  <div className='row padding-bottom--xl'>
+    <div className='col col--5'>
+      <div className='col-demo'>
+        <Card>
+          <CardHeader style={{ backgroundColor: '#205d3b' , color:'black'}}>
+            <div className='avatar avatar--vertical'>
+              <img
+                className='avatar__photo avatar__photo--xl' 
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+              <div className='avatar__intro'>
+                <div className='avatar__name'>Docux (@Juniors017)</div>
+                <small className='avatar__subtitle'>
+                  humble contributor on: 
+                  <a  style={{ color:'white'}} href='https://docusaurus.community/'>docusaurus.community</a>
+                </small>
+              </div>
+            </div>
+          </CardHeader>
+          <CardBody
+            style={{ backgroundColor: 'black' , color:'silver'}}
+            className='padding-vert--md'
+            textAlign='center'
+            transform='uppercase'
+          > 
+            <h3>Docux Card component</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody> 
+          <CardFooter
+            style={{ backgroundColor: '#205d3b' , color:'black'}}
+            className='text--center'
+          >
+            <div className='button-group button-group--block'>
+              <button className='button button--secondary'>Like</button>
+              <button className='button button--secondary'>Comment</button>
+              <button className='button button--secondary'>Share</button>
+            </div>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+    <div className='col col--7'>
+      <div className='col-demo'>
+        ```html
+          <Card>
+            <CardHeader style={{ backgroundColor: '#205d3b' , color:'black'}}>
+              <div className='avatar avatar--vertical'>
+                <img
+                  className='avatar__photo avatar__photo--xl'
+                  src='https://avatars.githubusercontent.com/u/97809069?v=4'
+                />
+                <div className='avatar__intro'>
+                  <div className='avatar__name'>Docux (@Juniors017)</div>
+                  <small className='avatar__subtitle'>
+                    humble contributor on:
+                    <a style={{ color:'white'}}  href='https://docusaurus.community/'>docusaurus.community</a>
+                  </small>
+                </div>
+              </div>
+            </CardHeader>
+            <CardBody
+              style={{ backgroundColor: 'black' , color:'silver'}}
+              className='padding-vert--md'
+              textAlign='center'
+              transform='uppercase'
+            >
+              <h3>Docux Card component</h3>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+            </CardBody> 
+            <CardFooter style={{ backgroundColor: '#205d3b' , color:'black'}} className='text--center'> 
+              <div className='button-group button-group--block'>
+                <button className='button button--secondary'>Like</button>
+                <button className='button button--secondary'>Comment</button>
+                <button className='button button--secondary'>Share</button>
+              </div>
+            </CardFooter> 
+          </Card>
+        ```
+      </div>
+    </div>
+  </div>
+</div>
+
+### Mega Feed Card 
+
+<div className='container'>
+  <div className='row padding-bottom--xl'>
+    <div className='col col--5'>
+      <div className='col-demo'>
+        <Card>
+          <CardHeader className='padding-top--lg' style={{ backgroundColor: 'rgb(33 126 209)' , color:'black'}}>
+            <div className='avatar avatar--vertical'>
+              <img
+                className='avatar__photo avatar__photo--xl' 
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+              <div className='avatar__intro'>
+                <div className='avatar__name'>Docux (@Juniors017)</div>
+                <small className='avatar__subtitle'>
+                  humble contributor on:
+                  <a style={{ color:'white'}} href='https://docusaurus.community/'>docusaurus.community</a>
+                </small>
+              </div>
+            </div>
+          </CardHeader>
+          <CardImage
+            style={{ backgroundColor: 'rgb(33 126 209)' , color:'black'}}
+            cardImageUrl='https://img.freepik.com/vecteurs-libre/dino-mignon-jouant-illustration-icone-vecteur-dessin-anime-planche-roulettes-concept-icone-sport-animal-isole_138676-7099.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+          />
+          <CardBody
+            style={{ backgroundColor: 'white' , color:'#8f600b'}}
+            className='padding-vert--md'
+            textAlign='center'
+            Transform='uppercase'
+          > 
+            <h3>Docux Card component</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>  
+          <CardFooter style={{ backgroundColor: '#2887bf' , color:'black'}} className='text--center'> 
+            <div className='button-group button-group--block'>
+              <button className='button button--secondary'>Like</button>
+              <button className='button button--secondary'>Comment</button>
+              <button className='button button--secondary'>Share</button>
+            </div>
+          </CardFooter> 
+        </Card>
+      </div>
+    </div>
+    <div className='col col--7'>
+      <div className='col-demo'>
+        ```html
+          <Card>
+            <CardHeader
+              className='padding-top--lg'
+              style={{ backgroundColor: 'rgb(33 126 209)' , color:'black'}}
+            >
+              <div className='avatar avatar--vertical'>
+                <img
+                  className='avatar__photo avatar__photo--xl' 
+                  src='https://avatars.githubusercontent.com/u/97809069?v=4'
+                />
+                <div className='avatar__intro'>
+                  <div className='avatar__name'>Docux (@Juniors017)</div>
+                  <small className='avatar__subtitle'>
+                    humble contributor on:
+                    <a style={{ color:'white'}} href='https://docusaurus.community/'>docusaurus.community</a>
+                  </small>
+                </div>
+              </div>
+            </CardHeader>
+            <CardImage
+              style={{ backgroundColor: 'rgb(33 126 209)' , color:'black'}}
+              cardImageUrl='https://img.freepik.com/vecteurs-libre/dino-mignon-jouant-illustration-icone-vecteur-dessin-anime-planche-roulettes-concept-icone-sport-animal-isole_138676-7099.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+            />
+            <CardBody
+              style={{ backgroundColor: 'white' , color:'#8f600b'}}
+              className='padding-vert--md'
+              textAlign='center'
+              transform='uppercase'
+            >
+              <h3>Docux Card component</h3>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+            </CardBody>  
+            <CardFooter
+              style={{ backgroundColor: '#2887bf' , color:'black'}}
+              className='text--center'
+            >
+              <div className='button-group button-group--block'>
+                <button className='button button--secondary'>Like</button>
+                <button className='button button--secondary'>Comment</button>
+                <button className='button button--secondary'>Share</button>
+              </div>
+            </CardFooter> 
+          </Card>
+        ```
+      </div>
+    </div>
+  </div>
+</div>
+
+### Photo Card 
+
+<div className='container'>
+  <div className='row padding-bottom--xl'>
+    <div className='col col--5'>
+      <div className='col-demo'>
+        <Card>
+          <CardImage
+            cardImageUrl='https://img.freepik.com/vecteurs-libre/dino-triceratops-mignon-illustration-icone-vecteur-dessin-anime-camera-technologie-animale-isolee-plat_138676-6762.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+          />
+          <CardFooter style={{ backgroundColor: '#e37c77' , color:'black'}} className='text--center'> 
+            <div className='button-group button-group--block'>
+              <button className='button button--success'>Like</button>
+              <button className='button button--warning'>Comment</button>
+              <button className='button button--danger'>Share</button>
+            </div>
+          </CardFooter> 
+        </Card>
+      </div>
+    </div>
+    <div className='col col--7'>
+      <div className='col-demo'>
+        ```html
+          <Card>
+            <CardImage
+              cardImageUrl='https://img.freepik.com/vecteurs-libre/dino-triceratops-mignon-illustration-icone-vecteur-dessin-anime-camera-technologie-animale-isolee-plat_138676-6762.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+            />
+            <CardFooter style={{ backgroundColor: '#e37c77' , color:'black'}} className='text--center'> 
+              <div className='button-group button-group--block'>
+                <button className='button button--success'>Like</button>
+                <button className='button button--warning'>Comment</button>
+                <button className='button button--danger'>Share</button>
+              </div>
+            </CardFooter> 
+          </Card>
+        ```
+      </div>
+    </div>
+  </div>
+</div>
+
+### Photo Card - Avatar
+
+<div className='container'>
+  <div className='row padding-bottom--xl'>
+    <div className='col col--5'>
+      <div className='col-demo'>
+        <Card>
+          <CardImage
+            cardImageUrl='https://img.freepik.com/vecteurs-libre/dinosaure-mignon-qui-s-etend-icone-vecteur-dessin-anime-illustration-concept-icone-sport-animal-isole-plat_138676-9213.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+          />
+          <CardFooter style={{ backgroundColor: 'white' , color:'black'}} className='text--center'> 
+            <div className='avatar'>
+              <img
+                className='avatar__photo avatar__photo--xs' 
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+              <div className='avatar__intro'>
+                <div className='avatar__name'>Docux humble contributor</div>
+              </div>
+            </div>
+          </CardFooter> 
+        </Card>
+      </div>
+    </div>
+    <div className='col col--7'>
+      <div className='col-demo'>
+        ```html
+          <Card>
+            <CardImage
+              cardImageUrl='https://img.freepik.com/vecteurs-libre/dinosaure-mignon-qui-s-etend-icone-vecteur-dessin-anime-illustration-concept-icone-sport-animal-isole-plat_138676-9213.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+            />
+            <CardFooter style={{ backgroundColor: 'white' , color:'black'}} className='text--center'> 
+              <div className='avatar'>
+                <img
+                  className='avatar__photo avatar__photo--xs' 
+                  src='https://avatars.githubusercontent.com/u/97809069?v=4'
+                />
+                <div className='avatar__intro'>
+                  <div className='avatar__name'>Docux humble contributor</div>
+                </div>
+              </div>
+            </CardFooter> 
+          </Card>
+        ```
+      </div>
+    </div>
+  </div>
+</div>
+
+### Other Post Card
+
+<div className='container'>
+  <div className='row '>
+    <div className='col col--4'>
+      <div className='col-demo'>
+        <Card shadow='tl'>
+          <CardBody
+            style={{ backgroundColor: 'white' , color:'black'}}
+            className='padding-vert--md'
+            transform='uppercase'
+          >
+            The Infima CSS framework provides a set of utility class names that can be used to style cards in Docusaurus. This article will cover how to create a reusable card component for your Docusaurus site that can be customized with different colors and sizes.
+          </CardBody> 
+          <CardFooter style={{ backgroundColor: 'red' , color:'black'}}> 
+            <div className='avatar padding-top--md'>
+              <img
+                className='avatar__photo'
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+              <div className='avatar__intro'>
+                <div className='avatar__name'>Docux (@Juniors017)</div>
+                <small className='avatar__subtitle'>
+                  humble contributor
+                </small>
+              </div>
+            </div>
+          </CardFooter> 
+        </Card>
+      </div>
+    </div>
+    <div className='col col--8'>
+      <div className='col-demo'>
+        ```html
+          <Card shadow='tl'>
+            <CardBody
+              style={{ backgroundColor: 'white' , color:'black'}}
+              className='padding-vert--md' 
+              transform='uppercase'
+            >
+              The Infima CSS framework provides a set of utility class names that can be used to style cards in Docusaurus. This article will cover how to create a reusable card component for your Docusaurus site that can be customized with different colors and sizes.
+            </CardBody>
+            <CardFooter style={{ backgroundColor: 'red' , color:'black'}}> 
+              <div className='avatar padding-top--md'>
+                <img
+                  className='avatar__photo'
+                  src='https://avatars.githubusercontent.com/u/97809069?v=4'
+                />
+                <div className='avatar__intro'>
+                  <div className='avatar__name'>Docux (@Juniors017)</div>
+                    <small className='avatar__subtitle'>
+                      humble contributor
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </CardFooter> 
+          </Card>
+        ```
+      </div>
+    </div>
+  </div>
+</div>
+
+### Multi Demo Card
+
+<div className='container'>
+  <div className='row padding-bottom--xl'>
+    <div className='col col--4'>
+      <div className='col-demo'>
+        <Card>
+          <CardHeader className='padding-top--lg' style={{ backgroundColor: '#87dfb8' , color:'black'}}>
+            <div className='avatar avatar--vertical'>
+              <img
+                className='avatar__photo avatar__photo--xs' 
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+              <div className='avatar__intro'>
+                <div className='avatar__name'>Docux (@Juniors017)</div>
+                <small className='avatar__subtitle'>
+                  humble contributor on:
+                  <a href='https://docusaurus.community/' style={{ color:'#1a8870'}}>docusaurus.community</a>
+                </small>
+              </div>
+            </div>
+          </CardHeader>
+          <CardImage
+            style={{ backgroundColor: '#87dfb8' , color:'black'}}
+            cardImageUrl='https://img.freepik.com/vecteurs-libre/crocodile-mignon-jouant-illustration-icone-vecteur-dessin-anime-planche-roulettes-icone-sport-animal-isole-plat_138676-7352.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+          />
+          <CardBody 
+            style={{ backgroundColor: 'black' , color:'silver'}}
+            className='padding-vert--md'
+            textAlign='right'
+            transform='uppercase'
+          >
+            <h3>Docux Card component</h3> 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+        </Card>
+      </div>
+    </div>
+    <div className='col col--4'>
+      <div className='col-demo'>
+        <Card>
+          <CardHeader className='padding-top--lg' style={{ backgroundColor: '#7a9f3d' , color:'black'}}>
+            <div className='avatar'>
+              <img
+                className='avatar__photo avatar__photo--lg' 
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+              <div className='avatar__intro'>
+                <div className='avatar__name'>Docux (@Juniors017)</div>
+                <small className='avatar__subtitle'>
+                  humble contributor on:
+                  <a style={{ color:'white'}} href='https://docusaurus.community/'>docusaurus.community</a>
+                </small>
+              </div>
+            </div>
+          </CardHeader>
+          <CardImage
+            style={{ backgroundColor: '#7a9f3d' , color:'black'}}
+            cardImageUrl='https://img.freepik.com/vecteurs-libre/dino-mignon-jouant-au-golf-cartoon-vector-icon-illustration-concept-icone-sport-animalier-isole-plat_138676-7100.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+          />
+          <CardBody
+            style={{ backgroundColor: '#d7de3d' , color:'black'}}
+            className='padding-vert--md'
+            textAlign='justify'
+            transform='uppercase'
+          >
+            <h3 className='text--center'>Docux Card component</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+        </Card>
+      </div>
+    </div>
+    <div className='col col--4'>
+      <div className='col-demo'>
+        <Card>
+          <CardHeader className='padding-vert--md ' style={{ backgroundColor: '#fff2c7' , color:'black'}}>
+            <div className='avatar avatar--vertical'>
+              <img
+                className='avatar__photo avatar__photo--xl' 
+                src='https://avatars.githubusercontent.com/u/97809069?v=4'
+              />
+            </div>
+          </CardHeader>
+          <CardImage
+            style={{ backgroundColor: 'black' , color:'black'}}
+            cardImageUrl='https://img.freepik.com/vecteurs-libre/mignon-dino-chef-tenue-spatule-dessin-anime-vecteur-icone-illustration-nourriture-animale-icone-concept-isole_138676-8913.jpg?size=626&ext=jpg&ga=GA1.1.1416347011.1716591654&semt=sph'
+          />
+          <CardBody
+            style={{ backgroundColor: '#40c43b' , color:'black'}}
+            className='padding-vert--md'
+            textAlign='center'
+            transform='uppercase'
+          >
+            <h3>Docux Card component</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+          </CardBody>
+        </Card>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Tricks and Tips
+
+The columns are made using to the infima grid, they are hard coded on this page so that the card component is independent. But if you want to use an easy and quick system for managing your columns while using the Infima grid system look at [our columns component](../Columns/index.mdx)

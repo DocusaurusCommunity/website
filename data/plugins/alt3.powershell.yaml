@@ -15,3 +15,4 @@ minimumVersion: null
 maintenanceStatus: maintained
 compatibility:
   - 2
+  - 3

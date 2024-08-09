@@ -143,7 +143,6 @@ const config = {
             ({
                 docs: {
                     admonitions: {
-                        tag: ':::',
                         keywords: [
                             'info',
                             'success',
@@ -159,7 +158,6 @@ const config = {
                 },
                 blog: {
                     admonitions: {
-                        tag: ':::',
                         keywords: [
                             'info',
                             'success',
@@ -200,13 +198,17 @@ There we have it. We've created a new admonition type and added it to our Docusa
 ## Examples
 
 :::discord[Discord]
-This is a Discord admonition
+This is a Discord admonition. With a [link](https://example.test).
 :::
 
 :::release[Release]
-This is a Release admonition
+This is a Release admonition. With a [link](https://example.test).
 :::
 
 :::security[Security]
-This is a Security admonition
+This is a Security admonition. With a [link](https://example.test).
+:::
+
+:::docusaurus[Docusaurus]
+This is a Docusaurus admonition. With a [link](https://example.test).
 :::

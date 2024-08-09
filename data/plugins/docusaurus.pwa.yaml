@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: docusaurus.pwa
+name: PWA
+description: Official Docusaurus PWA plugin.
+preview: null
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-pwa
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-plugin-pwa
+author: docusaurus
+tags:
+  - utility
+  - docusaurus
+minimumVersion: null
+maintenanceStatus: maintained
+compatibility:
+  - 2
+  - 3
+npmPackages:
+  - "@docusaurus/plugin-pwa"

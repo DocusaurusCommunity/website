@@ -12,5 +12,7 @@ tags:
   - markdown
 minimumVersion: 2.0.0-beta.15
 maintenanceStatus: maintained
+compatibility:
+  - 2
 npmPackages:
   - docusaurus-plugin-drawio
