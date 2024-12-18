@@ -117,7 +117,7 @@ Depending on stage / target you will need to run the docker image differently.
   To run the `dev` target you will need to run the following command:
 
   ```bash
-  docker run --rm -d -p 3000:3000 -v $(pwd):/var/docusaurus <tag>
+  docker run --rm -d -p 3000:3000 -v $(pwd):/opt/docusaurus <tag>
   ```
 
   If using PowerShell you will need to use `${pwd}` instead of `$(pwd)`. On some systems you may need to replace `$(pwd)` with `.` or the full path to the directory you want to mount.
