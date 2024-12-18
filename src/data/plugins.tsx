@@ -618,7 +618,7 @@ const Plugins: Plugin[] = [
     name: 'PowerShell',
     description: 'A PowerShell module to generate Docusaurus websites for other PowerShell modules.',
     preview: null,
-    website: 'https://docusaurus-powershell.netlify.app',
+    website: 'https://docusaurus-powershell.vercel.app',
     source: 'https://github.com/alt3/Docusaurus.Powershell',
     author: 'alt3',
     tags: ['content', 'markdown', 'utility', 'integration'],
