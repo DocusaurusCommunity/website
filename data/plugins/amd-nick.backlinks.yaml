@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: amd-nick.backlinks
+name: Backlinks
+description: Adds a component that you can use to display backlinks between your publications
+preview: null
+website: https://github.com/AMD-NICK/docusaurus-plugin-backlinks
+source: https://github.com/AMD-NICK/docusaurus-plugin-backlinks
+author: amd-nick
+tags:
+  - theme
+  - utility
+minimumVersion: 3.7.0
+maintenanceStatus: maintained
+compatibility:
+  - 3
+npmPackages:
+  - docusaurus-plugin-backlinks
