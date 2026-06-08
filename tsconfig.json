@@ -3,7 +3,9 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "module": "NodeNext",
-    "baseUrl": ".",
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "ignoreDeprecations": "6.0"
   },
 }

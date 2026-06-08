@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"prettier.prettierPath": ".yarn/sdks/prettier",
-		"typescript.tsdk": ".yarn/sdks/typescript/lib",
+		"typescript.tsdk": "node_modules/typescript/lib",
 		"typescript.enablePromptUseWorkspaceTsdk": true,
 		"cSpell.words": [
 			"deflist",
@@ -14,6 +14,9 @@
 			"katex",
 			"rehype"
 		],
-		"discord.enabled": true
+		"discord.enabled": true,
+		"npmSafetyGuard.typosquatWhitelist": [
+			"react-popper"
+		]
 	}
 }
