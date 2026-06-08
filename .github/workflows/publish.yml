@@ -55,7 +55,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [current]
     # Cancel previous runs that are not completed yet
     concurrency:
       group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
@@ -76,7 +76,7 @@ jobs:
         run: corepack enable
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
@@ -89,17 +89,16 @@ jobs:
 
       - name: Publish to Cloudflare Pages
         id: cloudflare-pages-deploy
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          projectName: docusauruscommunitywebsite
-          directory: build
+          command: 'pages deploy build --project-name=halocommunitywebsite'
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create commit comment
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: peter-evans/commit-comment@v2
+        uses: peter-evans/commit-comment@v4
         with:
           body: |
             ### ⚡ Successfully deployed to Cloudflare Pages!
@@ -110,7 +109,7 @@ jobs:
 
       - name: Create PR comment
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }}
-        uses: mshick/add-pr-comment@v2
+        uses: mshick/add-pr-comment@v3
         with:
           message: |
             ### ⚡ Successfully deployed to Cloudflare Pages!
@@ -121,7 +120,7 @@ jobs:
 
       - name: Remove label
         if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
