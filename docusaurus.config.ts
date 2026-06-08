@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 // Import Types
-import type { Config } from '@docusaurus/types';
+import type { Config, PluginModule } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
@@ -60,7 +60,8 @@ const commonDocsPluginConfig = {
   ...remarkPluginsConfig,
 }
 
-import plausiblePlugin from 'docusaurus-plugin-plausible';
+import plausiblePlugin, {type PluginOptions as plausibleOptions} from '@homotechsual/docusaurus-plugin-plausible';
+import searchPlugin, {type PluginOptions as searchOptions} from '@easyops-cn/docusaurus-search-local';
 
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
@@ -72,7 +73,6 @@ const config: Config = {
   organizationName: 'homotechsual', // Usually your GitHub org/user name.
   projectName: 'docusaurus.community', // Usually your repo name.
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -245,10 +245,10 @@ const config: Config = {
     ],
     'docusaurus-plugin-sass',
     [
-      plausiblePlugin,
+      plausiblePlugin as PluginModule,
       {
         domain: 'docusaurus.community',
-      },
+      } satisfies plausibleOptions,
     ],
     [
       '@docusaurus/plugin-content-docs',
@@ -265,9 +265,8 @@ const config: Config = {
   ],
   themes: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-      ({
+      searchPlugin as PluginModule,
+      {
         indexDocs: true,
         indexBlog: false,
         indexPages: true,
@@ -275,31 +274,9 @@ const config: Config = {
         hashed: true,
         docsDir: ["docs", "contributing"],
         highlightSearchTermsOnTargetPage: true,
-      }),
+      } satisfies searchOptions,
     ],
   ],
-  webpack: {
-    jsLoader: (isServer: boolean) => ({
-      loader: 'swc-loader',
-      options: {
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          transform: {
-            react: {
-              runtime: 'automatic',
-            }
-          },
-          target: 'es2017',
-        },
-        module: {
-          type: isServer ? 'commonjs' : 'es6',
-        },
-      },
-    }),
-  },
   markdown: {
     format: 'detect',
     mermaid: true,
@@ -307,6 +284,9 @@ const config: Config = {
       comments: false,
       headingIds: false,
       admonitions: false,
+    },
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
     }
   },
 };
