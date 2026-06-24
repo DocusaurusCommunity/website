@@ -9,7 +9,7 @@ import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 import { DOCUSAURUS_VERSION } from '@docusaurus/utils'
 // Setup our Prism themes.
 import { themes } from 'prism-react-renderer';
-import plausiblePlugin, {type PluginOptions as PlausiblePluginOptions} from 'docusaurus-plugin-plausible';
+import plausiblePlugin, {type PluginOptions as PlausiblePluginOptions} from '@homotechsual/docusaurus-plugin-plausible';
 const lightCodeTheme = themes.vsLight;
 const darkCodeTheme = themes.vsDark;
 // Define our admonitions config.
