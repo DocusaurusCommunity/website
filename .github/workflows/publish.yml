@@ -99,8 +99,8 @@ jobs:
       - name: Resolve deployment URLs
         id: deploy-urls
         run: |
-          DEPLOYMENT_URL="${{ steps.cloudflare-pages-deploy.outputs.deployment-url }}"
-          ALIAS_URL="${{ steps.cloudflare-pages-deploy.outputs.pages-deployment-alias-url }}"
+          DEPLOYMENT_URL="${{ steps.cloudflare-pages-deploy.outputs['deployment-url'] }}"
+          ALIAS_URL="${{ steps.cloudflare-pages-deploy.outputs['pages-deployment-alias-url'] }}"
 
           # Prefer alias URL for preview builds; fall back to deployment URL.
           FINAL_URL="$ALIAS_URL"
