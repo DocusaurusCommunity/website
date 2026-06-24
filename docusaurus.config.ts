@@ -9,6 +9,7 @@ import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 import { DOCUSAURUS_VERSION } from '@docusaurus/utils'
 // Setup our Prism themes.
 import { themes } from 'prism-react-renderer';
+import plausiblePlugin, {type PluginOptions as PlausiblePluginOptions} from 'docusaurus-plugin-plausible';
 const lightCodeTheme = themes.vsLight;
 const darkCodeTheme = themes.vsDark;
 // Define our admonitions config.
@@ -59,8 +60,6 @@ const commonDocsPluginConfig = {
   ...admonitionsConfig,
   ...remarkPluginsConfig,
 }
-
-import plausiblePlugin from 'docusaurus-plugin-plausible';
 
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
@@ -249,7 +248,7 @@ const config: Config = {
       plausiblePlugin,
       {
         domain: 'docusaurus.community',
-      },
+      } satisfies PlausiblePluginOptions,
     ],
     [
       '@docusaurus/plugin-content-docs',
