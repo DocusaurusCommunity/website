@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_portfolio.svg').default,
     description: (
       <>
-        We've gathered data on a growing list of plugins — help us add more! You can add details on your own plugin or help us fill in missing details on others.
+        We've gathered data on a growing list of plugins, and we need your help to add more! You can submit your own plugin or help us fill in missing details on others.
       </>
     ),
     button: {
