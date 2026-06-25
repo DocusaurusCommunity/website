@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: stackql.structured-data
 name: Structured Data
 description: A Docusaurus plugin to add JSON-LD Structured Data to your site.

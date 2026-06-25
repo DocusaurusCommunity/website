@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: docusaurus.theme-live-codeblock
 name: Theme Live Codeblock
 description: Official Docusaurus theme for live codeblocks.

@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: hhk7734.google-adsense
 name: Google AdSense
 description: A plugin to embed Google AdSense in your Docusaurus site.

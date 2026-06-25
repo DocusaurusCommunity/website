@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: moojing.post-generator
 name: Post Generator
 description: A CLI tool to generate blog posts from templates.

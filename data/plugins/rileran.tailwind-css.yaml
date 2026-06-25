@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: rileran.tailwind-css
 name: Tailwind CSS
 description: A Docusaurus plugin to add Tailwind CSS support to your site.
