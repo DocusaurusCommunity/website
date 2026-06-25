@@ -71,7 +71,6 @@ const config: Config = {
   organizationName: 'homotechsual', // Usually your GitHub org/user name.
   projectName: 'docusaurus.community', // Usually your repo name.
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   trailingSlash: true,
   i18n: {
     defaultLocale: 'en',
@@ -278,29 +277,10 @@ const config: Config = {
       }),
     ],
   ],
-  webpack: {
-    jsLoader: (isServer: boolean) => ({
-      loader: 'swc-loader',
-      options: {
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          transform: {
-            react: {
-              runtime: 'automatic',
-            }
-          },
-          target: 'es2017',
-        },
-        module: {
-          type: isServer ? 'commonjs' : 'es6',
-        },
-      },
-    }),
-  },
   markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
     format: 'detect',
     mermaid: true,
     mdx1Compat: {
@@ -308,6 +288,12 @@ const config: Config = {
       headingIds: false,
       admonitions: false,
     }
+  },
+  future: {
+    faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    },
   },
 };
 export default config;
