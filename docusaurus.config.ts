@@ -258,6 +258,7 @@ const config: Config = {
         dataDir: 'data/plugins',
         routeBasePath: 'plugindirectory',
         submitUrl: '/contributing/plugins/',
+        submitLabel: 'Add a plugin',
       } satisfies ShowcasePresetOptions,
     ],
     [
