@@ -257,7 +257,8 @@ const config: Config = {
         ...pluginsPreset,
         dataDir: 'data/plugins',
         routeBasePath: 'plugindirectory',
-        submitUrl: 'https://github.com/homotechsual/docusaurus.community/discussions/3',
+        submitUrl: '/contributing/plugins/',
+        submitLabel: 'Add a plugin',
       } satisfies ShowcasePresetOptions,
     ],
     [
