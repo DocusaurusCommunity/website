@@ -10,8 +10,6 @@ tags:
   - integration
   - utility
 minimumVersion: null
-maintenanceStatus: unmaintained
-compatibility:
-  - 2
+status: unmaintained
 npmPackages:
   - "@papercups-io/docusaurus"

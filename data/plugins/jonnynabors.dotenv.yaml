@@ -9,8 +9,6 @@ author: jonnynabors
 tags:
   - utility
 minimumVersion: null
-maintenanceStatus: unknown
-compatibility:
-  - 2
+status: unknown
 npmPackages:
   - docusaurus2-dotenv

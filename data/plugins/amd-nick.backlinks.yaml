@@ -10,8 +10,6 @@ tags:
   - theme
   - utility
 minimumVersion: 3.7.0
-maintenanceStatus: maintained
-compatibility:
-  - 3
+status: maintained
 npmPackages:
   - docusaurus-plugin-backlinks

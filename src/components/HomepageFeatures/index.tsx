@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
-import { pluginCount } from '@site/src/data/plugins';
 import Link from '@docusaurus/Link';
 
 type FeatureItem = {
@@ -20,7 +19,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_portfolio.svg').default,
     description: (
       <>
-        We've gathered data on {pluginCount} plugins, we need your help to gather data on more! You can add details on your own plugin or help us add details on other plugins.
+        We've gathered data on a growing list of plugins — help us add more! You can add details on your own plugin or help us fill in missing details on others.
       </>
     ),
     button: {

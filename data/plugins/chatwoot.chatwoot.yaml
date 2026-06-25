@@ -10,8 +10,6 @@ tags:
   - integration
   - content
 minimumVersion: null
-maintenanceStatus: unknown
-compatibility:
-  - 2
+status: unknown
 npmPackages:
   - "@chatwoot/docusaurus"

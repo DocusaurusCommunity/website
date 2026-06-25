@@ -10,9 +10,6 @@ tags:
   - utility
   - markdown
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - "docusaurus-plugin-image-zoom"

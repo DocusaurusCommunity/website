@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: mrazauskas.tab-blocks
+name: Tab Blocks
+description: Turn Docusaurus code blocks into tab blocks.
+preview: null
+website: https://github.com/mrazauskas/docusaurus-remark-plugin-tab-blocks
+source: https://github.com/mrazauskas/docusaurus-remark-plugin-tab-blocks
+author: mrazauskas
+tags:
+  - markdown
+  - utility
+minimumVersion: null
+status: maintained
+npmPackages:
+  - docusaurus-remark-plugin-tab-blocks

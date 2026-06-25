@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: dipakparmar.umami
+name: Umami
+description: A Docusaurus plugin to add Umami analytics to your site.
+preview: null
+website: https://npmjs.org/package/@dipakparmar/docusaurus-plugin-umami
+source: https://github.com/dipakparmar/docusaurus-plugin-umami
+author: dipakparmar
+tags:
+  - analytics
+  - integration
+minimumVersion: 2.0.0-beta.6
+status: maintained
+npmPackages:
+  - "@dipakparmar/docusaurus-plugin-umami"

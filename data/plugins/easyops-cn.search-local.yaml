@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: easyops-cn.search-local
+name: Search Local
+description: Offline / local search plugin for Docusaurus 2.
+preview: null
+website: https://easyops-cn.github.io/docusaurus-search-local
+source: https://github.com/easyops-cn/docusaurus-search-local
+author: easyops-cn
+tags:
+  - search
+minimumVersion: 2.0.0
+status: maintained
+npmPackages:
+  - "@easyops-cn/docusaurus-search-local"

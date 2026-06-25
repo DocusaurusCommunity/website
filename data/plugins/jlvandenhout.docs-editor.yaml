@@ -10,8 +10,6 @@ tags:
   - utility
   - editing
 minimumVersion: 2.0.0-beta.15
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-docs-editor

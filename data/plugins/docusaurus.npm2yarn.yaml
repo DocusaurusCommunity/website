@@ -11,9 +11,6 @@ tags:
   - utility
   - docusaurus
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - "@docusaurus/remark-plugin-npm2yarn"

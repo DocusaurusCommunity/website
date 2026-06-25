@@ -10,9 +10,7 @@ tags:
   - api
   - content
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-openapi-docs
   - docusaurus-theme-openapi-docs

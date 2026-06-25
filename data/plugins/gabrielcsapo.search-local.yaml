@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: gabrielcsapo.search-local
+name: Search Local
+description: Offline / local search plugin for Docusaurus 2.
+preview: null
+website: https://gabrielcsapo.github.io/docusaurus-plugin-search-local
+source: https://github.com/gabrielcsapo/docusaurus-plugin-search-local
+author: gabrielcsapo
+tags:
+  - search
+minimumVersion: 2.1.0
+status: maintained
+npmPackages:
+  - docusaurus-plugin-search-local

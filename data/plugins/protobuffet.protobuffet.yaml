@@ -11,8 +11,6 @@ tags:
   - integration
   - utility
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - posthog-docusaurus
