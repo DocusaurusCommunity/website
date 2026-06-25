@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: chatwoot.chatwoot
 name: Chatwoot
 description: Embeds the chatwoot system in your Docusaurus site.

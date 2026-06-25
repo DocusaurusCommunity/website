@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: docusaurus.theme-search-algolia
 name: Theme Search Algolia
 description: Official Docusaurus Algolia search theme.

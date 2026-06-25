@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: docusaurus.theme-classic
 name: Classic Theme
 description: Official Docusaurus classic theme.

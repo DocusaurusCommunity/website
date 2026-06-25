@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: rdilweb.remote-content
 name: Remote Content
 description: A Docusaurus v2 plugin to download content from remote sources when it is needed.

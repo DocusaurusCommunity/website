@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: stackql.smartlook
 name: Smartlook
 description: A Docusaurus plugin to add your Smartlook tracking code to your site.

@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: christian-bromann.github-code-block
 name: GitHub Code Block
 description: A Docusaurus plugin that supports referencing code examples from public GitHub repositories.

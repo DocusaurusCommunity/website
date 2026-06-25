@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
 id: rlamana.sass
 name: SASS
 description: Provides support for SASS/SCSS to Docusaurus v2.
