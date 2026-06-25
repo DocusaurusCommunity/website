@@ -4446,9 +4446,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@homotechsual/docusaurus-plugin-showcase@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@homotechsual/docusaurus-plugin-showcase@npm:1.0.1"
+"@homotechsual/docusaurus-plugin-showcase@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@homotechsual/docusaurus-plugin-showcase@npm:1.1.0"
   dependencies:
     "@docusaurus/faster": "npm:^3.10.1"
     "@popperjs/core": "npm:^2.11.8"
@@ -4462,7 +4462,7 @@ __metadata:
     "@docusaurus/core": ">=3.0.0 <5.0.0"
     react: ~19.2.7
     react-dom: ~19.2.7
-  checksum: 10c0/a5978758080be7eec9037460fdc2f390545ed150eab7f14971b87cc8afb37b09136ab9f6e57ece99d145ec0aea4a514211ce9f28dca0f011163191e23ecd9fca
+  checksum: 10c0/fd445e77530327298d39a040d6a95ec78879ee1fc1cf2ebbf27277929754a2b3e9447d22ea75c35b9050d8385d984dde12cce744fb5b21d55037fc9ab7038252
   languageName: node
   linkType: hard
 
@@ -6868,12 +6868,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^26.0.0":
-  version: 26.0.0
-  resolution: "@types/node@npm:26.0.0"
+"@types/node@npm:^26.0.1":
+  version: 26.0.1
+  resolution: "@types/node@npm:26.0.1"
   dependencies:
     undici-types: "npm:~8.3.0"
-  checksum: 10c0/f36e21634fd8e8ded162ca486508bd8bb229d398a8d5541f6d8c1255968d4464e53327a77f403b216ef98e3b6f6956882eef83e4857d4bc2be9569dd55d37aae
+  checksum: 10c0/31d204333c70124da6bcac7d1f27d8980149fe3f95a8419bfcd19c3e5823705c0e370d71ac34399352e1263b2d5fc41c87af964ec81e5a05a32224d65d8d224e
   languageName: node
   linkType: hard
 
@@ -9836,13 +9836,13 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:^7.2.0"
     "@fortawesome/react-fontawesome": "npm:^3.3.1"
     "@homotechsual/docusaurus-plugin-plausible": "npm:^1.1.1"
-    "@homotechsual/docusaurus-plugin-showcase": "npm:^1.0.1"
+    "@homotechsual/docusaurus-plugin-showcase": "npm:1.1.0"
     "@iconify/react": "npm:^6.0.2"
     "@mdx-js/react": "npm:^3.1.1"
     "@popperjs/core": "npm:^2.11.8"
     "@swc/core": "npm:^1.15.43"
     "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^26.0.0"
+    "@types/node": "npm:^26.0.1"
     "@types/react": "npm:^19.2.17"
     "@types/react-dom": "npm:^19.2.3"
     clsx: "npm:^2.1.1"
