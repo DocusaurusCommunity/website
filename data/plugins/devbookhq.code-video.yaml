@@ -10,8 +10,6 @@ tags:
   - content
   - utility
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - "@devbookhq/docusaurus-plugin-code-video"

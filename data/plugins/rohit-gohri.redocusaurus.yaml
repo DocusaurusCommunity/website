@@ -10,9 +10,6 @@ tags:
   - content
   - api
 minimumVersion: 2.0.0-beta.14
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - redocusaurus

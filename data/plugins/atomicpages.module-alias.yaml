@@ -9,8 +9,6 @@ author: atomicpages
 tags:
   - utility
 minimumVersion: 2.0.0-alpha.68
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-module-alias

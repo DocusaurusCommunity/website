@@ -10,10 +10,7 @@ tags:
   - content
   - integration
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - docusaurus-plugin-content-gists
   - dotenv

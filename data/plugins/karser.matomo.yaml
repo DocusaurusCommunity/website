@@ -11,9 +11,6 @@ tags:
   - integration
   - analytics
 minimumVersion: 2.0.0-alpha.56
-maintenanceStatus: unknown
-compatibility:
-  - 2
-  - 3
+status: unknown
 npmPackages:
   - docusaurus-plugin-matomo

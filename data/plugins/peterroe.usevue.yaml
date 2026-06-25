@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: peterroe.usevue
+name: UseVue
+description: A Docusaurus plugin providing Vue-loader support.
+preview: null
+website: https://github.com/peterroe/docusaurus-plugin-usevue
+source: https://github.com/peterroe/docusaurus-plugin-usevue
+author: peterroe
+tags:
+  - theme
+  - utility
+minimumVersion: null
+status: maintained
+npmPackages:
+  - docusaurus-plugin-usevue
+  - use-vue-component

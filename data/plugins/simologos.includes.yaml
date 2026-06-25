@@ -10,8 +10,6 @@ tags:
   - utility
   - markdown
 minimumVersion: 2.0.0-beta5
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-includes

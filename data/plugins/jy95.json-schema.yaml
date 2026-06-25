@@ -10,9 +10,6 @@ tags:
   - utility
   - content
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - docusaurus-plugin-json-schema

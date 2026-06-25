@@ -10,7 +10,7 @@ tags:
   - content
   - theme
 minimumVersion: 2.0.0
-maintenanceStatus: unknown
+status: unknown
 compatibility: 
   - 2
 npmPackages: 

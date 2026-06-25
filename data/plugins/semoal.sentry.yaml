@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: semoal.sentry
+name: Sentry
+description: A Docusaurus plugin to add Sentry to your site.
+preview: null
+website: https://github.com/semoal/docusaurus-plugin-sentry
+source: https://github.com/semoal/docusaurus-plugin-sentry
+author: semoal
+tags:
+  - analytics
+  - integration
+minimumVersion: null
+status: maintained
+npmPackages:
+  - docusaurus-plugin-sentry

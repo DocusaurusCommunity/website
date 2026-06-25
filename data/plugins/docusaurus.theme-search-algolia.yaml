@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: docusaurus.theme-search-algolia
+name: Theme Search Algolia
+description: Official Docusaurus Algolia search theme.
+preview: null
+website: https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-search-algolia
+author: docusaurus
+tags:
+  - theme
+  - docusaurus
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@docusaurus/theme-search-algolia"

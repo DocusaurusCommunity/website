@@ -10,8 +10,6 @@ tags:
   - utility
   - theme
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-less

@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: rlamana.sass
+name: SASS
+description: Provides support for SASS/SCSS to Docusaurus v2.
+preview: null
+website: http://docusaurus-plugin-sass.vercel.app/
+source: https://github.com/rlamana/docusaurus-plugin-sass
+author: rlamana
+tags:
+  - theme
+  - utility
+minimumVersion: null
+status: maintained
+npmPackages:
+  - docusaurus-plugin-sass
+  - sass

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: nuxnik.wkhtmltopdf
+name: WKHTMLToPDF
+description: A Docusaurus plugin to add WKHTMLToPDF PDF generation support to your site.
+preview: null
+website: https://github.com/nuxnik/docusaurus-wkhtmltopdf
+source: https://github.com/nuxnik/docusaurus-wkhtmltopdf
+author: nuxnik
+tags:
+  - content
+  - utility
+minimumVersion: null
+status: maintained
+npmPackages:
+  - docusaurus-wkhtmltopdf

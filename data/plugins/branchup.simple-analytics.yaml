@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+id: branchup.simple-analytics
+name: Simple Analytics
+description: A Docusaurus plugin to add Simple Analytics to your site.
+preview: null
+website: https://docs.simpleanalytics.com/install-simple-analytics-with-docusaurus
+source: https://github.com/branchup/docusaurus-plugin-simple-analytics
+author: branchup
+tags:
+  - utility
+  - analytics
+  - integration
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@branchup/docusaurus-plugin-simple-analytics"

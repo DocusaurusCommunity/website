@@ -10,8 +10,6 @@ tags:
   - content
   - integration
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-google-adsense

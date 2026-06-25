@@ -9,8 +9,6 @@ author: moojing
 tags: 
   - utility
 minimumVersion: 2.0.0-alpha.50
-maintenanceStatus: unmaintained
-compatibility:
-  - 2
+status: unmaintained
 npmPackages: 
   - docusaurus-post-generator

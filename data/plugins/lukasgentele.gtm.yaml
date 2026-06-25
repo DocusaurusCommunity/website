@@ -10,8 +10,6 @@ tags:
   - analytics
   - integration
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-gtm-plugin
