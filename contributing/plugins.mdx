@@ -1,0 +1,62 @@
+---
+title: Adding a Plugin
+description: How to submit a new plugin or theme to the Docusaurus Community Plugin Directory.
+sidebar_position: 1
+---
+
+The plugin directory is powered by [`@homotechsual/docusaurus-plugin-showcase`](https://github.com/homotechsual/docusaurus-plugin-showcase). Each entry is a small YAML file in [`data/plugins/`](https://github.com/DocusaurusCommunity/website/tree/main/data/plugins) — one file per plugin.
+
+## Before you submit
+
+- The plugin must be **open source** with a publicly accessible source repository.
+- The plugin must work with a current or recent stable release of Docusaurus.
+- One entry per npm package (or logical plugin unit).
+
+## Create your YAML file
+
+Add a new file to `data/plugins/` named `<author>.<plugin-short-name>.yaml`. Use lowercase letters, numbers, and hyphens only.
+
+```yaml
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: yourname.plugin-short-name
+name: Your Plugin Name
+description: A one-sentence description of what your plugin does.
+preview: null
+website: https://github.com/yourname/your-plugin
+source: https://github.com/yourname/your-plugin
+author: yourname
+tags:
+  - utility
+minimumVersion: null
+status: maintained
+npmPackages:
+  - your-npm-package-name
+```
+
+### Fields
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `id` | Yes | `author.plugin-name` — must be unique |
+| `name` | Yes | Display name shown in the directory |
+| `description` | Yes | Short, one-sentence description |
+| `preview` | Yes | URL to a preview image, or `null` to auto-generate |
+| `website` | Yes | Public website or repository URL |
+| `source` | No | Source code URL (required for acceptance) |
+| `author` | No | Your GitHub username or organisation name |
+| `tags` | No | See [available tags](#tags) below |
+| `minimumVersion` | No | Minimum Docusaurus version, e.g. `3.0.0`, or `null` |
+| `status` | No | `maintained`, `unmaintained`, or `unknown` |
+| `npmPackages` | No | One or more npm package names |
+
+### Tags
+
+`search` · `api` · `utility` · `content` · `theme` · `markdown` · `analytics` · `integration` · `seo` · `editing` · `docusaurus`
+
+## Submit a pull request
+
+1. Fork [`DocusaurusCommunity/website`](https://github.com/DocusaurusCommunity/website) on GitHub.
+2. Add your YAML file to `data/plugins/`.
+3. Open a pull request against the `main` branch.
+
+The CI build will validate your file against the schema. If validation fails, the build output will tell you which field is invalid.
