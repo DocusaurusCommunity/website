@@ -139,10 +139,10 @@ jobs:
         with:
           body: |
             ### ⚡ Successfully deployed to Cloudflare Pages!
-            | <span aria-hidden="true">🔨</span> **Latest commit** | ${{ github.event.pull_request.head.sha || github.sha }} |
-            | <span aria-hidden="true">🔍</span> **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | <span aria-hidden="true">😎</span> **Deploy preview URL** | [${{ steps.deploy-urls.outputs.final_url }}](${{ steps.deploy-urls.outputs.final_url }}) |
-            | <span aria-hidden="true">🌳</span> **Environment** | ${{ steps.cloudflare-pages-deploy.outputs['pages-environment'] }} |
+            - 🔨 **Latest commit:** `${{ github.event.pull_request.head.sha || github.sha }}`
+            - 🔍 **Latest deploy log:** [${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            - 😎 **Deploy preview URL:** [${{ steps.deploy-urls.outputs.final_url }}](${{ steps.deploy-urls.outputs.final_url }})
+            - 🌳 **Environment:** ${{ steps.cloudflare-pages-deploy.outputs['pages-environment'] }}
 
       - name: Create PR comment
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }}
@@ -150,10 +150,10 @@ jobs:
         with:
           message: |
             ### ⚡ Successfully deployed to Cloudflare Pages!
-            | <span aria-hidden="true">🔨</span> **Latest commit** | ${{ github.event.pull_request.head.sha || github.sha }} |
-            | <span aria-hidden="true">🔍</span> **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | <span aria-hidden="true">😎</span> **Deploy preview URL** | [${{ steps.deploy-urls.outputs.final_url }}](${{ steps.deploy-urls.outputs.final_url }}) |
-            | <span aria-hidden="true">🌳</span> **Environment** | ${{ steps.cloudflare-pages-deploy.outputs['pages-environment'] }} |
+            - 🔨 **Latest commit:** `${{ github.event.pull_request.head.sha || github.sha }}`
+            - 🔍 **Latest deploy log:** [${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            - 😎 **Deploy preview URL:** [${{ steps.deploy-urls.outputs.final_url }}](${{ steps.deploy-urls.outputs.final_url }})
+            - 🌳 **Environment:** ${{ steps.cloudflare-pages-deploy.outputs['pages-environment'] }}
 
       - name: Remove label
         if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
