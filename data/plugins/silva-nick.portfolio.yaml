@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: silva-nick.portfolio
 name: Portfolio
 description: A Docusaurus plugin to create a portfolio page from GitHub.

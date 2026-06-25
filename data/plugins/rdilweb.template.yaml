@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: rdilweb.template
 name: Template
 description: A Docusaurus plugin template to accelerate your plugin development.

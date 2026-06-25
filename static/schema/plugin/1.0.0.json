@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docusaurus.community/schema/plugin/1.0.0.json",
+  "title": "PluginsPresetItem",
+  "type": "object",
+  "required": ["id", "name", "description", "website"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "website": { "type": "string", "format": "uri" },
+    "source": { "type": ["string", "null"], "format": "uri" },
+    "preview": { "type": ["string", "null"] },
+    "author": { "type": ["string", "null"] },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "favourite",
+          "docusaurus",
+          "search",
+          "api",
+          "utility",
+          "content",
+          "theme",
+          "markdown",
+          "analytics",
+          "integration",
+          "seo",
+          "editing"
+        ]
+      }
+    },
+    "status": {
+      "type": ["string", "null"],
+      "enum": ["maintained", "unmaintained", "unknown", null]
+    },
+    "npmPackages": { "type": ["array", "null"], "items": { "type": "string" } },
+    "minimumVersion": { "type": ["string", "null"] }
+  }
+}

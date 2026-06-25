@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: milessj.typedoc-api
 name: TypeDoc API
 description: Docusaurus plugin that provides source code API documentation powered by TypeDoc.
