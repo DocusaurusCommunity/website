@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: docusaurus.npm2yarn
 name: npm2yarn
 description: Official Docusaurus plugin which converts npm commands to yarn commands and displays both in a tabbed arrangement.
@@ -11,9 +11,6 @@ tags:
   - utility
   - docusaurus
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - "@docusaurus/remark-plugin-npm2yarn"

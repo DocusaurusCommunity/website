@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: cmfcmf.search-local
+name: Search Local
+description: Offline / local search plugin for Docusaurus 2.
+preview: null
+website: https://github.com/cmfcmf/docusaurus-search-local
+source: https://github.com/cmfcmf/docusaurus-search-local
+author: cmfcmf
+tags:
+  - search
+minimumVersion: 2.0.0-beta.21
+status: maintained
+npmPackages:
+  - "@cmfcmf/docusaurus-search-local"

@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.theme-classic
+name: Classic Theme
+description: Official Docusaurus classic theme.
+preview: null
+website: https://docusaurus.io/docs/api/themes/@docusaurus/theme-classic
+source: https://github.com/facebook/docusaurus/tree/main/packages/docusaurus-theme-classic
+author: docusaurus
+tags:
+  - theme
+  - docusaurus
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@docusaurus/theme-classic"

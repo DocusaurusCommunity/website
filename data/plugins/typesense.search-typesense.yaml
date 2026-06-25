@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: typesense.search-typesense
+name: Search Typesense
+description: A Docusaurus plugin to add Typesense search to your site.
+preview: null
+website: https://typesense.org/docs/guide/docsearch.html#option-a-docusaurus-powered-sites
+source: https://github.com/typesense/docusaurus-theme-search-typesense
+author: typesense
+tags:
+  - search
+  - theme
+minimumVersion: 2.0.0-rc.1
+status: maintained
+npmPackages:
+  - docusaurus-theme-search-typesense

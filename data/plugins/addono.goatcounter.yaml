@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: addono.goatcounter
 name: GoatCounter
 description: A plugin to add GoatCounter analytics to your Docusaurus site.
@@ -10,8 +10,6 @@ tags:
   - analytics
   - integration
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-goatcounter

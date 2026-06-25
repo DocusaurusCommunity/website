@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: cloud-annotations.openapi
 name: OpenAPI
 description: 🦕 OpenAPI plugin for generating API reference docs in Docusaurus v2
@@ -10,9 +10,6 @@ tags:
   - api
   - content
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - docusaurus-preset-openapi

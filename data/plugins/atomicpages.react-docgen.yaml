@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: atomicpages.react-docgen
 name: React Docgen
 description: A Docusaurus plugin to generate documentation from React components using react-docgen-typescript.
@@ -10,9 +10,7 @@ tags:
   - content
   - api
 minimumVersion: 2.0.0-beta.21
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-react-docgen-typescript
   - react-docgen-typescript

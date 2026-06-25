@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: sgromkov.yandex-metrica
+name: Yandex Metrica
+description: Yandex.Metrica plugin for Docusaurus v2.
+preview: null
+website: https://github.com/sgromkov/docusaurus-plugin-yandex-metrica
+source: https://github.com/sgromkov/docusaurus-plugin-yandex-metrica
+author: sgromkov
+tags:
+  - utility
+  - analytics
+  - integration
+minimumVersion: 2.0.0-rc.1
+status: maintained
+npmPackages:
+  - docusaurus-plugin-yandex-metrica

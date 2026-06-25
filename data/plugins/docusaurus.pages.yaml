@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: docusaurus.pages
 name: Pages
 description: Official Docusaurus pages plugin.
@@ -10,9 +10,6 @@ tags:
   - content
   - docusaurus
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
-  - 3
+status: maintained
 npmPackages:
   - "@docusaurus/plugin-content-pages"
