@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: xiguaxigua.drawio
 name: Draw.io
 description: A plugin to embed draw.io diagrams in your Docusaurus site.
@@ -11,8 +11,6 @@ tags:
   - integration
   - markdown
 minimumVersion: 2.0.0-beta.15
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-drawio

@@ -10,6 +10,8 @@ import { DOCUSAURUS_VERSION } from '@docusaurus/utils'
 // Setup our Prism themes.
 import { themes } from 'prism-react-renderer';
 import plausiblePlugin, {type PluginOptions as PlausiblePluginOptions} from '@homotechsual/docusaurus-plugin-plausible';
+import showcasePlugin, {type PresetOptions as ShowcasePresetOptions} from '@homotechsual/docusaurus-plugin-showcase';
+import { pluginsPreset } from '@homotechsual/docusaurus-plugin-showcase/presets';
 const lightCodeTheme = themes.vsLight;
 const darkCodeTheme = themes.vsDark;
 // Define our admonitions config.
@@ -248,6 +250,15 @@ const config: Config = {
       {
         domain: 'docusaurus.community',
       } satisfies PlausiblePluginOptions,
+    ],
+    [
+      showcasePlugin,
+      {
+        ...pluginsPreset,
+        dataDir: 'data/plugins',
+        routeBasePath: 'plugindirectory',
+        submitUrl: 'https://github.com/homotechsual/docusaurus.community/discussions/3',
+      } satisfies ShowcasePresetOptions,
     ],
     [
       '@docusaurus/plugin-content-docs',

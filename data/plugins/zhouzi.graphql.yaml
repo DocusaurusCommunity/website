@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: zhouzi.graphql
 name: GraphQL
 description: A plugin to generate Markdown documentation from a GraphQL schema.
@@ -10,8 +10,6 @@ tags:
   - api
   - content
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-graphql

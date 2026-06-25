@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: nonoroazoro.less
 name: Less
 description: A Docusaurus plugin to compile Less files to CSS.
@@ -10,8 +10,6 @@ tags:
   - utility
   - theme
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-less

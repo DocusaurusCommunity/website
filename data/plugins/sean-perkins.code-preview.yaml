@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.2.1.json
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: sean-perkins.code-preview
 name: Code Preview
 description: Embed live code examples within your Docusaurus 2 sites.
@@ -11,8 +11,6 @@ tags:
   - utility
   - integration
 minimumVersion: null
-maintenanceStatus: maintained
-compatibility:
-  - 2
+status: maintained
 npmPackages:
   - docusaurus-plugin-code-preview

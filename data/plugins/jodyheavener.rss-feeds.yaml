@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: jodyheavener.rss-feeds
+name: RSS Feeds
+description: A Docusaurus plugin to consume RSS feeds and render in Docusaurus.
+preview: null
+website: https://github.com/jodyheavener/docusaurus-plugin-rss-feeds
+source: https://github.com/jodyheavener/docusaurus-plugin-rss-feeds
+author: jodyheavener
+tags:
+  - content
+  - integration
+minimumVersion: 2.0.0-rc.1
+status: maintained
+npmPackages:
+  - docusaurus-plugin-rss-feeds
