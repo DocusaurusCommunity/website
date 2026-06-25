@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 // Import Types
-import type { Config, PluginModule } from '@docusaurus/types';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
 import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
@@ -9,6 +9,7 @@ import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
 import { DOCUSAURUS_VERSION } from '@docusaurus/utils'
 // Setup our Prism themes.
 import { themes } from 'prism-react-renderer';
+import plausiblePlugin, {type PluginOptions as PlausiblePluginOptions} from '@homotechsual/docusaurus-plugin-plausible';
 const lightCodeTheme = themes.vsLight;
 const darkCodeTheme = themes.vsDark;
 // Define our admonitions config.
@@ -60,9 +61,6 @@ const commonDocsPluginConfig = {
   ...remarkPluginsConfig,
 }
 
-import plausiblePlugin, {type PluginOptions as plausibleOptions} from '@homotechsual/docusaurus-plugin-plausible';
-import searchPlugin, {type PluginOptions as searchOptions} from '@easyops-cn/docusaurus-search-local';
-
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
   title: 'Docusaurus.community',
@@ -73,6 +71,7 @@ const config: Config = {
   organizationName: 'homotechsual', // Usually your GitHub org/user name.
   projectName: 'docusaurus.community', // Usually your repo name.
   onBrokenLinks: 'throw',
+  trailingSlash: true,
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -245,10 +244,10 @@ const config: Config = {
     ],
     'docusaurus-plugin-sass',
     [
-      plausiblePlugin as PluginModule,
+      plausiblePlugin,
       {
         domain: 'docusaurus.community',
-      } satisfies plausibleOptions,
+      } satisfies PlausiblePluginOptions,
     ],
     [
       '@docusaurus/plugin-content-docs',
@@ -265,8 +264,9 @@ const config: Config = {
   ],
   themes: [
     [
-      searchPlugin as PluginModule,
-      {
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
         indexDocs: true,
         indexBlog: false,
         indexPages: true,
@@ -274,20 +274,26 @@ const config: Config = {
         hashed: true,
         docsDir: ["docs", "contributing"],
         highlightSearchTermsOnTargetPage: true,
-      } satisfies searchOptions,
+      }),
     ],
   ],
   markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
     format: 'detect',
     mermaid: true,
     mdx1Compat: {
       comments: false,
       headingIds: false,
       admonitions: false,
-    },
-    hooks: {
-      onBrokenMarkdownLinks: 'throw',
     }
+  },
+  future: {
+    faster: true,
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+    },
   },
 };
 export default config;

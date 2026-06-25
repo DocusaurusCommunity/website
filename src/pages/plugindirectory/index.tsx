@@ -7,7 +7,6 @@
 
 import React, {useState, useMemo, useEffect} from 'react';
 import clsx from 'clsx';
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Translate, {translate} from '@docusaurus/Translate';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {usePluralForm} from '@docusaurus/theme-common';
@@ -51,6 +50,8 @@ type UserState = {
   focusedElementId: string | undefined;
 };
 
+const canUseDOM = typeof window !== 'undefined' && typeof document !== 'undefined';
+
 function restoreUserState(userState: UserState | null) {
   const {scrollTopPosition, focusedElementId} = userState ?? {
     scrollTopPosition: 0,
@@ -61,7 +62,7 @@ function restoreUserState(userState: UserState | null) {
 }
 
 export function prepareUserState(): UserState | undefined {
-  if (ExecutionEnvironment.canUseDOM) {
+  if (canUseDOM) {
     return {
       scrollTopPosition: window.scrollY,
       focusedElementId: document.activeElement?.id,
