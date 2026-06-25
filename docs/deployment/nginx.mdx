@@ -1,0 +1,295 @@
+---
+title: NGINX Deployment
+description: Deploy Docusaurus using NGINX as a reverse proxy or static file server
+---
+
+# NGINX Deployment
+
+This guide covers deploying your Docusaurus site using [NGINX](https://www.nginx.com/) as a web server. NGINX is a high-performance web server that can serve your static files efficiently and handle reverse proxying if needed.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Docusaurus project built for production (`npm run build` or equivalent)
+- NGINX installed on your server
+- Basic knowledge of NGINX configuration
+
+## Basic Static File Serving
+
+### Building Your Site
+
+First, build your Docusaurus site for production:
+
+```bash npm2yarn
+npm run build
+```
+
+This generates static files in the `build/` directory by default.
+
+### NGINX Configuration
+
+Create an NGINX configuration file (e.g., `/etc/nginx/sites-available/docusaurus`):
+
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+    root /var/www/docusaurus/build;
+    index index.html;
+
+    # Serve static files directly
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Cache static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Disable access log for static files
+    location ~* \.(js|css)$ {
+        access_log off;
+    }
+}
+```
+
+### Enabling the Site
+
+```bash
+# Create symlink to enable the site
+sudo ln -s /etc/nginx/sites-available/docusaurus /etc/nginx/sites-enabled/
+
+# Test NGINX configuration
+sudo nginx -t
+
+# Restart NGINX
+sudo systemctl restart nginx
+```
+
+## Docker + NGINX
+
+### Dockerfile
+
+Create a `Dockerfile` in your project root:
+
+```dockerfile
+# Stage 1: Build
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN corepack enable && yarn install --frozen-lockfile
+COPY . .
+RUN yarn build
+
+# Stage 2: Serve with NGINX
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+### NGINX Configuration for Docker
+
+Create `nginx.conf` in your project root:
+
+```nginx
+server {
+    listen 80;
+    server_name localhost;
+    root /usr/share/nginx/html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+### Building and Running
+
+```bash
+# Build the Docker image
+docker build -t docusaurus-nginx .
+
+# Run the container
+docker run -d -p 80:80 --name docusaurus docusaurus-nginx
+```
+
+## Docker Compose
+
+Create a `docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  docusaurus:
+    build: .
+    ports:
+      - "80:80"
+    restart: unless-stopped
+```
+
+Run with:
+
+```bash
+docker-compose up -d
+```
+
+## SSL/TLS with Let's Encrypt
+
+### Using Certbot
+
+```bash
+# Install Certbot
+sudo apt install certbot python3-certbot-nginx
+
+# Get and install certificate
+sudo certbot --nginx -d your-domain.com
+
+# Auto-renewal is set up automatically
+# Test renewal
+sudo certbot renew --dry-run
+```
+
+### Updated NGINX Configuration with SSL
+
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name your-domain.com;
+    root /var/www/docusaurus/build;
+    index index.html;
+
+    ssl_certificate /etc/letsencrypt/live/your-domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/your-domain.com/privkey.pem;
+
+    # SSL configuration
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+## Reverse Proxy Setup
+
+If you're running Docusaurus development server or a custom backend:
+
+```nginx
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    # Serve static files
+    location / {
+        root /var/www/docusaurus/build;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Proxy to development server (for hot reload)
+    location /ws {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+```
+
+## Troubleshooting
+
+### 404 Errors on Page Refresh
+
+This is the most common issue with SPAs. Make sure you have:
+
+```nginx
+location / {
+    try_files $uri $uri/ /index.html;
+}
+```
+
+### CORS Issues
+
+If you're serving from a subdirectory:
+
+```nginx
+location /subdir/ {
+    alias /var/www/docusaurus/build/;
+    try_files $uri $uri/ /subdir/index.html;
+}
+```
+
+### Permission Issues
+
+```bash
+# Set correct permissions
+sudo chown -R www-data:www-data /var/www/docusaurus
+sudo chmod -R 755 /var/www/docusaurus
+```
+
+### Check NGINX Logs
+
+```bash
+# Error log
+sudo tail -f /var/log/nginx/error.log
+
+# Access log
+sudo tail -f /var/log/nginx/access.log
+```
+
+## Performance Tips
+
+1. **Enable Gzip Compression:**
+
+```nginx
+gzip on;
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+gzip_vary on;
+```
+
+2. **Enable Brotli Compression** (if compiled with Brotli module):
+
+```nginx
+brotli on;
+brotli_types text/plain text/css application/json application/javascript text/xml application/xml;
+```
+
+3. **Use Open File Cache:**
+
+```nginx
+open_file_cache max=1000 inactive=20s;
+open_file_cache_valid 30s;
+open_file_cache_min_uses 2;
+open_file_cache_errors on;
+```
+
+## Further Reading
+
+- [NGINX Documentation](https://nginx.org/en/docs/)
+- [NGINX for Serving Static Content](https://nginx.org/en/docs/http/ngx_http_core_module.html#try_files)
+- [Let's Encrypt](https://letsencrypt.org/)
+- [Certbot Documentation](https://certbot.eff.org/instructions)
