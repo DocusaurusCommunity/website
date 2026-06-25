@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: atomicpages.react-docgen-typescript
 name: React DocGen Typescript
 description: A tiny plugin that integrates react-docgen-typescript with docusaurus.

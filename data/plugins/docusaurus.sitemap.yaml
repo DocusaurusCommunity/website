@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: docusaurus.sitemap
 name: Sitemap
 description: Official Docusaurus plugin to generate a sitemap for your site.

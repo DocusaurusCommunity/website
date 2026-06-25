@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
 id: alt3.powershell
 name: PowerShell
 description: A PowerShell module to generate Docusaurus documentation for PowerShell modules.

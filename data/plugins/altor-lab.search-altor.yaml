@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: altor-lab.search-altor
+name: Search Altor
+description: Hybrid semantic + keyword search for Docusaurus, powered by altor-vec WASM.
+preview: null
+website: https://github.com/Altor-lab/altor-vec
+source: https://github.com/Altor-lab/altor-vec/tree/main/docusaurus-theme-search-altor
+author: altor-lab
+tags:
+  - search
+  - theme
+minimumVersion: 3.0.0
+status: maintained
+npmPackages:
+  - docusaurus-theme-search-altor
