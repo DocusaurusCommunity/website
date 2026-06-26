@@ -10,6 +10,6 @@ tags:
   - search
   - integration
 minimumVersion: 2.0.0-alpha.58
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-lunr
