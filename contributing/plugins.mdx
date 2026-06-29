@@ -8,8 +8,9 @@ The plugin directory is powered by [`@homotechsual/docusaurus-plugin-showcase`](
 
 ## Before you submit
 
-- The plugin must be **open source** with a publicly accessible source repository.
-- The plugin must work with a current or recent stable release of Docusaurus.
+- If the plugin is **open source** the source repository must be publicly accessible and present in the `source` field of your YAML file.
+- If the plugin is **closed source** the source repository must not be present in the `source` field of your YAML file.
+- The plugin must work with a current or recent stable release of Docusaurus to have `status` set to `maintained`. If the plugin is no longer maintained, set `status` to `unmaintained`. If you are unsure, set `status` to `unknown`.
 - One entry per npm package (or logical plugin unit).
 
 ## Create your YAML file
@@ -54,6 +55,12 @@ npmPackages:
 `search` · `api` · `utility` · `content` · `theme` · `markdown` · `analytics` · `integration` · `seo` · `editing` · `docusaurus`
 
 ## Submit a pull request
+
+### Option A — automated (recommended)
+
+Open a [plugin submission issue](https://github.com/DocusaurusCommunity/website/issues/new?template=add-plugin.yml) and fill in the form. A bot will generate your YAML file, open a draft PR, and comment on the issue with a link. You do not need to fork the repository.
+
+### Option B — manual
 
 1. Fork [`DocusaurusCommunity/website`](https://github.com/DocusaurusCommunity/website) on GitHub.
 2. Add your YAML file to `data/plugins/`.

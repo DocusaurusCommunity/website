@@ -1,0 +1,122 @@
+name: Add a Plugin
+description: Submit a new plugin to the Docusaurus Community Plugin Directory.
+title: "[Plugin] "
+labels:
+  - plugin-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill in the fields below. A bot will generate your YAML file and open a draft PR automatically.
+        Review the [contributing guide](https://docusaurus.community/contributing/plugins) before submitting.
+
+  - type: input
+    id: name
+    attributes:
+      label: Plugin name
+      description: Display name shown in the directory.
+      placeholder: "My Awesome Plugin"
+    validations:
+      required: true
+
+  - type: input
+    id: id
+    attributes:
+      label: Plugin ID
+      description: "`author.plugin-short-name` — must be unique. Lowercase letters, numbers, and hyphens only."
+      placeholder: "yourname.plugin-short-name"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: One sentence describing what the plugin does.
+      placeholder: "A plugin that does X."
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website / Repository URL
+      description: Public website or repository URL.
+      placeholder: "https://github.com/yourname/your-plugin"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source code URL
+      description: Source code URL. Required for open-source plugins — leave blank for closed-source.
+      placeholder: "https://github.com/yourname/your-plugin"
+
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      description: Your GitHub username or organisation name.
+      placeholder: "yourname"
+
+  - type: input
+    id: preview
+    attributes:
+      label: Preview image URL
+      description: URL to a preview image. Leave blank to auto-generate.
+      placeholder: "https://..."
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: Current maintenance status of the plugin.
+      options:
+        - maintained
+        - unmaintained
+        - unknown
+    validations:
+      required: true
+
+  - type: input
+    id: minimumVersion
+    attributes:
+      label: Minimum Docusaurus version
+      description: e.g. `3.0.0`. Leave blank if not applicable.
+      placeholder: "3.0.0"
+
+  - type: checkboxes
+    id: tags
+    attributes:
+      label: Tags
+      description: Select all that apply.
+      options:
+        - label: search
+        - label: api
+        - label: utility
+        - label: content
+        - label: theme
+        - label: markdown
+        - label: analytics
+        - label: integration
+        - label: seo
+        - label: editing
+        - label: docusaurus
+
+  - type: textarea
+    id: npmPackages
+    attributes:
+      label: npm package name(s)
+      description: One package name per line.
+      placeholder: "your-npm-package-name"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The plugin works with a current or recent stable release of Docusaurus.
+          required: true
+        - label: I have read the [contributing guide](https://docusaurus.community/contributing/plugins).
+          required: true

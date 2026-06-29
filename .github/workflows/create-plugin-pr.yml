@@ -1,0 +1,197 @@
+name: Create Plugin PR from Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-pr:
+    if: contains(github.event.issue.labels.*.name, 'plugin-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body ?? '';
+            const issueNumber = context.payload.issue.number;
+            const issueUrl = context.payload.issue.html_url;
+
+            function parseField(body, heading) {
+              const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const regex = new RegExp(`### ${escaped}\\r?\\n\\r?\\n([\\s\\S]*?)(?=\\r?\\n### |$)`);
+              const match = body.match(regex);
+              if (!match) return null;
+              const val = match[1].trim();
+              return val === '_No response_' || val === '' ? null : val;
+            }
+
+            function parseCheckboxes(body, heading) {
+              const section = parseField(body, heading);
+              if (!section) return [];
+              return section.split('\n')
+                .filter(line => /^- \[x\]/i.test(line.trim()))
+                .map(line => line.replace(/^- \[x\] /i, '').trim());
+            }
+
+            const name = parseField(body, 'Plugin name');
+            const id = parseField(body, 'Plugin ID');
+            const description = parseField(body, 'Description');
+            const website = parseField(body, 'Website / Repository URL');
+            const source = parseField(body, 'Source code URL');
+            const author = parseField(body, 'Author');
+            const preview = parseField(body, 'Preview image URL');
+            const status = parseField(body, 'Status');
+            const minimumVersion = parseField(body, 'Minimum Docusaurus version');
+            const npmPackagesRaw = parseField(body, 'npm package name(s)');
+            const tags = parseCheckboxes(body, 'Tags');
+
+            const errors = [];
+            if (!name) errors.push('Plugin name is required');
+            if (!id) errors.push('Plugin ID is required');
+            if (id && !/^[a-z0-9-]+\.[a-z0-9-]+$/.test(id)) errors.push('Plugin ID must be in `author.plugin-name` format using lowercase letters, numbers, and hyphens only');
+            if (!description) errors.push('Description is required');
+            if (!website) errors.push('Website / Repository URL is required');
+            if (!status) errors.push('Status is required');
+
+            if (errors.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: [
+                  'Thank you for your plugin submission! Unfortunately some required fields are missing or invalid:',
+                  '',
+                  ...errors.map(e => `- ${e}`),
+                  '',
+                  'Please close this issue and open a new one with all fields correctly filled in.',
+                ].join('\n'),
+              });
+              return;
+            }
+
+            const npmPackages = npmPackagesRaw
+              ? npmPackagesRaw.split('\n').map(l => l.trim()).filter(Boolean)
+              : [];
+
+            const filename = `${id}.yaml`;
+            const branch = `plugin/${id}`;
+
+            // Check if the file already exists
+            try {
+              await github.rest.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: `data/plugins/${filename}`,
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `A plugin with ID \`${id}\` already exists in the directory. Please choose a unique ID, then close this issue and open a new one.`,
+              });
+              return;
+            } catch (e) {
+              // File doesn't exist — expected
+            }
+
+            // Generate YAML
+            const yamlLines = [
+              '# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json',
+              `id: ${id}`,
+              `name: "${name.replace(/"/g, '\\"')}"`,
+              `description: "${description.replace(/"/g, '\\"')}"`,
+              `preview: ${preview || 'null'}`,
+              `website: ${website}`,
+              `source: ${source || 'null'}`,
+              `author: ${author || 'null'}`,
+            ];
+
+            if (tags.length > 0) {
+              yamlLines.push('tags:');
+              tags.forEach(t => yamlLines.push(`  - ${t}`));
+            } else {
+              yamlLines.push('tags: []');
+            }
+
+            yamlLines.push(`minimumVersion: ${minimumVersion || 'null'}`);
+            yamlLines.push(`status: ${status}`);
+
+            if (npmPackages.length > 0) {
+              yamlLines.push('npmPackages:');
+              npmPackages.forEach(p => yamlLines.push(`  - ${p}`));
+            } else {
+              yamlLines.push('npmPackages: []');
+            }
+
+            const yaml = yamlLines.join('\n') + '\n';
+
+            // Get main branch SHA
+            const mainRef = await github.rest.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'heads/main',
+            });
+            const baseSha = mainRef.data.object.sha;
+
+            // Create branch, falling back to a unique name if it already exists
+            let actualBranch = branch;
+            try {
+              await github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/heads/${branch}`,
+                sha: baseSha,
+              });
+            } catch (e) {
+              actualBranch = `${branch}-${issueNumber}`;
+              await github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/heads/${actualBranch}`,
+                sha: baseSha,
+              });
+            }
+
+            // Commit the YAML file
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: `data/plugins/${filename}`,
+              message: `chore: add plugin ${id} from issue #${issueNumber}`,
+              content: Buffer.from(yaml).toString('base64'),
+              branch: actualBranch,
+            });
+
+            // Open a draft PR
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Add plugin: ${name}`,
+              head: actualBranch,
+              base: 'main',
+              body: [
+                `Adds \`${id}\` to the plugin directory.`,
+                '',
+                `Generated automatically from issue ${issueUrl}.`,
+                '',
+                `Closes #${issueNumber}`,
+              ].join('\n'),
+              draft: true,
+            });
+
+            // Comment on the issue with the PR link
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: [
+                `Thank you for your plugin submission! A draft PR has been created: ${pr.data.html_url}`,
+                '',
+                'A maintainer will review it shortly. Please check the PR for any CI validation errors.',
+              ].join('\n'),
+            });
