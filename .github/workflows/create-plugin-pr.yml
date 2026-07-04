@@ -151,6 +151,8 @@ jobs:
                 sha: baseSha,
               });
             } catch (e) {
+              // 422 is returned when the ref already exists
+              if (e.status !== 422) throw e;
               actualBranch = `${branch}-${issueNumber}`;
               await github.rest.git.createRef({
                 owner: context.repo.owner,
