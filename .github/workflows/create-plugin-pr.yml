@@ -48,7 +48,27 @@ jobs:
             const status = parseField(body, 'Status');
             const minimumVersion = parseField(body, 'Minimum Docusaurus version');
             const npmPackagesRaw = parseField(body, 'npm package name(s)');
-            const tags = parseCheckboxes(body, 'Tags');
+            const submittedTags = parseCheckboxes(body, 'Tags');
+
+            // These tags curate the directory's highlighted/official listings, so only
+            // maintainers may apply them — anyone else's selection is stripped below.
+            const RESTRICTED_TAGS = ['favourite', 'docusaurus'];
+            const submitter = context.payload.issue.user.login;
+            let isMaintainer = false;
+            try {
+              const { data: permission } = await github.rest.repos.getCollaboratorPermissionLevel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                username: submitter,
+              });
+              isMaintainer = permission.permission === 'admin' || permission.permission === 'maintain';
+            } catch (e) {
+              if (e.status !== 404) throw e;
+              // Not a collaborator — expected for external contributors
+            }
+
+            const removedTags = isMaintainer ? [] : submittedTags.filter(t => RESTRICTED_TAGS.includes(t));
+            const tags = isMaintainer ? submittedTags : submittedTags.filter(t => !RESTRICTED_TAGS.includes(t));
 
             const errors = [];
             if (!name) errors.push('Plugin name is required');
@@ -190,13 +210,22 @@ jobs:
             });
 
             // Comment on the issue with the PR link
+            const successBody = [
+              `Thank you for your plugin submission! A draft PR has been created: ${pr.data.html_url}`,
+              '',
+              'A maintainer will review it shortly. Please check the PR for any CI validation errors.',
+            ];
+
+            if (removedTags.length > 0) {
+              successBody.push(
+                '',
+                `Note: the ${removedTags.map(t => `\`${t}\``).join(', ')} tag(s) are reserved for maintainers and were removed from your submission. A maintainer can add them back if appropriate.`,
+              );
+            }
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
-              body: [
-                `Thank you for your plugin submission! A draft PR has been created: ${pr.data.html_url}`,
-                '',
-                'A maintainer will review it shortly. Please check the PR for any CI validation errors.',
-              ].join('\n'),
+              body: successBody.join('\n'),
             });
