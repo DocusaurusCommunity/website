@@ -9,7 +9,6 @@ author: TechDocsStudio
 tags:
   - search
   - integration
-  - docusaurus
 minimumVersion: 3.0.0
 status: maintained
 npmPackages:
