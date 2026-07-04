@@ -165,7 +165,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              name: ['🚀request-deploy']
+              name: '🚀request-deploy'
             })
 
   # Comment on PR from the fork
