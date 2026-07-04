@@ -14,7 +14,7 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'plugin-submission')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v8
         with:
           script: |
             const body = context.payload.issue.body ?? '';
@@ -96,34 +96,37 @@ jobs:
               });
               return;
             } catch (e) {
+              if (e.status !== 404) throw e;
               // File doesn't exist — expected
             }
 
             // Generate YAML
+            const yamlScalar = (value) => (value == null ? 'null' : JSON.stringify(value));
+
             const yamlLines = [
               '# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json',
               `id: ${id}`,
-              `name: "${name.replace(/"/g, '\\"')}"`,
-              `description: "${description.replace(/"/g, '\\"')}"`,
-              `preview: ${preview || 'null'}`,
-              `website: ${website}`,
-              `source: ${source || 'null'}`,
-              `author: ${author || 'null'}`,
+              `name: ${yamlScalar(name)}`,
+              `description: ${yamlScalar(description)}`,
+              `preview: ${yamlScalar(preview)}`,
+              `website: ${yamlScalar(website)}`,
+              `source: ${yamlScalar(source)}`,
+              `author: ${yamlScalar(author)}`,
             ];
 
             if (tags.length > 0) {
               yamlLines.push('tags:');
-              tags.forEach(t => yamlLines.push(`  - ${t}`));
+              tags.forEach(t => yamlLines.push(`  - ${yamlScalar(t)}`));
             } else {
               yamlLines.push('tags: []');
             }
 
-            yamlLines.push(`minimumVersion: ${minimumVersion || 'null'}`);
-            yamlLines.push(`status: ${status}`);
+            yamlLines.push(`minimumVersion: ${yamlScalar(minimumVersion)}`);
+            yamlLines.push(`status: ${yamlScalar(status)}`);
 
             if (npmPackages.length > 0) {
               yamlLines.push('npmPackages:');
-              npmPackages.forEach(p => yamlLines.push(`  - ${p}`));
+              npmPackages.forEach(p => yamlLines.push(`  - ${yamlScalar(p)}`));
             } else {
               yamlLines.push('npmPackages: []');
             }
@@ -148,6 +151,8 @@ jobs:
                 sha: baseSha,
               });
             } catch (e) {
+              // 422 is returned when the ref already exists
+              if (e.status !== 422) throw e;
               actualBranch = `${branch}-${issueNumber}`;
               await github.rest.git.createRef({
                 owner: context.repo.owner,
