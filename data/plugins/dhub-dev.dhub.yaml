@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: dhub-dev.dhub
+name: "Dhub"
+description: "Adds edit links that open Docusaurus content in the Dhub visual MDX editor and emits a route-to-source manifest."
+preview: null
+website: "https://github.com/dhub-dev/docusaurus-plugin-dhub"
+source: "https://github.com/dhub-dev/docusaurus-plugin-dhub"
+author: "vrepsys"
+tags:
+  - "integration"
+  - "editing"
+minimumVersion: null
+status: "maintained"
+npmPackages:
+  - "docusaurus-plugin-dhub"
