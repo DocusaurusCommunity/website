@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: homotechsual.faqs
+name: FAQs for Docusaurus
+description: A Docusaurus plugin that builds a categorised FAQ page from local YAML files.
+preview: null
+website: https://faqs.docusaurus.homotechsual.dev/
+source: https://github.com/homotechsual/docusaurus-plugin-faqs
+author: homotechsual
+tags:
+  - content
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@homotechsual/docusaurus-plugin-faqs"

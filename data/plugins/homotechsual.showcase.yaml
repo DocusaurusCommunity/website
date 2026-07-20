@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: homotechsual.showcase
+name: Showcase for Docusaurus
+description: A Docusaurus plugin for building swizzleable showcase and directory pages from YAML data files.
+preview: null
+website: https://showcase.docusaurus.homotechsual.dev/
+source: https://github.com/homotechsual/docusaurus-plugin-showcase
+author: homotechsual
+tags:
+  - content
+  - utility
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@homotechsual/docusaurus-plugin-showcase"
