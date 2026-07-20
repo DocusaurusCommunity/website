@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: biel-ai.docusaurus-biel
+name: "Biel.ai"
+description: "Adds an Ask AI chatbot and AI search to your Docusaurus site, with source-cited answers generated only from your documentation."
+preview: https://docs.biel.ai/assets/images/biel-widget-docs-bd28548cf26a37bcb7c496487280bbfe.png
+website: https://biel.ai
+source: https://github.com/TechDocsStudio/docusaurus-biel
+author: TechDocsStudio
+tags:
+  - search
+  - integration
+minimumVersion: 3.0.0
+status: maintained
+npmPackages:
+  - docusaurus-biel
