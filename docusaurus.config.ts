@@ -257,6 +257,7 @@ const config: Config = {
         ...pluginsPreset,
         dataDir: 'data/plugins',
         routeBasePath: 'plugindirectory',
+        screenshotUrl: 'https://screengrabber.tools.homotechsual.dev/{url}/opengraph/_width:640?format=jpeg',
         submitUrl: '/contributing/plugins/',
         submitLabel: 'Add a plugin',
       } satisfies ShowcasePresetOptions,
