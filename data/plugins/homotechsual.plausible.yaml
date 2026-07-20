@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: homotechsual.plausible
+name: Plausible for Docusaurus
+description: A Docusaurus plugin for Plausible analytics.
+preview: null
+website: https://plausible.docusaurus.homotechsual.dev/
+source: https://github.com/homotechsual/docusaurus-plugin-plausible
+author: homotechsual
+tags:
+  - analytics
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@homotechsual/docusaurus-plugin-plausible"
