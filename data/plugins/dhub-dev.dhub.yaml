@@ -3,7 +3,7 @@ id: dhub-dev.dhub
 name: "Dhub"
 description: "Adds edit links that open Docusaurus content in the Dhub visual MDX editor and emits a route-to-source manifest."
 preview: null
-website: "https://github.com/dhub-dev/docusaurus-plugin-dhub"
+website: "https://dhub.dev/docusaurus"
 source: "https://github.com/dhub-dev/docusaurus-plugin-dhub"
 author: "vrepsys"
 tags:
