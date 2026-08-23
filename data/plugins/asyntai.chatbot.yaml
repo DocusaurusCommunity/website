@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: asyntai.chatbot
+name: "Asyntai AI Chatbot"
+description: "Adds an AI chat assistant that answers visitor questions from your own documentation, in 80+ languages."
+preview: null
+website: "https://www.npmjs.com/package/docusaurus-plugin-asyntai"
+source: "https://github.com/asyntai/docusaurus-plugin-asyntai"
+author: "asyntai"
+tags:
+  - "utility"
+  - "integration"
+minimumVersion: "2.0.0"
+status: "maintained"
+npmPackages:
+  - "docusaurus-plugin-asyntai"
