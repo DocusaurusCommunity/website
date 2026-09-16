@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: ciphera-net.pulse-analytics
+name: Pulse Analytics
+description: Adds privacy-first Pulse Analytics to your Docusaurus site. No cookies, no personal data, under 3 KB.
+preview: null
+website: https://pulse.ciphera.net
+source: https://github.com/ciphera-net/pulse-docusaurus
+author: ciphera-net
+tags:
+  - analytics
+  - integration
+minimumVersion: 3.0.0
+status: maintained
+npmPackages:
+  - "@ciphera-net/pulse-docusaurus"
