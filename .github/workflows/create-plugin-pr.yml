@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/github-script@v9
         with:
+          retries: 3
           script: |
             const body = context.payload.issue.body ?? '';
             const issueNumber = context.payload.issue.number;
