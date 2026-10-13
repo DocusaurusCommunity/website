@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: stackql.aeo-plugin
+name: "AEO Plugin"
+description: "AEO (Answer Engine Optimization) plugin for Docusaurus 3.x: emits .md companions for every page, generates llms.txt and llms-full.txt, adds a swizzle-friendly Ask AI dropdown (Claude, ChatGPT, Perplexity, Gemini), and supports an /ai/* routing convention for machine-readable content."
+preview: null
+website: "https://github.com/stackql-labs/docusaurus-plugin-aeo"
+source: "https://github.com/stackql-labs/docusaurus-plugin-aeo"
+author: "stackql"
+tags:
+  - "search"
+  - "seo"
+minimumVersion: "3.0.0"
+status: "maintained"
+npmPackages:
+  - "@stackql/docusaurus-plugin-aeo"

@@ -68,6 +68,11 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
+          persist-credentials: false
+          # Deploy from fork PRs only runs after a maintainer explicitly adds the
+          # '🚀request-deploy' label (gated by the job's `if` condition above), so
+          # opting in to fork checkout here is an intentional, reviewed trust boundary.
+          allow-unsafe-pr-checkout: true
 
       - name: Remove built-in Yarn
         run: npm uninstall -g yarn
