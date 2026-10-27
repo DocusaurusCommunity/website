@@ -74,6 +74,8 @@ yarn node -e "require('sharp')('static\\img\\community-social-card.svg').png().t
 
 The site configuration uses the PNG for Open Graph and Twitter cards, since social crawlers do not
 reliably support SVG previews. The image is intentionally fixed to the light brand palette.
+If its dimensions change, update `og:image:width` and `og:image:height` in
+[the site configuration](docusaurus.config.ts) to match the exported PNG.
 
 ## Deployment
 
