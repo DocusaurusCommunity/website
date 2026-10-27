@@ -38,7 +38,7 @@ html[data-theme='dark'] {
   --cp-text-soft: #b0b0b0;
   --cp-accent: #fd8ea1;
   --cp-accent-hover: #fb7b91;
-  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-soft: rgba(253, 142, 161, 0.06);
   --cp-accent-fg: #1a1a1a;
   --cp-success: #4ade80;
   --cp-danger: #f87171;
@@ -200,18 +200,37 @@ body {
   color: var(--cp-accent);
 }
 
-.button--primary {
+.button--primary:not(.button--outline) {
   --ifm-button-color: var(--cp-accent-fg);
 }
 
-.button--secondary {
-  --ifm-button-background-color: var(--cp-surface);
-  --ifm-button-border-color: var(--cp-border-strong);
-  --ifm-button-color: var(--cp-text);
+.button.button--secondary {
+  color: var(--cp-text);
+  background-color: var(--cp-surface);
+  border-color: var(--cp-border-strong);
 
   &:hover {
-    --ifm-button-background-color: var(--cp-accent-soft);
-    --ifm-button-border-color: var(--cp-accent);
+    color: var(--cp-accent);
+    background-color: var(--cp-accent-soft);
+    border-color: var(--cp-accent);
+  }
+
+  &:active {
+    color: var(--cp-accent-fg);
+    background-color: var(--cp-accent);
+    border-color: var(--cp-accent);
+  }
+}
+
+.button.button--secondary.button--outline {
+  background-color: transparent;
+
+  &:not(.button--active):not(:hover) {
+    color: var(--cp-text);
+  }
+
+  &:hover {
+    background-color: var(--cp-accent-soft);
   }
 }
 

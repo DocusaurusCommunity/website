@@ -131,7 +131,7 @@ export default function Home(): ReactNode {
               </span>
               <Arrow diagonal />
             </Link>
-            <Link to="/contributing/customisations/" className={styles.noteLink}>
+            <Link to="/knowledge/#how-to-contribute" className={styles.noteLink}>
               <span>
                 <small>HAVE SOMETHING TO ADD?</small>
                 Share a customisation
