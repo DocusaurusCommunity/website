@@ -52,6 +52,18 @@ system preference. Avoid adding a separate theme-detection script that would com
 Keep keyboard focus visible, respect reduced-motion preferences, and check both themes at mobile and
 desktop widths when changing the design. Run `yarn typecheck` and `yarn build` before submitting changes.
 
+Navbar action links use icons on desktop and show their text labels in the mobile menu.
+Keep the `aria-label`, `title`, and `.navbar__action-label` text in sync when editing them in
+[the site configuration](docusaurus.config.ts). Font Awesome icons are rendered at build time;
+the Docusaurus icon uses the existing local brand asset.
+
+The community brand uses a dinosaur inside a speech bubble, with
+[light](static/img/community-mark.svg) and [dark](static/img/community-mark-dark.svg) navbar
+assets and a [simplified favicon](static/img/community-favicon.svg). The
+[Logo theme component](src/theme/Logo/index.tsx) renders the two-tone wordmark in both the
+desktop navbar and mobile menu. Keep the two mark variants geometrically identical.
+The green Docusaurus icon in the external link and footer still identifies the upstream project.
+
 ## Deployment
 
 Using SSH:

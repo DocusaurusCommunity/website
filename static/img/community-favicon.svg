@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    :root { color: #b11f4b; }
+    @media (prefers-color-scheme: dark) { :root { color: #fd8ea1; } }
+  </style>
+  <path fill="currentColor" fill-rule="evenodd" d="M17 4h30a14 14 0 0 1 14 14v24a14 14 0 0 1-14 14H27L10 64V54A14 14 0 0 1 3 42V18A14 14 0 0 1 17 4Zm6 40h16a6 6 0 0 0 6-5h-9v-4h16v-8h-6a8 8 0 0 0-8-8h-7l-6-4-1 7-7-1 3 7-6 4 9 6v6Zm13-18a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/>
+</svg>

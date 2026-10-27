@@ -12,6 +12,9 @@ import { themes } from 'prism-react-renderer';
 import plausiblePlugin, {type PluginOptions as PlausiblePluginOptions} from '@homotechsual/docusaurus-plugin-plausible';
 import showcasePlugin, {type PresetOptions as ShowcasePresetOptions} from '@homotechsual/docusaurus-plugin-showcase';
 import { pluginsPreset } from '@homotechsual/docusaurus-plugin-showcase/presets';
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 const lightCodeTheme = themes.vsLight;
 const darkCodeTheme = themes.vsDark;
 // Define our admonitions config.
@@ -67,7 +70,7 @@ const commonDocsPluginConfig = {
 const config: Config = {
   title: 'Docusaurus.community',
   tagline: 'Guides, plugins, and components shared by Docusaurus users.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/community-favicon.svg',
   url: 'https://docusaurus.community',
   baseUrl: '/',
   organizationName: 'homotechsual', // Usually your GitHub org/user name.
@@ -116,8 +119,11 @@ const config: Config = {
       navbar: {
         title: 'Docusaurus.community',
         logo: {
-          alt: 'Docusaurus.community Logo',
-          src: 'img/logo.svg',
+          alt: '',
+          src: 'img/community-mark.svg',
+          srcDark: 'img/community-mark-dark.svg',
+          width: 36,
+          height: 36,
         },
         hideOnScroll: false,
         items: [
@@ -142,25 +148,37 @@ const config: Config = {
           },
           {
             to: 'https://github.com/sponsors/homotechsual/',
-            label: 'Sponsor',
+            html: `${icon(faHeart).html.join('')}<span class="navbar__action-label">Sponsor</span>`,
+            'aria-label': 'Sponsor',
+            title: 'Sponsor',
+            className: 'navbar__action-link',
             position: 'right',
             target: '_blank',
           },
           {
             to: 'https://docusaurus.io',
-            label: 'Docusaurus',
+            html: '<img src="/img/Docusaurus.svg" alt="" width="24" height="24" /><span class="navbar__action-label">Docusaurus</span>',
+            'aria-label': 'Docusaurus',
+            title: 'Docusaurus',
+            className: 'navbar__action-link',
             position: 'right',
             target: '_blank',
           },
           {
             to: 'https://discord.gg/docusaurus',
-            label: 'Discord',
+            html: `${icon(faDiscord).html.join('')}<span class="navbar__action-label">Discord</span>`,
+            'aria-label': 'Discord',
+            title: 'Discord',
+            className: 'navbar__action-link',
             position: 'right',
             target: '_blank',
           },
           {
             to: 'https://github.com/DocusaurusCommunity/website',
-            label: 'GitHub',
+            html: `${icon(faGithub).html.join('')}<span class="navbar__action-label">GitHub</span>`,
+            'aria-label': 'GitHub',
+            title: 'GitHub',
+            className: 'navbar__action-link',
             position: 'right',
             target: '_blank',
           },
