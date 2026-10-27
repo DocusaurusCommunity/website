@@ -206,7 +206,7 @@ const config: Config = {
               },
               {
                 label: 'Contribute a guide',
-                to: '/contributing/customisations/',
+                to: '/knowledge/#how-to-contribute',
               },
               {
                 label: 'Add a plugin',
