@@ -9,9 +9,9 @@ This site has a number of custom features that are not part of Docusaurus out of
 
 ### Home Page Components
 
-The home page components are used to break up the content on the home page into sections. Each component is a React component that is rendered on the home page. The components are defined in the `src/components/` directory and are all named `Homepage*` where `*` is the name of the component.
+The home page is defined in `src/pages/index.tsx`, with its layout and card styles in `src/pages/index.module.scss`. The curated links, topic cards, and contribution links are maintained there. The older `Homepage*` components in `src/components/` are not used by the current home page.
 
-They will not, generally, be detailed in-depth here unless they are particularly complex. If you need to make changes to the home page, you should look at the components in the `src/components/` directory.
+Shared colours, typography, navigation, and light/dark styling are defined in `src/scss/_community-theme.scss`, loaded by `src/scss/custom.scss`. The [repository README](https://github.com/DocusaurusCommunity/website#community-homepage-and-theme) also covers the logo and social share image.
 
 ### Documented Components
 
@@ -25,11 +25,15 @@ The `DocusaurusButton` component is a custom button component that is used throu
 
 ### Admonition
 
-We run a custom version of the `Admonition` component that is part of Docusaurus. This component is used to display information boxes in the documentation. The custom version of this component is defined in `src/components/Admonition/*`. You'll find in-depth documentation in the Knowledge section of the site on how to "decode" our customised Admonitions or create your own.
+We run a custom version of the `Admonition` component that is part of Docusaurus. This component is used to display information boxes in the documentation. The custom version of this component is defined in `src/theme/Admonition/`. You'll find in-depth documentation in the Knowledge section of the site on how to "decode" our customised Admonitions or create your own.
 
-### DocItem\Footer
+### DocItem/Footer
 
-We have a customised `DocItem\Footer` component which is the component used to display the footer on the documentation pages. This component is defined in `src/components/DocItem/Footer.tsx`. This component is used to display the footer on the documentation pages. It is a simple component that displays the footer text and the last updated date of the document. Our customised version is inspired by the amazing work of the `unleash` team who [added contributors to their documentation](https://github.com/Unleash/unleash/pull/6900).
+The wrapper in `src/theme/DocItem/Footer/index.tsx` keeps the standard Docusaurus document footer and adds a contributor list. Its helper components fetch contributors from the document's GitHub commit history and include any `additionalContributors` from frontmatter. This is inspired by the `unleash` team who [added contributors to their documentation](https://github.com/Unleash/unleash/pull/6900).
+
+### Logo
+
+The component in `src/theme/Logo/index.tsx` renders the community mark and two-tone wordmark in the navbar and mobile menu. The logo assets and their light/dark variants are configured in `docusaurus.config.ts`.
 
 ## Custom Plugins
 

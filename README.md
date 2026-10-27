@@ -10,13 +10,24 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
- 
+
+Use a supported Node.js LTS release (Node.js 22 or newer) and the Yarn version pinned in
+`package.json`. The installed Docusaurus version requires Node.js 20 or newer, even though
+this repository's `engines` field still lists an older minimum.
+
+Enable [Corepack](https://yarnpkg.com/corepack) so the pinned Yarn version is used:
+
 ```bash
-yarn
+corepack enable
+yarn install --immutable
 ```
+
+If `corepack` is not available in your Node.js installation, install it with
+`npm install --global corepack` first. Do not run `yarn set version stable` in this repository
+unless you intend to upgrade its package manager.
 
 ## Local Development
 
@@ -33,6 +44,9 @@ yarn build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+Preview the production build locally with `yarn serve`. Run `yarn typecheck` to check TypeScript;
+there are currently known errors in shared components, so report any new diagnostics separately.
 
 ## Community homepage and theme
 
@@ -79,16 +93,11 @@ If its dimensions change, update `og:image:width` and `og:image:height` in
 
 ## Deployment
 
-Using SSH:
+This repository deploys to **Cloudflare Pages**, not GitHub Pages. The
+[Publish workflow](.github/workflows/publish.yml) builds and deploys changes pushed to `main`.
+Pull requests from the same repository receive preview deployments. For forked pull requests,
+a maintainer must review the changes and add the `🚀request-deploy` label to request deployment.
 
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The workflow requires the `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` repository secrets.
+For local work, use `yarn build` and `yarn serve`; `yarn deploy` is Docusaurus's GitHub Pages
+deployment command and is not the deployment path for this site.
