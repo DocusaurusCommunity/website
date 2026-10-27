@@ -110,6 +110,10 @@ const config: Config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
       image: 'img/community-social-card.png',
+      metadata: [
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+      ],
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
