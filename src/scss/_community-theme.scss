@@ -147,7 +147,9 @@ body {
 }
 
 .navbar__action-link {
-  display: inline-flex;
+  @media (min-width: 997px) {
+    display: inline-flex;
+  }
   gap: 0.75rem;
   align-items: center;
   justify-content: center;
