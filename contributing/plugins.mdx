@@ -15,7 +15,7 @@ The plugin directory is powered by [`@homotechsual/docusaurus-plugin-showcase`](
 
 ## Create your YAML file
 
-Add a new file to `data/plugins/` named `<author>.<plugin-short-name>.yaml`. Use lowercase letters, numbers, and hyphens only.
+Add a new file to `data/plugins/` named `<author>.<plugin-short-name>.yaml`. Use lowercase letters, numbers, and hyphens in each part, separated by a single dot. The filename should match the entry's `id`.
 
 ```yaml
 # yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
@@ -41,7 +41,7 @@ npmPackages:
 | `id` | Yes | `author.plugin-name` — must be unique |
 | `name` | Yes | Display name shown in the directory |
 | `description` | Yes | Short, one-sentence description |
-| `preview` | Yes | URL to a preview image, or `null` to auto-generate |
+| `preview` | No | URL to a preview image; omit or set to `null` to auto-generate |
 | `website` | Yes | Public website or repository URL |
 | `source` | No | Source code URL — required if the plugin is open source, `null` or omitted if closed source |
 | `author` | No | Your GitHub username or organisation name |
@@ -52,7 +52,9 @@ npmPackages:
 
 ### Tags
 
-`search` · `api` · `utility` · `content` · `theme` · `markdown` · `analytics` · `integration` · `seo` · `editing` · `docusaurus`
+`search` · `api` · `utility` · `content` · `theme` · `markdown` · `analytics` · `integration` · `seo` · `editing`
+
+The `favourite` and `docusaurus` tags are reserved for maintainer-curated listings. The automated submission workflow removes these tags from submissions by users without admin or maintain permissions.
 
 ## Submit a pull request
 
