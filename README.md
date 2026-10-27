@@ -64,6 +64,17 @@ assets and a [simplified favicon](static/img/community-favicon.svg). The
 desktop navbar and mobile menu. Keep the two mark variants geometrically identical.
 The green Docusaurus icon in the external link and footer still identifies the upstream project.
 
+The default social share image is [community-social-card.png](static/img/community-social-card.png)
+(1200 x 630). Its editable source is [community-social-card.svg](static/img/community-social-card.svg).
+After editing the SVG, regenerate the PNG from the repository root with the existing Sharp dependency:
+
+```powershell
+yarn node -e "require('sharp')('static\\img\\community-social-card.svg').png().toFile('static\\img\\community-social-card.png').catch(error => { console.error(error); process.exitCode = 1 })"
+```
+
+The site configuration uses the PNG for Open Graph and Twitter cards, since social crawlers do not
+reliably support SVG previews. The image is intentionally fixed to the light brand palette.
+
 ## Deployment
 
 Using SSH:
