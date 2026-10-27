@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f4ef"/>
+  <path d="M0 0h1200v8H0z" fill="#b11f4b"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="64" y="89" font-size="30" font-weight="600" letter-spacing="-1" fill="#242424">docusaurus<tspan fill="#b11f4b">.community</tspan></text>
+    <text x="64" y="218" font-size="72" font-weight="700" letter-spacing="-3" fill="#242424">Building with</text>
+    <text x="64" y="300" font-size="72" font-weight="700" letter-spacing="-3" fill="#b11f4b">Docusaurus?</text>
+    <g font-size="26" fill="#5c5c5c">
+      <text x="64" y="364">Guides, plugins, and components</text>
+      <text x="64" y="403">shared by people building sites like yours.</text>
+    </g>
+    <rect x="848" y="147" width="288" height="288" rx="32" fill="#fcfbf8" stroke="#dedede" stroke-width="2"/>
+    <g transform="translate(884 179) scale(3.375)">
+      <g fill="#b11f4b">
+        <path fill-rule="evenodd" d="M18 5h28a15 15 0 0 1 15 15v20a15 15 0 0 1-15 15H27L12 63V54A15 15 0 0 1 3 40V20A15 15 0 0 1 18 5Zm0 4A11 11 0 0 0 7 20v20a11 11 0 0 0 7.3 10.36L16 51v5.3L26 51h20a11 11 0 0 0 11-11V20A11 11 0 0 0 46 9H18Z"/>
+        <path d="m18 39-4-4 5-2-4-5 6-1-2-6 6 1 1-6 5 4h9a7 7 0 0 1 7 7v2h5v7H37v4h9a7 7 0 0 1-7 6H21v-7Z"/>
+      </g>
+      <circle cx="39" cy="27" r="2" fill="#fcfbf8"/>
+    </g>
+    <path d="M64 490h1072" stroke="#dedede" stroke-width="2"/>
+    <text x="64" y="548" font-size="21" font-weight="600" fill="#242424">A little help with your next site.</text>
+    <text x="64" y="582" font-size="17" fill="#5c5c5c">Unofficial. Open source. Everyone's welcome.</text>
+    <text x="1136" y="559" text-anchor="end" font-size="21" font-weight="600" fill="#b11f4b">docusaurus.community</text>
+  </g>
+</svg>
