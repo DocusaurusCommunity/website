@@ -66,7 +66,7 @@ const commonDocsPluginConfig = {
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
   title: 'Docusaurus.community',
-  tagline: 'Docusaurus community knowledge sharing and plugin directory.',
+  tagline: 'Guides, plugins, and components shared by Docusaurus users.',
   favicon: 'img/favicon.ico',
   url: 'https://docusaurus.community',
   baseUrl: '/',
@@ -119,7 +119,7 @@ const config: Config = {
           alt: 'Docusaurus.community Logo',
           src: 'img/logo.svg',
         },
-        hideOnScroll: true,
+        hideOnScroll: false,
         items: [
           {
             type: 'doc',
@@ -145,28 +145,24 @@ const config: Config = {
             label: 'Sponsor',
             position: 'right',
             target: '_blank',
-            className: 'sponsorship-link',
           },
           {
             to: 'https://docusaurus.io',
             label: 'Docusaurus',
             position: 'right',
             target: '_blank',
-            className: 'docusaurus-link',
           },
           {
             to: 'https://discord.gg/docusaurus',
             label: 'Discord',
             position: 'right',
             target: '_blank',
-            className: 'discord-link',
           },
           {
             to: 'https://github.com/DocusaurusCommunity/website',
             label: 'GitHub',
             position: 'right',
             target: '_blank',
-            className: 'github-link',
           },
         ],
       },
@@ -186,6 +182,18 @@ const config: Config = {
               {
                 label: 'Knowledge',
                 to: '/knowledge/',
+              },
+              {
+                label: 'Plugin directory',
+                to: '/plugindirectory/',
+              },
+              {
+                label: 'Contribute a guide',
+                to: '/contributing/customisations/',
+              },
+              {
+                label: 'Add a plugin',
+                to: '/contributing/plugins/',
               },
             ],
           },
