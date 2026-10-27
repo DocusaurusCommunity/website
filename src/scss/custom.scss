@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -304,3 +306,5 @@ html[data-theme='dark'] .alert--docusaurus {
   --ifm-alert-foreground-color: rgb(255,255,255);
   --ifm-alert-border-color: #e5ff00;
 }
+
+@include meta.load-css('community-theme');
