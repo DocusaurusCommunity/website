@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: cudoment.cudoc-docusaurus
+name: "cudoc-docusaurus"
+description: "Remark plugins that embed headed sections of other Markdown documents and add merged table cells, lists in cells and variables, keeping Docusaurus heading IDs and table of contents; a CLI checks cross-document links, anchors and embeds and exports the docs to HTML, PDF and Word."
+preview: null
+website: "https://github.com/cudoment/cudoc/tree/main/packages/cudoc-docusaurus"
+source: "https://github.com/cudoment/cudoc/tree/main/packages/cudoc-docusaurus"
+author: "cudoment"
+tags:
+  - "markdown"
+minimumVersion: "3.10.0"
+status: "maintained"
+npmPackages:
+  - "cudoc-docusaurus"
