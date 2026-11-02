@@ -54,7 +54,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-lts]
         node: [current]
     # Cancel previous runs that are not completed yet
     concurrency:
