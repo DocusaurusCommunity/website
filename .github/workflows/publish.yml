@@ -55,7 +55,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [lts]
+        node: [lts/*]
     # Cancel previous runs that are not completed yet
     concurrency:
       group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
