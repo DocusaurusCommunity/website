@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: screenstaring.shopify-admin-link
+name: Shopify Admin Link
+description: Docusaurus plugin that links documentation to the reader's Shopify Admin.
+preview: null
+website: https://github.com/ScreenStaring/docusaurus-plugin-shopify-admin-link
+source: https://github.com/ScreenStaring/docusaurus-plugin-shopify-admin-link
+author: ScreenStaring
+tags:
+  - utility
+  - integration
+minimumVersion: 3.0.0
+status: maintained
+npmPackages:
+  - docusaurus-plugin-shopify-admin-link
