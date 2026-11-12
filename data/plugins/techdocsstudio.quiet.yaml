@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: techdocsstudio.quiet
+name: Quiet
+description: A minimal Docusaurus theme with configurable branding and consistent styling across documentation extensions.
+preview: https://quiet.techdocs.studio/img/quiet-og.png
+website: https://quiet.techdocs.studio/
+source: https://github.com/TechDocsStudio/docusaurus-theme-quiet
+author: TechDocsStudio
+tags:
+  - theme
+minimumVersion: 3.10.0
+status: maintained
+npmPackages:
+  - docusaurus-theme-quiet
