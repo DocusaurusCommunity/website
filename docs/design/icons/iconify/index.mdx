@@ -2,15 +2,13 @@
 title: Iconify
 ---
 
-import Swizzling from '@site/partials/_swizzling.mdx';
-
-> All popular icon sets, one framework. Over 100,000 open source vector icons.
-
-Using icons in your documentation is a great way to add visual interest and help users understand the content. Iconify is a great icon library you can use in your documentation. This article shows you how to use Iconify icons in your Docusaurus documentation site.
+Install `@iconify/react` and expose its `Icon` component through `MDXComponents` to use Iconify
+icons in MDX and React.
 
 <DocusaurusButton label="Docusaurus Documentation: MDX Component Scope" to="https://docusaurus.io/docs/markdown-features/react#mdx-component-scope" />
 
-To complete these steps you will need to have a custom MDXComponents file. If you don't have one, just create the file `MDXComponents.js` or `MDXComponents.tsx` in the `src/theme` directory of your project.
+Expose the component through `src/theme/MDXComponents.js` or `.tsx`. Create the file if your
+project does not already have one.
 
 ## Installing Iconify
 
@@ -47,11 +45,13 @@ title: My Doc
 <IIcon icon="mdi:github" height="48" /> This is a GitHub icon.
 ```
 
-Iconify have a superb [Icon Explorer](https://icon-sets.iconify.design/) where you can search for icons and copy the code to use in your documentation.
+Use the [Iconify Icon Explorer](https://icon-sets.iconify.design/) to search icon sets and find
+icon names.
 
 ## Using Iconify with React
 
-You can use Iconify icons in your React components by using the `Icon` component. Iconify have wonderful [React documentation](https://docs.iconify.design/icon-components/react/) that you can use to learn more about using Iconify with React components.
+In React components, render icons with `Icon`. See the
+[Iconify React documentation](https://docs.iconify.design/icon-components/react/) for details.
 
 If this is working you'll see an Iconify GitHub icon below:
 

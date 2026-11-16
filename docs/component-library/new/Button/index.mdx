@@ -1,13 +1,14 @@
 ---
 title: Button Component
-description: Create a reusable button component for your Docusaurus site that can be customized with different colors and sizes.
+description: A reusable button component with Infima colour and size variants.
 ---
 
-The [Infima CSS framework](https://infima.dev/) provides a set of utility classes that can be used to style buttons in Docusaurus. This article will cover how to create a reusable button component for your Docusaurus site that can be customized with different colors and sizes.
+This example wraps Infima button classes in a reusable component. It accepts a label, link,
+colour variant, and size.
 
 ## Creating the Button component
 
-We're going to start by creating a new component called `Button` that will render a button element with the specified text, color, and size. The component will accept the following props:
+Create a `Button` component with these props:
 
 - `label`: The text to display on the button.
 - `link`: The URL to navigate to when the button is clicked.
@@ -17,7 +18,7 @@ We're going to start by creating a new component called `Button` that will rende
 - `block` (optional): A boolean value that determines whether the button should take up the full width of its container. The default value is `false`.
 - `disabled` (optional): A boolean value that determines whether the button should be disabled. The default value is `false`.
 
-We're gonna start by creating the file and adding the source code for the component.
+Create the component file and add the implementation:
 
 <Tabs groupdId="js-ts">
 <TabItem value="js" label="JS">
@@ -241,4 +242,5 @@ To follow the Docusaurus documentation, we create a theme folder that will host 
 
 ## Conclusion
 
-In this article, we created a reusable button component for your Docusaurus site that can be customized with different colors and sizes. By using the Infima CSS framework and utility classes, you can easily style buttons in your Docusaurus site without writing custom CSS. You can further extend the `Button` component by adding more props and customizing the styles to fit your site's design.
+The component uses Infima classes for colour, size, outline, and block layout. Add props or styles
+if your project needs other variants.

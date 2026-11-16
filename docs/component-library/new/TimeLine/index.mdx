@@ -1,6 +1,6 @@
 ---
-title: Time line Component
-description: Create a reusable Time line component for your Docusaurus site that can be customized with different parts, colors, orientations and sizes.
+title: Timeline Component
+description: A reusable timeline with configurable line colour and item layout.
 additionalContributors: 
   - login: Juniors017
     html_url: https://github.com/Juniors017
@@ -12,12 +12,8 @@ Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this 
 :::
 
 
-The [Infima CSS framework](https://infima.dev/) provides a set of utility classNamees that can be used to stylize cards in Docusaurus. 
-This article will cover how to create a reusable Time line component for your Docusaurus site which can be personalized with different colors and sizes. 
-The component will create every items in Time line, you will be able to create and personalize each item independently of each other
-The component integrates the Native css [colors variables of Infima ](https://infima.dev/docs/utilities/colors)
-
-i invite you look the official documentation to styling your site with Infima and the new documentation on community site (Work in progress !) [CSS Variables](/knowledge/design/css/variables/)
+`TimeLine` wraps the timeline items and sets the line colour. `TimeLineItem` renders each item.
+The `variant` prop uses Infima colour variables.
 <DocusaurusButton
   to="https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima"
   label="Docusaurus Documentation: Styling your site with Infima"
@@ -25,22 +21,15 @@ i invite you look the official documentation to styling your site with Infima an
 
 
 
-The component is in fact a set of one components for Time line and subcomponent that will admit to form each items.
-### TimeLine : composition of the master folder
- - TimeLine component (The time line core)
- - TimeLineItem (The items in time line)
-
- We will discover that it pairs wonderfully with other components present in our library but this will be the subject of a dedicated page. 
-
 ## Creating the TimeLine component 
 
-First we will create the master component in: \src\components\Timeline\. Next we will start by creating a "subcomponent" called TimeLineItem.
+Create the parent component in `src/components/Timeline/`, then add `TimeLineItem` for each entry.
 
-The component will accept the following props:
+The parent component accepts this prop:
 
 `variant`: this is for the line's color
 
-Creating the file and adding the source code for the component.
+Create the component file:
 <Tabs groupdId="js-ts">
 <TabItem value="js" label="JS">
 ```javascript title="src\components\TimeLine\index.js"

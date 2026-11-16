@@ -34,11 +34,6 @@
     font-weight: 700;
     letter-spacing: -0.055em;
     line-height: 1.08;
-
-    span {
-      color: var(--cp-accent);
-      font-style: italic;
-    }
   }
 }
 
@@ -47,15 +42,6 @@
   width: 1.5rem;
   height: 1.5rem;
   object-fit: contain;
-}
-
-.statusDot {
-  display: inline-block;
-  flex-shrink: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--cp-accent);
 }
 
 .intro {
@@ -209,46 +195,6 @@
   }
 }
 
-.noteFooter {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  color: var(--cp-text-muted);
-  font-size: 0.6875rem;
-}
-
-.communityStrip {
-  border-block: 1px solid var(--cp-border);
-}
-
-.stripInner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  align-items: center;
-  padding-block: 1.25rem;
-  color: var(--cp-text-muted);
-  font-size: 0.8125rem;
-
-  p {
-    margin: 0 auto 0 0;
-    color: var(--cp-text);
-    font-weight: 650;
-  }
-
-  > span::before {
-    margin-right: 0.625rem;
-    color: var(--cp-accent);
-    content: '•';
-  }
-
-  > span {
-    font-family: var(--ifm-font-family-monospace);
-    font-size: 0.75rem;
-  }
-}
-
 .section {
   padding-block: 4.5rem;
 }
@@ -319,21 +265,6 @@
   }
 }
 
-.cardTop {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--cp-accent);
-  font-size: 0.8125rem;
-  font-weight: 650;
-}
-
-.cardNumber {
-  color: var(--cp-text-muted);
-  font-family: var(--ifm-font-family-monospace);
-}
-
 .cardAction {
   display: flex;
   gap: 0.75rem;
@@ -384,14 +315,6 @@
     color: var(--cp-accent);
     text-decoration: none;
   }
-}
-
-.docsNote {
-  margin: 2rem 0 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--cp-border);
-  color: var(--cp-text-muted);
-  font-size: 0.875rem;
 }
 
 .communityCallout {

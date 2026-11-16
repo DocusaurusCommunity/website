@@ -2,15 +2,13 @@
 title: FontAwesome
 ---
 
-import Swizzling from '@site/partials/_swizzling.mdx';
-
-> Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators.
-
-Using icons in your documentation is a great way to add visual interest and help users understand the content. Font Awesome is a great icon library you can use in your documentation. This article shows you how to use Font Awesome icons in your Docusaurus documentation site.
+Use Font Awesome icons in MDX and React by installing its packages and exposing the icon
+component through `MDXComponents`.
 
 <DocusaurusButton label="Docusaurus Documentation: MDX Component Scope" to="https://docusaurus.io/docs/markdown-features/react#mdx-component-scope" />
 
-To complete these steps you will need to have a custom MDXComponents file. If you don't have one, just create the file `MDXComponents.js` or `MDXComponents.tsx` in the `src/theme` directory of your project.
+Expose the component through `src/theme/MDXComponents.js` or `.tsx`. Create the file if your
+project does not already have one.
 
 ## Installing Font Awesome
 
@@ -70,7 +68,9 @@ title: My Doc
 
 ## Using Font Awesome with React
 
-You can use Font Awesome icons in your React components by using the `FontAwesomeIcon` component. Font Awesome have fantastic [React documentation](https://fontawesome.com/docs/web/use-with/react/) that you can use to learn more about using Font Awesome with React components.
+In React components, render icons with `FontAwesomeIcon`. See the
+[Font Awesome React documentation](https://fontawesome.com/docs/web/use-with/react/) for its props
+and usage details.
 
 If this is working you'll see a Font Awesome GitHub icon below:
 

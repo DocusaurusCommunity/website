@@ -11,16 +11,16 @@ additionalContributors:
 Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this component and sharing it with us.
 :::
 
-This custom component consists of two parts:
+The example has two components:
 
-* A component for the container and the rows, 
-* The columns you want to create.
+* `Columns` creates the container and row.
+* `Column` creates each column.
 
-This is what will allow us to benefit from on demand columns.
-The code for the component used for this functionality for should be placed in `\src\components\Columns\index.*`.
+Put the `Columns` component in `src/components/Columns/`.
 <DocusaurusButton to="https://docusaurus.io/docs/markdown-features/react#exporting-components" label="Docusaurus Documentation: Exporting Components" />
 
-Docusaurus uses the Infima framework for styling layout. The components described here are fully based on the Infima grid system. More detail on the Infima grid can be found in the [Infima docs](https://infima.dev/docs/layout/grid)
+Docusaurus uses Infima for layout. These components use its grid classes; see the
+[Infima grid documentation](https://infima.dev/docs/layout/grid).
 <DocusaurusButton to="https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima" label="Docusaurus Documentation: Styling your site with Infima" />
 
 ## Creating the Container and Row Component
@@ -31,13 +31,9 @@ Docusaurus uses the Infima framework for styling layout. The components describe
     import React from 'react';
     // Import clsx library for conditional classes.
     import clsx from 'clsx'; 
-    // Define the Columns component as a function 
-    // with children, className, and style as properties
-    // className will allow you to pass either your custom classes or the native infima classes https://infima.dev/docs/layout/grid.
-    // Style" will allow you to either pass your custom styles directly, which can be an alternative to the "styles.module.css" file in certain cases.
+    // className adds classes to the row; style applies inline styles.
     export default function Columns({ children , className , style }) {
       return (
-        // This section encompasses the columns that we will integrate with children from a dedicated component to allow the addition of columns as needed 
         <div className="container center">
               <div className={clsx('row', className)} style={style}>
                 {children}    
@@ -57,13 +53,9 @@ Docusaurus uses the Infima framework for styling layout. The components describe
       className?: string;
       style?: CSSProperties;
     }
-    // Define the Columns component as a function 
-    // with children, className, and style as properties
-    // className will allow you to pass either your custom classes or the native infima classes https://infima.dev/docs/layout/grid.
-    // Style" will allow you to either pass your custom styles directly, which can be an alternative to the "styles.module.css" file in certain cases.
+    // className adds classes to the row; style applies inline styles.
     export default function Columns({ children, className, style }: ColumnsProps) {
       return (
-      // This section encompasses the columns that we will integrate with children from a dedicated component to allow the addition of columns as needed 
         <div className="container center">
           <div className={clsx('row', className)} style={style}>
             {children}    
@@ -77,7 +69,7 @@ Docusaurus uses the Infima framework for styling layout. The components describe
 
 ## Creating the Column Component
 
-The code for the component used for this functionality for should be placed in `\src\components\Column\index.*`.
+Put the `Column` component in `src/components/Column/`.
 
 <Tabs groupId="js-ts">
   <TabItem value="js" label="JS">
@@ -86,10 +78,7 @@ The code for the component used for this functionality for should be placed in `
     // Import clsx library for conditional classes.
     import clsx from 'clsx'; 
   
-    // Define the Column component as a function 
-    // with children, className, style as properties
-    // Look https://infima.dev/docs/ for learn more
-    // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
+    // className adds classes to the column; style applies inline styles.
     export default function Column({ children , className, style  }) {
       return (
       
@@ -112,10 +101,7 @@ The code for the component used for this functionality for should be placed in `
       className?: string;
       style?: CSSProperties;
     }
-    // Define the Column component as a function 
-    // with children, className, style as properties
-    // Look https://infima.dev/docs/ for learn more.
-    // Style only affects the element inside the column, but we could have also made the same distinction as for the classes.
+    // className adds classes to the column; style applies inline styles.
     export default function Column({ children, className, style }: ColumnProps) {
       return (
       
@@ -129,7 +115,7 @@ The code for the component used for this functionality for should be placed in `
   </TabItem>
 </Tabs>
 
-This component is actually very simple but truly powerful because it utilizes native infima component classes to create columns in Docusaurus.
+The component uses Infima's grid classes to lay out columns in Docusaurus.
 
 ## MDX Component Scope
 To follow the Docusaurus documentation, we create a theme folder that will host the `MDXComponents` file. This gives us `src\theme\MDXComponents.*`. You may already have a `src\theme` folder or an `MDXComponents` file if so - merge the changes described here with yours.

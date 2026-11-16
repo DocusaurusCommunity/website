@@ -5,20 +5,19 @@ description: Common CSS variables used in Docusaurus.
 
 <DocusaurusButton to='https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima' label='Docusaurus Documentation: Styling your site with Infima' />
 
-:::warning[Work in Progress]
-This documentation is a work in progress. If you have any questions or suggestions, please feel free to open an issue on the [Docusaurus Community Website GitHub repository](https://github.com/DocusaurusCommunity/website/issues).
-
-The process of documenting these variables is fairly slow and time-consuming, so please be patient.
+:::warning[Coverage is incomplete]
+To request a variable or suggest a correction, [open an issue](https://github.com/DocusaurusCommunity/website/issues).
 :::
 
-Docusaurus uses CSS variables to define the colors, fonts, and spacing used in the design system. This allows you to easily customise the look and feel of your site by changing a few variables.
+Docusaurus uses CSS variables for colours, fonts, and spacing. Override these variables in your
+custom CSS to change the site theme.
 
-Docusaurus CSS variables typically come from two sources each with a naming convention:
+Docusaurus CSS variables use these prefixes:
 
-* **Infima Variables**: These are the core variables used by the Infima CSS framework. They are prefixed with `--ifm-`. Typically these variables are used for colors, core layout, and typography.
-* **Docusaurus Variables**: These are variables specific to Docusaurus. They are prefixed with `--docusaurus-`. Typically these variables are used for Docusaurus specific components and features not covered by Infima's more generic approach.
+* `--ifm-` for Infima variables, including colours, layout, and typography.
+* `--docusaurus-` for Docusaurus-specific components and features.
 
-Some plugins bring their own CSS variables, the Algolia search plugin for example uses `--docsearch` prefixed variables.
+Plugins may define their own variables. For example, the Algolia search plugin uses the `--docsearch-` prefix.
 
 ## What are CSS Variables?
 
@@ -44,8 +43,6 @@ More information on CSS variables can be found in the [MDN Web Docs](https://dev
 
 No, not all CSS variables Docusaurus uses are documented. The most common variables are documented here, but there are many more variables used in the Docusaurus codebase. If you need to customize a variable that is not documented here, you can inspect the CSS of your site to find the variable name.
 
-This documentation aims to document the most commonly used variables to help you get started with customising your site.
-
 ## Where Should I Set CSS Variables?
 
 CSS variables can be set in a few different places:
@@ -53,9 +50,11 @@ CSS variables can be set in a few different places:
 * **Global CSS**: You can set CSS variables in your global CSS file (e.g., `src/css/custom.css` or `src/scss/custom.scss` if you're using SASS).
 * **Component Styles**: You can set CSS variables in the styles of individual components. In the respective component's CSS Module file.
 
-One thing that's important to note is that it is not always appropriate to set variables in `:root` or `html[data-theme=dark]`. Docusaurus sets the value of several variables outside of `:root` to allow for more granular control. For this reason you may find that setting a variable in `:root` does not have the desired effect and you need to scope it more specifically.
+Some variables are scoped to component classes rather than `:root` or
+`html[data-theme='dark']`. If a variable set at the root has no effect, inspect the component's CSS
+and override it at the scope where it is defined.
 
-Here's an example from the Docusaurus codebase, we can see from the list below that the footer uses various `--ifm-footer-*` variables. If you wanted to change the background color of the footer, you would set the `--ifm-footer-background-color` variable in your CSS like this, at least that's the theory:
+The Docusaurus footer uses `--ifm-footer-*` variables. To change its background, you might try:
 
 ```css
 :root {
@@ -63,7 +62,8 @@ Here's an example from the Docusaurus codebase, we can see from the list below t
 }
 ```
 
-Seems clear enough. However that bit of CSS will not work as expected. The footer is styled using the `.footer` or `.footer-dark` classes, so you need to set the variable like this:
+That override may not take effect because the footer sets its styles on `.footer` or
+`.footer--dark`. Set the variable on those classes instead:
 
 ```css
 .footer {

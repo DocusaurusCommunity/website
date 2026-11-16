@@ -8,49 +8,37 @@ import styles from './index.module.scss'
 
 const pathways = [
   {
-    number: '01',
-    label: 'Knowledge base',
-    title: 'See how others did it.',
-    description:
-      'Guides and customisations written by people using Docusaurus. Find an answer, try something new, or save yourself a bit of trial and error.',
+    title: 'Knowledge base',
+    description: 'Guides and customisations written by Docusaurus users.',
     to: '/knowledge/',
-    action: 'Explore the knowledge base',
+    action: 'Browse guides',
   },
   {
-    number: '02',
-    label: 'Plugin directory',
-    title: 'Find a plugin for the job.',
-    description:
-      'Looking for search, analytics, or something more specific? Browse plugins from across the ecosystem and see what fits your site.',
+    title: 'Plugin directory',
+    description: 'Plugins for search, analytics, content, and other parts of your site.',
     to: '/plugindirectory/',
-    action: 'Browse the plugin directory',
+    action: '    Browse plugins',
   },
   {
-    number: '03',
-    label: 'Contributing',
-    title: 'Share what worked for you.',
-    description:
-      "Got a useful snippet or a fix for a confusing guide? Send it our way. You can also add a plugin or fill in details we're missing.",
+    title: 'Contribute',
+    description: 'Add a plugin, correct a guide, or share a customisation.',
     to: '/contributing/',
-    action: 'How to contribute',
+    action: 'Read how to contribute',
   },
 ]
 
 const topics = [
   {
-    label: 'Colours, fonts & details',
     title: 'Design & styling',
     description: 'Change the look of your site with CSS, icons, and custom styling.',
     to: '/knowledge/design/',
   },
   {
-    label: 'Things you can reuse',
     title: 'Component library',
     description: 'Explore reusable buttons, cards, columns, timelines, and more.',
     to: '/knowledge/component-library/',
   },
   {
-    label: 'Ready to publish?',
     title: 'Deployment guides',
     description: 'Get your site online with Docker, Cloudflare Pages, or nginx.',
     to: '/knowledge/deployment/',
@@ -93,16 +81,15 @@ export default function Home(): ReactNode {
                 }}
                 alt=""
               />
-              The unofficial Docusaurus community guide
+              Docusaurus community resources
             </p>
             <h1>
-              Make your <br />
-              <span>Docusaurus site</span> your own.
+              Guides and tools <br />
+              for your Docusaurus site.
             </h1>
             <p className={styles.intro}>
-              The official docs explain how Docusaurus works. Here, people share the plugins,
-              styling ideas, components, and deployment notes they&apos;ve found useful along the
-              way.
+              Browse community-written guides, find plugins, and reuse components in your
+              Docusaurus site.
             </p>
             <div className={styles.actions}>
               <Link className={styles.primaryButton} to="/knowledge/">
@@ -113,30 +100,29 @@ export default function Home(): ReactNode {
               </Link>
             </div>
             <p className={styles.heroNote}>
-              Community-built, open source, and always open to a useful contribution.
+              For Docusaurus features and setup, see the{' '}
+              <Link to="https://docusaurus.io/docs">official documentation</Link>.
             </p>
           </div>
 
           <aside className={styles.fieldNotes} aria-labelledby="field-notes-title">
             <div className={styles.noteMasthead}>
-              <span>COMMUNITY NOTEBOOK / 01</span>
-              <Arrow diagonal />
+              <span>COMPONENT LIBRARY</span>
             </div>
             <div className={styles.noteFeature}>
-              <p className={styles.eyebrow}>A good place to start</p>
-              <h2 id="field-notes-title">Borrow a component. Make it yours.</h2>
+              <p className={styles.eyebrow}>Reusable examples</p>
+              <h2 id="field-notes-title">Components for your site</h2>
               <p>
-                Buttons, cards, columns, timelines: browse real examples, then adapt them to fit
-                your site.
+                Browse button, card, column, and timeline components with code you can adapt.
               </p>
               <Link to="/knowledge/component-library/" className={styles.textLink}>
-                Open the component library <Arrow />
+                Browse components <Arrow />
               </Link>
             </div>
             <Link to="/knowledge/design/css/variables/" className={styles.noteLink}>
               <span>
                 <small>STYLING YOUR SITE</small>
-                Get to know your CSS variables
+                Customize CSS variables
               </span>
               <Arrow diagonal />
             </Link>
@@ -147,40 +133,18 @@ export default function Home(): ReactNode {
               </span>
               <Arrow diagonal />
             </Link>
-            <div className={styles.noteFooter}>
-              <span className={styles.statusDot} aria-hidden="true" />
-              Still growing. Corrections and additions welcome.
-            </div>
           </aside>
         </header>
-
-        <div className={styles.communityStrip}>
-          <div className={clsx('container', styles.stripInner)}>
-            <p>Notes from people building with Docusaurus.</p>
-            <span>Guides & tutorials</span>
-            <span>Plugins</span>
-            <span>Code to adapt</span>
-          </div>
-        </div>
 
         <section className={clsx('container', styles.section)} aria-labelledby="pathways-title">
           <div className={styles.sectionHeading}>
             <div>
-              <p className={styles.eyebrow}>A quick index</p>
-              <h2 id="pathways-title">What are you looking for?</h2>
+              <h2 id="pathways-title">Browse the site</h2>
             </div>
-            <p>
-              Start with a guide, browse what&apos;s available, or add something you&apos;ve
-              learned.
-            </p>
           </div>
           <div className={styles.cardGrid}>
             {pathways.map((pathway) => (
-              <Link key={pathway.number} to={pathway.to} className={styles.pathwayCard}>
-                <div className={styles.cardTop}>
-                  <span>{pathway.label}</span>
-                  <span className={styles.cardNumber}>{pathway.number}</span>
-                </div>
+              <Link key={pathway.to} to={pathway.to} className={styles.pathwayCard}>
                 <h3>{pathway.title}</h3>
                 <p>{pathway.description}</p>
                 <span className={styles.cardAction}>
@@ -195,17 +159,15 @@ export default function Home(): ReactNode {
           <div className={clsx('container', styles.section)}>
             <div className={styles.sectionHeading}>
               <div>
-                <p className={styles.eyebrow}>In the knowledge base</p>
-                <h2 id="topics-title">What are you working on?</h2>
+                <h2 id="topics-title">Browse guides by topic</h2>
               </div>
               <Link to="/knowledge/" className={styles.textLink}>
-                Browse all knowledge <Arrow />
+                All guides <Arrow />
               </Link>
             </div>
             <div className={styles.cardGrid}>
               {topics.map((topic) => (
                 <Link key={topic.to} to={topic.to} className={styles.topicCard}>
-                  <p className={styles.eyebrow}>{topic.label}</p>
                   <h3>
                     {topic.title} <Arrow diagonal />
                   </h3>
@@ -213,22 +175,16 @@ export default function Home(): ReactNode {
                 </Link>
               ))}
             </div>
-            <p className={styles.docsNote}>
-              New to Docusaurus? Start with the{' '}
-              <Link to="https://docusaurus.io/docs">official Docusaurus documentation</Link>. The
-              guides here pick up where you might want a few more examples.
-            </p>
           </div>
         </section>
 
         <section className={clsx('container', styles.section)} aria-labelledby="community-title">
           <div className={styles.communityCallout}>
             <div>
-              <p className={styles.eyebrow}>Better together</p>
-              <h2 id="community-title">A good question belongs in the conversation.</h2>
+              <h2 id="community-title">Talk to other Docusaurus users</h2>
               <p>
-                The Docusaurus Discord is a good place to ask questions and talk through ideas. You
-                can share what you&apos;re building there, too. We&apos;d love to see it.
+                Ask questions, get help with a setup, or share what you&apos;re building in the
+                Docusaurus Discord.
               </p>
             </div>
             <div className={styles.communityActions}>
@@ -236,7 +192,7 @@ export default function Home(): ReactNode {
                 Join the Discord <Arrow diagonal />
               </Link>
               <Link to="/contributing/plugins/" className={styles.textLink}>
-                Built a plugin? Add it here <Arrow />
+                Submit a plugin <Arrow />
               </Link>
             </div>
           </div>
