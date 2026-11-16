@@ -13,6 +13,6 @@ tags:
   - theme
   - utility
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - "@gorhom/docusaurus-react-native-plugin"

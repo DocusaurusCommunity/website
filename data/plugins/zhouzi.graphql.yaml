@@ -10,6 +10,6 @@ tags:
   - api
   - content
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-graphql

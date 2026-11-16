@@ -10,7 +10,7 @@ tags:
   - content
   - api
 minimumVersion: 2.0.0-beta.21
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-react-docgen-typescript
   - react-docgen-typescript

@@ -11,6 +11,6 @@ tags:
   - utility
   - integration
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-code-preview

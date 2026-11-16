@@ -10,6 +10,6 @@ tags:
   - content
   - utility
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-wkhtmltopdf

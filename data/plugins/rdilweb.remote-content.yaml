@@ -9,6 +9,6 @@ author: rdilweb
 tags:
   - utility
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-remote-content

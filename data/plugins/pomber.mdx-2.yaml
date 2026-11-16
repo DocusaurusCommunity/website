@@ -12,7 +12,7 @@ tags:
   - content
   - integration
 minimumVersion: 2.0.0-beta.18
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-theme-mdx-v2
   - "@mdx-js/react@^2.0.0"

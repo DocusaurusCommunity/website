@@ -12,6 +12,6 @@ tags:
   - analytics
   - api
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-moesif

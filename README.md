@@ -48,6 +48,14 @@ This command generates static content into the `build` directory and can be serv
 Preview the production build locally with `yarn serve`. Run `yarn typecheck` to check TypeScript;
 there are currently known errors in shared components, so report any new diagnostics separately.
 
+## Plugin directory filters
+
+The directory shows maintained plugins and plugins with an unknown maintenance status by default.
+Visitors can select unmaintained plugins using the status filters, and shared URLs with a `status`
+parameter override the default selection. Set `?status=` to clear the default status filter.
+Showcase 1.4.0 applies these filters after JavaScript hydration; the initially rendered HTML
+contains all plugins, and the filters do not apply when JavaScript is disabled.
+
 ## Community homepage and theme
 
 The [homepage](src/pages/index.tsx) highlights the knowledge base, plugin directory, and ways to

@@ -11,6 +11,6 @@ tags:
   - integration
   - markdown
 minimumVersion: 2.0.0-beta.15
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-drawio

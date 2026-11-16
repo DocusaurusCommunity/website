@@ -12,6 +12,6 @@ tags:
   - markdown
   - theme
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-theme-github-codeblock
