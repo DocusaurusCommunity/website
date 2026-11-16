@@ -308,6 +308,7 @@ const config: Config = {
         ...pluginsPreset,
         dataDir: 'data/plugins',
         routeBasePath: 'plugindirectory',
+        defaultFilters: { statuses: ['maintained', 'unknown'] },
         screenshotUrl: 'https://screengrabber.tools.homotechsual.dev/{url}/opengraph/_width:640?format=jpeg',
         submitUrl: '/contributing/plugins/',
         submitLabel: 'Add a plugin',
