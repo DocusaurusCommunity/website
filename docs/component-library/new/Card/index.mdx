@@ -1,6 +1,6 @@
 ---
 title: Card Component
-description: Create a reusable card component for your Docusaurus site that can be customised with different parts, colors and sizes.
+description: A card component with separate header, body, and footer parts.
 additionalContributors: 
   - login: Juniors017
     html_url: https://github.com/Juniors017
@@ -14,17 +14,19 @@ Thanks to [Docux (Juniors017)](https://github.com/Juniors017) for creating this 
 :::
 
 
-The [Infima CSS framework](https://infima.dev/) provides a set of utility classes which can be used to create cards in Docusaurus. This article will cover how to create a reusable card component for your Docusaurus site which can be customised with different colors and sizes and hold a variety of content. The component can recreate all the cards demonstrated in the Infima docs and more.
+This example builds a card from a container, header, body, and footer. Each part accepts styling
+props so you can adapt the card to your page.
 
-The card component is made up of a container component and three sub-components: CardHeader, CardBody, and CardFooter. Each part can be customised with different colors, sizes, and content.
+The example contains `Card`, `CardHeader`, `CardBody`, and `CardFooter`. Put the last three inside
+`Card`.
 
-The card component can be combined with most other components in Docusaurus to create a wide variety of card designs. Including our other components like Avatar, Button, and Columns. We'll have a separate set of pages covering combined component examples.
+You can combine these components with other Docusaurus components, such as buttons and columns.
 
 ## Creating the Card component
 
 This component is a container for the other parts of the card.
 
-First we will create the parent folder in:  `\src\components\Card\`. In this folder we will create the index file which will be the container for the card component.
+Create `src/components/Card/index.*` for the card container.
 
 The Card component accepts the following props:
 
@@ -904,7 +906,7 @@ For convenience these cards are displayed using some wrapper div elements like a
             className='padding-vert--md'
             transform='uppercase'
           >
-            The Infima CSS framework provides a set of utility class names that can be used to style cards in Docusaurus. This article will cover how to create a reusable card component for your Docusaurus site that can be customized with different colors and sizes.
+            Card example using Infima classes and the Card components.
           </CardBody> 
           <CardFooter style={{ backgroundColor: 'red' , color:'black'}}> 
             <div className='avatar padding-top--md'>
@@ -929,7 +931,7 @@ For convenience these cards are displayed using some wrapper div elements like a
     className='padding-vert--md'
     transform='uppercase'
   >
-    The Infima CSS framework provides a set of utility class names that can be used to style cards in Docusaurus. This article will cover how to create a reusable card component for your Docusaurus site that can be customized with different colors and sizes.
+    Card example using Infima classes and the Card components.
   </CardBody>
   <CardFooter style={{ backgroundColor: 'red' , color:'black'}}>
     <div className='avatar padding-top--md'>
@@ -1065,4 +1067,5 @@ For convenience these cards are displayed using some wrapper div elements like a
 
 ## Tricks and Tips
 
-The columns are made using to the infima grid, they are hard coded on this page so that the card component is independent. But if you want to use an easy and quick system for managing your columns while using the Infima grid system look at [our columns component](../Columns/index.mdx)
+This example uses Infima grid classes directly so the card component does not depend on the
+`Columns` component. To use the shared column components instead, see [Columns](../Columns/index.mdx).

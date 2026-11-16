@@ -5,7 +5,8 @@ description: Adding definition lists to your documentation.
 
 [Definition lists](https://www.w3schools.com/HTML/html_lists_other.asp) are used to define terms and their corresponding definitions. They are useful for glossaries, FAQs, and other reference material.
 
-We can add definition lists to our documentation by using the `dl` tag. Inside the `dl` tag, we can add `dt` tags for the term and `dd` tags for the definition.
+An HTML definition list uses `<dl>` as its container, with `<dt>` for each term and `<dd>` for its
+definition.
 
 ```html
 <dl>
@@ -14,7 +15,8 @@ We can add definition lists to our documentation by using the `dl` tag. Inside t
 </dl>
 ```
 
-However we don't like using HTML tags directly in our Markdown files. Luckily the excellent [remark plugin](https://github.com/remarkjs/remark/blob/main/doc/plugins.md) ecosystem comes to the rescue. We can use the [remark-deflist](https://github.com/Symbitic/remark-plugins/blob/master/packages/remark-deflist/README.md) plugin to add definition lists to our documentation.
+To write definition lists without HTML, use the
+[`remark-deflist` plugin](https://github.com/Symbitic/remark-plugins/blob/master/packages/remark-deflist/README.md).
 
 First we need to install the plugin.
 
@@ -22,7 +24,7 @@ First we need to install the plugin.
 npm install remark-deflist
 ```
 
-Then we can add the plugin to our `remark` plugins in our `docusaurus.config.js` file.
+Add the plugin to `remarkPlugins` in `docusaurus.config.js`.
 
 ```js
 import remarkDefList from 'remark-deflist';
@@ -51,7 +53,7 @@ presets: [
 ],
 ```
 
-Now we can add definition lists to our documentation.
+You can now write definition lists in Markdown:
 
 ```mdx
 Apple
