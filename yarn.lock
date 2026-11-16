@@ -4782,9 +4782,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@homotechsual/docusaurus-plugin-showcase@npm:1.2.3":
-  version: 1.2.3
-  resolution: "@homotechsual/docusaurus-plugin-showcase@npm:1.2.3"
+"@homotechsual/docusaurus-plugin-showcase@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@homotechsual/docusaurus-plugin-showcase@npm:1.3.0"
   dependencies:
     "@docusaurus/faster": "npm:^3.10.1"
     "@popperjs/core": "npm:^2.11.8"
@@ -4798,7 +4798,7 @@ __metadata:
     "@docusaurus/core": ">=3.0.0 <5.0.0"
     react: ~19.2.7
     react-dom: ~19.2.7
-  checksum: 10c0/86462b54a857f516abb9a8f8fdf9939bfde51aad47066ab7183d3a2c5f4268adb665fc8a7dda69f0508721aeababea298ef709ab4fa128a8f38de64b07017593
+  checksum: 10c0/4e75fa5574cb624818043ea73afb0d2c93e4f5686b26c4926ca3c169dc097deff81be6f42875e19fc689dfd7f358d6baa4d1701ca01227dcbb3e70a0e7585ee4
   languageName: node
   linkType: hard
 
@@ -10642,7 +10642,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:^7.3.1"
     "@fortawesome/react-fontawesome": "npm:^3.5.0"
     "@homotechsual/docusaurus-plugin-plausible": "npm:^1.1.1"
-    "@homotechsual/docusaurus-plugin-showcase": "npm:1.2.3"
+    "@homotechsual/docusaurus-plugin-showcase": "npm:1.3.0"
     "@iconify/react": "npm:^6.0.4"
     "@mdx-js/react": "npm:^3.1.1"
     "@popperjs/core": "npm:^2.11.8"

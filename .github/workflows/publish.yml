@@ -34,22 +34,66 @@ permissions:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  metadata:
+    name: Deploy metadata Worker
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    permissions:
+      contents: read
+    concurrency:
+      group: community-metadata-production
+      cancel-in-progress: false
+    timeout-minutes: 10
+    outputs:
+      endpoint: ${{ steps.worker.outputs.deployment-url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Test metadata Worker and resolvers
+        run: node --test tests/showcase-metadata.test.mjs
+      - name: Deploy metadata Worker
+        id: worker
+        uses: cloudflare/wrangler-action@v4
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: workers/metadata
+          packageManager: npm
+          command: deploy
+          secrets: ${{ secrets.METADATA_GITHUB_TOKEN != '' && 'GITHUB_TOKEN' || '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.METADATA_GITHUB_TOKEN }}
+      - name: Check metadata endpoint
+        env:
+          ENDPOINT: ${{ steps.worker.outputs.deployment-url }}
+        run: |
+          test -n "$ENDPOINT"
+          curl --fail --retry 5 --retry-delay 3 --retry-all-errors --max-time 15 "$ENDPOINT/health"
+
   # Deploy
   deploy:
     name: Deploy
+    needs: metadata
     runs-on: ${{ matrix.os }}
     # push event in main branch
     # workflow_dispatch event
     # pull_request event from not forked repo
     # pull_request_target event with label "🚀request-deploy" from forked repo
     if: ${{
+      always() &&
+      (needs.metadata.result == 'success' || needs.metadata.result == 'skipped') &&
+      (
       github.event_name == 'push' ||
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
       (github.event_name == 'pull_request_target' &&
       github.event.action == 'labeled' &&
       github.event.pull_request.head.repo.fork == true &&
-      contains(github.event.label.name, '🚀request-deploy'))
+      contains(github.event.label.name, '🚀request-deploy')))
       }}
 
     strategy:
@@ -89,8 +133,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --check-cache
 
+      - name: Test metadata Worker and resolvers
+        if: ${{ needs.metadata.result == 'skipped' }}
+        run: node --test tests/showcase-metadata.test.mjs
+
       - name: Build website
         run: yarn build
+        env:
+          SHOWCASE_METADATA_API_URL: ${{ needs.metadata.outputs.endpoint || vars.SHOWCASE_METADATA_API_URL }}
 
       - name: Publish to Cloudflare Pages
         id: cloudflare-pages-deploy

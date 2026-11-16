@@ -66,6 +66,28 @@ const commonDocsPluginConfig = {
   ...remarkPluginsConfig,
 }
 
+const metadataEndpoint = process.env.SHOWCASE_METADATA_API_URL
+const metadataFields: NonNullable<ShowcasePresetOptions['computedFields']> = metadataEndpoint ? {
+  npmVersions: {
+    label: 'npm version',
+    resolver: { module: '@site/src/utils/showcaseMetadata.ts', exportName: 'npmVersions' },
+    options: { endpoint: metadataEndpoint },
+  },
+  githubRelease: {
+    label: 'Latest GitHub release',
+    resolver: { module: '@site/src/utils/showcaseMetadata.ts', exportName: 'githubRelease' },
+    options: { endpoint: metadataEndpoint },
+  },
+  githubCommit: {
+    label: 'Latest code update',
+    resolver: { module: '@site/src/utils/showcaseMetadata.ts', exportName: 'githubCommit' },
+    options: { endpoint: metadataEndpoint },
+  },
+} : {}
+if (!metadataEndpoint) {
+  console.warn('[showcase] SHOWCASE_METADATA_API_URL is unset; live plugin metadata is disabled.')
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config: Config = {
   title: 'Docusaurus.community',
@@ -289,6 +311,7 @@ const config: Config = {
         screenshotUrl: 'https://screengrabber.tools.homotechsual.dev/{url}/opengraph/_width:640?format=jpeg',
         submitUrl: '/contributing/plugins/',
         submitLabel: 'Add a plugin',
+        computedFields: metadataFields,
       } satisfies ShowcasePresetOptions,
     ],
     [
