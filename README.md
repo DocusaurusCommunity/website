@@ -78,6 +78,46 @@ assets and a [simplified favicon](static/img/community-favicon.svg). The
 desktop navbar and mobile menu. Keep the two mark variants geometrically identical.
 The green Docusaurus icon in the external link and footer still identifies the upstream project.
 
+## Live plugin metadata
+
+The plugin directory can show npm's `latest` version, the latest stable GitHub release, and the
+latest default-branch commit. These fields load in the browser through
+[`showcaseMetadata.ts`](src/utils/showcaseMetadata.ts) and the separate
+[metadata Worker](workers/metadata/worker.mjs), adapted from the
+[showcase plugin example](https://github.com/homotechsual/docusaurus-plugin-showcase/tree/13e25e2b6fc3bc1f10d663027686f41abfeff1c6/examples/metadata-worker)
+and its [demo resolvers](https://github.com/homotechsual/docusaurus-plugin-showcase/blob/13e25e2b6fc3bc1f10d663027686f41abfeff1c6/demo/src/lib/metadata-resolvers.ts).
+The imported code is Apache-2.0 licensed; see [its licence](workers/metadata/LICENSE).
+
+Set `SHOWCASE_METADATA_API_URL` when building or starting the website. Without it, the build logs
+a warning and leaves the fields disabled. No GitHub token belongs in this variable or in the site
+configuration.
+
+For local development, run `npx wrangler dev` from `workers/metadata`, then in a second terminal:
+
+```powershell
+$env:SHOWCASE_METADATA_API_URL = 'http://localhost:8787'
+yarn start
+```
+
+The Worker's private `package.json` isolates Wrangler's npm tooling from the parent Yarn project.
+The [Wrangler configuration](workers/metadata/wrangler.jsonc) permits the production site, local
+development, and HTTPS previews for the `docusauruscommunity-website` Pages project.
+These are CORS rules, not authentication: the Worker is a public, read-only API.
+It only fetches validated npm packages and public GitHub repositories from fixed upstream hosts.
+
+Successful responses and public-repository checks are cached for 15 minutes within a Cloudflare
+data centre. The browser resolvers cache results for five minutes. Provider errors are not cached
+by the Worker; the showcase component displays an error with a retry option. Caching is best-effort,
+not a guarantee against upstream rate limits.
+
+Run the Worker and resolver tests with Node.js 24 or newer:
+
+```powershell
+node --test tests\showcase-metadata.test.mjs
+```
+
+## Social share image
+
 The default social share image is [community-social-card.png](static/img/community-social-card.png)
 (1200 x 630). Its editable source is [community-social-card.svg](static/img/community-social-card.svg).
 After editing the SVG, regenerate the PNG from the repository root with the existing Sharp dependency:
@@ -99,5 +139,17 @@ Pull requests from the same repository receive preview deployments. For forked p
 a maintainer must review the changes and add the `🚀request-deploy` label to request deployment.
 
 The workflow requires the `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` repository secrets.
+The Cloudflare token needs Pages deployment and Workers editing permissions. On `main`, the workflow
+deploys the metadata Worker first, checks `/health`, and passes its URL to the site build. PRs and
+manual runs on other branches do not deploy the production Worker.
+
+Set the repository **variable** `SHOWCASE_METADATA_API_URL` to the deployed Worker URL (or a custom
+domain) so preview builds can reuse it. Optionally add a long-lived, public-only GitHub token as
+the repository **secret** `METADATA_GITHUB_TOKEN`; deployment stores it as the Worker's
+`GITHUB_TOKEN` secret. The short-lived Actions token is not used for upstream metadata. Removing
+the repository secret does not delete a previously stored Worker secret; use
+`npx wrangler secret delete GITHUB_TOKEN` from `workers/metadata` to remove that binding.
+No live Worker deployment is performed by a local website build.
+
 For local work, use `yarn build` and `yarn serve`; `yarn deploy` is Docusaurus's GitHub Pages
 deployment command and is not the deployment path for this site.
