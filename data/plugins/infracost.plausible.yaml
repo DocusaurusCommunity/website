@@ -9,6 +9,6 @@ author: infracost
 tags: 
   - analytics
 minimumVersion: 2.0.0
-status: maintained
+status: unmaintained
 npmPackages: 
   - docusaurus-plugin-plausible

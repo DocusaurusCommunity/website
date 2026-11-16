@@ -12,6 +12,6 @@ tags:
   - theme
   - integration
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-mindmap

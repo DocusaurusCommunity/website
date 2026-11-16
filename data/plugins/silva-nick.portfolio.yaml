@@ -10,7 +10,7 @@ tags:
   - content
   - theme
 minimumVersion: 2.0.0
-status: unknown
+status: unmaintained
 npmPackages:
   - docusaurus-portfolio-plugin
   - docusaurus-portfolio-theme

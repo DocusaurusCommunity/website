@@ -11,6 +11,6 @@ tags:
   - analytics
   - integration
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - "@branchup/docusaurus-plugin-simple-analytics"

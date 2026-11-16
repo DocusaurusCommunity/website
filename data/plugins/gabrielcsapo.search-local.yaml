@@ -9,6 +9,6 @@ author: gabrielcsapo
 tags:
   - search
 minimumVersion: 2.1.0
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-search-local

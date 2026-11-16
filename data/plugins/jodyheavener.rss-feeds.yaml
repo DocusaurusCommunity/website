@@ -10,6 +10,6 @@ tags:
   - content
   - integration
 minimumVersion: 2.0.0-rc.1
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-rss-feeds

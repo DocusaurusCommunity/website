@@ -10,6 +10,6 @@ tags:
   - theme
   - utility
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-tailwindcss

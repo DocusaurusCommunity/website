@@ -9,6 +9,6 @@ author: acrobit
 tags: 
   - utility
 minimumVersion: 2.0.0-alpha.50
-status: unknown
+status: unmaintained
 npmPackages: 
   - docusaurus-plugin-auto-sidebars

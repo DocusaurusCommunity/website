@@ -10,6 +10,6 @@ tags:
   - utility
   - content
 minimumVersion: null
-status: maintained
+status: unmaintained
 npmPackages:
   - docusaurus-plugin-2dlive
