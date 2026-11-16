@@ -8,8 +8,8 @@
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .eyebrow {
@@ -31,14 +31,22 @@
   h1 {
     margin-bottom: 1.5rem;
     font-size: clamp(3rem, 5.3vw, 4.75rem);
-    font-weight: 800;
-    letter-spacing: -0.065em;
-    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
 
     span {
       color: var(--cp-accent);
+      font-style: italic;
     }
   }
+}
+
+.heroMark {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
 }
 
 .statusDot {
@@ -73,7 +81,7 @@
   min-height: 3rem;
   padding: 0.75rem 1.25rem;
   border: 1px solid var(--cp-border-strong);
-  border-radius: 0.625rem;
+  border-radius: 0.25rem;
   font-size: 0.9375rem;
   font-weight: 700;
   transition:
@@ -119,10 +127,12 @@
 }
 
 .fieldNotes {
+  position: relative;
   overflow: hidden;
   border: 1px solid var(--cp-border);
-  border-radius: 16px;
+  border-radius: 0.25rem;
   background: var(--cp-bg-elevated);
+  box-shadow: 8px 8px 0 var(--cp-accent-soft);
 }
 
 .noteMasthead {
@@ -230,7 +240,12 @@
   > span::before {
     margin-right: 0.625rem;
     color: var(--cp-accent);
-    content: '+';
+    content: '•';
+  }
+
+  > span {
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 0.75rem;
   }
 }
 
@@ -276,7 +291,7 @@
   flex-direction: column;
   padding: 1.75rem;
   border: 1px solid var(--cp-border);
-  border-radius: 16px;
+  border-radius: 0.25rem;
   background: var(--cp-surface);
   color: var(--cp-text);
   transition:
@@ -297,7 +312,7 @@
   }
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     border-color: var(--cp-accent);
     color: var(--cp-text);
     text-decoration: none;
@@ -386,8 +401,9 @@
   align-items: center;
   padding: 3rem;
   border: 1px solid var(--cp-border);
-  border-radius: 16px;
-  background: var(--cp-accent-soft);
+  border-left: 4px solid var(--cp-accent);
+  border-radius: 0.25rem;
+  background: var(--cp-bg-elevated);
 
   .eyebrow {
     margin-bottom: 0.75rem;
@@ -433,7 +449,7 @@
   }
 
   .heroCopy h1 {
-    font-size: 3.25rem;
+    font-size: clamp(2.75rem, 5.5vw, 3.5rem);
   }
 
   .cardGrid {
