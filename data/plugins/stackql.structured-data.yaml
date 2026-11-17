@@ -12,4 +12,4 @@ tags:
 minimumVersion: null
 status: maintained
 npmPackages:
-  - docusaurus-plugin-structured-data
+  - @stackql/docusaurus-plugin-structured-data
