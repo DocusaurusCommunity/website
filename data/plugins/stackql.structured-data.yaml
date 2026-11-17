@@ -4,7 +4,7 @@ name: Structured Data
 description: A Docusaurus plugin to add JSON-LD Structured Data to your site.
 preview: null
 website: https://fullstackchronicles.io/json-ld-structured-data-for-docusaurus
-source: https://github.com/stackql/docusaurus-plugin-structured-data
+source: https://github.com/stackql-labs/docusaurus-plugin-structured-data
 author: stackql
 tags:
   - utility
@@ -12,4 +12,4 @@ tags:
 minimumVersion: null
 status: maintained
 npmPackages:
-  - docusaurus-plugin-structured-data
+  - "@stackql/docusaurus-plugin-structured-data"
