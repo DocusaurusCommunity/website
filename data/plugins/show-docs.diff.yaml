@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: show-docs.diff
+name: Show Docs Diff
+description: Displays document changes above Markdown content using frontmatter configuration.
+website: https://github.com/show-docs/docusaurus/tree/main/packages/theme-diff
+source: https://github.com/show-docs/docusaurus
+author: show-docs
+tags:
+  - content
+  - theme
+status: maintained
+npmPackages:
+  - "@show-docs/docusaurus-theme-diff"

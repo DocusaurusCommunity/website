@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: albertigroup.swagger
+name: Swagger UI
+description: Adds a Swagger UI route for displaying API documentation.
+website: https://gitlab.com/albertigroup/docusaurus-plugin-swagger
+source: https://gitlab.com/albertigroup/docusaurus-plugin-swagger
+author: albertigroup
+tags:
+  - api
+status: maintained
+npmPackages:
+  - "@albertigroup/docusaurus-plugin-swagger"

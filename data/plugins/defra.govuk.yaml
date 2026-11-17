@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: defra.govuk
+name: GOV.UK Theme
+description: Applies GOV.UK Design System styles and components to Docusaurus.
+website: https://github.com/DEFRA/docusaurus-theme-govuk
+source: https://github.com/DEFRA/docusaurus-theme-govuk
+author: DEFRA
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - "@defra/docusaurus-theme-govuk"

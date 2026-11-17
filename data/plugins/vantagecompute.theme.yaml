@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: vantagecompute.theme
+name: Vantage Compute Theme
+description: Provides shared brand assets, styles, and theme components for Vantage Compute documentation.
+website: https://github.com/vantagecompute/vantage-docusaurus-theme
+source: https://github.com/vantagecompute/vantage-docusaurus-theme
+author: vantagecompute
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - "@vantagecompute/docusaurus-theme"

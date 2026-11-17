@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.theme-mermaid
+name: Mermaid
+description: Renders diagrams from Mermaid code blocks in Markdown and MDX.
+website: https://docusaurus.io/docs/api/themes/@docusaurus/theme-mermaid
+source: https://github.com/facebook/docusaurus
+author: Docusaurus
+tags:
+  - docusaurus
+  - theme
+  - content
+status: maintained
+npmPackages:
+  - "@docusaurus/theme-mermaid"

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: im-bravo.mermaid-pan-zoom
+name: Mermaid pan and zoom
+description: Adds pan, zoom, fullscreen, and copy controls to Mermaid diagrams.
+website: https://github.com/im-bravo/mermaid-diagram-enhancements
+source: https://github.com/im-bravo/mermaid-diagram-enhancements
+author: im-bravo
+tags:
+  - markdown
+  - utility
+status: maintained
+npmPackages:
+  - docusaurus-plugin-mermaid-pan-zoom

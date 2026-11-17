@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.svgr
+name: SVGR
+description: Imports SVG files as React components for use in pages and MDX.
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-svgr
+source: https://github.com/facebook/docusaurus
+author: Docusaurus
+tags:
+  - docusaurus
+  - utility
+status: maintained
+npmPackages:
+  - "@docusaurus/plugin-svgr"

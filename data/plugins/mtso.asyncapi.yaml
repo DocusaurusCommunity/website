@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: mtso.asyncapi
+name: AsyncAPI
+description: Generates API reference pages from AsyncAPI specifications.
+website: https://mtso.github.io/docusaurus-asyncapi/
+source: https://github.com/mtso/docusaurus-asyncapi
+author: mtso
+tags:
+  - api
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-asyncapi
+  - docusaurus-plugin-asyncapi
+  - docusaurus-theme-asyncapi

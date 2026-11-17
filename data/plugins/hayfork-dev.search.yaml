@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: hayfork-dev.search
+name: Hayfork Search
+description: Adds a navbar search box backed by a hosted Hayfork collection.
+website: https://github.com/hayfork-dev/docusaurus-theme-hayfork
+source: https://github.com/hayfork-dev/docusaurus-theme-hayfork
+author: hayfork-dev
+tags:
+  - search
+status: maintained
+npmPackages:
+  - docusaurus-theme-hayfork

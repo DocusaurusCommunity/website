@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.css-cascade-layers
+name: CSS Cascade Layers
+description: Organises Docusaurus styles into CSS cascade layers.
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-css-cascade-layers
+source: https://github.com/facebook/docusaurus
+author: Docusaurus
+tags:
+  - docusaurus
+  - theme
+status: maintained
+npmPackages:
+  - "@docusaurus/plugin-css-cascade-layers"

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: pradel.fathom
+name: Fathom Analytics
+description: Adds Fathom Analytics tracking to a Docusaurus site.
+website: https://github.com/pradel/docusaurus-plugin-fathom
+source: https://github.com/pradel/docusaurus-plugin-fathom
+author: pradel
+tags:
+  - analytics
+status: maintained
+npmPackages:
+  - docusaurus-plugin-fathom

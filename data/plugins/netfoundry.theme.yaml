@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: netfoundry.theme
+name: NetFoundry Theme
+description: Provides shared layouts, navigation, footers, and components for NetFoundry documentation.
+website: https://github.com/netfoundry/docusaurus-shared
+source: https://github.com/netfoundry/docusaurus-shared
+author: netfoundry
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - "@netfoundry/docusaurus-theme"

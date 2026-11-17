@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: rmaacario.zoom-image
+name: Zoom Image Theme
+description: Adds a magnifier indicator and fullscreen lightbox to Markdown images.
+website: https://github.com/rmaacario/docusaurus-theme-zoom-image
+source: https://github.com/rmaacario/docusaurus-theme-zoom-image
+author: rmaacario
+tags:
+  - theme
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-theme-zoom-image

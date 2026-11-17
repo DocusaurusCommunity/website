@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: typedoc2md.typedoc
+name: TypeDoc
+description: Runs TypeDoc during the Docusaurus lifecycle to generate TypeScript API documentation.
+website: https://typedoc-plugin-markdown.org/plugins/docusaurus
+source: https://github.com/typedoc2md/typedoc-plugin-markdown
+author: typedoc2md
+tags:
+  - api
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-plugin-typedoc

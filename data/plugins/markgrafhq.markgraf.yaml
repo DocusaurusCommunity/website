@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: markgrafhq.markgraf
+name: Markgraf
+description: Embeds Markgraf animations from fenced code blocks or an MDX component.
+website: https://github.com/markgrafhq/docusaurus-plugin-markgraf
+source: https://github.com/markgrafhq/docusaurus-plugin-markgraf
+author: markgrafhq
+tags:
+  - content
+  - markdown
+status: maintained
+npmPackages:
+  - "@markgrafhq/docusaurus-plugin-markgraf"

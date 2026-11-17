@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: mankindcoffee.suggest-edits
+name: Suggest edits
+description: Lets readers suggest documentation edits that are submitted as pull requests.
+website: https://github.com/ManKindCoffee/docusaurus-plugin-suggest-edits
+source: https://github.com/ManKindCoffee/docusaurus-plugin-suggest-edits
+author: ManKindCoffee
+tags:
+  - editing
+status: maintained
+npmPackages:
+  - docusaurus-plugin-suggest-edits

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: scalar.api-reference
+name: Scalar API Reference
+description: Embeds Scalar API reference pages from OpenAPI documents.
+website: https://github.com/scalar/scalar/tree/main/integrations/docusaurus
+source: https://github.com/scalar/scalar
+author: scalar
+tags:
+  - api
+  - integration
+status: maintained
+npmPackages:
+  - "@scalar/docusaurus"

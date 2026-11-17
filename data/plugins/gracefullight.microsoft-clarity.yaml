@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: gracefullight.microsoft-clarity
+name: Microsoft Clarity
+description: Adds Microsoft Clarity analytics to Docusaurus.
+website: https://github.com/gracefullight/docusaurus-plugins
+source: https://github.com/gracefullight/docusaurus-plugins
+author: gracefullight
+tags:
+  - analytics
+status: maintained
+npmPackages:
+  - "@gracefullight/docusaurus-plugin-microsoft-clarity"

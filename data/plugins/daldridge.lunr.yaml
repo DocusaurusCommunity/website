@@ -12,4 +12,4 @@ tags:
 minimumVersion: 2.0.0-alpha.58
 status: unmaintained
 npmPackages:
-  - @aldridged/docusaurus-plugin-lunr
+  - "@aldridged/docusaurus-plugin-lunr"

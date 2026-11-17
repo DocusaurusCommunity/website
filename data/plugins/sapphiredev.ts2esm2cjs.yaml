@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: sapphiredev.ts2esm2cjs
+name: ts2esm2cjs
+description: Transpiles TypeScript code blocks into selectable TypeScript, ESM, and CommonJS tabs.
+website: https://github.com/sapphiredev/documentation-plugins/tree/main/packages/ts2esm2cjs
+source: https://github.com/sapphiredev/documentation-plugins
+author: sapphiredev
+tags:
+  - markdown
+status: unknown
+npmPackages:
+  - "@sapphire/docusaurus-plugin-ts2esm2cjs"

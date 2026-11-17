@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: show-docs.scalar
+name: Show Docs Scalar
+description: Uses page frontmatter to display a Scalar API reference in an iframe.
+website: https://github.com/show-docs/docusaurus/tree/main/packages/theme-scalar
+source: https://github.com/show-docs/docusaurus
+author: show-docs
+tags:
+  - api
+  - theme
+status: maintained
+npmPackages:
+  - "@show-docs/docusaurus-theme-scalar"

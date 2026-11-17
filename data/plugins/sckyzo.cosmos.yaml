@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: sckyzo.cosmos
+name: Cosmos
+description: A CSS-only, dark-first theme with self-hosted Outfit and IBM Plex Mono fonts.
+website: https://sckyzo.github.io/cosmos-docusaurus-theme
+source: https://github.com/SckyzO/cosmos-docusaurus-theme
+author: SckyzO
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - cosmos-docusaurus-theme
