@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: diagrammo.dgmo
+name: DGMO diagrams
+description: Renders DGMO diagrams from fenced code blocks at build time.
+website: https://github.com/diagrammo/docusaurus-plugin-dgmo
+source: https://github.com/diagrammo/docusaurus-plugin-dgmo
+author: diagrammo
+tags:
+  - markdown
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-plugin-dgmo

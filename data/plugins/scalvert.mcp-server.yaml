@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: scalvert.mcp-server
+name: MCP server
+description: Exposes an MCP server for searching and retrieving documentation.
+website: https://docusaurus-plugin-mcp-server.vercel.app
+source: https://github.com/scalvert/docusaurus-plugin-mcp-server
+author: scalvert
+tags:
+  - search
+  - integration
+status: maintained
+npmPackages:
+  - docusaurus-plugin-mcp-server

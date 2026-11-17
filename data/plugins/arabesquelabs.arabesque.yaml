@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: arabesquelabs.arabesque
+name: Arabesque
+description: Applies the Arabesque design system through shared fonts, styles, and theme components.
+website: https://github.com/ArabesqueLabs/docusaurus-theme-arabesque
+source: https://github.com/ArabesqueLabs/docusaurus-theme-arabesque
+author: ArabesqueLabs
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - "@arabesquelabs/docusaurus-theme-arabesque"

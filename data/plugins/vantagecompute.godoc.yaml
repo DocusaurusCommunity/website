@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: vantagecompute.godoc
+name: GoDoc
+description: Generates SDK reference documentation from Go source using go doc.
+website: https://github.com/vantagecompute/docusaurus-plugin-godoc
+source: https://github.com/vantagecompute/docusaurus-plugin-godoc
+author: vantagecompute
+tags:
+  - api
+  - content
+status: maintained
+npmPackages:
+  - "@vantagecompute/docusaurus-plugin-godoc"

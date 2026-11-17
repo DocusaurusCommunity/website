@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.vercel-analytics
+name: Vercel Analytics
+description: Adds Vercel Web Analytics to Docusaurus.
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-vercel-analytics
+source: https://github.com/facebook/docusaurus
+author: Docusaurus
+tags:
+  - docusaurus
+  - analytics
+status: maintained
+npmPackages:
+  - "@docusaurus/plugin-vercel-analytics"

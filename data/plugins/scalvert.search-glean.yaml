@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: scalvert.search-glean
+name: Glean search
+description: Integrates Glean modal search into a Docusaurus site.
+website: https://github.com/scalvert/docusaurus-plugin-search-glean
+source: https://github.com/scalvert/docusaurus-plugin-search-glean
+author: scalvert
+tags:
+  - search
+  - integration
+status: maintained
+npmPackages:
+  - docusaurus-plugin-search-glean

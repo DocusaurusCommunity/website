@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: graphql-markdown.graphql-markdown
+name: GraphQL-Markdown
+description: Generates Markdown and MDX API documentation from GraphQL schemas.
+website: https://graphql-markdown.dev
+source: https://github.com/graphql-markdown/graphql-markdown
+author: graphql-markdown
+tags:
+  - api
+  - content
+status: maintained
+npmPackages:
+  - "@graphql-markdown/docusaurus"

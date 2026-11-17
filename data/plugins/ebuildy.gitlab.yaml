@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: ebuildy.gitlab
+name: GitLab embeds
+description: Embeds GitLab project information, files, releases, and issues in MDX at build time.
+website: https://gitlab.com/ebuildy/docusaurus-plugin-gitlab
+source: https://gitlab.com/ebuildy/docusaurus-plugin-gitlab
+author: ebuildy
+tags:
+  - integration
+  - content
+status: maintained
+npmPackages:
+  - "@ebuildy/docusaurus-plugin-gitlab"

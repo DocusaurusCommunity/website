@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: matf.plantuml
+name: PlantUML
+description: Renders PlantUML diagrams in the browser without a PlantUML server.
+website: https://github.com/matf/docusaurus-plantuml-plugin
+source: https://github.com/matf/docusaurus-plantuml-plugin
+author: matf
+tags:
+  - markdown
+  - content
+status: maintained
+npmPackages:
+  - "@matfsw/docusaurus-plantuml-plugin"

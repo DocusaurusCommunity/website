@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: plenarc.plantuml
+name: PlantUML Theme
+description: Renders PlantUML diagrams in Markdown using a PlantUML server.
+website: https://github.com/plenarc/docusaurus-theme-plantuml
+source: https://github.com/plenarc/docusaurus-theme-plantuml
+author: plenarc
+tags:
+  - theme
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-theme-plantuml

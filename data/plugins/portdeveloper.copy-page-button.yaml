@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: portdeveloper.copy-page-button
+name: Copy page button
+description: Adds a button for copying a documentation page as Markdown.
+website: https://github.com/portdeveloper/docusaurus-plugin-copy-page-button
+source: https://github.com/portdeveloper/docusaurus-plugin-copy-page-button
+author: portdeveloper
+tags:
+  - content
+  - utility
+status: maintained
+npmPackages:
+  - docusaurus-plugin-copy-page-button

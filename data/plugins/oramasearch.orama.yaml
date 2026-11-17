@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: oramasearch.orama
+name: Orama Search
+description: Adds local documentation search powered by Orama.
+website: https://docs.orama.com/cloud/data-sources/native-integrations/docusaurus
+source: https://github.com/oramasearch/orama
+author: oramasearch
+tags:
+  - search
+status: maintained
+npmPackages:
+  - "@orama/plugin-docusaurus-v3"

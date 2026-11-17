@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: datalayer.jupyter
+name: Jupyter
+description: Integrates Jupyter notebook components into Docusaurus documentation.
+website: https://github.com/datalayer/jupyter-ui
+source: https://github.com/datalayer/jupyter-ui
+author: datalayer
+tags:
+  - content
+  - integration
+status: maintained
+npmPackages:
+  - "@datalayer/jupyter-docusaurus-plugin"

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: myog-social.myog
+name: MyOG social images
+description: Adds MyOG-generated Open Graph and Twitter images to Docusaurus pages.
+website: https://myog.social/docs/docusaurus
+source: https://github.com/MyOG-social/docusaurus-plugin-myog
+author: MyOG-social
+tags:
+  - seo
+  - integration
+status: maintained
+npmPackages:
+  - docusaurus-plugin-myog

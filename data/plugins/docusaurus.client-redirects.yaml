@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.client-redirects
+name: Client Redirects
+description: Generates client-side redirect pages for moved content and alternative URLs.
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-client-redirects
+source: https://github.com/facebook/docusaurus
+author: Docusaurus
+tags:
+  - docusaurus
+  - utility
+status: maintained
+npmPackages:
+  - "@docusaurus/plugin-client-redirects"

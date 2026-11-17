@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: show-docs.erd
+name: Show Docs ERD
+description: Renders DBML files as database relationship diagrams with export options.
+website: https://github.com/show-docs/docusaurus/tree/main/packages/theme-erd
+source: https://github.com/show-docs/docusaurus
+author: show-docs
+tags:
+  - content
+  - theme
+status: maintained
+npmPackages:
+  - "@show-docs/docusaurus-theme-erd"

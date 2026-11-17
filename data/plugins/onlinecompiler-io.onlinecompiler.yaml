@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: onlinecompiler-io.onlinecompiler
+name: OnlineCompiler
+description: Adds editable and runnable code examples powered by OnlineCompiler.io.
+website: https://onlinecompiler.io/guides/add-runnable-code-examples-to-docusaurus
+source: https://github.com/onlinecompiler-io/docusaurus-plugin-onlinecompiler
+author: onlinecompiler-io
+tags:
+  - content
+  - integration
+status: maintained
+npmPackages:
+  - docusaurus-plugin-onlinecompiler

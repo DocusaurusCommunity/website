@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: techdocsstudio.quiet
+name: Quiet
+description: A theme built on Classic with configurable branding and component examples.
+website: https://github.com/TechDocsStudio/docusaurus-theme-quiet
+source: https://github.com/TechDocsStudio/docusaurus-theme-quiet
+author: TechDocsStudio
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - docusaurus-theme-quiet

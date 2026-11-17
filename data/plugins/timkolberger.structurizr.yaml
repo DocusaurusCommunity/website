@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: timkolberger.structurizr
+name: Structurizr
+description: Adds Structurizr diagrams to Docusaurus documentation.
+website: https://github.com/TimKolberger/docusaurus-plugin-structurizr
+source: https://github.com/TimKolberger/docusaurus-plugin-structurizr
+author: TimKolberger
+tags:
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-plugin-structurizr

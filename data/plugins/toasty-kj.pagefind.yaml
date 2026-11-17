@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: toasty-kj.pagefind
+name: Pagefind search
+description: Integrates Pagefind search with a DocSearch-style interface.
+website: https://github.com/toasty-kj/docusaurus-plugin-pagefind
+source: https://github.com/toasty-kj/docusaurus-plugin-pagefind
+author: toasty-kj
+tags:
+  - search
+status: maintained
+npmPackages:
+  - docusaurus-plugin-pagefind

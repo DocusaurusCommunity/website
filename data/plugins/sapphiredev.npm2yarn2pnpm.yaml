@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: sapphiredev.npm2yarn2pnpm
+name: npm2yarn2pnpm
+description: Converts npm command code blocks into tabs for npm, Yarn, and pnpm.
+website: https://github.com/sapphiredev/documentation-plugins/tree/main/packages/npm2yarn2pnpm
+source: https://github.com/sapphiredev/documentation-plugins
+author: sapphiredev
+tags:
+  - markdown
+status: unknown
+npmPackages:
+  - "@sapphire/docusaurus-plugin-npm2yarn2pnpm"

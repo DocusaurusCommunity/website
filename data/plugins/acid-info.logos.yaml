@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: acid-info.logos
+name: Logos
+description: A documentation theme and preset for Logos websites.
+website: https://github.com/acid-info/logos-docusaurus-plugins
+source: https://github.com/acid-info/logos-docusaurus-plugins
+author: acid-info
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - "@acid-info/logos-docusaurus-theme"
+  - "@acid-info/logos-docusaurus-preset"

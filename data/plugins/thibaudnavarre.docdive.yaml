@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: thibaudnavarre.docdive
+name: Docdive
+description: Renders Mermaid code blocks as interactive Docdive diagrams.
+website: https://github.com/thibaudnavarre/docdive
+source: https://github.com/thibaudnavarre/docdive
+author: thibaudnavarre
+tags:
+  - theme
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-theme-docdive

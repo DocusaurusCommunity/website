@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: docusaurus.google-tag-manager
+name: Google Tag Manager
+description: Adds a Google Tag Manager container to Docusaurus.
+website: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-google-tag-manager
+source: https://github.com/facebook/docusaurus
+author: Docusaurus
+tags:
+  - docusaurus
+  - analytics
+status: maintained
+npmPackages:
+  - "@docusaurus/plugin-google-tag-manager"

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: rachfop.llms
+name: LLMs.txt
+description: Generates documentation files following the llms.txt convention.
+website: https://rachfop.github.io/docusaurus-plugin-llms
+source: https://github.com/rachfop/docusaurus-plugin-llms
+author: rachfop
+tags:
+  - content
+status: maintained
+npmPackages:
+  - docusaurus-plugin-llms

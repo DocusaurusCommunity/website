@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: legivel.pdf
+name: Legivel PDF export
+description: Exports a Docusaurus site to a PDF using Legivel at build time.
+website: https://legivel.com/docs/integrations/docusaurus
+source: https://github.com/legivel/docusaurus-plugin
+author: legivel
+tags:
+  - content
+  - utility
+status: maintained
+npmPackages:
+  - docusaurus-plugin-legivel

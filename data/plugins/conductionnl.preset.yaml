@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: conductionnl.preset
+name: Conduction Preset
+description: A branded preset with navigation, footer, React components, and Dutch, English, German, and French locale configuration.
+website: https://github.com/ConductionNL/design-system
+source: https://github.com/ConductionNL/design-system
+author: ConductionNL
+tags:
+  - theme
+status: maintained
+npmPackages:
+  - "@conduction/docusaurus-preset"

@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: microsoft.application-insights
+name: Application Insights
+description: Integrates Microsoft Application Insights with a Docusaurus site.
+website: https://github.com/microsoft/docusaurus-plugin-application-insights
+source: https://github.com/microsoft/docusaurus-plugin-application-insights
+author: microsoft
+tags:
+  - analytics
+  - integration
+status: maintained
+npmPackages:
+  - "@microsoft/docusaurus-plugin-application-insights"
