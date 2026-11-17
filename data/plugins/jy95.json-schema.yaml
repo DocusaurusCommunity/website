@@ -12,4 +12,4 @@ tags:
 minimumVersion: null
 status: maintained
 npmPackages:
-  - docusaurus-plugin-json-schema
+  - docusaurus-json-schema-plugin

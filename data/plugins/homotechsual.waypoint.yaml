@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: homotechsual.waypoint
+name: Waypoint for Docusaurus
+description: A Docusaurus theme that lets readers follow long guides one step at a time with optional checklists.
+preview: null
+website: https://waypoint.docusaurus.homotechsual.dev/
+source: https://github.com/homotechsual/docusaurus-theme-waypoint
+author: homotechsual
+tags:
+  - content
+  - theme
+minimumVersion: null
+status: maintained
+npmPackages:
+  - "@homotechsual/docusaurus-theme-waypoint"
