@@ -330,7 +330,7 @@ const config: Config = {
   ],
   themes: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
+      '@easyops-cn/docusaurus-search-local',
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
         indexDocs: true,
