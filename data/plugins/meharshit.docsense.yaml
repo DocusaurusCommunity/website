@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://docusaurus.community/schema/plugin/1.0.0.json
+id: meharshit.docsense
+name: "Docsense"
+description: "Build-time local search for Docusaurus that indexes Markdown and MDX into static JSON with a navbar SearchBar, without an Algolia account."
+preview: "https://raw.githubusercontent.com/meharshit/docsense/main/docs/images/feature-search-modal.png"
+website: "https://meharshit.github.io/docsense/"
+source: "https://github.com/meharshit/docsense"
+author: "meharshit"
+tags:
+  - "search"
+  - "utility"
+  - "markdown"
+minimumVersion: null
+status: "maintained"
+npmPackages:
+  - "docusaurus-plugin-docsense"
