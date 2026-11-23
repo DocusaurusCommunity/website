@@ -15,6 +15,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@docsense/indexer": "0.1.0",
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/plugin-content-docs": "^3.10.2",
     "@docusaurus/plugin-ideal-image": "^3.10.2",
@@ -23,7 +24,6 @@
     "@docusaurus/theme-classic": "^3.10.2",
     "@docusaurus/theme-common": "^3.10.2",
     "@docusaurus/utils": "^3.10.2",
-    "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
     "@fortawesome/free-regular-svg-icons": "^7.3.1",
@@ -36,7 +36,9 @@
     "@popperjs/core": "^2.11.8",
     "@swc/core": "^1.16.22",
     "@types/react-dom": "^19.3.0",
+    "cheerio": "^1.2.0",
     "clsx": "^2.1.1",
+    "docusaurus-plugin-docsense": "0.1.0",
     "docusaurus-plugin-sass": "^0.2.7",
     "docusaurus-remark-plugin-tab-blocks": "^4.0.0",
     "git-url-parse": "^16.1.0",

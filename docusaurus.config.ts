@@ -285,6 +285,7 @@ const config: Config = {
       },
     } satisfies Preset.ThemeConfig,
   plugins: [
+    './plugins/docsense.cjs',
     [
       '@docusaurus/plugin-ideal-image',
       /** @type {import('@docusaurus/plugin-ideal-image').Options} */
@@ -327,21 +328,6 @@ const config: Config = {
         ...commonDocsPluginConfig,
       } satisfies DocsOptions,
     ]
-  ],
-  themes: [
-    [
-      '@easyops-cn/docusaurus-search-local',
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-      ({
-        indexDocs: true,
-        indexBlog: false,
-        indexPages: true,
-        docsRouteBasePath: ["knowledge", "contributing"],
-        hashed: true,
-        docsDir: ["docs", "contributing"],
-        highlightSearchTermsOnTargetPage: true,
-      }),
-    ],
   ],
   markdown: {
     hooks: {
